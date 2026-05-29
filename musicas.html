@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Helph Música — Músicas Personalizadas para Momentos Únicos</title>
+  <meta name="description" content="Crie uma música original e personalizada para aniversários, casamentos, formaturas, empresas e muito mais. Presente único e inesquecível." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #111118;
+      --bg3: #18181f;
+      --border: rgba(255,255,255,0.08);
+      --text: #f0f0f5;
+      --muted: #8888a0;
+      --accent: #e0497a;
+      --accent2: #f472a8;
+      --accent3: #7c5cfc;
+      --green: #22c55e;
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 6%;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; color: var(--text); text-decoration: none; }
+    .logo span { color: #a78bfa; }
+    .logo-tag { font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent2); margin-left: 8px; vertical-align: middle; background: rgba(228,72,120,0.15); padding: 3px 8px; border-radius: 99px; border: 1px solid rgba(228,72,120,0.3); }
+    nav ul { list-style: none; display: flex; gap: 28px; align-items: center; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color .2s; }
+    nav a:hover { color: var(--text); }
+    .nav-other { font-size: 0.8rem !important; color: #5a5a70 !important; border: 1px solid var(--border); padding: 7px 16px; border-radius: 99px; }
+    .nav-other:hover { color: var(--muted) !important; border-color: rgba(255,255,255,0.15); }
+    .nav-cta { background: var(--accent); color: #fff !important; padding: 9px 22px; border-radius: 99px; font-weight: 600 !important; font-size: 0.85rem !important; transition: opacity .2s !important; }
+    .nav-cta:hover { opacity: 0.85; }
+    .menu-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--text); font-size: 1.5rem; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 120px 6% 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -150px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(224,73,122,0.14) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(224,73,122,0.12); border: 1px solid rgba(224,73,122,0.28);
+      padding: 6px 16px; border-radius: 99px; font-size: 0.8rem; font-weight: 600;
+      color: var(--accent2); margin-bottom: 32px; letter-spacing: 0.5px;
+    }
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-weight: 900; line-height: 1.08;
+      letter-spacing: -2px; max-width: 860px; margin-bottom: 24px;
+    }
+    h1 em { font-style: normal; color: var(--accent2); }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--muted); max-width: 580px;
+      line-height: 1.7; margin-bottom: 48px;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .btn-primary {
+      background: var(--accent); color: #fff;
+      padding: 16px 36px; border-radius: 99px; font-size: 1rem; font-weight: 700;
+      text-decoration: none; transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 0 40px rgba(224,73,122,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(224,73,122,0.5); }
+    .btn-ghost {
+      background: transparent; color: var(--text);
+      padding: 16px 36px; border-radius: 99px; font-size: 1rem; font-weight: 600;
+      text-decoration: none; border: 1px solid var(--border);
+      transition: border-color .2s, background .2s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); }
+
+    /* Waveform decoration */
+    .waveform {
+      display: flex; align-items: center; gap: 4px;
+      margin-top: 60px; justify-content: center; opacity: 0.5;
+    }
+    .waveform .bar {
+      width: 4px; background: var(--accent2); border-radius: 2px;
+      animation: wave 1.2s ease-in-out infinite;
+    }
+    .waveform .bar:nth-child(1) { height: 16px; animation-delay: 0s; }
+    .waveform .bar:nth-child(2) { height: 32px; animation-delay: 0.1s; }
+    .waveform .bar:nth-child(3) { height: 48px; animation-delay: 0.2s; }
+    .waveform .bar:nth-child(4) { height: 28px; animation-delay: 0.3s; }
+    .waveform .bar:nth-child(5) { height: 56px; animation-delay: 0.15s; }
+    .waveform .bar:nth-child(6) { height: 36px; animation-delay: 0.25s; }
+    .waveform .bar:nth-child(7) { height: 48px; animation-delay: 0.05s; }
+    .waveform .bar:nth-child(8) { height: 22px; animation-delay: 0.35s; }
+    .waveform .bar:nth-child(9) { height: 40px; animation-delay: 0.1s; }
+    .waveform .bar:nth-child(10) { height: 18px; animation-delay: 0.4s; }
+    .waveform .bar:nth-child(11) { height: 50px; animation-delay: 0.2s; }
+    .waveform .bar:nth-child(12) { height: 30px; animation-delay: 0.3s; }
+    @keyframes wave {
+      0%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(0.4); }
+    }
+
+    /* ── SECTION COMMONS ── */
+    section { padding: 100px 6%; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--accent2); margin-bottom: 16px;
+    }
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800; letter-spacing: -1px; line-height: 1.15;
+      max-width: 700px; margin-bottom: 20px;
+    }
+    .section-sub {
+      color: var(--muted); font-size: 1.05rem; max-width: 560px;
+      line-height: 1.7; margin-bottom: 60px;
+    }
+
+    /* ── OCASIÕES ── */
+    .ocasioes { background: var(--bg2); }
+    .ocasioes-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .ocasiao-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px 24px; text-align: center;
+      transition: border-color .3s, transform .3s;
+    }
+    .ocasiao-card:hover { border-color: rgba(224,73,122,0.4); transform: translateY(-4px); }
+    .ocasiao-icon { font-size: 2.2rem; margin-bottom: 14px; }
+    .ocasiao-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
+    .ocasiao-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── POR QUE ── */
+    .por-que-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .por-que-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 36px 32px;
+      transition: border-color .3s, transform .3s;
+    }
+    .por-que-card:hover { border-color: rgba(224,73,122,0.4); transform: translateY(-4px); }
+    .por-que-icon { font-size: 2rem; margin-bottom: 20px; }
+    .por-que-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+    .por-que-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── COMO FUNCIONA ── */
+    .como { background: var(--bg2); }
+    .steps { display: flex; flex-direction: column; gap: 0; max-width: 720px; }
+    .step { display: flex; gap: 32px; align-items: flex-start; position: relative; padding-bottom: 48px; }
+    .step:last-child { padding-bottom: 0; }
+    .step-line { position: absolute; left: 23px; top: 48px; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), transparent); }
+    .step:last-child .step-line { display: none; }
+    .step-num { flex-shrink: 0; width: 48px; height: 48px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 800; color: #fff; position: relative; z-index: 1; }
+    .step-content h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+    .step-content p { font-size: 0.92rem; color: var(--muted); line-height: 1.65; }
+
+    /* briefing inline form */
+    .briefing-box {
+      background: var(--bg3); border: 1px solid rgba(224,73,122,0.25);
+      border-radius: 12px; padding: 20px 24px; margin-top: 12px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.82rem;
+    }
+    .briefing-item { display: flex; flex-direction: column; gap: 4px; }
+    .briefing-item label { color: var(--muted); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.5px; }
+    .briefing-item span { color: var(--text); }
+
+    /* ── PRICING ── */
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 24px; align-items: start;
+    }
+    .pricing-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 40px 36px;
+      position: relative; transition: transform .3s;
+    }
+    .pricing-card:hover { transform: translateY(-4px); }
+    .pricing-card.featured { border-color: var(--accent); box-shadow: 0 0 60px rgba(224,73,122,0.18); }
+    .featured-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: #fff; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; padding: 5px 18px; border-radius: 99px; white-space: nowrap;
+    }
+    .pricing-name { font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .pricing-price { margin-bottom: 6px; }
+    .pricing-price .amount { font-size: 2.8rem; font-weight: 900; letter-spacing: -2px; }
+    .pricing-price .from { font-size: 0.85rem; color: var(--muted); margin-right: 4px; }
+    .pricing-note { font-size: 0.82rem; color: var(--muted); margin-bottom: 28px; }
+    .pricing-divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .pricing-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; }
+    .pricing-features li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .pricing-features li.no::before { content: '✕'; color: #555; }
+    .pricing-features li.no { color: var(--muted); }
+    .btn-outline { display: block; text-align: center; width: 100%; padding: 14px; border-radius: 99px; font-size: 0.95rem; font-weight: 700; text-decoration: none; border: 1px solid var(--border); color: var(--text); transition: background .2s, border-color .2s; }
+    .btn-outline:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); }
+    .btn-filled { display: block; text-align: center; width: 100%; padding: 14px; border-radius: 99px; font-size: 0.95rem; font-weight: 700; text-decoration: none; background: var(--accent); color: #fff; transition: opacity .2s; }
+    .btn-filled:hover { opacity: 0.85; }
+    .pricing-disclaimer { text-align: center; color: var(--muted); font-size: 0.83rem; margin-top: 32px; line-height: 1.6; }
+
+    /* ── FAQ ── */
+    .faq { background: var(--bg2); }
+    .faq-list { max-width: 720px; display: flex; flex-direction: column; gap: 2px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .faq-q { width: 100%; background: var(--bg3); border: none; cursor: pointer; padding: 22px 28px; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 0.95rem; font-weight: 600; text-align: left; transition: background .2s; }
+    .faq-q:hover { background: rgba(255,255,255,0.04); }
+    .faq-q .icon { font-size: 1.2rem; color: var(--muted); transition: transform .3s; flex-shrink: 0; margin-left: 16px; }
+    .faq-q.open .icon { transform: rotate(45deg); }
+    .faq-a { display: none; padding: 0 28px 22px; background: var(--bg3); color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+    .faq-a.open { display: block; }
+
+    /* ── CTA ── */
+    .cta-section { text-align: center; padding: 100px 6%; position: relative; overflow: hidden; }
+    .cta-section::before {
+      content: ''; position: absolute; bottom: -100px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(224,73,122,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section h2 { max-width: 600px; margin: 0 auto 20px; }
+    .cta-section p { color: var(--muted); margin-bottom: 40px; font-size: 1.05rem; }
+    .whatsapp-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #25d366; color: #fff; padding: 18px 40px; border-radius: 99px;
+      font-size: 1.05rem; font-weight: 700; text-decoration: none;
+      box-shadow: 0 0 40px rgba(37,211,102,0.3); transition: transform .2s, box-shadow .2s;
+    }
+    .whatsapp-btn:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(37,211,102,0.5); }
+    .whatsapp-btn svg { width: 22px; height: 22px; fill: #fff; }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--border); padding: 40px 6%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    footer p { color: var(--muted); font-size: 0.85rem; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--text); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .menu-toggle { display: block; }
+      nav ul.open { display: flex; flex-direction: column; gap: 16px; position: fixed; top: 64px; left: 0; right: 0; background: var(--bg); padding: 24px 6%; border-bottom: 1px solid var(--border); }
+      h1 { letter-spacing: -1px; }
+      .briefing-box { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Hel<span>ph</span> Studio <span class="logo-tag">Música</span></a>
+  <ul id="nav-menu">
+    <li><a href="#ocasioes">Ocasiões</a></li>
+    <li><a href="#como-funciona">Como funciona</a></li>
+    <li><a href="#precos">Preços</a></li>
+    <li><a href="index.html" class="nav-other">🌐 Sites</a></li>
+    <li><a href="#pedir" class="nav-cta">Pedir música</a></li>
+  </ul>
+  <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🎵 Músicas originais e personalizadas</div>
+  <h1>Um presente que<br/><em>nunca vai esquecer</em></h1>
+  <p class="hero-sub">
+    Criamos uma música original feita especialmente para a pessoa que você ama — com o nome, a história e o sentimento que só vocês conhecem.
+  </p>
+  <div class="hero-actions">
+    <a href="#pedir" class="btn-primary">Encomendar agora →</a>
+    <a href="#como-funciona" class="btn-ghost">Como funciona</a>
+  </div>
+  <div class="waveform" aria-hidden="true">
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+  </div>
+</section>
+
+<!-- OCASIÕES -->
+<section class="ocasioes" id="ocasioes">
+  <p class="section-label">Para toda ocasião</p>
+  <h2>Momentos que merecem uma trilha sonora própria</h2>
+  <p class="section-sub">Da festa de aniversário ao lançamento de uma marca — cada momento especial pode ter uma música só sua.</p>
+  <div class="ocasioes-grid">
+    <div class="ocasiao-card">
+      <div class="ocasiao-icon">🎂</div>
+      <h3>Aniversário</h3>
+      <p>Uma música com o nome e a história de quem você quer homenagear.</p>
+    </div>
+    <div class="ocasiao-card">
+      <div class="ocasiao-icon">💍</div>
+      <h3>Casamento</h3>
+      <p>A trilha perfeita para a cerimônia, festa ou até o pedido de casamento.</p>
+    </div>
+    <div class="ocasiao-card">
+      <div class="ocasiao-icon">👶</div>
+      <h3>Chá de bebê</h3>
+      <p>Uma canção emocionante para celebrar a chegada do novo membro da família.</p>
+    </div>
+    <div class="ocasiao-card">
+      <div class="ocasiao-icon">🎓</div>
+      <h3>Formatura</h3>
+      <p>Marque a conquista de alguém especial com uma música que conta essa jornada.</p>
+    </div>
+    <div class="ocasiao-card">
+      <div class="ocasiao-icon">💝</div>
+      <h3>Declaração</h3>
+      <p>Expresse o que às vezes as palavras não conseguem dizer.</p>
+    </div>
+    <div class="ocasiao-card">
+      <div class="ocasiao-icon">🏆</div>
+      <h3>Homenagem</h3>
+      <p>Para aposentadoria, despedida, tributo — um reconhecimento em forma de arte.</p>
+    </div>
+    <div class="ocasiao-card">
+      <div class="ocasiao-icon">🎙️</div>
+      <h3>Jingle corporativo</h3>
+      <p>Música de apresentação, hino da empresa ou trilha para vídeos institucionais.</p>
+    </div>
+    <div class="ocasiao-card">
+      <div class="ocasiao-icon">📱</div>
+      <h3>Redes sociais</h3>
+      <p>Trilha original para Reels, TikToks ou campanhas digitais da sua marca.</p>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUE -->
+<section id="por-que">
+  <p class="section-label">Por que escolher</p>
+  <h2>O presente mais único que existe</h2>
+  <p class="section-sub">Qualquer pessoa pode comprar um presente. Poucos presenteiam com algo que não tem preço: um momento eternizado em música.</p>
+  <div class="por-que-grid">
+    <div class="por-que-card">
+      <div class="por-que-icon">💎</div>
+      <h3>100% original e exclusiva</h3>
+      <p>Sua música é criada do zero, só para você. Letra, ritmo e estilo escolhidos a partir da sua história — ninguém mais terá igual.</p>
+    </div>
+    <div class="por-que-card">
+      <div class="por-que-icon">🥹</div>
+      <h3>Provoca emoção de verdade</h3>
+      <p>Uma música com nome, apelidos e memórias reais toca de um jeito que nenhum presente convencional consegue. É o tipo de coisa que faz chorar de felicidade.</p>
+    </div>
+    <div class="por-que-card">
+      <div class="por-que-icon">⚡</div>
+      <h3>Entrega rápida</h3>
+      <p>Você recebe a música pronta em até 5 dias. Precisa pra amanhã? Temos opção expressa. É pra chegar na hora certa.</p>
+    </div>
+    <div class="por-que-card">
+      <div class="por-que-icon">🎼</div>
+      <h3>Você escolhe o estilo</h3>
+      <p>Sertanejo, pagode, pop, romântico, funk, rock — você define o ritmo e o clima. Tem que combinar com a personalidade de quem vai receber.</p>
+    </div>
+    <div class="por-que-card">
+      <div class="por-que-icon">📂</div>
+      <h3>Arquivo seu para sempre</h3>
+      <p>Você recebe o áudio em alta qualidade para guardar, compartilhar, colocar no stories, tocar na festa, ou guardar pra vida toda.</p>
+    </div>
+    <div class="por-que-card">
+      <div class="por-que-icon">🏢</div>
+      <h3>Funciona para empresas também</h3>
+      <p>Jingles, hinos corporativos, músicas de lançamento. Um jeito criativo e memorável de fixar sua marca na cabeça do seu público.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="como" id="como-funciona">
+  <p class="section-label">Processo</p>
+  <h2>Da ideia à música em 5 dias</h2>
+  <p class="section-sub">Simples assim. Você conta a história, a gente transforma em música.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-line"></div>
+      <div class="step-content">
+        <h3>Você preenche o briefing</h3>
+        <p>Nos conta os detalhes pelo WhatsApp ou formulário: para quem é, qual a ocasião, nomes que devem aparecer, estilo musical preferido, tom (animado, emocionante, engraçado...) e qualquer memória ou história que queira incluir.</p>
+        <div class="briefing-box">
+          <div class="briefing-item"><label>Para quem?</label><span>Nome, apelido, relação</span></div>
+          <div class="briefing-item"><label>Qual ocasião?</label><span>Aniversário, casamento...</span></div>
+          <div class="briefing-item"><label>Estilo musical</label><span>Sertanejo, pop, pagode...</span></div>
+          <div class="briefing-item"><label>Tom da música</label><span>Emotivo, animado, engraçado</span></div>
+          <div class="briefing-item"><label>Histórias / detalhes</label><span>Memórias, piadas, marcos</span></div>
+          <div class="briefing-item"><label>Duração</label><span>1 ou 2–3 minutos</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-line"></div>
+      <div class="step-content">
+        <h3>Pagamento confirmado</h3>
+        <p>Após o briefing, enviamos o orçamento e, com o pagamento confirmado, entramos em produção imediatamente. Sem surpresas no valor.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-line"></div>
+      <div class="step-content">
+        <h3>Produção da música</h3>
+        <p>Criamos letra, melodia e arranjo com base em tudo que você contou. Cada detalhe importa — quanto mais história você compartilhar, mais especial o resultado.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-line"></div>
+      <div class="step-content">
+        <h3>Entrega + revisão</h3>
+        <p>Você recebe a música em áudio MP3 em alta qualidade, pelo WhatsApp. Incluímos uma rodada de ajuste caso queira mudar algum detalhe da letra.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="precos">
+  <p class="section-label">Investimento</p>
+  <h2>Quanto custa uma memória para a vida toda?</h2>
+  <p class="section-sub">Menos do que você imagina. Mais valioso do que qualquer presente convencional.</p>
+
+  <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(224,73,122,0.12);border:1px solid rgba(224,73,122,0.3);padding:10px 22px;border-radius:99px;margin-bottom:40px;font-size:0.88rem;font-weight:600;color:var(--accent2);">
+    🎉 Promoção de lançamento — 50% off em todos os planos
+  </div>
+
+  <div class="pricing-grid">
+
+    <div class="pricing-card">
+      <p class="pricing-name">Versão Curta</p>
+      <div class="pricing-price">
+        <span style="font-size:1rem;color:var(--muted);text-decoration:line-through;margin-right:8px;">R$&nbsp;79</span>
+        <span class="amount">R$&nbsp;39</span>
+      </div>
+      <p class="pricing-note">entrega em até 5 dias úteis</p>
+      <hr class="pricing-divider" />
+      <ul class="pricing-features">
+        <li>Música de ~1 minuto</li>
+        <li>Letra personalizada</li>
+        <li>Estilo musical à sua escolha</li>
+        <li>Entrega em MP3</li>
+        <li>1 rodada de revisão</li>
+        <li class="no">Versão instrumental</li>
+        <li class="no">Entrega expressa</li>
+      </ul>
+      <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Quero%20encomendar%20uma%20m%C3%BAsica%20personalizada%20(Vers%C3%A3o%20Curta)." class="btn-outline" target="_blank">Encomendar</a>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="featured-badge">⭐ Mais escolhido</div>
+      <p class="pricing-name">Música Completa</p>
+      <div class="pricing-price">
+        <span style="font-size:1rem;color:var(--muted);text-decoration:line-through;margin-right:8px;">R$&nbsp;149</span>
+        <span class="amount">R$&nbsp;74</span>
+      </div>
+      <p class="pricing-note">entrega em até 5 dias úteis</p>
+      <hr class="pricing-divider" />
+      <ul class="pricing-features">
+        <li>Música de 2 a 3 minutos</li>
+        <li>Letra personalizada completa</li>
+        <li>Estilo musical à sua escolha</li>
+        <li>Entrega em MP3 alta qualidade</li>
+        <li>2 rodadas de revisão</li>
+        <li>Versão instrumental inclusa</li>
+        <li class="no">Entrega expressa</li>
+      </ul>
+      <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Quero%20encomendar%20uma%20M%C3%BAsica%20Completa%20personalizada." class="btn-filled" target="_blank">Encomendar</a>
+    </div>
+
+    <div class="pricing-card">
+      <p class="pricing-name">Corporativo / Jingle</p>
+      <div class="pricing-price">
+        <span style="font-size:0.85rem;color:var(--muted);text-decoration:line-through;margin-right:6px;">R$&nbsp;299</span>
+        <span class="from">a partir de</span>
+        <span class="amount">R$&nbsp;149</span>
+      </div>
+      <p class="pricing-note">orçamento personalizado</p>
+      <hr class="pricing-divider" />
+      <ul class="pricing-features">
+        <li>Jingle, hino ou trilha de marca</li>
+        <li>Briefing comercial completo</li>
+        <li>Até 3 variações de estilo</li>
+        <li>MP3 + WAV para produção</li>
+        <li>Direitos de uso comercial</li>
+        <li>Revisões ilimitadas</li>
+      </ul>
+      <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Quero%20criar%20um%20jingle%20ou%20m%C3%BAsica%20para%20minha%20empresa." class="btn-outline" target="_blank">Solicitar orçamento</a>
+    </div>
+
+  </div>
+  <p class="pricing-disclaimer">
+    Precisa para amanhã? <a href="https://wa.me/5521971349275?text=Preciso%20de%20uma%20m%C3%BAsica%20com%20entrega%20expressa!" style="color:var(--accent2)" target="_blank">Chame no WhatsApp</a> — temos entrega expressa em 24h com taxa adicional de <s style="color:#555">R$&nbsp;50</s> R$&nbsp;25 (promoção de lançamento).
+  </p>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <p class="section-label">Dúvidas</p>
+  <h2>Perguntas frequentes</h2>
+  <p class="section-sub">Ficou com alguma dúvida? Chama no WhatsApp — respondemos na hora.</p>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        A música vai ter voz ou é só instrumental?
+        <span class="icon">+</span>
+      </button>
+      <p class="faq-a">Todas as músicas têm voz com a letra personalizada. Na Música Completa e no plano Corporativo, enviamos também a versão instrumental para quem quiser usar como fundo sonoro ou em vídeos.</p>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Posso escolher qualquer estilo musical?
+        <span class="icon">+</span>
+      </button>
+      <p class="faq-a">Sim! Sertanejo, pagode, forró, pop, romântico, funk, rock, MPB, gospel, infantil — você escolhe o que combina com a pessoa ou a ocasião. Se tiver dúvida, pode nos pedir uma sugestão.</p>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Posso usar a música que recebi nas redes sociais?
+        <span class="icon">+</span>
+      </button>
+      <p class="faq-a">Nos planos pessoais (Versão Curta e Completa) você pode usar livremente para fins pessoais: postar no Instagram, WhatsApp, TikTok, tocar na festa etc. Para uso comercial (campanhas pagas, TV, rádio), utilize o plano Corporativo que já inclui os direitos.</p>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        E se eu não gostar da música?
+        <span class="icon">+</span>
+      </button>
+      <p class="faq-a">Incluímos rodadas de revisão justamente para isso. Você pode pedir ajustes na letra, no tom ou no estilo dentro do número de rodadas do seu plano. Nosso objetivo é que você fique 100% feliz com o resultado.</p>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Como funciona a entrega?
+        <span class="icon">+</span>
+      </button>
+      <p class="faq-a">Você recebe o arquivo de áudio MP3 diretamente pelo WhatsApp, dentro do prazo combinado. Simples assim — sem precisar instalar nada ou criar conta em lugar nenhum.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="pedir">
+  <p class="section-label">Pronto para surpreender?</p>
+  <h2>Crie agora a música mais especial que essa pessoa já ouviu</h2>
+  <p>É só mandar uma mensagem no WhatsApp. A gente te orienta em tudo — do briefing à entrega.</p>
+  <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Quero%20encomendar%20uma%20m%C3%BAsica%20personalizada!" class="whatsapp-btn" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    Encomendar pelo WhatsApp
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="logo" style="font-size:1.2rem">Hel<span>ph</span> Studio</a>
+  <p>© 2025 Helph. Momentos únicos merecem músicas únicas.</p>
+  <div class="footer-links">
+    <a href="index.html">Sites</a>
+    <a href="#precos">Preços</a>
+    <a href="#pedir">Encomendar</a>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('nav-menu');
+  toggle.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
+    if (!isOpen) { answer.classList.add('open'); btn.classList.add('open'); }
+  }
+</script>
+
+</body>
+</html>

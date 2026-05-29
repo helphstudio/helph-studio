@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Helph — Sites para Pequenos Negócios</title>
+  <meta name="description" content="A Helph cria sites profissionais para pequenos negócios. Mais clientes, mais credibilidade, mais vendas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #111118;
+      --bg3: #18181f;
+      --border: rgba(255,255,255,0.08);
+      --text: #f0f0f5;
+      --muted: #8888a0;
+      --accent: #7c5cfc;
+      --accent2: #a78bfa;
+      --green: #22c55e;
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 6%;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px;
+      color: var(--text); text-decoration: none;
+    }
+    .logo span { color: var(--accent2); }
+    nav ul { list-style: none; display: flex; gap: 32px; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color .2s; }
+    nav a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent); color: #fff !important;
+      padding: 9px 22px; border-radius: 99px; font-weight: 600 !important;
+      font-size: 0.85rem !important; transition: opacity .2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+    .menu-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--text); font-size: 1.5rem; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 6% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(124,92,252,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(124,92,252,0.15); border: 1px solid rgba(124,92,252,0.3);
+      padding: 6px 16px; border-radius: 99px; font-size: 0.8rem; font-weight: 600;
+      color: var(--accent2); margin-bottom: 32px; letter-spacing: 0.5px;
+    }
+    .hero-badge::before { content: '✦'; }
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -2px;
+      max-width: 820px;
+      margin-bottom: 24px;
+    }
+    h1 em { font-style: normal; color: var(--accent2); }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--muted); max-width: 560px;
+      line-height: 1.7; margin-bottom: 48px;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .btn-primary {
+      background: var(--accent); color: #fff;
+      padding: 16px 36px; border-radius: 99px; font-size: 1rem; font-weight: 700;
+      text-decoration: none; transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 0 40px rgba(124,92,252,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(124,92,252,0.5); }
+    .btn-ghost {
+      background: transparent; color: var(--text);
+      padding: 16px 36px; border-radius: 99px; font-size: 1rem; font-weight: 600;
+      text-decoration: none; border: 1px solid var(--border);
+      transition: border-color .2s, background .2s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); }
+    .hero-stats {
+      display: flex; gap: 48px; margin-top: 72px; flex-wrap: wrap; justify-content: center;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 2rem; font-weight: 800; color: var(--text); letter-spacing: -1px; }
+    .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── SECTION COMMONS ── */
+    section { padding: 100px 6%; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--accent2); margin-bottom: 16px;
+    }
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800; letter-spacing: -1px; line-height: 1.15;
+      max-width: 700px; margin-bottom: 20px;
+    }
+    .section-sub {
+      color: var(--muted); font-size: 1.05rem; max-width: 560px;
+      line-height: 1.7; margin-bottom: 60px;
+    }
+
+    /* ── WHY ── */
+    .why { background: var(--bg2); }
+    .why-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .why-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 36px 32px;
+      transition: border-color .3s, transform .3s;
+    }
+    .why-card:hover { border-color: rgba(124,92,252,0.4); transform: translateY(-4px); }
+    .why-icon { font-size: 2rem; margin-bottom: 20px; }
+    .why-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+    .why-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── HOW IT WORKS ── */
+    .steps {
+      display: flex; flex-direction: column; gap: 0;
+      max-width: 720px;
+    }
+    .step {
+      display: flex; gap: 32px; align-items: flex-start;
+      position: relative; padding-bottom: 48px;
+    }
+    .step:last-child { padding-bottom: 0; }
+    .step-line {
+      position: absolute; left: 23px; top: 48px; bottom: 0;
+      width: 2px; background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+    .step:last-child .step-line { display: none; }
+    .step-num {
+      flex-shrink: 0; width: 48px; height: 48px;
+      background: var(--accent); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; font-weight: 800; color: #fff;
+      position: relative; z-index: 1;
+    }
+    .step-content h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+    .step-content p { font-size: 0.92rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── PORTFOLIO ── */
+    .portfolio { background: var(--bg2); }
+    .portfolio-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .portfolio-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      transition: border-color .3s, transform .3s;
+    }
+    .portfolio-card:hover { border-color: rgba(124,92,252,0.4); transform: translateY(-4px); }
+    .portfolio-img {
+      width: 100%; height: 200px; object-fit: cover;
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-size: 0.85rem;
+    }
+    .portfolio-img-placeholder {
+      width: 100%; height: 200px;
+      background: linear-gradient(135deg, rgba(124,92,252,0.1), rgba(167,139,250,0.05));
+      border-bottom: 1px solid var(--border);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 12px;
+    }
+    .portfolio-img-placeholder span { font-size: 2.5rem; }
+    .portfolio-img-placeholder p { font-size: 0.8rem; color: var(--muted); }
+    .portfolio-info { padding: 24px; }
+    .portfolio-tag {
+      display: inline-block; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      background: rgba(124,92,252,0.15); color: var(--accent2);
+      padding: 4px 10px; border-radius: 99px; margin-bottom: 10px;
+    }
+    .portfolio-info h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .portfolio-info p { font-size: 0.85rem; color: var(--muted); }
+    .portfolio-empty-msg {
+      grid-column: 1/-1; text-align: center;
+      color: var(--muted); font-size: 0.95rem; padding: 40px;
+    }
+
+    /* ── PRICING ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px; align-items: start;
+    }
+    .pricing-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 40px 36px;
+      position: relative; transition: transform .3s;
+    }
+    .pricing-card:hover { transform: translateY(-4px); }
+    .pricing-card.featured {
+      border-color: var(--accent);
+      box-shadow: 0 0 60px rgba(124,92,252,0.2);
+    }
+    .featured-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: #fff;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; padding: 5px 18px; border-radius: 99px;
+      white-space: nowrap;
+    }
+    .pricing-name { font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .pricing-price { margin-bottom: 6px; }
+    .pricing-price .amount { font-size: 2.8rem; font-weight: 900; letter-spacing: -2px; }
+    .pricing-price .from { font-size: 0.85rem; color: var(--muted); margin-right: 4px; }
+    .pricing-note { font-size: 0.82rem; color: var(--muted); margin-bottom: 28px; }
+    .pricing-divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .pricing-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; }
+    .pricing-features li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .pricing-features li.no::before { content: '✕'; color: #555; }
+    .pricing-features li.no { color: var(--muted); }
+    .btn-outline {
+      display: block; text-align: center; width: 100%;
+      padding: 14px; border-radius: 99px; font-size: 0.95rem; font-weight: 700;
+      text-decoration: none; border: 1px solid var(--border);
+      color: var(--text); transition: background .2s, border-color .2s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); }
+    .btn-filled {
+      display: block; text-align: center; width: 100%;
+      padding: 14px; border-radius: 99px; font-size: 0.95rem; font-weight: 700;
+      text-decoration: none; background: var(--accent); color: #fff;
+      transition: opacity .2s;
+    }
+    .btn-filled:hover { opacity: 0.85; }
+    .pricing-disclaimer {
+      text-align: center; color: var(--muted); font-size: 0.83rem;
+      margin-top: 32px; line-height: 1.6;
+    }
+
+    /* ── FAQ ── */
+    .faq { background: var(--bg2); }
+    .faq-list { max-width: 720px; display: flex; flex-direction: column; gap: 2px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .faq-q {
+      width: 100%; background: var(--bg3); border: none; cursor: pointer;
+      padding: 22px 28px; display: flex; justify-content: space-between; align-items: center;
+      color: var(--text); font-size: 0.95rem; font-weight: 600; text-align: left;
+      transition: background .2s;
+    }
+    .faq-q:hover { background: rgba(255,255,255,0.04); }
+    .faq-q .icon { font-size: 1.2rem; color: var(--muted); transition: transform .3s; flex-shrink: 0; margin-left: 16px; }
+    .faq-q.open .icon { transform: rotate(45deg); }
+    .faq-a { display: none; padding: 0 28px 22px; background: var(--bg3); color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+    .faq-a.open { display: block; }
+
+    /* ── CTA ── */
+    .cta-section {
+      text-align: center; padding: 100px 6%;
+      position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute; bottom: -100px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(124,92,252,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section h2 { max-width: 600px; margin: 0 auto 20px; }
+    .cta-section p { color: var(--muted); margin-bottom: 40px; font-size: 1.05rem; }
+    .whatsapp-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #25d366; color: #fff;
+      padding: 18px 40px; border-radius: 99px;
+      font-size: 1.05rem; font-weight: 700; text-decoration: none;
+      box-shadow: 0 0 40px rgba(37,211,102,0.3);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .whatsapp-btn:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(37,211,102,0.5); }
+    .whatsapp-btn svg { width: 22px; height: 22px; fill: #fff; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 6%; display: flex;
+      justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+    }
+    footer p { color: var(--muted); font-size: 0.85rem; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--text); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .menu-toggle { display: block; }
+      nav ul.open {
+        display: flex; flex-direction: column; gap: 16px;
+        position: fixed; top: 64px; left: 0; right: 0;
+        background: var(--bg); padding: 24px 6%;
+        border-bottom: 1px solid var(--border);
+      }
+      h1 { letter-spacing: -1px; }
+      .hero-stats { gap: 32px; }
+      .step { gap: 20px; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Hel<span>ph</span> Studio</a>
+  <ul id="nav-menu">
+    <li><a href="#por-que">Por que ter um site?</a></li>
+    <li><a href="#como-funciona">Como funciona</a></li>
+    <li><a href="#portfolio">Portfólio</a></li>
+    <li><a href="#precos">Preços</a></li>
+    <li><a href="musicas.html" style="color:#f472a8;font-size:0.85rem;border:1px solid rgba(244,114,168,0.25);padding:7px 16px;border-radius:99px;">🎵 Músicas</a></li>
+    <li><a href="#contato" class="nav-cta">Falar agora</a></li>
+  </ul>
+  <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Sites para pequenos negócios</div>
+  <h1>Seu negócio <em>existe</em><br/>na internet?</h1>
+  <p class="hero-sub">
+    Criamos sites profissionais que geram credibilidade, atraem clientes e trabalham por você enquanto você dorme.
+  </p>
+  <div class="hero-actions">
+    <a href="#contato" class="btn-primary">Quero meu site →</a>
+    <a href="#portfolio" class="btn-ghost">Ver portfólio</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">81%</div>
+      <div class="stat-label">dos consumidores pesquisam online<br/>antes de comprar</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3×</div>
+      <div class="stat-label">mais credibilidade percebida<br/>com site profissional</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">7 dias</div>
+      <div class="stat-label">prazo médio de entrega<br/>do seu site</div>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUE -->
+<section class="why" id="por-que">
+  <p class="section-label">Por que investir</p>
+  <h2>Sem site, você perde clientes todo dia</h2>
+  <p class="section-sub">Enquanto você não está online, seu concorrente está. Veja o que um site faz pelo seu negócio.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🔍</div>
+      <h3>Aparece no Google</h3>
+      <p>Quando alguém busca pelo seu serviço na sua cidade, seu negócio aparece. Sem site, você simplesmente não existe para essa pessoa.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⭐</div>
+      <h3>Credibilidade instantânea</h3>
+      <p>Um site profissional vale mais que mil palavras. Clientes confiam mais e compram mais rápido quando veem que você tem presença online.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📲</div>
+      <h3>Atende 24h por dia</h3>
+      <p>Seu site trabalha enquanto você descansa. Informações, preços, formas de contato — tudo disponível a qualquer hora.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📣</div>
+      <h3>Potencializa o Instagram</h3>
+      <p>Suas redes sociais ficam muito mais fortes com um site como destino. Transforma seguidores em clientes de verdade.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎯</div>
+      <h3>Você controla sua imagem</h3>
+      <p>No seu site, as regras são suas. Diferente das redes sociais, ninguém muda o algoritmo e derruba o seu alcance da noite pro dia.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💰</div>
+      <h3>Retorno sobre investimento</h3>
+      <p>Um único cliente a mais por mês já paga o site várias vezes. É o investimento com melhor custo-benefício que pequenos negócios podem fazer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona">
+  <p class="section-label">Processo</p>
+  <h2>Do zero ao site no ar em 7 dias</h2>
+  <p class="section-sub">Simples, rápido e sem dor de cabeça. Você foca no seu negócio, a gente cuida do resto.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-line"></div>
+      <div class="step-content">
+        <h3>Conversa inicial (grátis)</h3>
+        <p>Bate-papo de 30 minutos pelo WhatsApp ou vídeo chamada. A gente entende o seu negócio, seus clientes, seus objetivos. Sem compromisso.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-line"></div>
+      <div class="step-content">
+        <h3>Proposta e aprovação</h3>
+        <p>Enviamos um briefing com a estrutura do site para você aprovar. Preço fechado, sem surpresas. Você aprova tudo antes de começar.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-line"></div>
+      <div class="step-content">
+        <h3>Desenvolvemos o seu site</h3>
+        <p>Criamos um site moderno, rápido e adaptado para celular. Você acompanha o progresso e pode sugerir ajustes antes de publicar.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-line"></div>
+      <div class="step-content">
+        <h3>Site no ar + suporte contínuo</h3>
+        <p>Publicamos, configuramos o domínio e entregamos o site funcionando. A partir daí, você pode contar com nosso plano de manutenção mensal para manter tudo sempre atualizado e seguro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <p class="section-label">Portfólio</p>
+  <h2>Trabalhos recentes</h2>
+  <p class="section-sub">Cada site é construído do zero, personalizado para o negócio e o público do cliente.</p>
+  <div class="portfolio-grid">
+
+    <!-- Adicione seus projetos aqui. Exemplo: -->
+    <div class="portfolio-card">
+      <div class="portfolio-img-placeholder">
+        <span>🚀</span>
+        <p>Em breve — portfólio sendo montado</p>
+      </div>
+      <div class="portfolio-info">
+        <span class="portfolio-tag">Em breve</span>
+        <h3>Seus projetos aqui</h3>
+        <p>Estamos finalizando nossos primeiros projetos. Volte em breve!</p>
+      </div>
+    </div>
+
+    <div class="portfolio-card">
+      <div class="portfolio-img-placeholder">
+        <span>💼</span>
+        <p>Projeto em andamento</p>
+      </div>
+      <div class="portfolio-info">
+        <span class="portfolio-tag">Em andamento</span>
+        <h3>Quer ser nosso case?</h3>
+        <p>Estamos selecionando os primeiros clientes para compor nosso portfólio. Condições especiais de lançamento.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRECOS -->
+<section id="precos">
+  <p class="section-label">Investimento</p>
+  <h2>Preços claros, sem surpresa</h2>
+  <p class="section-sub">Escolha o plano ideal para o seu momento. Todos os sites são responsivos, rápidos e otimizados para Google.</p>
+
+  <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(124,92,252,0.12);border:1px solid rgba(124,92,252,0.3);padding:10px 22px;border-radius:99px;margin-bottom:40px;font-size:0.88rem;font-weight:600;color:var(--accent2);">
+    🎉 Promoção de lançamento — 50% off em todos os planos
+  </div>
+
+  <div class="pricing-grid">
+
+    <!-- Plano Landing Page -->
+    <div class="pricing-card">
+      <p class="pricing-name">Landing Page</p>
+      <div class="pricing-price">
+        <span style="font-size:0.85rem;color:var(--muted);text-decoration:line-through;margin-right:6px;">R$&nbsp;600</span>
+        <span class="from">a partir de</span>
+        <span class="amount">R$&nbsp;300</span>
+      </div>
+      <p class="pricing-note">pagamento único</p>
+      <hr class="pricing-divider" />
+      <ul class="pricing-features">
+        <li>1 página completa</li>
+        <li>Design moderno e personalizado</li>
+        <li>Adaptado para celular</li>
+        <li>Formulário de contato</li>
+        <li>Botão do WhatsApp</li>
+        <li>Entrega em até 5 dias</li>
+        <li class="no">Blog ou área de notícias</li>
+        <li class="no">Múltiplas páginas</li>
+      </ul>
+      <a href="#contato" class="btn-outline">Solicitar orçamento</a>
+    </div>
+
+    <!-- Plano Site Completo (destaque) -->
+    <div class="pricing-card featured">
+      <div class="featured-badge">⭐ Mais escolhido</div>
+      <p class="pricing-name">Site Completo</p>
+      <div class="pricing-price">
+        <span style="font-size:0.85rem;color:var(--muted);text-decoration:line-through;margin-right:6px;">R$&nbsp;1.400</span>
+        <span class="from">a partir de</span>
+        <span class="amount">R$&nbsp;700</span>
+      </div>
+      <p class="pricing-note">pagamento único · até 2× sem juros</p>
+      <hr class="pricing-divider" />
+      <ul class="pricing-features">
+        <li>Até 5 páginas</li>
+        <li>Design exclusivo</li>
+        <li>Adaptado para celular</li>
+        <li>Formulário de contato</li>
+        <li>Botão do WhatsApp</li>
+        <li>Integração com Google Maps</li>
+        <li>SEO básico configurado</li>
+        <li>Entrega em até 7 dias</li>
+      </ul>
+      <a href="#contato" class="btn-filled">Solicitar orçamento</a>
+    </div>
+
+    <!-- Plano Manutenção -->
+    <div class="pricing-card">
+      <p class="pricing-name">Manutenção Mensal</p>
+      <div class="pricing-price">
+        <span style="font-size:0.85rem;color:var(--muted);text-decoration:line-through;margin-right:6px;">R$&nbsp;120</span>
+        <span class="from">a partir de</span>
+        <span class="amount">R$&nbsp;60</span>
+        <span style="font-size:1rem;color:var(--muted)">/mês</span>
+      </div>
+      <p class="pricing-note">cancele quando quiser</p>
+      <hr class="pricing-divider" />
+      <ul class="pricing-features">
+        <li>Atualizações de conteúdo</li>
+        <li>Hospedagem inclusa</li>
+        <li>Backups semanais</li>
+        <li>Suporte via WhatsApp</li>
+        <li>Relatório mensal de visitas</li>
+        <li>Ajustes de texto e imagens</li>
+        <li class="no">Novas páginas ou seções</li>
+      </ul>
+      <a href="#contato" class="btn-outline">Contratar manutenção</a>
+    </div>
+
+  </div>
+
+  <p class="pricing-disclaimer">
+    Todos os preços são estimativas. O valor final é definido após entender seu projeto.<br/>
+    Precisa de algo diferente? <a href="#contato" style="color:var(--accent2)">Vamos conversar</a>.
+  </p>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <p class="section-label">Dúvidas frequentes</p>
+  <h2>Perguntas & respostas</h2>
+  <p class="section-sub">Tem mais alguma dúvida? Chama no WhatsApp, respondemos na hora.</p>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Preciso ter domínio (.com.br) para contratar?
+        <span class="icon">+</span>
+      </button>
+      <p class="faq-a">Não é obrigatório, mas recomendamos. Um domínio próprio passa mais profissionalismo e custa em torno de R$&nbsp;40/ano. Podemos cuidar de tudo isso pra você.</p>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Consigo atualizar o site sozinho depois?
+        <span class="icon">+</span>
+      </button>
+      <p class="faq-a">Sim! Para atualizações simples você pode nos chamar no WhatsApp com o que precisa mudar e a gente faz. Ou, se quiser editar você mesmo, entregamos o site com uma área administrativa fácil de usar.</p>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        O site vai aparecer no Google?
+        <span class="icon">+</span>
+      </button>
+      <p class="faq-a">Todo site que criamos já vem com SEO básico configurado — título, descrição, velocidade de carregamento, e estrutura correta. Aparecer bem no Google leva tempo, mas você já sai na frente da maioria.</p>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Qual a diferença entre Landing Page e Site Completo?
+        <span class="icon">+</span>
+      </button>
+      <p class="faq-a">A Landing Page é uma única página focada em converter visitantes em contatos ou clientes — ótima para negócios que querem começar rápido. O Site Completo tem múltiplas páginas (Início, Sobre, Serviços, Contato etc.) e transmite mais profissionalismo.</p>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        E se eu não gostar do resultado?
+        <span class="icon">+</span>
+      </button>
+      <p class="faq-a">Você aprova o design antes de qualquer implementação. Incluímos rodadas de revisão no processo para garantir que o resultado seja exatamente o que você esperava.</p>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Como funciona o plano de manutenção?
+        <span class="icon">+</span>
+      </button>
+      <p class="faq-a">É uma mensalidade que cobre: hospedagem, backups, suporte, e até 2h de alterações por mês (trocar textos, fotos, preços, etc.). É a forma mais simples de manter seu site sempre atualizado sem precisar se preocupar com nada técnico.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section" id="contato">
+  <p class="section-label">Pronto para começar?</p>
+  <h2>Seu negócio merece estar online do jeito certo</h2>
+  <p>Conversa sem compromisso. A gente analisa seu negócio e faz uma proposta personalizada, de graça.</p>
+  <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Helph%20e%20quero%20saber%20mais%20sobre%20criar%20um%20site%20para%20meu%20neg%C3%B3cio." class="whatsapp-btn" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    Falar pelo WhatsApp
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="logo" style="font-size:1.2rem">Hel<span>ph</span> Studio</a>
+  <p>© 2025 Helph. Sites para quem quer crescer.</p>
+  <div class="footer-links">
+    <a href="#por-que">Por que ter um site</a>
+    <a href="#precos">Preços</a>
+    <a href="#contato">Contato</a>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('nav-menu');
+  toggle.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  // FAQ
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
+    if (!isOpen) {
+      answer.classList.add('open');
+      btn.classList.add('open');
+    }
+  }
+</script>
+
+</body>
+</html>
