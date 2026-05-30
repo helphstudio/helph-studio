@@ -3,13 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Helph — Sites para Pequenos Negócios</title>
-  <meta name="description" content="A Helph cria sites profissionais para pequenos negócios. Mais clientes, mais credibilidade, mais vendas." />
+  <title>Helph Studio — Sites Profissionais para Negócios e Profissionais</title>
+  <meta name="description" content="A Helph Studio cria sites profissionais para negócios, autônomos e freelancers. Entrega em 7 dias, orçamento personalizado, resultado que impressiona." />
+
+  <!-- Open Graph (WhatsApp, Instagram, Facebook) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.helphstudio.com.br/" />
+  <meta property="og:title" content="Helph Studio — Sites Profissionais para Pequenos Negócios" />
+  <meta property="og:description" content="Sites modernos, rápidos e otimizados para Google. Entrega em até 7 dias. Atendimento via WhatsApp." />
+  <meta property="og:image" content="https://www.helphstudio.com.br/assets/img/helph-logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon SVG inline -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%230a0a0f'/><text y='68' x='50' text-anchor='middle' font-size='52' font-family='Arial Black,sans-serif' font-weight='900' fill='%23f0f0f5'>H</text></svg>" />
+
+  <!-- Fonts com display swap para não bloquear renderização -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Schema.org — LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Helph Studio",
+    "description": "Criação de sites profissionais para pequenos negócios. Entrega em até 7 dias com design moderno e otimização para Google.",
+    "url": "https://www.helphstudio.com.br",
+    "email": "helphstudio@gmail.com",
+    "telephone": "+55-21-97134-9275",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Rio de Janeiro",
+      "addressRegion": "RJ",
+      "addressCountry": "BR"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Pedro Henrique Pereira",
+      "sameAs": "https://www.linkedin.com/in/pereirapedrohs/"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/pereirapedrohs/"
+    ],
+    "serviceArea": {
+      "@type": "Country",
+      "name": "Brasil"
+    }
+  }
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @font-face { font-display: swap; }
 
     :root {
       --bg: #0a0a0f;
@@ -45,6 +91,7 @@
     }
     .logo {
       font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px;
+      line-height: 1.1;
       color: var(--text); text-decoration: none;
     }
     .logo span { color: var(--accent2); }
@@ -137,8 +184,11 @@
     /* ── WHY ── */
     .why { background: var(--bg2); }
     .why-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 24px;
+    }
+    @media (max-width: 900px) {
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
     }
     .why-card {
       background: var(--bg3); border: 1px solid var(--border);
@@ -202,6 +252,17 @@
     }
     .portfolio-img-placeholder span { font-size: 2.5rem; }
     .portfolio-img-placeholder p { font-size: 0.8rem; color: var(--muted); }
+    .portfolio-preview {
+      width: 100%; height: 220px;
+      overflow: hidden; border-bottom: 1px solid var(--border);
+      position: relative; border-radius: 12px 12px 0 0;
+    }
+    .portfolio-preview img {
+      width: 100%; display: block;
+      transform: translateY(0);
+      transition: transform 12s ease;
+    }
+    .portfolio-card:hover .portfolio-preview img { transform: translateY(-60%); }
     .portfolio-info { padding: 24px; }
     .portfolio-tag {
       display: inline-block; font-size: 0.7rem; font-weight: 700;
@@ -322,6 +383,81 @@
     .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color .2s; }
     .footer-links a:hover { color: var(--text); }
 
+    /* ── PRICING 2-COL LAYOUT ── */
+    .pricing-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .pricing-left { display: flex; flex-direction: column; align-items: flex-start; }
+    .pricing-left .section-label { margin-bottom: 16px; }
+    .pricing-left h2 { max-width: none; margin-bottom: 20px; }
+    .pricing-left .section-sub { margin-bottom: 32px; max-width: none; }
+    .promo-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(124,92,252,0.12); border: 1px solid rgba(124,92,252,0.3);
+      padding: 12px 22px; border-radius: 99px;
+      font-size: 0.92rem; font-weight: 700; color: var(--accent2);
+      line-height: 1.4;
+    }
+
+    /* ── COMO FUNCIONA CENTERED ── */
+    #como-funciona { text-align: center; }
+    #como-funciona h2, #como-funciona .section-sub { margin-left: auto; margin-right: auto; }
+    #como-funciona .steps { margin: 0 auto; text-align: left; }
+
+    /* ── FAQ 2-COL LAYOUT ── */
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 64px;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .faq-left { position: sticky; top: 100px; }
+    .faq-left h2 { max-width: none; }
+    .faq-left .section-sub { max-width: none; margin-bottom: 0; }
+
+    /* ── PORTFOLIO 2-COL LAYOUT ── */
+    .portfolio-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 64px;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .portfolio-left { position: sticky; top: 100px; }
+    .portfolio-left h2 { max-width: none; }
+    .portfolio-left .section-sub { max-width: none; margin-bottom: 0; }
+
+    /* ── FORM ── */
+    .orcamento-form { display: flex; flex-direction: column; gap: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label { font-size: 0.88rem; font-weight: 600; color: var(--muted); letter-spacing: 0.3px; }
+    .form-group input, .form-group textarea, .form-group select {
+      background: var(--bg3); border: 1px solid var(--border); border-radius: 10px;
+      padding: 12px 16px; color: var(--text); font-family: inherit; font-size: 0.95rem;
+      transition: border-color .2s; outline: none; width: 100%;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-radio-group { display: flex; flex-wrap: wrap; gap: 10px; }
+    .form-radio-group label {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--bg3); border: 1px solid var(--border);
+      padding: 8px 16px; border-radius: 99px; cursor: pointer;
+      font-size: 0.85rem; font-weight: 500; color: var(--text);
+      transition: border-color .2s, background .2s;
+    }
+    .form-radio-group input[type="radio"] { display: none; }
+    .form-radio-group input[type="radio"]:checked + span { color: var(--accent2); }
+    .form-radio-group label:has(input:checked) { border-color: var(--accent); background: rgba(124,92,252,0.1); }
+
     /* ── MOBILE ── */
     @media (max-width: 768px) {
       nav ul { display: none; }
@@ -332,10 +468,29 @@
         background: var(--bg); padding: 24px 6%;
         border-bottom: 1px solid var(--border);
       }
-      h1 { letter-spacing: -1px; }
-      .hero-stats { gap: 32px; }
+      h1 { font-size: clamp(1.9rem, 8vw, 2.8rem); letter-spacing: -1px; }
+      h2 { font-size: clamp(1.5rem, 6vw, 2.2rem); }
+      section { padding: 64px 5%; }
+      .hero { padding: 100px 5% 64px; }
+      .hero-stats { gap: 24px; margin-top: 48px; }
+      .stat-num { font-size: 1.6rem; }
       .step { gap: 20px; }
       footer { flex-direction: column; text-align: center; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-layout { grid-template-columns: 1fr; gap: 40px; }
+      .pricing-left { align-items: center; text-align: center; }
+      .pricing-disclaimer { text-align: center !important; }
+      .faq-layout { grid-template-columns: 1fr; gap: 32px; }
+      .faq-left { position: static; }
+      .portfolio-layout { grid-template-columns: 1fr; gap: 32px; }
+      .portfolio-left { position: static; }
+      .form-section-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+    }
+    @media (max-width: 480px) {
+      .why-grid { grid-template-columns: 1fr; }
+      h1 { font-size: clamp(1.7rem, 9vw, 2.4rem); }
+      .form-radio-group { flex-direction: column; }
+      .form-section-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
     }
   </style>
 </head>
@@ -349,15 +504,15 @@
     <li><a href="#como-funciona">Como funciona</a></li>
     <li><a href="#portfolio">Portfólio</a></li>
     <li><a href="#precos">Preços</a></li>
-    <li><a href="musicas.html" style="color:#f472a8;font-size:0.85rem;border:1px solid rgba(244,114,168,0.25);padding:7px 16px;border-radius:99px;">🎵 Músicas</a></li>
-    <li><a href="#contato" class="nav-cta">Falar agora</a></li>
+    <li><a href="musicas.html" style="color:#f472a8;font-size:0.85rem;border:1px solid rgba(244,114,168,0.25);padding:7px 16px;border-radius:99px;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;">🎵 Músicas</a></li>
+    <li><a href="#contato" class="nav-cta" style="white-space:nowrap;">Falar agora</a></li>
   </ul>
   <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">Sites para pequenos negócios</div>
+  <div class="hero-badge">Sites para quem quer crescer online</div>
   <h1>Seu negócio <em>existe</em><br/>na internet?</h1>
   <p class="hero-sub">
     Criamos sites profissionais que geram credibilidade, atraem clientes e trabalham por você enquanto você dorme.
@@ -405,8 +560,8 @@
     </div>
     <div class="why-card">
       <div class="why-icon">📣</div>
-      <h3>Potencializa o Instagram</h3>
-      <p>Suas redes sociais ficam muito mais fortes com um site como destino. Transforma seguidores em clientes de verdade.</p>
+      <h3>Potencializa suas redes sociais</h3>
+      <p>Instagram, TikTok, WhatsApp — tudo fica mais forte com um site como destino. Transforma seguidores em clientes de verdade.</p>
     </div>
     <div class="why-card">
       <div class="why-icon">🎯</div>
@@ -416,7 +571,7 @@
     <div class="why-card">
       <div class="why-icon">💰</div>
       <h3>Retorno sobre investimento</h3>
-      <p>Um único cliente a mais por mês já paga o site várias vezes. É o investimento com melhor custo-benefício que pequenos negócios podem fazer.</p>
+      <p>Para um restaurante, um salão, um advogado ou um MEI — um único cliente a mais por mês já paga o site várias vezes. É o custo-benefício que mais faz sentido.</p>
     </div>
   </div>
 </section>
@@ -440,7 +595,7 @@
       <div class="step-line"></div>
       <div class="step-content">
         <h3>Proposta e aprovação</h3>
-        <p>Enviamos um briefing com a estrutura do site para você aprovar. Preço fechado, sem surpresas. Você aprova tudo antes de começar.</p>
+        <p>Montamos uma proposta personalizada com o escopo do projeto. Você aprova tudo antes de começar — sem surpresas no meio do caminho.</p>
       </div>
     </div>
     <div class="step">
@@ -464,201 +619,221 @@
 
 <!-- PORTFOLIO -->
 <section class="portfolio" id="portfolio">
-  <p class="section-label">Portfólio</p>
-  <h2>Trabalhos recentes</h2>
-  <p class="section-sub">Cada site é construído do zero, personalizado para o negócio e o público do cliente.</p>
+  <div class="portfolio-layout">
+  <div class="portfolio-left">
+    <p class="section-label">Portfólio</p>
+    <h2>Trabalhos recentes</h2>
+    <p class="section-sub">Cada site é construído do zero, personalizado para o negócio e o público do cliente.</p>
+  </div>
   <div class="portfolio-grid">
 
-    <!-- Adicione seus projetos aqui. Exemplo: -->
     <div class="portfolio-card">
-      <div class="portfolio-img-placeholder">
-        <span>🚀</span>
-        <p>Em breve — portfólio sendo montado</p>
+      <div class="portfolio-preview">
+        <img src="assets/img/parperfeito-preview.jpg" alt="Par Perfeito Assessoria de Casamento — prévia do site" />
       </div>
       <div class="portfolio-info">
-        <span class="portfolio-tag">Em breve</span>
-        <h3>Seus projetos aqui</h3>
-        <p>Estamos finalizando nossos primeiros projetos. Volte em breve!</p>
+        <span class="portfolio-tag">Site Completo</span>
+        <h3>Par Perfeito — Assessoria de Casamento</h3>
+        <p>Site para assessoria de casamento no RJ com galeria, depoimentos, serviços e CTAs para WhatsApp.</p>
+        <a href="https://helphstudio.github.io/parperfeito_assessoria/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver site ao vivo →</a>
       </div>
     </div>
 
     <div class="portfolio-card">
       <div class="portfolio-img-placeholder">
         <span>💼</span>
-        <p>Projeto em andamento</p>
+        <p>Seu negócio pode ser o próximo</p>
       </div>
       <div class="portfolio-info">
-        <span class="portfolio-tag">Em andamento</span>
-        <h3>Quer ser nosso case?</h3>
-        <p>Estamos selecionando os primeiros clientes para compor nosso portfólio. Condições especiais de lançamento.</p>
+        <span class="portfolio-tag">Em breve</span>
+        <h3>Quer ser nosso próximo case?</h3>
+        <p>Condições especiais de lançamento para os primeiros clientes. Chama no WhatsApp e bora conversar.</p>
       </div>
     </div>
 
+  </div>
   </div>
 </section>
 
 <!-- PRECOS -->
 <section id="precos">
-  <p class="section-label">Investimento</p>
-  <h2>Preços claros, sem surpresa</h2>
-  <p class="section-sub">Escolha o plano ideal para o seu momento. Todos os sites são responsivos, rápidos e otimizados para Google.</p>
+  <div class="pricing-layout">
 
-  <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(124,92,252,0.12);border:1px solid rgba(124,92,252,0.3);padding:10px 22px;border-radius:99px;margin-bottom:40px;font-size:0.88rem;font-weight:600;color:var(--accent2);">
-    🎉 Promoção de lançamento — 50% off em todos os planos
-  </div>
-
-  <div class="pricing-grid">
-
-    <!-- Plano Landing Page -->
-    <div class="pricing-card">
-      <p class="pricing-name">Landing Page</p>
-      <div class="pricing-price">
-        <span style="font-size:0.85rem;color:var(--muted);text-decoration:line-through;margin-right:6px;">R$&nbsp;600</span>
-        <span class="from">a partir de</span>
-        <span class="amount">R$&nbsp;300</span>
-      </div>
-      <p class="pricing-note">pagamento único</p>
-      <hr class="pricing-divider" />
-      <ul class="pricing-features">
-        <li>1 página completa</li>
-        <li>Design moderno e personalizado</li>
-        <li>Adaptado para celular</li>
-        <li>Formulário de contato</li>
-        <li>Botão do WhatsApp</li>
-        <li>Entrega em até 5 dias</li>
-        <li class="no">Blog ou área de notícias</li>
-        <li class="no">Múltiplas páginas</li>
-      </ul>
-      <a href="#contato" class="btn-outline">Solicitar orçamento</a>
+    <div class="pricing-left">
+      <p class="section-label">Investimento</p>
+      <h2>Orçamento sob medida</h2>
+      <p class="section-sub">Cada projeto é único. A gente entende o que você precisa e monta uma proposta personalizada — sem tabela fixa, sem surpresa.</p>
+      <div class="promo-badge">🎉 Promoção de lançamento — condições especiais para os primeiros 10 projetos</div>
+      <p class="pricing-disclaimer" style="margin-top:24px;text-align:left;">
+        A consulta inicial é gratuita.<br/>
+        Tem dúvidas? <a href="#contato" style="color:var(--accent2)">Fala com a gente</a>.
+      </p>
     </div>
 
-    <!-- Plano Site Completo (destaque) -->
-    <div class="pricing-card featured">
-      <div class="featured-badge">⭐ Mais escolhido</div>
-      <p class="pricing-name">Site Completo</p>
-      <div class="pricing-price">
-        <span style="font-size:0.85rem;color:var(--muted);text-decoration:line-through;margin-right:6px;">R$&nbsp;1.400</span>
-        <span class="from">a partir de</span>
-        <span class="amount">R$&nbsp;700</span>
+    <div>
+      <div class="pricing-card featured" style="text-align:center;">
+        <p class="pricing-name">O que todo projeto inclui</p>
+        <hr class="pricing-divider" style="margin-top:16px;" />
+        <ul class="pricing-features" style="text-align:left;">
+          <li>Design exclusivo e personalizado para o seu projeto</li>
+          <li>Adaptado para celular (mobile-first)</li>
+          <li>Otimizado para Google (SEO básico)</li>
+          <li>Botão do WhatsApp integrado</li>
+          <li>Formulário de contato</li>
+          <li>Entrega rápida — em média 7 dias</li>
+          <li>Suporte pós-entrega via WhatsApp</li>
+          <li>Hospedagem inclusa no primeiro ano</li>
+        </ul>
+        <a href="#contato" class="btn-filled" style="margin-top:28px;">Solicitar orçamento grátis</a>
       </div>
-      <p class="pricing-note">pagamento único · até 2× sem juros</p>
-      <hr class="pricing-divider" />
-      <ul class="pricing-features">
-        <li>Até 5 páginas</li>
-        <li>Design exclusivo</li>
-        <li>Adaptado para celular</li>
-        <li>Formulário de contato</li>
-        <li>Botão do WhatsApp</li>
-        <li>Integração com Google Maps</li>
-        <li>SEO básico configurado</li>
-        <li>Entrega em até 7 dias</li>
-      </ul>
-      <a href="#contato" class="btn-filled">Solicitar orçamento</a>
-    </div>
-
-    <!-- Plano Manutenção -->
-    <div class="pricing-card">
-      <p class="pricing-name">Manutenção Mensal</p>
-      <div class="pricing-price">
-        <span style="font-size:0.85rem;color:var(--muted);text-decoration:line-through;margin-right:6px;">R$&nbsp;120</span>
-        <span class="from">a partir de</span>
-        <span class="amount">R$&nbsp;60</span>
-        <span style="font-size:1rem;color:var(--muted)">/mês</span>
-      </div>
-      <p class="pricing-note">cancele quando quiser</p>
-      <hr class="pricing-divider" />
-      <ul class="pricing-features">
-        <li>Atualizações de conteúdo</li>
-        <li>Hospedagem inclusa</li>
-        <li>Backups semanais</li>
-        <li>Suporte via WhatsApp</li>
-        <li>Relatório mensal de visitas</li>
-        <li>Ajustes de texto e imagens</li>
-        <li class="no">Novas páginas ou seções</li>
-      </ul>
-      <a href="#contato" class="btn-outline">Contratar manutenção</a>
     </div>
 
   </div>
-
-  <p class="pricing-disclaimer">
-    Todos os preços são estimativas. O valor final é definido após entender seu projeto.<br/>
-    Precisa de algo diferente? <a href="#contato" style="color:var(--accent2)">Vamos conversar</a>.
-  </p>
 </section>
 
 <!-- FAQ -->
 <section class="faq" id="faq">
-  <p class="section-label">Dúvidas frequentes</p>
-  <h2>Perguntas & respostas</h2>
-  <p class="section-sub">Tem mais alguma dúvida? Chama no WhatsApp, respondemos na hora.</p>
-
-  <div class="faq-list">
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Preciso ter domínio (.com.br) para contratar?
-        <span class="icon">+</span>
-      </button>
-      <p class="faq-a">Não é obrigatório, mas recomendamos. Um domínio próprio passa mais profissionalismo e custa em torno de R$&nbsp;40/ano. Podemos cuidar de tudo isso pra você.</p>
+  <div class="faq-layout">
+    <div class="faq-left">
+      <p class="section-label">Dúvidas frequentes</p>
+      <h2>Perguntas & respostas</h2>
+      <p class="section-sub">Tem mais alguma dúvida? Chama no WhatsApp, respondemos na hora.</p>
     </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Consigo atualizar o site sozinho depois?
-        <span class="icon">+</span>
-      </button>
-      <p class="faq-a">Sim! Para atualizações simples você pode nos chamar no WhatsApp com o que precisa mudar e a gente faz. Ou, se quiser editar você mesmo, entregamos o site com uma área administrativa fácil de usar.</p>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        O site vai aparecer no Google?
-        <span class="icon">+</span>
-      </button>
-      <p class="faq-a">Todo site que criamos já vem com SEO básico configurado — título, descrição, velocidade de carregamento, e estrutura correta. Aparecer bem no Google leva tempo, mas você já sai na frente da maioria.</p>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Qual a diferença entre Landing Page e Site Completo?
-        <span class="icon">+</span>
-      </button>
-      <p class="faq-a">A Landing Page é uma única página focada em converter visitantes em contatos ou clientes — ótima para negócios que querem começar rápido. O Site Completo tem múltiplas páginas (Início, Sobre, Serviços, Contato etc.) e transmite mais profissionalismo.</p>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        E se eu não gostar do resultado?
-        <span class="icon">+</span>
-      </button>
-      <p class="faq-a">Você aprova o design antes de qualquer implementação. Incluímos rodadas de revisão no processo para garantir que o resultado seja exatamente o que você esperava.</p>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Como funciona o plano de manutenção?
-        <span class="icon">+</span>
-      </button>
-      <p class="faq-a">É uma mensalidade que cobre: hospedagem, backups, suporte, e até 2h de alterações por mês (trocar textos, fotos, preços, etc.). É a forma mais simples de manter seu site sempre atualizado sem precisar se preocupar com nada técnico.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Preciso ter domínio (.com.br) para contratar?
+          <span class="icon">+</span>
+        </button>
+        <p class="faq-a">Não é obrigatório, mas recomendamos. Um domínio próprio passa mais profissionalismo e custa em torno de R$&nbsp;40/ano. Podemos cuidar de tudo isso pra você.</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          O site vai aparecer no Google?
+          <span class="icon">+</span>
+        </button>
+        <p class="faq-a">Todo site que criamos já vem com SEO básico configurado — título, descrição, velocidade de carregamento, e estrutura correta. Aparecer bem no Google leva tempo, mas você já sai na frente da maioria.</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Que tipos de site vocês fazem?
+          <span class="icon">+</span>
+        </button>
+        <p class="faq-a">Fazemos sites para todo tipo de projeto: negócios locais, lojas, prestadores de serviço, profissionais autônomos, freelancers e portfólios pessoais. Pode ser uma página única (landing page) ou um site completo com várias seções — definimos juntos o que faz mais sentido para o seu caso.</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          E se eu não gostar do resultado?
+          <span class="icon">+</span>
+        </button>
+        <p class="faq-a">Você aprova o design antes de qualquer implementação. Incluímos rodadas de revisão no processo para garantir que o resultado seja exatamente o que você esperava.</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Como funciona o plano de manutenção?
+          <span class="icon">+</span>
+        </button>
+        <p class="faq-a">É uma mensalidade que cobre: hospedagem, backups, suporte, e até 2h de alterações por mês (trocar textos, fotos, preços, etc.). É a forma mais simples de manter seu site sempre atualizado sem precisar se preocupar com nada técnico.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CTA FINAL -->
-<section class="cta-section" id="contato">
-  <p class="section-label">Pronto para começar?</p>
-  <h2>Seu negócio merece estar online do jeito certo</h2>
-  <p>Conversa sem compromisso. A gente analisa seu negócio e faz uma proposta personalizada, de graça.</p>
-  <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Helph%20e%20quero%20saber%20mais%20sobre%20criar%20um%20site%20para%20meu%20neg%C3%B3cio." class="whatsapp-btn" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-    Falar pelo WhatsApp
-  </a>
+<!-- FORMULÁRIO ORÇAMENTO -->
+<section id="contato" style="background:var(--bg);">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;" class="form-section-grid">
+    <div>
+      <p class="section-label">Pronto para começar?</p>
+      <h2>Solicite seu orçamento grátis</h2>
+      <p style="color:var(--muted);font-size:1rem;line-height:1.75;margin-top:16px;">Preencha o formulário e a gente entra em contato pelo WhatsApp com uma proposta personalizada. Sem compromisso, sem custo.</p>
+      <div style="margin-top:32px;display:flex;flex-direction:column;gap:16px;">
+        <div style="display:flex;align-items:center;gap:12px;font-size:0.9rem;color:var(--muted);">
+          <span style="width:32px;height:32px;border-radius:50%;background:rgba(124,92,252,0.15);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;">✓</span>
+          Resposta em até 24h
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;font-size:0.9rem;color:var(--muted);">
+          <span style="width:32px;height:32px;border-radius:50%;background:rgba(124,92,252,0.15);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;">✓</span>
+          Proposta personalizada para o seu projeto
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;font-size:0.9rem;color:var(--muted);">
+          <span style="width:32px;height:32px;border-radius:50%;background:rgba(124,92,252,0.15);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;">✓</span>
+          Sem spam, sem ligação indesejada
+        </div>
+      </div>
+    </div>
+    <div>
+      <form class="orcamento-form" id="orcamento-form" onsubmit="enviarOrcamento(event)">
+        <div class="form-group">
+          <label for="f-nome">Seu nome ou empresa</label>
+          <input type="text" id="f-nome" placeholder="Ex: João Silva / Padaria do João" required />
+        </div>
+        <div class="form-group">
+          <label>Tipo de projeto</label>
+          <div class="form-radio-group">
+            <label><input type="radio" name="tipo" value="Negócio local (restaurante, salão, loja...)" required /><span>🏪 Negócio local</span></label>
+            <label><input type="radio" name="tipo" value="Profissional liberal (médico, advogado, psicólogo...)" /><span>👔 Profissional liberal</span></label>
+            <label><input type="radio" name="tipo" value="Prestador de serviço (fotógrafo, personal trainer...)" /><span>🔧 Prestador de serviço</span></label>
+            <label><input type="radio" name="tipo" value="Freelancer / portfólio pessoal" /><span>💻 Freelancer / portfólio</span></label>
+            <label><input type="radio" name="tipo" value="Outro" /><span>✦ Outro</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="f-desc">O que você precisa?</label>
+          <textarea id="f-desc" placeholder="Descreva brevemente seu negócio e o que espera do site..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Já tem domínio (.com.br)?</label>
+          <div class="form-radio-group">
+            <label><input type="radio" name="dominio" value="Sim, já tenho" required /><span>Sim</span></label>
+            <label><input type="radio" name="dominio" value="Não tenho ainda" /><span>Não</span></label>
+            <label><input type="radio" name="dominio" value="Não sei" /><span>Não sei</span></label>
+          </div>
+        </div>
+        <button type="submit" class="whatsapp-btn" style="border:none;cursor:pointer;justify-content:center;width:100%;">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px;fill:#fff;">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Enviar pelo WhatsApp
+        </button>
+        <div style="text-align:center;margin-top:16px;">
+          <span style="font-size:0.82rem;color:var(--muted);">Prefere conversar antes?</span>
+          <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Helph%20e%20gostaria%20de%20conversar%20sobre%20criar%20um%20site." target="_blank" rel="noopener" style="font-size:0.82rem;color:var(--accent2);font-weight:600;text-decoration:none;margin-left:6px;">Fale direto pelo WhatsApp →</a>
+        </div>
+      </form>
+    </div>
+  </div>
 </section>
+
+<!-- QUEM FAZ -->
+<section style="background:var(--bg2);padding:80px 6%;">
+  <p class="section-label">Quem está por trás</p>
+  <div style="display:flex;gap:48px;align-items:center;flex-wrap:wrap;max-width:860px;">
+    <img src="assets/img/pedro.png" alt="Pedro Henrique — Fundador da Helph Studio" style="flex-shrink:0;width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid rgba(124,92,252,0.3);" />
+    <div style="flex:1;min-width:260px;">
+      <h2 style="max-width:none;margin-bottom:12px;">Pedro Henrique</h2>
+      <p style="color:var(--muted);font-size:0.95rem;line-height:1.75;margin-bottom:20px;">Desenvolvedor com experiência em criação de sites para negócios locais, profissionais liberais, freelancers e empreendedores individuais. Fundei a Helph Studio para tornar a presença digital acessível para quem realmente precisa — com entrega rápida, orçamento justo e resultado profissional.</p>
+      <a href="https://www.linkedin.com/in/pereirapedrohs/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:rgba(10,102,194,0.15);border:1px solid rgba(10,102,194,0.3);color:#60a5fa;padding:9px 20px;border-radius:99px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+
 
 <!-- FOOTER -->
 <footer>
   <a href="#" class="logo" style="font-size:1.2rem">Hel<span>ph</span> Studio</a>
-  <p>© 2025 Helph. Sites para quem quer crescer.</p>
+  <div style="display:flex;flex-direction:column;gap:4px;text-align:center;">
+    <p>© 2025 Helph. Sites para quem quer crescer.</p>
+    <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;">
+      <a href="mailto:helphstudio@gmail.com" style="color:var(--muted);font-size:0.82rem;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#f0f0f5'" onmouseout="this.style.color='#8888a0'">✉ helphstudio@gmail.com</a>
+      <a href="https://wa.me/5521971349275" target="_blank" rel="noopener" style="color:var(--muted);font-size:0.82rem;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#f0f0f5'" onmouseout="this.style.color='#8888a0'">📱 (21) 97134-9275</a>
+    </div>
+  </div>
   <div class="footer-links">
     <a href="#por-que">Por que ter um site</a>
-    <a href="#precos">Preços</a>
+    <a href="#precos">Investimento</a>
     <a href="#contato">Contato</a>
   </div>
 </footer>
@@ -669,6 +844,17 @@
   const menu = document.getElementById('nav-menu');
   toggle.addEventListener('click', () => menu.classList.toggle('open'));
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  // Formulário → WhatsApp
+  function enviarOrcamento(e) {
+    e.preventDefault();
+    const nome = document.getElementById('f-nome').value.trim();
+    const tipo = document.querySelector('input[name="tipo"]:checked')?.value || 'Não informado';
+    const desc = document.getElementById('f-desc').value.trim();
+    const dominio = document.querySelector('input[name="dominio"]:checked')?.value || 'Não informado';
+    const msg = `Olá! Vim pelo site da Helph e gostaria de solicitar um orçamento.\n\n*Nome/Empresa:* ${nome}\n*Tipo de projeto:* ${tipo}\n*O que preciso:* ${desc}\n*Já tem domínio?* ${dominio}`;
+    window.open('https://wa.me/5521971349275?text=' + encodeURIComponent(msg), '_blank');
+  }
 
   // FAQ
   function toggleFaq(btn) {
