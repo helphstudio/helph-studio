@@ -95,7 +95,7 @@
       color: var(--text); text-decoration: none;
     }
     .logo span { color: var(--accent2); }
-    nav ul { list-style: none; display: flex; gap: 32px; }
+    nav ul { list-style: none; display: flex; gap: 32px; align-items: center; }
     nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color .2s; }
     nav a:hover { color: var(--text); }
     .nav-cta {
@@ -193,10 +193,17 @@
     .why-card {
       background: var(--bg3); border: 1px solid var(--border);
       border-radius: var(--radius); padding: 36px 32px;
-      transition: border-color .3s, transform .3s;
+      transition: border-color .3s, transform .3s, box-shadow .3s, background .3s;
+      cursor: default;
     }
-    .why-card:hover { border-color: rgba(124,92,252,0.4); transform: translateY(-4px); }
-    .why-icon { font-size: 2rem; margin-bottom: 20px; }
+    .why-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-8px);
+      box-shadow: 0 24px 64px rgba(124,92,252,0.25);
+      background: linear-gradient(135deg, var(--bg3), rgba(124,92,252,0.06));
+    }
+    .why-icon { font-size: 2rem; margin-bottom: 20px; display: inline-block; transition: transform .3s; }
+    .why-card:hover .why-icon { transform: scale(1.3) rotate(-5deg); }
     .why-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
     .why-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.65; }
 
@@ -374,14 +381,41 @@
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
-      padding: 40px 6%; display: flex;
-      justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 16px;
+      padding: 48px 6%;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 32px;
     }
-    footer p { color: var(--muted); font-size: 0.85rem; }
-    .footer-links { display: flex; gap: 24px; }
-    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color .2s; }
+    .footer-center { text-align: center; }
+    .footer-center p { color: var(--muted); font-size: 0.82rem; margin-bottom: 8px; }
+    .footer-contacts { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+    .footer-contacts a { color: var(--muted); font-size: 0.8rem; text-decoration: none; transition: color .2s; }
+    .footer-contacts a:hover { color: var(--text); }
+    .footer-links { display: flex; gap: 20px; justify-content: flex-end; flex-wrap: wrap; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; transition: color .2s; }
     .footer-links a:hover { color: var(--text); }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ── STAT HOVER ── */
+    .stat { text-align: center; cursor: default; }
+    .stat-num { font-size: 2rem; font-weight: 800; color: var(--text); letter-spacing: -1px; transition: color .3s, transform .3s; display: inline-block; }
+    .stat:hover .stat-num { color: var(--accent2); transform: scale(1.12); }
 
     /* ── PRICING 2-COL LAYOUT ── */
     .pricing-layout {
@@ -485,12 +519,16 @@
       .portfolio-layout { grid-template-columns: 1fr; gap: 32px; }
       .portfolio-left { position: static; }
       .form-section-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+      footer { grid-template-columns: 1fr; text-align: center; }
+      .footer-links { justify-content: center; }
     }
     @media (max-width: 480px) {
       .why-grid { grid-template-columns: 1fr; }
       h1 { font-size: clamp(1.7rem, 9vw, 2.4rem); }
       .form-radio-group { flex-direction: column; }
       .form-section-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+      footer { grid-template-columns: 1fr; text-align: center; }
+      .footer-links { justify-content: center; }
     }
   </style>
 </head>
@@ -503,7 +541,7 @@
     <li><a href="#por-que">Por que ter um site?</a></li>
     <li><a href="#como-funciona">Como funciona</a></li>
     <li><a href="#portfolio">Portfólio</a></li>
-    <li><a href="#precos">Preços</a></li>
+    <li><a href="#precos">Orçamento</a></li>
     <li><a href="musicas.html" style="color:#f472a8;font-size:0.85rem;border:1px solid rgba(244,114,168,0.25);padding:7px 16px;border-radius:99px;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;">🎵 Músicas</a></li>
     <li><a href="#contato" class="nav-cta" style="white-space:nowrap;">Falar agora</a></li>
   </ul>
@@ -523,7 +561,7 @@
   </div>
   <div class="hero-stats">
     <div class="stat">
-      <div class="stat-num">81%</div>
+      <div class="stat-num" data-count="81" data-suffix="%">81%</div>
       <div class="stat-label">dos consumidores pesquisam online<br/>antes de comprar</div>
     </div>
     <div class="stat">
@@ -531,7 +569,7 @@
       <div class="stat-label">mais credibilidade percebida<br/>com site profissional</div>
     </div>
     <div class="stat">
-      <div class="stat-num">7 dias</div>
+      <div class="stat-num" data-count="7" data-suffix=" dias">7 dias</div>
       <div class="stat-label">prazo médio de entrega<br/>do seu site</div>
     </div>
   </div>
@@ -543,32 +581,32 @@
   <h2>Sem site, você perde clientes todo dia</h2>
   <p class="section-sub">Enquanto você não está online, seu concorrente está. Veja o que um site faz pelo seu negócio.</p>
   <div class="why-grid">
-    <div class="why-card">
+    <div class="why-card reveal reveal-delay-1">
       <div class="why-icon">🔍</div>
       <h3>Aparece no Google</h3>
       <p>Quando alguém busca pelo seu serviço na sua cidade, seu negócio aparece. Sem site, você simplesmente não existe para essa pessoa.</p>
     </div>
-    <div class="why-card">
+    <div class="why-card reveal reveal-delay-2">
       <div class="why-icon">⭐</div>
       <h3>Credibilidade instantânea</h3>
       <p>Um site profissional vale mais que mil palavras. Clientes confiam mais e compram mais rápido quando veem que você tem presença online.</p>
     </div>
-    <div class="why-card">
+    <div class="why-card reveal reveal-delay-3">
       <div class="why-icon">📲</div>
       <h3>Atende 24h por dia</h3>
       <p>Seu site trabalha enquanto você descansa. Informações, preços, formas de contato — tudo disponível a qualquer hora.</p>
     </div>
-    <div class="why-card">
+    <div class="why-card reveal reveal-delay-1">
       <div class="why-icon">📣</div>
       <h3>Potencializa suas redes sociais</h3>
       <p>Instagram, TikTok, WhatsApp — tudo fica mais forte com um site como destino. Transforma seguidores em clientes de verdade.</p>
     </div>
-    <div class="why-card">
+    <div class="why-card reveal reveal-delay-2">
       <div class="why-icon">🎯</div>
       <h3>Você controla sua imagem</h3>
       <p>No seu site, as regras são suas. Diferente das redes sociais, ninguém muda o algoritmo e derruba o seu alcance da noite pro dia.</p>
     </div>
-    <div class="why-card">
+    <div class="why-card reveal reveal-delay-3">
       <div class="why-icon">💰</div>
       <h3>Retorno sobre investimento</h3>
       <p>Para um restaurante, um salão, um advogado ou um MEI — um único cliente a mais por mês já paga o site várias vezes. É o custo-benefício que mais faz sentido.</p>
@@ -582,7 +620,7 @@
   <h2>Do zero ao site no ar em 7 dias</h2>
   <p class="section-sub">Simples, rápido e sem dor de cabeça. Você foca no seu negócio, a gente cuida do resto.</p>
   <div class="steps">
-    <div class="step">
+    <div class="step reveal reveal-delay-1">
       <div class="step-num">1</div>
       <div class="step-line"></div>
       <div class="step-content">
@@ -590,7 +628,7 @@
         <p>Bate-papo de 30 minutos pelo WhatsApp ou vídeo chamada. A gente entende o seu negócio, seus clientes, seus objetivos. Sem compromisso.</p>
       </div>
     </div>
-    <div class="step">
+    <div class="step reveal reveal-delay-2">
       <div class="step-num">2</div>
       <div class="step-line"></div>
       <div class="step-content">
@@ -598,7 +636,7 @@
         <p>Montamos uma proposta personalizada com o escopo do projeto. Você aprova tudo antes de começar — sem surpresas no meio do caminho.</p>
       </div>
     </div>
-    <div class="step">
+    <div class="step reveal reveal-delay-3">
       <div class="step-num">3</div>
       <div class="step-line"></div>
       <div class="step-content">
@@ -606,7 +644,7 @@
         <p>Criamos um site moderno, rápido e adaptado para celular. Você acompanha o progresso e pode sugerir ajustes antes de publicar.</p>
       </div>
     </div>
-    <div class="step">
+    <div class="step reveal reveal-delay-4">
       <div class="step-num">4</div>
       <div class="step-line"></div>
       <div class="step-content">
@@ -627,7 +665,7 @@
   </div>
   <div class="portfolio-grid">
 
-    <div class="portfolio-card">
+    <div class="portfolio-card reveal reveal-delay-1">
       <div class="portfolio-preview">
         <img src="assets/img/parperfeito-preview.jpg" alt="Par Perfeito Assessoria de Casamento — prévia do site" />
       </div>
@@ -639,7 +677,7 @@
       </div>
     </div>
 
-    <div class="portfolio-card">
+    <div class="portfolio-card reveal reveal-delay-2">
       <div class="portfolio-img-placeholder">
         <span>💼</span>
         <p>Seu negócio pode ser o próximo</p>
@@ -702,38 +740,52 @@
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
-          Preciso ter domínio (.com.br) para contratar?
+          Quanto custa fazer um site?
           <span class="icon">+</span>
         </button>
-        <p class="faq-a">Não é obrigatório, mas recomendamos. Um domínio próprio passa mais profissionalismo e custa em torno de R$&nbsp;40/ano. Podemos cuidar de tudo isso pra você.</p>
+        <p class="faq-a">Cada projeto é único, então o valor é definido após entender o que você precisa. Trabalhamos com orçamento personalizado — sem tabela fixa. A consulta inicial é gratuita e sem compromisso. Você recebe uma proposta detalhada antes de decidir qualquer coisa.</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Quanto tempo leva para o site ficar pronto?
+          <span class="icon">+</span>
+        </button>
+        <p class="faq-a">Em média 7 dias após a aprovação da proposta e o envio do conteúdo. Projetos mais complexos podem levar um pouco mais. Você acompanha cada etapa e pode sugerir ajustes antes da publicação.</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Preciso fornecer as fotos e os textos?
+          <span class="icon">+</span>
+        </button>
+        <p class="faq-a">Sim, o conteúdo do seu negócio vem de você — textos sobre seus serviços, fotos do espaço ou produto, logo, etc. A gente organiza tudo e dá dicas do que funciona melhor. Se não tiver fotos de qualidade, podemos orientar sobre como conseguir.</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          O site vai funcionar bem no celular?
+          <span class="icon">+</span>
+        </button>
+        <p class="faq-a">Sim — todos os nossos sites são mobile-first, ou seja, desenvolvidos pensando primeiro no celular. Mais de 70% dos acessos à internet no Brasil são feitos pelo celular, então isso não é opcional, é prioridade.</p>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
           O site vai aparecer no Google?
           <span class="icon">+</span>
         </button>
-        <p class="faq-a">Todo site que criamos já vem com SEO básico configurado — título, descrição, velocidade de carregamento, e estrutura correta. Aparecer bem no Google leva tempo, mas você já sai na frente da maioria.</p>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Que tipos de site vocês fazem?
-          <span class="icon">+</span>
-        </button>
-        <p class="faq-a">Fazemos sites para todo tipo de projeto: negócios locais, lojas, prestadores de serviço, profissionais autônomos, freelancers e portfólios pessoais. Pode ser uma página única (landing page) ou um site completo com várias seções — definimos juntos o que faz mais sentido para o seu caso.</p>
+        <p class="faq-a">Todo site que criamos já vem com SEO básico configurado — título, descrição, velocidade e estrutura correta. Aparecer bem no Google leva tempo, mas você já sai na frente da maioria dos concorrentes sem site ou com sites mal configurados.</p>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
           E se eu não gostar do resultado?
           <span class="icon">+</span>
         </button>
-        <p class="faq-a">Você aprova o design antes de qualquer implementação. Incluímos rodadas de revisão no processo para garantir que o resultado seja exatamente o que você esperava.</p>
+        <p class="faq-a">Você aprova o design antes de qualquer implementação. Incluímos rodadas de revisão para garantir que o resultado seja exatamente o que você esperava. Só publicamos quando você estiver satisfeito.</p>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
-          Como funciona o plano de manutenção?
+          Vou conseguir atualizar o site sozinho depois?
           <span class="icon">+</span>
         </button>
-        <p class="faq-a">É uma mensalidade que cobre: hospedagem, backups, suporte, e até 2h de alterações por mês (trocar textos, fotos, preços, etc.). É a forma mais simples de manter seu site sempre atualizado sem precisar se preocupar com nada técnico.</p>
+        <p class="faq-a">Depende do tipo de atualização. Pequenas mudanças de texto ou imagem podem ser feitas via nosso plano de manutenção mensal, sem precisar entender nada técnico. Para quem prefere autonomia total, desenvolvemos com sistemas de fácil edição — a gente define isso junto.</p>
       </div>
     </div>
   </div>
@@ -806,8 +858,8 @@
 
 <!-- QUEM FAZ -->
 <section style="background:var(--bg2);padding:80px 6%;">
-  <p class="section-label">Quem está por trás</p>
-  <div style="display:flex;gap:48px;align-items:center;flex-wrap:wrap;max-width:860px;">
+  <p class="section-label" style="text-align:center;margin-bottom:48px;">Quem está por trás</p>
+  <div style="display:flex;gap:48px;align-items:center;flex-wrap:wrap;max-width:860px;margin:0 auto;">
     <img src="assets/img/pedro.png" alt="Pedro Henrique — Fundador da Helph Studio" style="flex-shrink:0;width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid rgba(124,92,252,0.3);" />
     <div style="flex:1;min-width:260px;">
       <h2 style="max-width:none;margin-bottom:12px;">Pedro Henrique</h2>
@@ -824,16 +876,16 @@
 <!-- FOOTER -->
 <footer>
   <a href="#" class="logo" style="font-size:1.2rem">Hel<span>ph</span> Studio</a>
-  <div style="display:flex;flex-direction:column;gap:4px;text-align:center;">
-    <p>© 2025 Helph. Sites para quem quer crescer.</p>
-    <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;">
-      <a href="mailto:helphstudio@gmail.com" style="color:var(--muted);font-size:0.82rem;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#f0f0f5'" onmouseout="this.style.color='#8888a0'">✉ helphstudio@gmail.com</a>
-      <a href="https://wa.me/5521971349275" target="_blank" rel="noopener" style="color:var(--muted);font-size:0.82rem;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#f0f0f5'" onmouseout="this.style.color='#8888a0'">📱 (21) 97134-9275</a>
+  <div class="footer-center">
+    <p>© 2025 Helph Studio — Presença digital para quem quer crescer.</p>
+    <div class="footer-contacts">
+      <a href="mailto:helphstudio@gmail.com">✉ helphstudio@gmail.com</a>
+      <a href="https://wa.me/5521971349275" target="_blank" rel="noopener">📱 (21) 97134-9275</a>
     </div>
   </div>
   <div class="footer-links">
     <a href="#por-que">Por que ter um site</a>
-    <a href="#precos">Investimento</a>
+    <a href="#precos">Orçamento</a>
     <a href="#contato">Contato</a>
   </div>
 </footer>
@@ -844,6 +896,41 @@
   const menu = document.getElementById('nav-menu');
   toggle.addEventListener('click', () => menu.classList.toggle('open'));
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  // Scroll reveal
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // Counter animation for hero stats
+  function animateCounter(el, target, suffix, duration) {
+    let start = 0;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) { start = target; clearInterval(timer); }
+      el.textContent = Math.floor(start) + suffix;
+    }, 16);
+  }
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const nums = e.target.querySelectorAll('[data-count]');
+        nums.forEach(el => {
+          animateCounter(el, +el.dataset.count, el.dataset.suffix || '', 1200);
+        });
+        statsObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  const heroStats = document.querySelector('.hero-stats');
+  if (heroStats) statsObserver.observe(heroStats);
 
   // Formulário → WhatsApp
   function enviarOrcamento(e) {
