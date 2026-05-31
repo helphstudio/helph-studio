@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radiofrequência: o que é e para quem é indicada — Espaço Serenità</title>
+  <meta name="description" content="Entenda como funciona a radiofrequência facial, quem pode fazer e por que ela é uma das tecnologias mais eficazes contra flacidez sem cirurgia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --ivory: #f9f5f0; --sage: #7a9e8e; --sage-dark: #5a7a6c; --sage-light: #a8c5b8;
+      --dark: #1a1c1b; --muted: #7a7570; --warm: #f2ece4; --border: rgba(122,158,142,0.18);
+    }
+    body { font-family: 'DM Sans', sans-serif; background: #fff; color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+    .demo-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      background: var(--dark); color: #fff; text-align: center; padding: 10px 16px;
+      font-size: 0.82rem; font-weight: 500;
+      display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
+    }
+    .demo-banner strong { font-weight: 700; }
+    .demo-banner a { color: #e0c99a; font-weight: 700; text-decoration: none; }
+    nav {
+      position: fixed; top: 40px; left: 0; right: 0; z-index: 998;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 64px;
+      background: rgba(249,245,240,0.96); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--dark); text-decoration: none; }
+    .nav-logo span { color: var(--sage); font-style: italic; }
+    .nav-back { display: flex; align-items: center; gap: 8px; font-size: 0.87rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .nav-back:hover { color: var(--sage-dark); }
+    .nav-cta { background: var(--sage); color: #fff; padding: 10px 22px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: background .2s; }
+    .nav-cta:hover { background: var(--sage-dark); }
+    .post-hero {
+      margin-top: 104px; position: relative; height: 420px;
+      background: url('https://images.unsplash.com/photo-1552693673-1bf958298935?w=1600&q=80') center/cover no-repeat;
+      display: flex; align-items: flex-end;
+    }
+    .post-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,28,27,0.8) 0%, rgba(26,28,27,0.2) 70%); }
+    .post-hero-content { position: relative; z-index: 1; padding: 40px 5%; max-width: 860px; }
+    .post-cat { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #e0c99a; margin-bottom: 12px; }
+    .post-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 16px; }
+    .post-meta { display: flex; align-items: center; gap: 20px; color: rgba(255,255,255,0.65); font-size: 0.83rem; }
+    .post-layout { display: grid; grid-template-columns: 1fr 320px; gap: 64px; max-width: 1140px; margin: 0 auto; padding: 64px 5% 96px; }
+    .post-content h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--dark); margin: 40px 0 16px; }
+    .post-content h2:first-child { margin-top: 0; }
+    .post-content p { color: #444; line-height: 1.85; margin-bottom: 20px; font-size: 1rem; }
+    .post-content ul { padding-left: 20px; margin-bottom: 20px; }
+    .post-content ul li { color: #444; line-height: 1.8; margin-bottom: 8px; }
+    .post-content strong { color: var(--dark); }
+    .post-highlight { background: var(--ivory); border-left: 3px solid var(--sage); padding: 20px 24px; margin: 32px 0; border-radius: 0 4px 4px 0; font-style: italic; color: var(--dark); font-size: 1.05rem; line-height: 1.7; }
+    .post-cta-inline { background: var(--sage-dark); color: #fff; padding: 28px 32px; border-radius: 4px; margin: 40px 0; text-align: center; }
+    .post-cta-inline p { color: rgba(255,255,255,0.85); margin-bottom: 16px; font-size: 0.95rem; }
+    .post-cta-inline a { display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: #fff; padding: 12px 28px; border-radius: 50px; font-weight: 700; font-size: 0.9rem; text-decoration: none; }
+    .post-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(0,0,0,0.08); }
+    .post-tag { background: var(--ivory); color: var(--muted); padding: 6px 14px; border-radius: 50px; font-size: 0.78rem; font-weight: 500; }
+    .sidebar-block { background: var(--ivory); border-radius: 4px; padding: 28px; margin-bottom: 24px; }
+    .sidebar-block h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 20px; color: var(--dark); padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .sidebar-post { display: flex; gap: 12px; margin-bottom: 16px; }
+    .sidebar-post img { width: 64px; height: 64px; object-fit: cover; border-radius: 3px; flex-shrink: 0; }
+    .sidebar-post-info span { font-size: 0.72rem; color: var(--sage-dark); font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; }
+    .sidebar-post-info a { display: block; font-size: 0.87rem; font-weight: 500; color: var(--dark); text-decoration: none; line-height: 1.4; margin-top: 4px; }
+    .sidebar-post-info a:hover { color: var(--sage-dark); }
+    .sidebar-cta { background: var(--sage-dark); border-radius: 4px; padding: 28px; text-align: center; margin-bottom: 24px; }
+    .sidebar-cta h3 { color: #fff; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; margin-bottom: 12px; }
+    .sidebar-cta p { color: rgba(255,255,255,0.8); font-size: 0.88rem; line-height: 1.6; margin-bottom: 16px; }
+    .sidebar-cta a { display: flex; align-items: center; justify-content: center; gap: 8px; background: #25D366; color: #fff; padding: 12px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; text-decoration: none; }
+    footer { background: var(--dark); padding: 32px 5%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: rgba(255,255,255,0.45); font-size: 0.82rem; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: #fff; text-decoration: none; }
+    .footer-logo span { color: var(--sage-light); font-style: italic; }
+    footer a { color: var(--sage-light); text-decoration: none; }
+    @media (max-width: 900px) { .post-layout { grid-template-columns: 1fr; } .nav-cta { display: none; } }
+  </style>
+</head>
+<body>
+
+<div class="demo-banner">
+  <strong>Página de demonstração</strong> — criada pela Helph Studio. Este não é um negócio real.
+  <a href="https://helphstudio.github.io/helph-studio#planos">Quero um site assim para o meu negócio →</a>
+</div>
+
+<nav>
+  <a href="../demo-pacote-completo.html" class="nav-logo">Espaço <span>Serenità</span></a>
+  <a href="../demo-pacote-completo.html#blog" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    Voltar ao site
+  </a>
+  <a href="https://wa.me/5521999990000?text=Olá!%20Li%20sobre%20radiofrequência%20e%20gostaria%20de%20agendar%20uma%20avaliação." class="nav-cta" target="_blank" rel="noopener">Agendar avaliação</a>
+</nav>
+
+<div class="post-hero">
+  <div class="post-hero-content">
+    <span class="post-cat">Tecnologia</span>
+    <h1>Radiofrequência: o que é e para quem é indicada</h1>
+    <div class="post-meta">
+      <span>📅 02 de maio de 2025</span>
+      <span>✍️ Beatriz Santos</span>
+      <span>⏱ 6 min de leitura</span>
+    </div>
+  </div>
+</div>
+
+<div class="post-layout">
+  <article class="post-content">
+
+    <p>A radiofrequência facial é uma das tecnologias mais avançadas disponíveis atualmente para combater a flacidez e o envelhecimento sem recorrer a cirurgias. No Espaço Serenità, é um dos nossos tratamentos mais procurados — especialmente por clientes entre 35 e 55 anos que buscam resultados reais e duradouros sem tempo de recuperação.</p>
+
+    <blockquote class="post-highlight">
+      "A radiofrequência age de dentro para fora: aquece as camadas profundas da pele e estimula o organismo a produzir colágeno novo. É rejuvenescimento natural." — Beatriz Santos, especialista em pele
+    </blockquote>
+
+    <h2>Como funciona a radiofrequência?</h2>
+    <p>O equipamento emite ondas de energia eletromagnética que penetram nas camadas mais profundas da pele — a derme e a hipoderme — sem causar danos à superfície. Essa energia gera calor controlado nos tecidos, que provoca dois efeitos imediatos:</p>
+    <ul>
+      <li><strong>Contração das fibras de colágeno existentes</strong> — o que produz um efeito lifting imediato;</li>
+      <li><strong>Estímulo à produção de colágeno e elastina novos</strong> — o que garante resultados progressivos ao longo das semanas seguintes.</li>
+    </ul>
+    <p>O procedimento é completamente indolor para a maioria das pessoas — a sensação é de um calor agradável e profundo no rosto. Não há agulhas, cortes ou tempo de recuperação.</p>
+
+    <h2>Para quem a radiofrequência é indicada?</h2>
+    <p>A radiofrequência facial é recomendada para quem apresenta um ou mais dos seguintes quadros:</p>
+    <ul>
+      <li>Flacidez moderada na região do rosto e pescoço;</li>
+      <li>Perda de contorno na mandíbula e queixo ("papada" inicial);</li>
+      <li>Linhas finas e rugas superficiais;</li>
+      <li>Pele sem viço, apagada ou com aspecto de cansaço;</li>
+      <li>Prevenção do envelhecimento (a partir dos 30 anos).</li>
+    </ul>
+    <p>O procedimento é seguro para todos os tipos e tons de pele. Gestantes, portadores de marca-passo e pessoas com implantes metálicos na região a ser tratada não podem realizar o procedimento — situações sempre avaliadas na consulta inicial.</p>
+
+    <h2>Quantas sessões são necessárias?</h2>
+    <p>Os resultados da radiofrequência são cumulativos. Para flacidez leve, um protocolo de <strong>6 a 8 sessões</strong> semanais ou quinzenais já produz resultados expressivos. Para flacidez moderada, podem ser necessárias de 10 a 12 sessões. Após o protocolo inicial, sessões mensais de manutenção garantem os resultados a longo prazo.</p>
+
+    <p>É importante ter em mente que os melhores resultados aparecem entre 2 e 3 meses após o início do tratamento, quando o colágeno novo está sendo sintetizado. Muitas clientes relatam que o rosto continua melhorando semanas após o término das sessões.</p>
+
+    <div class="post-cta-inline">
+      <p>Quer saber se a radiofrequência é indicada para o seu caso?</p>
+      <a href="https://wa.me/5521999990000?text=Olá!%20Li%20sobre%20radiofrequência%20e%20gostaria%20de%20agendar%20uma%20avaliação%20gratuita." target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar avaliação gratuita pelo WhatsApp
+      </a>
+    </div>
+
+    <h2>Radiofrequência x Outros tratamentos</h2>
+    <p>Muitas clientes chegam com dúvidas sobre a diferença entre radiofrequência, ultrassom microfocado (HIFU) e outros procedimentos. A radiofrequência atua principalmente na derme e é ótima para flacidez leve a moderada e manutenção. Já o HIFU age em camadas mais profundas e é mais indicado para flacidez mais intensa. Nossa especialista avalia cada caso e indica o protocolo mais adequado — ou uma combinação dos dois.</p>
+
+    <p>O grande diferencial da radiofrequência está na <strong>relação custo-benefício</strong> e na ausência de recuperação: você faz o tratamento e volta à sua rotina imediatamente. Não há vermelhidão intensa, descamação ou período de restrição de atividades.</p>
+
+    <div class="post-tags">
+      <span class="post-tag">Radiofrequência</span>
+      <span class="post-tag">Flacidez</span>
+      <span class="post-tag">Colágeno</span>
+      <span class="post-tag">Tecnologia Estética</span>
+      <span class="post-tag">Rejuvenescimento</span>
+    </div>
+
+  </article>
+
+  <aside>
+    <div class="sidebar-cta">
+      <h3>Avaliação gratuita</h3>
+      <p>Descubra se a radiofrequência é indicada para você.</p>
+      <a href="https://wa.me/5521999990000?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação%20gratuita%20no%20Espaço%20Serenità." target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
+    </div>
+    <div class="sidebar-block">
+      <h3>Outros artigos</h3>
+      <div class="sidebar-post">
+        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=150&q=80" alt="Peeling" />
+        <div class="sidebar-post-info">
+          <span>Estética Facial</span>
+          <a href="peeling-quimico.html">5 benefícios do peeling químico para pele mista</a>
+        </div>
+      </div>
+      <div class="sidebar-post">
+        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=150&q=80" alt="Skincare verão" />
+        <div class="sidebar-post-info">
+          <span>Cuidados</span>
+          <a href="skincare-verao.html">Rotina de skincare para o verão carioca</a>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-block">
+      <h3>Tratamento relacionado</h3>
+      <div class="sidebar-post">
+        <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?w=150&q=80" alt="Radiofrequência" />
+        <div class="sidebar-post-info">
+          <span>A partir de R$ 320</span>
+          <a href="../demo-pacote-completo.html#tratamentos">Radiofrequência Facial →</a>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <a href="../demo-pacote-completo.html" class="footer-logo">Espaço <span>Serenità</span></a>
+  <p>© 2025 Espaço Serenità — <em>Página fictícia para fins de demonstração.</em></p>
+  <p>Site criado por <a href="https://helphstudio.github.io/helph-studio" target="_blank">Helph Studio</a></p>
+</footer>
+
+</body>
+</html>

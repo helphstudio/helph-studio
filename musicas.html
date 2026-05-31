@@ -3,13 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Helph Música — Músicas Personalizadas para Momentos Únicos</title>
-  <meta name="description" content="Crie uma música original e personalizada para aniversários, casamentos, formaturas, empresas e muito mais. Presente único e inesquecível." />
+  <title>Helph Studio Música — Músicas Personalizadas para Momentos Únicos</title>
+  <meta name="description" content="Crie uma música original e personalizada para aniversários, casamentos, formaturas e empresas. Presente único e inesquecível. A partir de R$39." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.helphstudio.com.br/musicas.html" />
+  <meta property="og:title" content="Helph Studio — Músicas Personalizadas para Momentos Únicos" />
+  <meta property="og:description" content="Música original feita só para você: aniversário, casamento, declaração, jingle. Entrega em até 5 dias. A partir de R$39." />
+  <meta property="og:image" content="https://www.helphstudio.com.br/assets/img/helph-logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%230a0a0f'/><text y='68' x='50' text-anchor='middle' font-size='52' font-family='Arial Black,sans-serif' font-weight='900' fill='%23f0f0f5'>H</text></svg>" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Schema.org — Serviço de Música Personalizada -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Músicas Personalizadas — Helph Studio",
+    "description": "Criação de músicas originais e personalizadas para aniversários, casamentos, formaturas, declarações e jingles corporativos.",
+    "provider": {
+      "@type": "ProfessionalService",
+      "name": "Helph Studio",
+      "url": "https://www.helphstudio.com.br",
+      "telephone": "+55-21-97134-9275",
+      "email": "helphstudio@gmail.com"
+    },
+    "url": "https://www.helphstudio.com.br/musicas.html",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Brasil"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Versão Curta (~1 min)",
+        "price": "39.00",
+        "priceCurrency": "BRL"
+      },
+      {
+        "@type": "Offer",
+        "name": "Música Completa (2-3 min)",
+        "price": "74.00",
+        "priceCurrency": "BRL"
+      },
+      {
+        "@type": "Offer",
+        "name": "Jingle Corporativo",
+        "price": "149.00",
+        "priceCurrency": "BRL"
+      }
+    ]
+  }
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @font-face { font-display: swap; }
 
     :root {
       --bg: #0a0a0f;
@@ -572,8 +629,199 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section" id="pedir">
+<!-- PLAYER DE DEMOS -->
+<section style="background:var(--bg2);padding:100px 6%;" id="demos">
+  <p class="section-label">Ouça exemplos</p>
+  <h2>Sinta como fica</h2>
+  <p class="section-sub">Exemplos reais de músicas personalizadas. Clique para ouvir — cada estilo conta uma história diferente.</p>
+
+  <div style="display:flex;flex-direction:column;gap:16px;max-width:720px;" id="player-list">
+
+    <div class="player-card" data-src="assets/audio/demo-sertanejo-aniversario.mp3">
+      <div class="player-info">
+        <div class="player-icon">🎂</div>
+        <div>
+          <p class="player-title">Parabéns pra Você — Estilo Sertanejo</p>
+          <p class="player-desc">Aniversário · ~1 min</p>
+        </div>
+      </div>
+      <button class="play-btn" onclick="togglePlay(this)">
+        <span class="play-icon">▶</span>
+      </button>
+    </div>
+
+    <div class="player-card" data-src="assets/audio/demo-pop-declaracao.mp3">
+      <div class="player-info">
+        <div class="player-icon">💝</div>
+        <div>
+          <p class="player-title">Declaração de Amor — Estilo Pop</p>
+          <p class="player-desc">Romântico · ~1 min</p>
+        </div>
+      </div>
+      <button class="play-btn" onclick="togglePlay(this)">
+        <span class="play-icon">▶</span>
+      </button>
+    </div>
+
+    <div class="player-card" data-src="assets/audio/demo-mpb-casamento.mp3">
+      <div class="player-info">
+        <div class="player-icon">💍</div>
+        <div>
+          <p class="player-title">Nossa História — Estilo MPB</p>
+          <p class="player-desc">Casamento · ~1 min</p>
+        </div>
+      </div>
+      <button class="play-btn" onclick="togglePlay(this)">
+        <span class="play-icon">▶</span>
+      </button>
+    </div>
+
+    <div class="player-card" data-src="assets/audio/demo-jingle-corporativo.mp3">
+      <div class="player-info">
+        <div class="player-icon">🎙️</div>
+        <div>
+          <p class="player-title">Jingle Corporativo — Estilo Pop Comercial</p>
+          <p class="player-desc">Empresa · ~30 seg</p>
+        </div>
+      </div>
+      <button class="play-btn" onclick="togglePlay(this)">
+        <span class="play-icon">▶</span>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.player-card {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 14px; padding: 20px 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  transition: border-color .3s;
+}
+.player-card.playing { border-color: rgba(224,73,122,0.5); background: rgba(224,73,122,0.05); }
+.player-info { display: flex; align-items: center; gap: 16px; flex: 1; min-width: 0; }
+.player-icon { font-size: 1.8rem; flex-shrink: 0; }
+.player-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 3px; }
+.player-desc { font-size: 0.78rem; color: var(--muted); }
+.play-btn {
+  flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%;
+  background: var(--accent); border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 0.9rem; transition: opacity .2s, transform .2s;
+}
+.play-btn:hover { opacity: 0.85; transform: scale(1.05); }
+.play-btn.playing { background: #555; }
+</style>
+
+<!-- FORMULÁRIO DE BRIEFING -->
+<section style="padding:100px 6%;" id="pedir">
+  <p class="section-label">Encomendar</p>
+  <h2>Preencha e receba sua música</h2>
+  <p class="section-sub">Conta pra gente os detalhes. Quando clicar em enviar, abrimos o WhatsApp com tudo preenchido — é só confirmar.</p>
+
+  <form id="briefing-form" style="max-width:620px;display:flex;flex-direction:column;gap:20px;" onsubmit="enviarWhatsApp(event)">
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="form-group">
+        <label>Seu nome</label>
+        <input type="text" id="f-nome" placeholder="Como você se chama?" required />
+      </div>
+      <div class="form-group">
+        <label>Para quem é a música?</label>
+        <input type="text" id="f-destinatario" placeholder="Nome e apelidos" required />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Qual a ocasião?</label>
+      <select id="f-ocasiao" required>
+        <option value="">Selecione...</option>
+        <option>Aniversário</option>
+        <option>Casamento</option>
+        <option>Chá de bebê</option>
+        <option>Formatura</option>
+        <option>Declaração de amor</option>
+        <option>Homenagem / Despedida</option>
+        <option>Jingle / Corporativo</option>
+        <option>Outro</option>
+      </select>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="form-group">
+        <label>Estilo musical</label>
+        <select id="f-estilo" required>
+          <option value="">Selecione...</option>
+          <option>Sertanejo</option>
+          <option>Pop brasileiro</option>
+          <option>MPB</option>
+          <option>Pagode / Samba</option>
+          <option>Forró</option>
+          <option>Funk</option>
+          <option>Rock</option>
+          <option>Gospel</option>
+          <option>Infantil</option>
+          <option>Me surpreenda!</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tom da música</label>
+        <select id="f-tom" required>
+          <option value="">Selecione...</option>
+          <option>Emocionante / Romântico</option>
+          <option>Animado / Festivo</option>
+          <option>Engraçado / Divertido</option>
+          <option>Suave / Tranquilo</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Detalhes, histórias ou nomes a mencionar</label>
+      <textarea id="f-detalhes" rows="4" placeholder="Quanto mais detalhes, mais especial fica! Ex: ela adora gatos, nos conhecemos no trabalho, o apelido dela é Bê..." required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Plano desejado</label>
+      <select id="f-plano">
+        <option>Versão Curta (~1 min) — R$ 39</option>
+        <option>Música Completa (2-3 min) — R$ 74</option>
+        <option>Corporativo / Jingle — a partir de R$ 149</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn-primary" style="align-self:flex-start;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:10px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Enviar pelo WhatsApp
+    </button>
+
+  </form>
+</section>
+
+<style>
+.form-group { display: flex; flex-direction: column; gap: 7px; }
+.form-group label { font-size: 0.82rem; font-weight: 600; color: var(--muted); letter-spacing: 0.3px; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 10px; padding: 12px 16px; color: var(--text);
+  font-family: inherit; font-size: 0.92rem; outline: none;
+  transition: border-color .2s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: rgba(224,73,122,0.5); }
+.form-group select option { background: #18181f; }
+.form-group textarea { resize: vertical; }
+@media (max-width: 600px) {
+  #briefing-form > div[style*="grid"] { grid-template-columns: 1fr !important; }
+}
+</style>
+
+<!-- CTA simples abaixo do form -->
+<section class="cta-section" id="pedir-whats" style="padding-top:0">
   <p class="section-label">Pronto para surpreender?</p>
   <h2>Crie agora a música mais especial que essa pessoa já ouviu</h2>
   <p>É só mandar uma mensagem no WhatsApp. A gente te orienta em tudo — do briefing à entrega.</p>
@@ -597,17 +845,95 @@
 </footer>
 
 <script>
+  // Mobile menu
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('nav-menu');
   toggle.addEventListener('click', () => menu.classList.toggle('open'));
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
 
+  // FAQ
   function toggleFaq(btn) {
     const answer = btn.nextElementSibling;
     const isOpen = answer.classList.contains('open');
     document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
     document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
     if (!isOpen) { answer.classList.add('open'); btn.classList.add('open'); }
+  }
+
+  // Player — uma música por vez
+  let currentAudio = null;
+  let currentBtn = null;
+
+  function togglePlay(btn) {
+    const card = btn.closest('.player-card');
+    const src = card.dataset.src;
+
+    // Se já está tocando essa, pausa
+    if (currentBtn === btn && currentAudio && !currentAudio.paused) {
+      currentAudio.pause();
+      btn.querySelector('.play-icon').textContent = '▶';
+      btn.classList.remove('playing');
+      card.classList.remove('playing');
+      return;
+    }
+
+    // Para a anterior
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
+    if (currentBtn) {
+      currentBtn.querySelector('.play-icon').textContent = '▶';
+      currentBtn.classList.remove('playing');
+      currentBtn.closest('.player-card').classList.remove('playing');
+    }
+
+    // Toca a nova
+    currentAudio = new Audio(src);
+    currentBtn = btn;
+    btn.querySelector('.play-icon').textContent = '⏸';
+    btn.classList.add('playing');
+    card.classList.add('playing');
+    currentAudio.play().catch(() => {
+      // Arquivo ainda não adicionado
+      btn.querySelector('.play-icon').textContent = '▶';
+      btn.classList.remove('playing');
+      card.classList.remove('playing');
+      alert('Áudio ainda não disponível. Volte em breve!');
+    });
+    currentAudio.onended = () => {
+      btn.querySelector('.play-icon').textContent = '▶';
+      btn.classList.remove('playing');
+      card.classList.remove('playing');
+      currentAudio = null;
+      currentBtn = null;
+    };
+  }
+
+  // Formulário → WhatsApp
+  function enviarWhatsApp(e) {
+    e.preventDefault();
+    const nome = document.getElementById('f-nome').value.trim();
+    const dest = document.getElementById('f-destinatario').value.trim();
+    const ocas = document.getElementById('f-ocasiao').value;
+    const est  = document.getElementById('f-estilo').value;
+    const tom  = document.getElementById('f-tom').value;
+    const det  = document.getElementById('f-detalhes').value.trim();
+    const pla  = document.getElementById('f-plano').value;
+
+    const msg =
+`Olá! Quero encomendar uma música personalizada 🎵
+
+👤 Meu nome: ${nome}
+🎁 Para: ${dest}
+🎉 Ocasião: ${ocas}
+🎸 Estilo: ${est}
+💬 Tom: ${tom}
+📝 Detalhes: ${det}
+💳 Plano: ${pla}`;
+
+    const url = 'https://wa.me/5521971349275?text=' + encodeURIComponent(msg);
+    window.open(url, '_blank');
   }
 </script>
 

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5 benefícios do peeling químico para pele mista — Espaço Serenità</title>
+  <meta name="description" content="Descubra por que o peeling químico é um dos tratamentos mais eficazes para controlar oleosidade, reduzir manchas e renovar a pele mista." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --ivory: #f9f5f0;
+      --sage: #7a9e8e;
+      --sage-dark: #5a7a6c;
+      --sage-light: #a8c5b8;
+      --gold: #c9a96e;
+      --dark: #1a1c1b;
+      --muted: #7a7570;
+      --warm: #f2ece4;
+      --border: rgba(122,158,142,0.18);
+    }
+
+    body { font-family: 'DM Sans', sans-serif; background: #fff; color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+
+    /* DEMO BANNER */
+    .demo-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      background: var(--dark); color: #fff;
+      text-align: center; padding: 10px 16px;
+      font-size: 0.82rem; font-weight: 500;
+      display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
+    }
+    .demo-banner strong { font-weight: 700; }
+    .demo-banner a { color: #e0c99a; font-weight: 700; text-decoration: none; }
+    .demo-banner a:hover { opacity: 0.8; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 40px; left: 0; right: 0; z-index: 998;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 64px;
+      background: rgba(249,245,240,0.96); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--dark); text-decoration: none; }
+    .nav-logo span { color: var(--sage); font-style: italic; }
+    .nav-back {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.87rem; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color .2s;
+    }
+    .nav-back:hover { color: var(--sage-dark); }
+    .nav-cta {
+      background: var(--sage); color: #fff;
+      padding: 10px 22px; border-radius: 50px;
+      font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+      transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--sage-dark); }
+
+    /* HERO DO ARTIGO */
+    .post-hero {
+      margin-top: 104px;
+      position: relative;
+      height: 420px;
+      background: url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=1600&q=80') center/cover no-repeat;
+      display: flex; align-items: flex-end;
+    }
+    .post-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,28,27,0.8) 0%, rgba(26,28,27,0.2) 70%);
+    }
+    .post-hero-content {
+      position: relative; z-index: 1;
+      padding: 40px 5%; max-width: 860px;
+    }
+    .post-cat {
+      display: inline-block; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: #e0c99a; margin-bottom: 12px;
+    }
+    .post-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700;
+      color: #fff; line-height: 1.15; margin-bottom: 16px;
+    }
+    .post-meta { display: flex; align-items: center; gap: 20px; color: rgba(255,255,255,0.65); font-size: 0.83rem; }
+    .post-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* LAYOUT ARTIGO */
+    .post-layout {
+      display: grid; grid-template-columns: 1fr 320px;
+      gap: 64px; max-width: 1140px; margin: 0 auto;
+      padding: 64px 5% 96px;
+    }
+
+    /* CONTEÚDO */
+    .post-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 600;
+      color: var(--dark); margin: 40px 0 16px;
+    }
+    .post-content h2:first-child { margin-top: 0; }
+    .post-content p { color: #444; line-height: 1.85; margin-bottom: 20px; font-size: 1rem; }
+    .post-content ul { padding-left: 20px; margin-bottom: 20px; }
+    .post-content ul li { color: #444; line-height: 1.8; margin-bottom: 8px; }
+    .post-content strong { color: var(--dark); }
+    .post-highlight {
+      background: var(--ivory); border-left: 3px solid var(--sage);
+      padding: 20px 24px; margin: 32px 0; border-radius: 0 4px 4px 0;
+      font-style: italic; color: var(--dark); font-size: 1.05rem; line-height: 1.7;
+    }
+    .post-cta-inline {
+      background: var(--sage-dark); color: #fff;
+      padding: 28px 32px; border-radius: 4px; margin: 40px 0; text-align: center;
+    }
+    .post-cta-inline p { color: rgba(255,255,255,0.85); margin-bottom: 16px; font-size: 0.95rem; }
+    .post-cta-inline a {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #25D366; color: #fff;
+      padding: 12px 28px; border-radius: 50px;
+      font-weight: 700; font-size: 0.9rem; text-decoration: none;
+      transition: background .2s;
+    }
+    .post-cta-inline a:hover { background: #1ebe5c; }
+    .post-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(0,0,0,0.08); }
+    .post-tag {
+      background: var(--ivory); color: var(--muted);
+      padding: 6px 14px; border-radius: 50px;
+      font-size: 0.78rem; font-weight: 500;
+    }
+
+    /* SIDEBAR */
+    .post-sidebar {}
+    .sidebar-block {
+      background: var(--ivory); border-radius: 4px;
+      padding: 28px; margin-bottom: 24px;
+    }
+    .sidebar-block h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 600;
+      margin-bottom: 20px; color: var(--dark);
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+    .sidebar-post { display: flex; gap: 12px; margin-bottom: 16px; }
+    .sidebar-post img { width: 64px; height: 64px; object-fit: cover; border-radius: 3px; flex-shrink: 0; }
+    .sidebar-post-info { }
+    .sidebar-post-info span { font-size: 0.72rem; color: var(--sage-dark); font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; }
+    .sidebar-post-info a { display: block; font-size: 0.87rem; font-weight: 500; color: var(--dark); text-decoration: none; line-height: 1.4; margin-top: 4px; }
+    .sidebar-post-info a:hover { color: var(--sage-dark); }
+    .sidebar-cta {
+      background: var(--sage-dark); border-radius: 4px;
+      padding: 28px; text-align: center;
+    }
+    .sidebar-cta p { color: rgba(255,255,255,0.8); font-size: 0.88rem; line-height: 1.6; margin-bottom: 16px; }
+    .sidebar-cta h3 { color: #fff; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; margin-bottom: 12px; }
+    .sidebar-cta a {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: #25D366; color: #fff;
+      padding: 12px 20px; border-radius: 50px;
+      font-size: 0.85rem; font-weight: 700; text-decoration: none;
+      transition: background .2s;
+    }
+    .sidebar-cta a:hover { background: #1ebe5c; }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark); padding: 32px 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+      color: rgba(255,255,255,0.45); font-size: 0.82rem;
+    }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: #fff; text-decoration: none; }
+    .footer-logo span { color: var(--sage-light); font-style: italic; }
+    footer a { color: var(--sage-light); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 900px) {
+      .post-layout { grid-template-columns: 1fr; gap: 40px; }
+      .nav-cta { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- DEMO BANNER -->
+<div class="demo-banner">
+  <strong>Página de demonstração</strong> — criada pela Helph Studio. Este não é um negócio real.
+  <a href="https://helphstudio.github.io/helph-studio#planos">Quero um site assim para o meu negócio →</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="../demo-pacote-completo.html" class="nav-logo">Espaço <span>Serenità</span></a>
+  <a href="../demo-pacote-completo.html#blog" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    Voltar ao site
+  </a>
+  <a href="https://wa.me/5521999990000?text=Olá!%20Li%20sobre%20o%20peeling%20químico%20e%20gostaria%20de%20agendar%20uma%20avaliação." class="nav-cta" target="_blank" rel="noopener">
+    Agendar avaliação
+  </a>
+</nav>
+
+<!-- HERO DO ARTIGO -->
+<div class="post-hero">
+  <div class="post-hero-content">
+    <span class="post-cat">Estética Facial</span>
+    <h1>5 benefícios do peeling químico para pele mista</h1>
+    <div class="post-meta">
+      <span>📅 15 de maio de 2025</span>
+      <span>✍️ Dra. Camila Ferreira</span>
+      <span>⏱ 5 min de leitura</span>
+    </div>
+  </div>
+</div>
+
+<!-- CONTEÚDO -->
+<div class="post-layout">
+  <article class="post-content">
+
+    <p>O peeling químico é um dos tratamentos mais procurados no Espaço Serenità — e não é à toa. Quando aplicado corretamente por uma profissional certificada, ele tem o poder de transformar a pele mista, trazendo equilíbrio, luminosidade e textura refinada. Mas afinal, o que torna esse procedimento tão eficaz?</p>
+
+    <blockquote class="post-highlight">
+      "Pele mista pede equilíbrio. O peeling químico age exatamente nisso: regula a oleosidade onde há excesso e hidrata onde há ressecamento." — Dra. Camila Ferreira
+    </blockquote>
+
+    <h2>O que é o peeling químico?</h2>
+    <p>O peeling químico consiste na aplicação de ácidos sobre a pele que promovem uma esfoliação controlada. Dependendo da concentração e do tipo de ácido utilizado, o procedimento pode atuar nas camadas mais superficiais ou mais profundas da pele. Para pele mista, os protocolos mais indicados costumam combinar <strong>ácido glicólico, mandélico ou salicílico</strong>, cada um com ações complementares.</p>
+
+    <h2>1. Controle da oleosidade na zona T</h2>
+    <p>A zona T — testa, nariz e queixo — é a área de maior produção de sebo na pele mista. O ácido salicílico, por ser lipossolúvel, penetra nos poros e desobstrui as glândulas sebáceas de dentro para fora. O resultado é uma redução significativa do brilho excessivo ao longo do dia, sem ressecar as áreas mais secas do rosto.</p>
+
+    <h2>2. Redução de manchas e hiperpigmentação</h2>
+    <p>Manchas causadas por exposição solar, cicatrizes de acne ou inflamações antigas respondem muito bem ao peeling químico. O ácido glicólico, por exemplo, inibe a produção de melanina e acelera a renovação celular, clarificando progressivamente as áreas pigmentadas. Em um protocolo de 3 a 5 sessões, a diferença é claramente visível.</p>
+
+    <h2>3. Refinamento dos poros dilatados</h2>
+    <p>Poros alargados são uma queixa frequente de quem tem pele mista. O peeling promove uma contração das paredes dos poros ao estimular a produção de colágeno na derme. Com sessões regulares, a textura da pele fica progressivamente mais lisa e uniforme, com poros menos aparentes.</p>
+
+    <h2>4. Renovação celular e luminosidade</h2>
+    <p>A pele tem um ciclo natural de renovação celular que pode ser estimulado com o peeling. Ao remover as células mortas acumuladas na superfície, o procedimento revela uma camada mais jovem, luminosa e com melhor absorção dos ativos cosméticos que você usa em casa. Após o peeling, seu skincare noticiará mais eficácia.</p>
+
+    <h2>5. Prevenção do envelhecimento precoce</h2>
+    <p>Além de tratar problemas existentes, o peeling químico age preventivamente. Ao estimular o colágeno e a elastina, ele mantém a firmeza da pele e retarda o aparecimento de linhas finas. Para quem tem entre 25 e 40 anos, essa é uma das melhores formas de investir na longevidade da pele.</p>
+
+    <div class="post-cta-inline">
+      <p>Quer saber qual protocolo de peeling é ideal para o seu tipo de pele?</p>
+      <a href="https://wa.me/5521999990000?text=Olá!%20Li%20sobre%20o%20peeling%20químico%20e%20gostaria%20de%20agendar%20uma%20avaliação%20gratuita." target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar avaliação gratuita pelo WhatsApp
+      </a>
+    </div>
+
+    <h2>Quantas sessões são necessárias?</h2>
+    <p>Para pele mista, recomendamos um protocolo inicial de <strong>4 a 6 sessões</strong>, com intervalo de 15 a 21 dias entre cada uma. Após o tratamento, sessões de manutenção mensais ou bimestrais são suficientes para manter os resultados. O número exato depende da avaliação individual da sua pele — por isso a consulta inicial é sempre gratuita no Espaço Serenità.</p>
+
+    <p>Após cada sessão, é fundamental usar protetor solar com FPS 30 ou superior e seguir as orientações da sua esteticista. O pós-peeling é simples, mas cuidadoso — e nós te acompanhamos em cada etapa.</p>
+
+    <div class="post-tags">
+      <span class="post-tag">Peeling Químico</span>
+      <span class="post-tag">Pele Mista</span>
+      <span class="post-tag">Estética Facial</span>
+      <span class="post-tag">Manchas</span>
+      <span class="post-tag">Oleosidade</span>
+    </div>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="post-sidebar">
+
+    <div class="sidebar-cta">
+      <h3>Avaliação gratuita</h3>
+      <p>Descubra qual protocolo é ideal para a sua pele. Sem compromisso.</p>
+      <a href="https://wa.me/5521999990000?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação%20gratuita%20no%20Espaço%20Serenità." target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
+    </div>
+
+    <div class="sidebar-block">
+      <h3>Outros artigos</h3>
+      <div class="sidebar-post">
+        <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?w=150&q=80" alt="Radiofrequência" />
+        <div class="sidebar-post-info">
+          <span>Tecnologia</span>
+          <a href="radiofrequencia.html">Radiofrequência: o que é e para quem é indicada</a>
+        </div>
+      </div>
+      <div class="sidebar-post">
+        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=150&q=80" alt="Skincare verão" />
+        <div class="sidebar-post-info">
+          <span>Cuidados</span>
+          <a href="skincare-verao.html">Rotina de skincare para o verão carioca</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-block">
+      <h3>Tratamentos relacionados</h3>
+      <div class="sidebar-post">
+        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=150&q=80" alt="Peeling" />
+        <div class="sidebar-post-info">
+          <span>A partir de R$ 250</span>
+          <a href="../demo-pacote-completo.html#tratamentos">Peeling Químico →</a>
+        </div>
+      </div>
+      <div class="sidebar-post">
+        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=150&q=80" alt="Limpeza de pele" />
+        <div class="sidebar-post-info">
+          <span>A partir de R$ 180</span>
+          <a href="../demo-pacote-completo.html#tratamentos">Limpeza de Pele Profunda →</a>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="../demo-pacote-completo.html" class="footer-logo">Espaço <span>Serenità</span></a>
+  <p>© 2025 Espaço Serenità — <em>Página fictícia para fins de demonstração.</em></p>
+  <p>Site criado por <a href="https://helphstudio.github.io/helph-studio" target="_blank">Helph Studio</a></p>
+</footer>
+
+</body>
+</html>

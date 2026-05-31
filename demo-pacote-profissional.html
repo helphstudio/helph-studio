@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cantina Bella Vista — Restaurante Italiano no Rio de Janeiro</title>
+  <meta name="description" content="Cantina Bella Vista: culinária italiana autêntica no coração do Rio de Janeiro. Reserve sua mesa pelo WhatsApp!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --terra: #b5613a;
+      --terra-dark: #8a4228;
+      --terra-light: #d4876a;
+      --cream: #faf6ef;
+      --warm: #f5ede0;
+      --green: #3d5a4a;
+      --green-light: #4e7260;
+      --dark: #1c1410;
+      --gray: #6b6156;
+      --border: rgba(181,97,58,0.15);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── DEMO BANNER ── */
+    .demo-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      background: #1c1410;
+      color: #fff;
+      text-align: center;
+      padding: 10px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem; font-weight: 500;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      flex-wrap: wrap;
+    }
+    .demo-banner strong { font-weight: 700; }
+    .demo-banner a {
+      color: #d4876a; font-weight: 700;
+      text-decoration: none; border-bottom: 1px solid #d4876a;
+      transition: opacity .2s;
+    }
+    .demo-banner a:hover { opacity: 0.75; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 40px; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 6%;
+      background: rgba(250,246,239,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 700;
+      color: var(--dark); text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+    .nav-logo span { color: var(--terra); }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a {
+      font-size: 0.88rem; font-weight: 500; color: var(--gray);
+      text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--terra); }
+    .nav-reserve {
+      background: var(--terra); color: #fff;
+      padding: 9px 22px; border-radius: 99px;
+      text-decoration: none; font-size: 0.85rem; font-weight: 600;
+      transition: background .2s; white-space: nowrap;
+    }
+    .nav-reserve:hover { background: var(--terra-dark); }
+    .menu-toggle { display: none; background: none; border: none; cursor: pointer; font-size: 1.4rem; color: var(--dark); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex; align-items: center;
+      padding-top: 80px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=85');
+      background-size: cover; background-position: center;
+      filter: brightness(0.4);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(28,20,16,0.7) 40%, transparent);
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      padding: 80px 8%; max-width: 680px;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--terra-light);
+      margin-bottom: 20px;
+    }
+    .hero-tag::before { content: ''; width: 32px; height: 1px; background: var(--terra-light); }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+      font-weight: 700; line-height: 1.1;
+      color: #fff; margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+    .hero h1 em { font-style: italic; color: var(--terra-light); }
+    .hero p {
+      font-size: 1.05rem; color: rgba(255,255,255,0.8);
+      margin-bottom: 40px; line-height: 1.75; max-width: 440px;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--terra); color: #fff;
+      padding: 14px 30px; border-radius: 99px;
+      font-size: 0.95rem; font-weight: 700; text-decoration: none;
+      transition: background .2s, transform .2s;
+    }
+    .btn-primary:hover { background: var(--terra-dark); transform: translateY(-2px); }
+    .btn-outline-light {
+      display: inline-flex; align-items: center;
+      padding: 14px 30px; border-radius: 99px;
+      font-size: 0.95rem; font-weight: 600; text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.45); color: #fff;
+      transition: background .2s;
+    }
+    .btn-outline-light:hover { background: rgba(255,255,255,0.1); }
+
+    /* ── SECTION COMMONS ── */
+    section { padding: 90px 6%; }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--terra); margin-bottom: 14px;
+    }
+    .section-tag::before { content: ''; width: 24px; height: 1px; background: var(--terra); }
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700; line-height: 1.15;
+      color: var(--dark); margin-bottom: 20px;
+    }
+    h2 em { font-style: italic; color: var(--terra); }
+    .section-sub {
+      color: var(--gray); font-size: 0.98rem; line-height: 1.8;
+      max-width: 560px; margin-bottom: 56px;
+    }
+
+    /* ── SOBRE ── */
+    .sobre { background: var(--cream); }
+    .sobre-grid {
+      display: grid; grid-template-columns: 1.1fr 1fr;
+      gap: 72px; align-items: center; max-width: 1100px; margin: 0 auto;
+    }
+    .sobre-text .section-sub { margin-bottom: 28px; }
+    .sobre-diferenciais { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
+    .diferencial { display: flex; align-items: flex-start; gap: 14px; }
+    .diferencial-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(181,97,58,0.1); display: flex;
+      align-items: center; justify-content: center; font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .diferencial h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 2px; }
+    .diferencial p { font-size: 0.83rem; color: var(--gray); }
+    .sobre-img {
+      border-radius: 16px; overflow: hidden;
+      height: 500px; position: relative;
+    }
+    .sobre-img img { width: 100%; height: 100%; object-fit: cover; }
+    .sobre-badge {
+      position: absolute; bottom: 24px; left: 24px;
+      background: rgba(28,20,16,0.85); backdrop-filter: blur(8px);
+      color: #fff; padding: 14px 20px; border-radius: 12px;
+    }
+    .sobre-badge .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 700; color: var(--terra-light);
+      display: block; line-height: 1;
+    }
+    .sobre-badge .lbl { font-size: 0.75rem; color: rgba(255,255,255,0.7); }
+
+    /* ── CARDÁPIO ── */
+    .cardapio { background: #fff; }
+    .cardapio-tabs { display: flex; gap: 8px; margin-bottom: 40px; flex-wrap: wrap; }
+    .tab-btn {
+      padding: 9px 22px; border-radius: 99px; border: 1px solid var(--border);
+      background: none; cursor: pointer; font-family: 'Inter', sans-serif;
+      font-size: 0.88rem; font-weight: 600; color: var(--gray);
+      transition: all .2s;
+    }
+    .tab-btn.active, .tab-btn:hover { background: var(--terra); color: #fff; border-color: var(--terra); }
+    .cardapio-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px; max-width: 1100px;
+    }
+    .prato-card {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 20px; border-radius: 12px; border: 1px solid var(--border);
+      background: var(--cream); transition: box-shadow .2s;
+    }
+    .prato-card:hover { box-shadow: 0 8px 32px rgba(181,97,58,0.1); }
+    .prato-img { width: 80px; height: 80px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+    .prato-img img { width: 100%; height: 100%; object-fit: cover; }
+    .prato-info h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+    .prato-info p { font-size: 0.8rem; color: var(--gray); line-height: 1.5; margin-bottom: 8px; }
+    .prato-preco { font-size: 0.95rem; font-weight: 700; color: var(--terra); }
+
+    /* ── GALERIA ── */
+    .galeria { background: var(--dark); padding-bottom: 0; }
+    .galeria h2 { color: #fff; }
+    .galeria .section-tag { color: var(--terra-light); }
+    .galeria .section-tag::before { background: var(--terra-light); }
+    .galeria .section-sub { color: rgba(255,255,255,0.55); }
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 220px);
+      gap: 8px;
+      margin-top: 0;
+    }
+    .galeria-item { overflow: hidden; }
+    .galeria-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+    .galeria-item:hover img { transform: scale(1.06); }
+    .galeria-item.tall { grid-row: span 2; }
+    .galeria-item.wide { grid-column: span 2; }
+
+    /* ── DEPOIMENTOS ── */
+    .depoimentos { background: var(--warm); }
+    .depo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
+    .depo-card { background: #fff; border-radius: 14px; padding: 30px 26px; border: 1px solid var(--border); }
+    .depo-stars { color: #e8a832; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 14px; }
+    .depo-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.8; font-style: italic; margin-bottom: 20px; }
+    .depo-author { display: flex; align-items: center; gap: 12px; }
+    .depo-avatar { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+    .depo-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .depo-name { font-weight: 700; font-size: 0.87rem; }
+    .depo-sub { font-size: 0.75rem; color: var(--gray); }
+
+    /* ── RESERVA + HORÁRIOS ── */
+    .reserva { background: var(--cream); }
+    .reserva-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; max-width: 1100px; margin: 0 auto; align-items: start; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.83rem; font-weight: 600; color: var(--gray); margin-bottom: 6px; letter-spacing: 0.3px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 11px 14px;
+      border: 1px solid var(--border); border-radius: 8px;
+      font-family: 'Inter', sans-serif; font-size: 0.92rem; color: var(--dark);
+      background: #fff; outline: none; transition: border-color .2s;
+    }
+    .form-group input:focus, .form-group select:focus { border-color: var(--terra); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .btn-submit {
+      width: 100%; padding: 14px;
+      background: var(--terra); color: #fff;
+      border: none; border-radius: 99px; font-family: 'Inter', sans-serif;
+      font-size: 0.95rem; font-weight: 700; cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-submit:hover { background: var(--terra-dark); }
+    .horarios-info { display: flex; flex-direction: column; gap: 0; }
+    .horario-item {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px 0; border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .horario-dia { font-weight: 600; }
+    .horario-hora { color: var(--gray); }
+    .horario-hora.fechado { color: #bbb; }
+    .endereco-block { margin-top: 28px; }
+    .endereco-block h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 14px; }
+    .endereco-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--gray); margin-bottom: 10px; }
+
+    /* ── MAPA ── */
+    .mapa-section { padding: 0; }
+    .mapa-section iframe { width: 100%; height: 320px; border: none; display: block; filter: grayscale(0.3); }
+
+    /* ── CTA FINAL ── */
+    .cta-final {
+      background: var(--green);
+      text-align: center; padding: 80px 6%;
+    }
+    .cta-final h2 { color: #fff; max-width: 580px; margin: 0 auto 16px; }
+    .cta-final p { color: rgba(255,255,255,0.75); margin-bottom: 40px; font-size: 1.05rem; }
+    .btn-whatsapp {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25d366; color: #fff;
+      padding: 16px 36px; border-radius: 99px;
+      font-size: 1rem; font-weight: 700; text-decoration: none;
+      box-shadow: 0 6px 28px rgba(37,211,102,0.35);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(37,211,102,0.5); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark); color: rgba(255,255,255,0.45);
+      padding: 36px 6%;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px; font-size: 0.82rem;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 700;
+      color: #fff; text-decoration: none;
+    }
+    .footer-logo span { color: var(--terra-light); }
+    footer a { color: var(--terra-light); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav { padding: 12px 5%; }
+      .nav-links { display: none; }
+      .menu-toggle { display: block; }
+      .sobre-grid { grid-template-columns: 1fr; gap: 40px; }
+      .sobre-img { height: 320px; order: -1; }
+      .galeria-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+      .galeria-item.tall, .galeria-item.wide { grid-row: span 1; grid-column: span 1; }
+      .galeria-item { height: 200px; }
+      .depo-grid { grid-template-columns: 1fr; }
+      .reserva-grid { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; }
+      .demo-banner { font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- DEMO BANNER -->
+<div class="demo-banner">
+  ⚠️ <strong>Página de demonstração</strong> — criada pela Helph Studio. Este não é um negócio real. &nbsp;
+  <a href="https://helphstudio.github.io/helph-studio/#precos" target="_blank">Quero um site assim para o meu negócio →</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Cantina <span>Bella Vista</span></a>
+  <div class="nav-links">
+    <a href="#cardapio">Cardápio</a>
+    <a href="#sobre">Sobre nós</a>
+    <a href="#depoimentos">Avaliações</a>
+    <a href="#reserva">Reservas</a>
+    <a href="#reserva" class="nav-reserve">📱 Reservar pelo WhatsApp</a>
+  </div>
+  <button class="menu-toggle" aria-label="Menu">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Restaurante Italiano — Rio de Janeiro</span>
+    <h1>Uma experiência <em>italiana</em> inesquecível</h1>
+    <p>Sabores autênticos, ambiente acolhedor e uma equipe apaixonada pela gastronomia. Venha criar memórias à mesa.</p>
+    <div class="hero-actions">
+      <a href="#reserva" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Reservar mesa
+      </a>
+      <a href="#cardapio" class="btn-outline-light">Ver cardápio</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="sobre-grid">
+    <div class="sobre-text">
+      <span class="section-tag">Nossa história</span>
+      <h2>Tradição italiana no <em>coração do Rio</em></h2>
+      <p class="section-sub">A Cantina Bella Vista nasceu do amor pela culinária italiana autêntica. Fundada em 2010, nossa cantina traz receitas originais da Itália para a mesa dos cariocas, com ingredientes selecionados e muito carinho em cada preparo.</p>
+      <div class="sobre-diferenciais">
+        <div class="diferencial">
+          <div class="diferencial-icon">🍝</div>
+          <div>
+            <h4>Receitas originais</h4>
+            <p>Massas artesanais feitas diariamente com farinha importada da Itália.</p>
+          </div>
+        </div>
+        <div class="diferencial">
+          <div class="diferencial-icon">🍷</div>
+          <div>
+            <h4>Carta de vinhos selecionada</h4>
+            <p>Mais de 40 rótulos italianos e brasileiros para harmonizar com sua refeição.</p>
+          </div>
+        </div>
+        <div class="diferencial">
+          <div class="diferencial-icon">👨‍🍳</div>
+          <div>
+            <h4>Chef com formação na Itália</h4>
+            <p>Nossa equipe passou por restaurantes premiados em Roma e Florença.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sobre-img">
+      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="Interior da Cantina Bella Vista" loading="lazy" />
+      <div class="sobre-badge">
+        <span class="num">14+</span>
+        <span class="lbl">anos de história</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARDÁPIO -->
+<section class="cardapio" id="cardapio">
+  <span class="section-tag">O que servimos</span>
+  <h2>Nosso <em>cardápio</em></h2>
+  <p class="section-sub">Pratos preparados com ingredientes frescos e receitas que respeitam a tradição italiana.</p>
+  <div class="cardapio-tabs">
+    <button class="tab-btn active">🥗 Entradas</button>
+    <button class="tab-btn">🍝 Pratos Principais</button>
+    <button class="tab-btn">🍮 Sobremesas</button>
+  </div>
+  <div class="cardapio-grid">
+    <div class="prato-card">
+      <div class="prato-img">
+        <img src="https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=200&q=80" alt="Bruschetta" loading="lazy" />
+      </div>
+      <div class="prato-info">
+        <h4>Bruschetta al Pomodoro</h4>
+        <p>Pão ciabatta grelhado com tomate, manjericão fresco e azeite extra virgem.</p>
+        <span class="prato-preco">R$ 38</span>
+      </div>
+    </div>
+    <div class="prato-card">
+      <div class="prato-img">
+        <img src="https://images.unsplash.com/photo-1607532941433-304659e8198a?w=200&q=80" alt="Caprese" loading="lazy" />
+      </div>
+      <div class="prato-info">
+        <h4>Salada Caprese</h4>
+        <p>Mussarela de búfala, tomate orgânico, manjericão e redução de balsâmico.</p>
+        <span class="prato-preco">R$ 46</span>
+      </div>
+    </div>
+    <div class="prato-card">
+      <div class="prato-img">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&q=80" alt="Carpaccio" loading="lazy" />
+      </div>
+      <div class="prato-info">
+        <h4>Carpaccio di Manzo</h4>
+        <p>Carne bovina fatiada finamente com alcaparras, rúcula e parmesão.</p>
+        <span class="prato-preco">R$ 54</span>
+      </div>
+    </div>
+    <div class="prato-card">
+      <div class="prato-img">
+        <img src="https://images.unsplash.com/photo-1551183053-bf91798d792b?w=200&q=80" alt="Arancini" loading="lazy" />
+      </div>
+      <div class="prato-info">
+        <h4>Arancini di Riso</h4>
+        <p>Bolinhos de arroz recheados com ragù e mussarela, fritos até dourar.</p>
+        <span class="prato-preco">R$ 42</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="galeria" id="galeria">
+  <span class="section-tag">Nosso ambiente</span>
+  <h2>Uma experiência <em>visual</em> antes mesmo de chegar</h2>
+  <p class="section-sub" style="margin-bottom:40px;">Cada detalhe do nosso espaço foi pensado para criar a atmosfera perfeita.</p>
+  <div class="galeria-grid">
+    <div class="galeria-item tall">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="Ambiente Cantina" loading="lazy" />
+    </div>
+    <div class="galeria-item">
+      <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600&q=80" alt="Prato" loading="lazy" />
+    </div>
+    <div class="galeria-item">
+      <img src="https://images.unsplash.com/photo-1481931098730-318b6f776db0?w=600&q=80" alt="Prato" loading="lazy" />
+    </div>
+    <div class="galeria-item wide">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80" alt="Ambiente" loading="lazy" />
+    </div>
+    <div class="galeria-item">
+      <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=600&q=80" alt="Prato especial" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos" id="depoimentos">
+  <span class="section-tag" style="margin-bottom:14px;">O que dizem</span>
+  <h2 style="margin-bottom:16px;">Avaliações dos <em>nossos clientes</em></h2>
+  <p class="section-sub" style="margin-bottom:48px;">Mais de 400 avaliações 5 estrelas no Google.</p>
+  <div class="depo-grid">
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <p>"A melhor experiência gastronômica que já tive no Rio. O risoto de funghi é simplesmente divino. Ambiente acolhedor, atendimento impecável e os preços são justos para a qualidade entregue."</p>
+      <div class="depo-author">
+        <div class="depo-avatar">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Fernanda C." />
+        </div>
+        <div>
+          <span class="depo-name">Fernanda C.</span>
+          <span class="depo-sub">Cliente desde 2021</span>
+        </div>
+      </div>
+    </div>
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <p>"Trouxe minha família para comemorar o aniversário da minha mãe e foi perfeito. O chef veio até a mesa nos cumprimentar, o que fez toda a diferença. Definitivamente voltaremos!"</p>
+      <div class="depo-author">
+        <div class="depo-avatar">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Ricardo M." />
+        </div>
+        <div>
+          <span class="depo-name">Ricardo M.</span>
+          <span class="depo-sub">Cliente desde 2022</span>
+        </div>
+      </div>
+    </div>
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <p>"Vim por indicação e agora indico para todo mundo. A massa fresca é artesanal de verdade — dá pra sentir a diferença. O atendimento pelo WhatsApp para reservar é super prático!"</p>
+      <div class="depo-author">
+        <div class="depo-avatar">
+          <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=100&q=80" alt="Patricia L." />
+        </div>
+        <div>
+          <span class="depo-name">Patricia L.</span>
+          <span class="depo-sub">Cliente desde 2023</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVA + HORÁRIOS -->
+<section class="reserva" id="reserva">
+  <div class="reserva-grid">
+    <div>
+      <span class="section-tag">Reserve sua mesa</span>
+      <h2>Garanta seu <em>lugar</em></h2>
+      <p class="section-sub" style="margin-bottom:32px;">Preencha o formulário e entraremos em contato pelo WhatsApp para confirmar sua reserva.</p>
+      <form onsubmit="enviarReserva(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Seu nome</label>
+            <input type="text" placeholder="João Silva" required />
+          </div>
+          <div class="form-group">
+            <label>WhatsApp</label>
+            <input type="tel" placeholder="(21) 99999-9999" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Data</label>
+            <input type="date" required />
+          </div>
+          <div class="form-group">
+            <label>Horário</label>
+            <select required>
+              <option value="">Selecione</option>
+              <option>12h00</option>
+              <option>13h00</option>
+              <option>19h00</option>
+              <option>20h00</option>
+              <option>21h00</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Número de pessoas</label>
+          <select required>
+            <option value="">Selecione</option>
+            <option>1 pessoa</option>
+            <option>2 pessoas</option>
+            <option>3–4 pessoas</option>
+            <option>5–6 pessoas</option>
+            <option>7 ou mais</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Observações (opcional)</label>
+          <input type="text" placeholder="Aniversário, intolerâncias, preferências..." />
+        </div>
+        <button type="submit" class="btn-submit">Confirmar reserva pelo WhatsApp</button>
+      </form>
+    </div>
+    <div>
+      <span class="section-tag">Funcionamento</span>
+      <h2 style="font-size:1.6rem;margin-bottom:0;">Horários</h2>
+      <div class="horarios-info" style="margin-top:24px;">
+        <div class="horario-item"><span class="horario-dia">Terça — Sexta</span><span class="horario-hora">12h–15h · 19h–23h</span></div>
+        <div class="horario-item"><span class="horario-dia">Sábado</span><span class="horario-hora">12h–16h · 19h–23h30</span></div>
+        <div class="horario-item"><span class="horario-dia">Domingo</span><span class="horario-hora">12h–17h</span></div>
+        <div class="horario-item"><span class="horario-dia">Segunda-feira</span><span class="horario-hora fechado">Fechado</span></div>
+      </div>
+      <div class="endereco-block">
+        <h4>Como chegar</h4>
+        <div class="endereco-item">📍 <span>Rua Dias Ferreira, 500 — Leblon<br/>Rio de Janeiro, RJ</span></div>
+        <div class="endereco-item">📱 <span>(21) 99999-0000</span></div>
+        <div class="endereco-item">✉️ <span>contato@cantinabellavista.com.br</span></div>
+        <a href="#reserva" class="btn-primary" style="margin-top:20px;display:inline-flex;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Reservar pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section class="mapa-section">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.5!2d-43.218!3d-22.985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sLeblon%2C%20Rio%20de%20Janeiro!5e0!3m2!1spt-BR!2sbr!4v1"
+    title="Localização Cantina Bella Vista"
+    allowfullscreen="" loading="lazy"></iframe>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="contato">
+  <h2>Reserve sua mesa esta semana</h2>
+  <p>Atendimento rápido pelo WhatsApp. Confirme sua reserva em minutos.</p>
+  <a href="https://wa.me/5521999990000?text=Olá!%20Gostaria%20de%20fazer%20uma%20reserva%20na%20Cantina%20Bella%20Vista." class="btn-whatsapp" target="_blank" rel="noopener">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Reservar agora pelo WhatsApp
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">Cantina <span>Bella Vista</span></a>
+  <p>© 2025 Cantina Bella Vista — <em>Página fictícia para fins de demonstração.</em></p>
+  <p>Site criado por <a href="https://helphstudio.github.io/helph-studio" target="_blank">Helph Studio</a></p>
+</footer>
+
+<script>
+  function enviarReserva(e) {
+    e.preventDefault();
+    window.open('https://wa.me/5521999990000?text=Olá!%20Gostaria%20de%20fazer%20uma%20reserva%20na%20Cantina%20Bella%20Vista.', '_blank');
+  }
+  // Tab cardapio
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

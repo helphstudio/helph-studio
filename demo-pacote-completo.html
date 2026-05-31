@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Espaço Serenità — Clínica de Estética em Ipanema, Rio de Janeiro</title>
+  <meta name="description" content="Espaço Serenità: tratamentos estéticos premium em Ipanema. Pele, corpo e bem-estar com profissionais certificados. Agende sua avaliação gratuita!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --ivory: #f9f5f0;
+      --sage: #7a9e8e;
+      --sage-dark: #5a7a6c;
+      --sage-light: #a8c5b8;
+      --gold: #c9a96e;
+      --gold-light: #e0c99a;
+      --dark: #1a1c1b;
+      --muted: #7a7570;
+      --warm: #f2ece4;
+      --border: rgba(122,158,142,0.18);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #fff;
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── DEMO BANNER ── */
+    .demo-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      background: var(--dark);
+      color: #fff;
+      text-align: center;
+      padding: 10px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem; font-weight: 500;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      flex-wrap: wrap;
+    }
+    .demo-banner strong { font-weight: 700; }
+    .demo-banner a {
+      color: var(--gold-light); font-weight: 700;
+      text-decoration: none; white-space: nowrap;
+      transition: opacity .2s;
+    }
+    .demo-banner a:hover { opacity: 0.8; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 40px; left: 0; right: 0; z-index: 998;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+      background: rgba(249,245,240,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 600;
+      color: var(--dark); text-decoration: none; letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--sage); font-style: italic; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 0.88rem; font-weight: 500; color: var(--muted);
+      text-decoration: none; letter-spacing: 0.03em;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-cta {
+      background: var(--sage); color: #fff;
+      padding: 10px 22px; border-radius: 50px;
+      font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+      transition: background .2s, transform .2s;
+    }
+    .nav-cta:hover { background: var(--sage-dark); transform: translateY(-1px); }
+    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-burger span { display: block; width: 22px; height: 2px; background: var(--dark); border-radius: 2px; transition: .3s; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; align-items: center;
+      background: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1600&q=80') center/cover no-repeat;
+      padding-top: 104px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(105deg, rgba(26,28,27,0.75) 0%, rgba(26,28,27,0.4) 60%, transparent 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      max-width: 680px;
+      padding: 0 5%;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(201,169,110,0.2);
+      border: 1px solid rgba(201,169,110,0.5);
+      color: var(--gold-light);
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 16px; border-radius: 50px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 700; line-height: 1.1;
+      color: #fff; margin-bottom: 20px;
+    }
+    .hero h1 em { color: var(--gold-light); font-style: italic; }
+    .hero p {
+      font-size: 1.1rem; color: rgba(255,255,255,0.82);
+      max-width: 480px; margin-bottom: 36px; line-height: 1.7;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 52px; }
+    .btn-primary {
+      background: var(--sage); color: #fff;
+      padding: 14px 30px; border-radius: 50px;
+      font-size: 0.95rem; font-weight: 600;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+      transition: background .2s, transform .2s, box-shadow .2s;
+    }
+    .btn-primary:hover { background: var(--sage-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(90,122,108,0.4); }
+    .btn-outline {
+      background: transparent; color: #fff;
+      border: 2px solid rgba(255,255,255,0.5);
+      padding: 14px 30px; border-radius: 50px;
+      font-size: 0.95rem; font-weight: 600;
+      text-decoration: none;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+    .hero-stats {
+      display: flex; gap: 32px; flex-wrap: wrap;
+    }
+    .hero-stat { color: rgba(255,255,255,0.9); }
+    .hero-stat strong { display: block; font-size: 1.4rem; font-weight: 700; color: #fff; font-family: 'Cormorant Garamond', serif; }
+    .hero-stat span { font-size: 0.82rem; color: rgba(255,255,255,0.65); }
+
+    /* ── SECTION COMMONS ── */
+    section { padding: 96px 5%; }
+    .section-tag {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--sage); margin-bottom: 14px;
+    }
+    .section-tag::before { content: '—— '; }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.15;
+      color: var(--dark); margin-bottom: 16px;
+    }
+    .section-title em { color: var(--sage); font-style: italic; }
+    .section-subtitle { color: var(--muted); font-size: 1rem; max-width: 560px; line-height: 1.7; }
+
+    /* ── SOBRE ── */
+    .sobre-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .sobre-img-wrap { position: relative; }
+    .sobre-img-wrap img {
+      width: 100%; aspect-ratio: 4/5; object-fit: cover;
+      border-radius: 4px;
+    }
+    .sobre-badge {
+      position: absolute; bottom: 28px; right: -20px;
+      background: var(--sage-dark); color: #fff;
+      padding: 18px 24px; border-radius: 4px;
+      text-align: center; min-width: 130px;
+    }
+    .sobre-badge strong { display: block; font-size: 2rem; font-family: 'Cormorant Garamond', serif; font-weight: 700; }
+    .sobre-badge span { font-size: 0.78rem; font-weight: 500; opacity: 0.9; }
+    .sobre-text { }
+    .sobre-text p { color: var(--muted); line-height: 1.8; margin-bottom: 32px; }
+    .sobre-diferenciais { display: flex; flex-direction: column; gap: 18px; }
+    .diferencial-item { display: flex; gap: 16px; align-items: flex-start; }
+    .diferencial-icon {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(122,158,142,0.12);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 1.1rem;
+    }
+    .diferencial-item h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; color: var(--dark); }
+    .diferencial-item p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; margin: 0; }
+
+    /* ── TRATAMENTOS ── */
+    .tratamentos { background: var(--ivory); }
+    .tratamentos-header { max-width: 1200px; margin: 0 auto 52px; }
+    .tratamentos-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; max-width: 1200px; margin: 0 auto;
+    }
+    .tratamento-card {
+      background: #fff; border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .tratamento-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); }
+    .tratamento-card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+    .tratamento-body { padding: 24px; }
+    .tratamento-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; margin-bottom: 8px; }
+    .tratamento-body p { font-size: 0.87rem; color: var(--muted); line-height: 1.6; margin-bottom: 18px; }
+    .tratamento-footer { display: flex; align-items: center; justify-content: space-between; }
+    .tratamento-price { font-size: 1.1rem; font-weight: 700; color: var(--sage-dark); }
+    .btn-agendar {
+      background: var(--sage); color: #fff;
+      padding: 8px 18px; border-radius: 50px;
+      font-size: 0.8rem; font-weight: 600;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .btn-agendar:hover { background: var(--sage-dark); }
+
+    /* ── GALERIA / RESULTADOS ── */
+    .galeria { background: var(--dark); padding: 96px 5%; }
+    .galeria-header { max-width: 1200px; margin: 0 auto 40px; }
+    .galeria-header .section-tag { color: var(--gold-light); }
+    .galeria-header .section-title { color: #fff; }
+    .galeria-header .section-subtitle { color: rgba(255,255,255,0.55); }
+    .galeria-filtros {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      max-width: 1200px; margin: 0 auto 36px;
+    }
+    .filtro-btn {
+      background: transparent; color: rgba(255,255,255,0.6);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 20px; border-radius: 50px;
+      font-size: 0.83rem; font-weight: 500; cursor: pointer;
+      transition: all .2s; font-family: 'DM Sans', sans-serif;
+    }
+    .filtro-btn.active, .filtro-btn:hover {
+      background: var(--sage); color: #fff; border-color: var(--sage);
+    }
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 220px);
+      gap: 12px;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .galeria-item { position: relative; overflow: hidden; border-radius: 2px; }
+    .galeria-item:nth-child(1) { grid-row: span 2; }
+    .galeria-item:nth-child(5) { grid-column: span 2; }
+    .galeria-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .5s ease;
+    }
+    .galeria-item:hover img { transform: scale(1.07); }
+    .galeria-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,28,27,0.7) 0%, transparent 60%);
+      opacity: 0; transition: opacity .3s;
+      display: flex; align-items: flex-end;
+      padding: 16px;
+    }
+    .galeria-item:hover .galeria-overlay { opacity: 1; }
+    .galeria-cat {
+      background: var(--sage); color: #fff;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 4px 12px; border-radius: 50px;
+    }
+
+    /* ── EQUIPE ── */
+    .equipe { background: var(--ivory); }
+    .equipe-header { max-width: 1200px; margin: 0 auto 52px; }
+    .equipe-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 28px; max-width: 1200px; margin: 0 auto;
+    }
+    .equipe-card { text-align: center; }
+    .equipe-foto {
+      width: 160px; height: 160px; border-radius: 50%;
+      object-fit: cover; object-position: top;
+      margin: 0 auto 20px;
+      border: 4px solid rgba(122,158,142,0.2);
+    }
+    .equipe-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; margin-bottom: 6px; }
+    .equipe-especialidade { color: var(--sage-dark); font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; }
+    .equipe-cert { font-size: 0.82rem; color: var(--muted); }
+
+    /* ── DEPOIMENTOS ── */
+    .depoimentos { background: var(--warm); }
+    .depoimentos-header { max-width: 1200px; margin: 0 auto 16px; }
+    .depoimentos-count { color: var(--muted); font-size: 0.92rem; margin-bottom: 48px; max-width: 1200px; margin-left: auto; margin-right: auto; }
+    .depoimentos-count strong { color: var(--sage-dark); }
+    .depoimentos-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 20px; max-width: 1200px; margin: 0 auto;
+    }
+    .depoimento-card {
+      background: #fff; padding: 28px; border-radius: 4px;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 14px; letter-spacing: 2px; }
+    .depoimento-texto { font-size: 0.88rem; color: var(--dark); line-height: 1.7; font-style: italic; margin-bottom: 20px; }
+    .depoimento-autor { display: flex; align-items: center; gap: 12px; }
+    .depoimento-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+    .depoimento-info h4 { font-size: 0.88rem; font-weight: 600; }
+    .depoimento-info span { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── BLOG ── */
+    .blog { }
+    .blog-header { max-width: 1200px; margin: 0 auto 52px; }
+    .blog-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 28px; max-width: 1200px; margin: 0 auto;
+    }
+    .blog-card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 4px; overflow: hidden;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .blog-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.1); }
+    .blog-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+    .blog-body { padding: 24px; }
+    .blog-cat {
+      display: inline-block; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--sage-dark); margin-bottom: 12px;
+    }
+    .blog-card h3 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600;
+      line-height: 1.3; margin-bottom: 10px; color: var(--dark);
+    }
+    .blog-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
+    .blog-footer { display: flex; align-items: center; justify-content: space-between; }
+    .blog-data { font-size: 0.78rem; color: var(--muted); }
+    .blog-link {
+      font-size: 0.82rem; font-weight: 600; color: var(--sage-dark);
+      text-decoration: none;
+      transition: gap .2s;
+    }
+    .blog-link:hover { text-decoration: underline; }
+
+    /* ── CONTATO / AGENDAMENTO ── */
+    .contato { background: var(--ivory); }
+    .contato-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; max-width: 1200px; margin: 0 auto;
+      align-items: start;
+    }
+    .contato-form h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
+    .contato-form h2 em { color: var(--sage); font-style: italic; }
+    .contato-form > p { color: var(--muted); margin-bottom: 32px; font-size: 0.92rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--dark); }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 11px 14px; border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 4px; font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem; color: var(--dark); background: #fff;
+      transition: border-color .2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-color: var(--sage);
+    }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .btn-submit {
+      width: 100%; padding: 14px; background: var(--sage);
+      color: #fff; border: none; border-radius: 50px;
+      font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; transition: background .2s, transform .2s;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .btn-submit:hover { background: var(--sage-dark); transform: translateY(-1px); }
+    .contato-info { }
+    .contato-info .section-tag { display: block; margin-bottom: 14px; }
+    .horarios-lista { margin-bottom: 36px; }
+    .horario-linha {
+      display: flex; justify-content: space-between;
+      padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+      font-size: 0.9rem;
+    }
+    .horario-linha span:first-child { color: var(--dark); font-weight: 500; }
+    .horario-linha span:last-child { color: var(--muted); }
+    .horario-linha .fechado { color: #c0392b; }
+    .info-bloco { margin-bottom: 28px; }
+    .info-bloco h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 14px; color: var(--dark); }
+    .info-linha { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; font-size: 0.88rem; color: var(--muted); }
+    .info-linha svg { flex-shrink: 0; margin-top: 2px; }
+    .redes-sociais { display: flex; gap: 12px; }
+    .rede-btn {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--sage); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; transition: background .2s, transform .2s;
+    }
+    .rede-btn:hover { background: var(--sage-dark); transform: translateY(-2px); }
+
+    /* ── MAPA ── */
+    .mapa-section { height: 420px; position: relative; }
+    .mapa-section iframe { width: 100%; height: 100%; border: 0; display: block; filter: grayscale(0.25) contrast(1.05); }
+
+    /* ── CTA FINAL ── */
+    .cta-final {
+      background: var(--sage-dark);
+      padding: 96px 5%;
+      text-align: center;
+    }
+    .cta-final h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;
+      color: #fff; margin-bottom: 16px;
+    }
+    .cta-final p { color: rgba(255,255,255,0.75); font-size: 1rem; margin-bottom: 36px; }
+    .btn-whatsapp {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25D366; color: #fff;
+      padding: 14px 32px; border-radius: 50px;
+      font-size: 0.95rem; font-weight: 700;
+      text-decoration: none;
+      transition: background .2s, transform .2s, box-shadow .2s;
+    }
+    .btn-whatsapp:hover { background: #1ebe5c; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.4); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      padding: 64px 5% 32px;
+      color: rgba(255,255,255,0.55);
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 48px;
+    }
+    .footer-brand {}
+    .footer-logo-link {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 600;
+      color: #fff; text-decoration: none; display: block; margin-bottom: 12px;
+    }
+    .footer-logo-link span { color: var(--sage-light); font-style: italic; }
+    .footer-brand p { font-size: 0.85rem; line-height: 1.7; max-width: 260px; }
+    .footer-col h4 { color: #fff; font-size: 0.88rem; font-weight: 600; margin-bottom: 18px; letter-spacing: 0.04em; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { color: rgba(255,255,255,0.5); font-size: 0.85rem; text-decoration: none; transition: color .2s; }
+    .footer-col ul a:hover { color: var(--sage-light); }
+    .footer-col p { font-size: 0.85rem; line-height: 1.8; }
+    .footer-social { display: flex; gap: 10px; margin-top: 20px; }
+    .footer-social a {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.5); text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+    .footer-social a:hover { border-color: var(--sage-light); color: var(--sage-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+      font-size: 0.8rem;
+    }
+    .footer-bottom a { color: var(--sage-light); text-decoration: none; }
+    .footer-bottom a:hover { text-decoration: underline; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .sobre-grid, .contato-grid { grid-template-columns: 1fr; gap: 40px; }
+      .sobre-badge { right: 12px; }
+      .tratamentos-grid { grid-template-columns: repeat(2, 1fr); }
+      .depoimentos-grid { grid-template-columns: repeat(2, 1fr); }
+      .blog-grid { grid-template-columns: 1fr; }
+      .equipe-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 4%; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-burger { display: flex; }
+      .nav-mobile-open .nav-links {
+        display: flex; flex-direction: column;
+        position: fixed; top: 104px; left: 0; right: 0;
+        background: var(--ivory); padding: 24px 5%;
+        border-bottom: 1px solid var(--border);
+        gap: 20px;
+      }
+      .nav-mobile-open .nav-cta { display: flex; margin: 0 5% 20px; }
+      .galeria-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .galeria-item:nth-child(1) { grid-row: span 1; }
+      .galeria-item:nth-child(5) { grid-column: span 1; }
+      .tratamentos-grid { grid-template-columns: 1fr; }
+      .equipe-grid { grid-template-columns: 1fr; }
+      .depoimentos-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- DEMO BANNER -->
+<div class="demo-banner">
+  <strong>Página de demonstração</strong> — criada pela Helph Studio. Este não é um negócio real.
+  <a href="https://helphstudio.github.io/helph-studio#planos">Quero um site assim para o meu negócio →</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Espaço <span>Serenità</span></a>
+  <ul class="nav-links">
+    <li><a href="#tratamentos">Tratamentos</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#resultados">Resultados</a></li>
+    <li><a href="#equipe">Equipe</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5521999990000?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação%20no%20Espaço%20Serenità." class="nav-cta" target="_blank" rel="noopener">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Agendar pelo WhatsApp
+  </a>
+  <div class="nav-burger" id="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-tag">✦ Clínica de Estética — Ipanema, RJ</div>
+    <h1>Sua versão mais<br/><em>radiante</em> começa aqui</h1>
+    <p>Tratamentos estéticos premium com tecnologia de ponta e profissionais certificados. Porque você merece se sentir incrível.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5521999990000?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação%20gratuita%20no%20Espaço%20Serenità." class="btn-primary" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar avaliação gratuita
+      </a>
+      <a href="#tratamentos" class="btn-outline">Ver tratamentos</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>★ 4.9</strong><span>Google</span></div>
+      <div class="hero-stat"><strong>500+</strong><span>Clientes atendidas</span></div>
+      <div class="hero-stat"><strong>8 anos</strong><span>De experiência</span></div>
+      <div class="hero-stat"><strong>12</strong><span>Tratamentos</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre" style="background:#fff; padding: 96px 5%;">
+  <div class="sobre-grid">
+    <div class="sobre-img-wrap">
+      <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80" alt="Interior do Espaço Serenità" />
+      <div class="sobre-badge">
+        <strong>8+</strong>
+        <span>anos de experiência</span>
+      </div>
+    </div>
+    <div class="sobre-text">
+      <span class="section-tag">Nossa história</span>
+      <h2 class="section-title">Oito anos cuidando da sua <em>autoestima</em></h2>
+      <p>O Espaço Serenità nasceu do sonho de criar um lugar onde cada pessoa possa se reconectar com sua melhor versão. Desde 2017, atendemos em Ipanema com protocolos personalizados, tecnologia de última geração e um olhar cuidadoso para cada cliente.</p>
+      <p>Nosso espaço foi pensado para que você se sinta acolhida desde o primeiro momento — do café de boas-vindas ao resultado do tratamento.</p>
+      <div class="sobre-diferenciais">
+        <div class="diferencial-item">
+          <div class="diferencial-icon">🎓</div>
+          <div>
+            <h4>Profissionais certificados</h4>
+            <p>Toda a equipe possui formação especializada e certificações nacionais e internacionais.</p>
+          </div>
+        </div>
+        <div class="diferencial-item">
+          <div class="diferencial-icon">⚡</div>
+          <div>
+            <h4>Equipamentos de última geração</h4>
+            <p>Investimento constante em tecnologia para garantir os melhores resultados.</p>
+          </div>
+        </div>
+        <div class="diferencial-item">
+          <div class="diferencial-icon">✨</div>
+          <div>
+            <h4>Protocolos personalizados</h4>
+            <p>Cada tratamento é adaptado ao seu tipo de pele, necessidades e objetivos.</p>
+          </div>
+        </div>
+        <div class="diferencial-item">
+          <div class="diferencial-icon">🌿</div>
+          <div>
+            <h4>Ambiente premium e acolhedor</h4>
+            <p>Um espaço pensado nos mínimos detalhes para proporcionar bem-estar completo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRATAMENTOS -->
+<section class="tratamentos" id="tratamentos">
+  <div class="tratamentos-header">
+    <span class="section-tag">O que oferecemos</span>
+    <h2 class="section-title">Tratamentos para <em>cada</em> necessidade</h2>
+    <p class="section-subtitle">Do rosto ao corpo, temos o protocolo certo para você atingir os seus objetivos com segurança e eficácia.</p>
+  </div>
+  <div class="tratamentos-grid">
+
+    <div class="tratamento-card">
+      <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80" alt="Limpeza de Pele Profunda" />
+      <div class="tratamento-body">
+        <h3>Limpeza de Pele Profunda</h3>
+        <p>Remoção de impurezas, cravos e células mortas com técnica avançada. Pele renovada e radiante em uma sessão.</p>
+        <div class="tratamento-footer">
+          <span class="tratamento-price">A partir de R$ 180</span>
+          <a href="https://wa.me/5521999990000?text=Olá!%20Quero%20agendar%20uma%20Limpeza%20de%20Pele%20Profunda." class="btn-agendar" target="_blank" rel="noopener">Agendar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="tratamento-card">
+      <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&q=80" alt="Peeling Químico" />
+      <div class="tratamento-body">
+        <h3>Peeling Químico</h3>
+        <p>Renovação celular profunda para manchas, cicatrizes e envelhecimento precoce. Resultados visíveis já na primeira sessão.</p>
+        <div class="tratamento-footer">
+          <span class="tratamento-price">A partir de R$ 250</span>
+          <a href="https://wa.me/5521999990000?text=Olá!%20Quero%20agendar%20um%20Peeling%20Químico." class="btn-agendar" target="_blank" rel="noopener">Agendar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="tratamento-card">
+      <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?w=600&q=80" alt="Radiofrequência Facial" />
+      <div class="tratamento-body">
+        <h3>Radiofrequência Facial</h3>
+        <p>Estimula o colágeno e firma a pele sem cirurgia. Ideal para flacidez e contorno facial. Procedimento indolor e sem recuperação.</p>
+        <div class="tratamento-footer">
+          <span class="tratamento-price">A partir de R$ 320</span>
+          <a href="https://wa.me/5521999990000?text=Olá!%20Quero%20agendar%20uma%20Radiofrequência%20Facial." class="btn-agendar" target="_blank" rel="noopener">Agendar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="tratamento-card">
+      <img src="https://images.unsplash.com/photo-1607008829749-c0f284a49fc4?w=600&q=80" alt="Drenagem Linfática" />
+      <div class="tratamento-body">
+        <h3>Drenagem Linfática</h3>
+        <p>Técnica manual especializada para reduzir inchaço, combater celulite e melhorar a circulação. Relaxante e eficaz.</p>
+        <div class="tratamento-footer">
+          <span class="tratamento-price">A partir de R$ 150</span>
+          <a href="https://wa.me/5521999990000?text=Olá!%20Quero%20agendar%20uma%20Drenagem%20Linfática." class="btn-agendar" target="_blank" rel="noopener">Agendar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="tratamento-card">
+      <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&q=80" alt="Microagulhamento" />
+      <div class="tratamento-body">
+        <h3>Microagulhamento</h3>
+        <p>Estimulação do colágeno e elastina para tratar cicatrizes de acne, manchas e rejuvenescer a pele de forma natural.</p>
+        <div class="tratamento-footer">
+          <span class="tratamento-price">A partir de R$ 380</span>
+          <a href="https://wa.me/5521999990000?text=Olá!%20Quero%20agendar%20um%20Microagulhamento." class="btn-agendar" target="_blank" rel="noopener">Agendar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="tratamento-card">
+      <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="Hidratação Corporal" />
+      <div class="tratamento-body">
+        <h3>Hidratação Corporal Premium</h3>
+        <p>Ritual completo de hidratação com ativos de alta concentração. Pele macia, nutrida e com brilho saudável do rosto aos pés.</p>
+        <div class="tratamento-footer">
+          <span class="tratamento-price">A partir de R$ 200</span>
+          <a href="https://wa.me/5521999990000?text=Olá!%20Quero%20agendar%20uma%20Hidratação%20Corporal." class="btn-agendar" target="_blank" rel="noopener">Agendar</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="galeria" id="resultados">
+  <div class="galeria-header">
+    <span class="section-tag">Nossos resultados</span>
+    <h2 class="section-title">Transformações <em>reais</em> das nossas clientes</h2>
+    <p class="section-subtitle">Cada foto é uma história de cuidado, confiança e resultados que falam por si.</p>
+  </div>
+  <div class="galeria-filtros">
+    <button class="filtro-btn active" onclick="filtrar(this,'todos')">Todos</button>
+    <button class="filtro-btn" onclick="filtrar(this,'pele')">Pele</button>
+    <button class="filtro-btn" onclick="filtrar(this,'corpo')">Corpo</button>
+    <button class="filtro-btn" onclick="filtrar(this,'ambiente')">Ambiente</button>
+  </div>
+  <div class="galeria-grid" id="galeriaGrid">
+    <div class="galeria-item" data-cat="ambiente">
+      <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=800&q=80" alt="Espaço Serenità" />
+      <div class="galeria-overlay"><span class="galeria-cat">Ambiente</span></div>
+    </div>
+    <div class="galeria-item" data-cat="pele">
+      <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80" alt="Resultado pele" />
+      <div class="galeria-overlay"><span class="galeria-cat">Pele</span></div>
+    </div>
+    <div class="galeria-item" data-cat="corpo">
+      <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80" alt="Resultado corpo" />
+      <div class="galeria-overlay"><span class="galeria-cat">Corpo</span></div>
+    </div>
+    <div class="galeria-item" data-cat="pele">
+      <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80" alt="Tratamento facial" />
+      <div class="galeria-overlay"><span class="galeria-cat">Pele</span></div>
+    </div>
+    <div class="galeria-item" data-cat="ambiente">
+      <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=800&q=80" alt="Sala de tratamento" />
+      <div class="galeria-overlay"><span class="galeria-cat">Ambiente</span></div>
+    </div>
+    <div class="galeria-item" data-cat="corpo">
+      <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80" alt="Resultado corporal" />
+      <div class="galeria-overlay"><span class="galeria-cat">Corpo</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPE -->
+<section class="equipe" id="equipe">
+  <div class="equipe-header">
+    <span class="section-tag">Quem cuida de você</span>
+    <h2 class="section-title">Nossa equipe de <em>especialistas</em></h2>
+    <p class="section-subtitle">Profissionais apaixonados pelo que fazem, com formação rigorosa e foco total no seu bem-estar.</p>
+  </div>
+  <div class="equipe-grid">
+    <div class="equipe-card">
+      <img class="equipe-foto" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80" alt="Dra. Camila Ferreira" />
+      <h3>Dra. Camila Ferreira</h3>
+      <p class="equipe-especialidade">Esteticista Clínica & Diretora</p>
+      <p class="equipe-cert">CRQ 12.345-6 · Especialista em Estética Avançada pela USP</p>
+    </div>
+    <div class="equipe-card">
+      <img class="equipe-foto" src="https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?w=400&q=80" alt="Beatriz Santos" />
+      <h3>Beatriz Santos</h3>
+      <p class="equipe-especialidade">Especialista em Pele</p>
+      <p class="equipe-cert">Certificada em Radiofrequência · Pós-graduada em Dermocosmética</p>
+    </div>
+    <div class="equipe-card">
+      <img class="equipe-foto" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80" alt="Letícia Moura" />
+      <h3>Letícia Moura</h3>
+      <p class="equipe-especialidade">Terapeuta Corporal</p>
+      <p class="equipe-cert">Especialista em Drenagem Linfática · Formação Internacional</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos" id="depoimentos">
+  <div class="depoimentos-header">
+    <span class="section-tag">O que dizem</span>
+    <h2 class="section-title">Nossas <em>clientes</em> falam</h2>
+  </div>
+  <p class="depoimentos-count"><strong>500+ avaliações 5 estrelas</strong> no Google · 4.9 de média</p>
+  <div class="depoimentos-grid">
+    <div class="depoimento-card">
+      <div class="stars">★★★★★</div>
+      <p class="depoimento-texto">"Fiz o microagulhamento e os resultados superaram todas as minhas expectativas. As manchas do sol clarearam muito e minha pele ficou muito mais firme. A equipe é extremamente profissional e atenciosa."</p>
+      <div class="depoimento-autor">
+        <img class="depoimento-avatar" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&q=80" alt="Ana Paula" />
+        <div class="depoimento-info"><h4>Ana Paula R.</h4><span>Microagulhamento · cliente desde 2022</span></div>
+      </div>
+    </div>
+    <div class="depoimento-card">
+      <div class="stars">★★★★★</div>
+      <p class="depoimento-texto">"Ambiente lindo e muito acolhedor. A Dra. Camila é incrível — explicou tudo detalhadamente antes do procedimento. Fiz a radiofrequência e meu rosto mudou completamente. Me sinto 10 anos mais jovem!"</p>
+      <div class="depoimento-autor">
+        <img class="depoimento-avatar" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=100&q=80" alt="Marina Lopes" />
+        <div class="depoimento-info"><h4>Marina Lopes</h4><span>Radiofrequência · cliente desde 2021</span></div>
+      </div>
+    </div>
+    <div class="depoimento-card">
+      <div class="stars">★★★★★</div>
+      <p class="depoimento-texto">"Faço drenagem linfática toda semana com a Letícia. É um momento só meu — relaxante e com ótimos resultados no corpo. Recomendo de olhos fechados para quem quer cuidar de si mesma de verdade."</p>
+      <div class="depoimento-autor">
+        <img class="depoimento-avatar" src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&q=80" alt="Fernanda Costa" />
+        <div class="depoimento-info"><h4>Fernanda Costa</h4><span>Drenagem Linfática · cliente desde 2020</span></div>
+      </div>
+    </div>
+    <div class="depoimento-card">
+      <div class="stars">★★★★★</div>
+      <p class="depoimento-texto">"Fui pela primeira vez com receio, mas saí apaixonada! A limpeza de pele foi incrível, a sala é super higienizada e a profissional muito cuidadosa. Já agendei meu retorno. Espaço maravilhoso!"</p>
+      <div class="depoimento-autor">
+        <img class="depoimento-avatar" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&q=80" alt="Juliana Matos" />
+        <div class="depoimento-info"><h4>Juliana Matos</h4><span>Limpeza de Pele · cliente desde 2023</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog" id="blog">
+  <div class="blog-header">
+    <span class="section-tag">Novidades</span>
+    <h2 class="section-title">Dicas e tendências em <em>estética</em></h2>
+    <p class="section-subtitle">Conteúdo criado pela nossa equipe para você entender mais sobre os tratamentos e cuidar melhor da sua pele.</p>
+  </div>
+  <div class="blog-grid">
+
+    <div class="blog-card">
+      <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=700&q=80" alt="Peeling Químico" />
+      <div class="blog-body">
+        <span class="blog-cat">Estética Facial</span>
+        <h3>5 benefícios do peeling químico para pele mista</h3>
+        <p>O peeling químico é um dos tratamentos mais procurados da nossa clínica. Saiba por que ele é tão eficaz para controlar a oleosidade e reduzir manchas.</p>
+        <div class="blog-footer">
+          <span class="blog-data">15 Mai 2025</span>
+          <a href="blog/peeling-quimico.html" class="blog-link">Ler mais →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?w=700&q=80" alt="Radiofrequência" />
+      <div class="blog-body">
+        <span class="blog-cat">Tecnologia</span>
+        <h3>Radiofrequência: o que é e para quem é indicada</h3>
+        <p>Entenda como funciona essa tecnologia que estimula o colágeno naturalmente e combate a flacidez sem cirurgia ou tempo de recuperação.</p>
+        <div class="blog-footer">
+          <span class="blog-data">02 Mai 2025</span>
+          <a href="blog/radiofrequencia.html" class="blog-link">Ler mais →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=700&q=80" alt="Skincare verão" />
+      <div class="blog-body">
+        <span class="blog-cat">Cuidados</span>
+        <h3>Rotina de skincare para o verão carioca</h3>
+        <p>Sol forte, umidade e calor intenso pedem atenção redobrada. Nossa esteticista-chefe compartilha os segredos para manter a pele saudável durante o verão no Rio.</p>
+        <div class="blog-footer">
+          <span class="blog-data">18 Abr 2025</span>
+          <a href="blog/skincare-verao.html" class="blog-link">Ler mais →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTATO / AGENDAMENTO -->
+<section class="contato" id="contato">
+  <div class="contato-grid">
+    <div class="contato-form">
+      <span class="section-tag">Agendar</span>
+      <h2>Garanta seu <em>horário</em></h2>
+      <p>Preencha o formulário e entraremos em contato pelo WhatsApp para confirmar seu agendamento. Avaliação inicial gratuita!</p>
+      <form onsubmit="enviarAgendamento(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Seu nome</label>
+            <input type="text" placeholder="João Silva" required />
+          </div>
+          <div class="form-group">
+            <label>WhatsApp</label>
+            <input type="tel" placeholder="(21) 99999-9999" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" placeholder="seuemail@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Tratamento de interesse</label>
+          <select>
+            <option value="">Selecione um tratamento</option>
+            <option>Limpeza de Pele Profunda</option>
+            <option>Peeling Químico</option>
+            <option>Radiofrequência Facial</option>
+            <option>Drenagem Linfática</option>
+            <option>Microagulhamento</option>
+            <option>Hidratação Corporal</option>
+            <option>Não sei ainda — quero uma avaliação</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Data preferida</label>
+            <input type="date" />
+          </div>
+          <div class="form-group">
+            <label>Período</label>
+            <select>
+              <option value="">Selecione</option>
+              <option>Manhã (9h–12h)</option>
+              <option>Tarde (13h–17h)</option>
+              <option>Fim de tarde (17h–19h)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Observações (opcional)</label>
+          <textarea placeholder="Alguma condição de saúde, alergia ou preferência que devamos saber..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Confirmar pelo WhatsApp
+        </button>
+      </form>
+    </div>
+
+    <div class="contato-info">
+      <span class="section-tag">Funcionamento</span>
+      <div class="horarios-lista">
+        <div class="horario-linha"><span>Segunda — Sexta</span><span>9h–20h</span></div>
+        <div class="horario-linha"><span>Sábado</span><span>9h–18h</span></div>
+        <div class="horario-linha"><span>Domingo</span><span class="fechado">Fechado</span></div>
+      </div>
+      <div class="info-bloco">
+        <h4>Como chegar</h4>
+        <div class="info-linha">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Rua Visconde de Pirajá, 414 — Ipanema<br/>Rio de Janeiro, RJ · CEP 22410-002</span>
+        </div>
+        <div class="info-linha">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <span>(21) 99999-0000</span>
+        </div>
+        <div class="info-linha">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>contato@espacoserenita.com.br</span>
+        </div>
+      </div>
+      <div class="info-bloco">
+        <h4>Redes sociais</h4>
+        <div class="redes-sociais">
+          <a href="#" class="rede-btn" title="Instagram" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" class="rede-btn" title="Facebook" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://wa.me/5521999990000" class="rede-btn" title="WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section class="mapa-section">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.2!2d-43.198!3d-22.983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sIpanema%2C%20Rio%20de%20Janeiro!5e0!3m2!1spt-BR!2sbr!4v1"
+    title="Localização Espaço Serenità"
+    allowfullscreen="" loading="lazy"></iframe>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="agendar">
+  <h2>Pronta para se transformar?</h2>
+  <p>Agende sua avaliação gratuita hoje. Nossos especialistas vão indicar o tratamento ideal para você.</p>
+  <a href="https://wa.me/5521999990000?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação%20gratuita%20no%20Espaço%20Serenità." class="btn-whatsapp" target="_blank" rel="noopener">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Agendar avaliação gratuita
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="footer-logo-link">Espaço <span>Serenità</span></a>
+      <p>Clínica de estética premium em Ipanema, Rio de Janeiro. Tratamentos personalizados com tecnologia de ponta e profissionais certificados.</p>
+      <div class="footer-social">
+        <a href="#" title="Instagram" aria-label="Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="#" title="Facebook" aria-label="Facebook">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://wa.me/5521999990000" title="WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Links rápidos</h4>
+      <ul>
+        <li><a href="#home">Início</a></li>
+        <li><a href="#sobre">Sobre nós</a></li>
+        <li><a href="#resultados">Galeria</a></li>
+        <li><a href="#equipe">Nossa equipe</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Tratamentos</h4>
+      <ul>
+        <li><a href="#tratamentos">Limpeza de Pele</a></li>
+        <li><a href="#tratamentos">Peeling Químico</a></li>
+        <li><a href="#tratamentos">Radiofrequência</a></li>
+        <li><a href="#tratamentos">Drenagem Linfática</a></li>
+        <li><a href="#tratamentos">Microagulhamento</a></li>
+        <li><a href="#tratamentos">Hidratação Corporal</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <p>Rua Visconde de Pirajá, 414<br/>Ipanema — Rio de Janeiro, RJ</p>
+      <br/>
+      <p>(21) 99999-0000</p>
+      <br/>
+      <p>Seg–Sex: 9h–20h<br/>Sáb: 9h–18h</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Espaço Serenità — <em>Página fictícia para fins de demonstração.</em></p>
+    <p>Site criado por <a href="https://helphstudio.github.io/helph-studio" target="_blank">Helph Studio</a></p>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('navbar').classList.toggle('nav-mobile-open');
+  }
+
+  // Galeria filtro
+  function filtrar(btn, cat) {
+    document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.galeria-item').forEach(item => {
+      item.style.display = (cat === 'todos' || item.dataset.cat === cat) ? '' : 'none';
+    });
+  }
+
+  // Form
+  function enviarAgendamento(e) {
+    e.preventDefault();
+    window.open('https://wa.me/5521999990000?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação%20no%20Espaço%20Serenità.', '_blank');
+  }
+</script>
+
+</body>
+</html>
