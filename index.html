@@ -473,6 +473,25 @@
     }
     .plan-btn.outline:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.2); }
 
+    /* ── PORTFOLIO IFRAME PREVIEW ── */
+    .portfolio-iframe-wrap {
+      width: 100%; height: 200px; overflow: hidden;
+      border-bottom: 1px solid var(--border); position: relative;
+    }
+    .portfolio-iframe-wrap iframe {
+      position: absolute; top: 0; left: 0;
+      width: 1280px; height: 900px;
+      transform: scale(0.25); transform-origin: top left;
+      border: none; pointer-events: none;
+    }
+    .portfolio-demo-badge {
+      position: absolute; top: 10px; right: 10px;
+      background: rgba(124,92,252,0.85); color: #fff;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em;
+      padding: 3px 10px; border-radius: 99px;
+      backdrop-filter: blur(8px);
+    }
+
     /* ── PORTFOLIO EM CONSTRUÇÃO ── */
     .portfolio-card.wip { opacity: 0.72; }
     .portfolio-card.wip:hover { opacity: 1; }
@@ -611,9 +630,10 @@
 <nav>
   <a href="#" class="logo">Hel<span>ph</span> Studio</a>
   <ul id="nav-menu">
-    <li><a href="#por-que">Por que ter um site?</a></li>
+    <li><a href="#por-que">Por que investir?</a></li>
     <li><a href="#como-funciona">Como funciona</a></li>
     <li><a href="#portfolio">Portfólio</a></li>
+    <li><a href="#apps">Apps</a></li>
     <li><a href="#precos">Orçamento</a></li>
     <li><a href="musicas.html" style="color:#f472a8;font-size:0.85rem;border:1px solid rgba(244,114,168,0.25);padding:7px 16px;border-radius:99px;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;">🎵 Músicas</a></li>
     <li><a href="#precos" class="nav-cta" style="white-space:nowrap;">Falar agora</a></li>
@@ -623,13 +643,13 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">Sites para quem quer crescer online</div>
-  <h1>Seu negócio <em>existe</em><br/>na internet?</h1>
+  <div class="hero-badge">Sites e Apps para quem quer crescer online</div>
+  <h1>Seu negócio está onde<br/><em>seus clientes</em> estão?</h1>
   <p class="hero-sub">
-    Criamos sites profissionais que geram credibilidade, atraem clientes e trabalham por você enquanto você dorme.
+    Criamos sites profissionais e aplicativos que geram credibilidade, atraem clientes e trabalham por você enquanto você dorme.
   </p>
   <div class="hero-actions">
-    <a href="#contato" class="btn-primary">Quero meu site →</a>
+    <a href="#contato" class="btn-primary">Quero começar →</a>
     <a href="#portfolio" class="btn-ghost">Ver portfólio</a>
   </div>
   <div class="hero-stats">
@@ -639,11 +659,11 @@
     </div>
     <div class="stat">
       <div class="stat-num">3×</div>
-      <div class="stat-label">mais credibilidade percebida<br/>com site profissional</div>
+      <div class="stat-label">mais credibilidade percebida<br/>com presença digital profissional</div>
     </div>
     <div class="stat">
       <div class="stat-num" data-count="7" data-suffix=" dias">7 dias</div>
-      <div class="stat-label">prazo médio de entrega<br/>do seu site</div>
+      <div class="stat-label">prazo médio de entrega<br/>do seu projeto</div>
     </div>
   </div>
 </section>
@@ -651,8 +671,8 @@
 <!-- POR QUE -->
 <section class="why" id="por-que">
   <p class="section-label">Por que investir</p>
-  <h2>Sem site, você perde clientes todo dia</h2>
-  <p class="section-sub">Enquanto você não está online, seu concorrente está. Veja o que um site faz pelo seu negócio.</p>
+  <h2>Sem presença digital, você perde clientes todo dia</h2>
+  <p class="section-sub">Seja um site ou um app — estar online é o que separa negócios que crescem dos que ficam parados.</p>
   <div class="why-grid">
     <div class="why-card reveal reveal-delay-1">
       <div class="why-icon">🔍</div>
@@ -690,7 +710,7 @@
 <!-- COMO FUNCIONA -->
 <section id="como-funciona">
   <p class="section-label">Processo</p>
-  <h2>Do zero ao site no ar em 7 dias</h2>
+  <h2>Do zero ao ar em poucos dias</h2>
   <p class="section-sub">Simples, rápido e sem dor de cabeça. Você foca no seu negócio, a gente cuida do resto.</p>
   <div class="steps">
     <div class="step reveal reveal-delay-1">
@@ -713,16 +733,16 @@
       <div class="step-num">3</div>
       <div class="step-line"></div>
       <div class="step-content">
-        <h3>Desenvolvemos o seu site</h3>
-        <p>Criamos um site moderno, rápido e adaptado para celular. Você acompanha o progresso e pode sugerir ajustes antes de publicar.</p>
+        <h3>Desenvolvemos o seu projeto</h3>
+        <p>Criamos um site ou app moderno, rápido e adaptado para celular. Você acompanha o progresso e pode sugerir ajustes antes de publicar.</p>
       </div>
     </div>
     <div class="step reveal reveal-delay-4">
       <div class="step-num">4</div>
       <div class="step-line"></div>
       <div class="step-content">
-        <h3>Site no ar + suporte contínuo</h3>
-        <p>Publicamos, configuramos o domínio e entregamos o site funcionando. A partir daí, você pode contar com nosso plano de manutenção mensal para manter tudo sempre atualizado e seguro.</p>
+        <h3>No ar + suporte contínuo</h3>
+        <p>Publicamos, configuramos o domínio e entregamos tudo funcionando. A partir daí, você conta com nosso suporte para manter tudo sempre atualizado e seguro.</p>
       </div>
     </div>
   </div>
@@ -750,43 +770,109 @@
       </div>
     </div>
 
-    <div class="portfolio-card wip reveal reveal-delay-2">
-      <div class="portfolio-img-placeholder" style="background:linear-gradient(135deg,rgba(100,100,120,0.08),rgba(80,80,100,0.04));">
-        <span style="font-size:2rem;opacity:0.5;">🎓</span>
-        <p>Projeto em andamento</p>
+    <div class="portfolio-card reveal reveal-delay-2">
+      <div class="portfolio-iframe-wrap">
+        <iframe src="demo-pacote-presenca.html" title="Demo Pacote Presença — Studio Bella" loading="lazy" scrolling="no"></iframe>
+        <div class="portfolio-demo-badge">Demo ao vivo</div>
       </div>
       <div class="portfolio-info">
-        <span class="portfolio-tag-wip">Em construção</span>
-        <h3>Projeto Educação</h3>
-        <p>Site para professora particular. Projeto em andamento — em breve no portfólio.</p>
+        <span class="portfolio-tag">Pacote Presença</span>
+        <h3>Studio Bella — Salão de Beleza</h3>
+        <p>Site elegante para salão de beleza com portfólio de serviços, depoimentos e botão de agendamento.</p>
+        <a href="demo-pacote-presenca.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
       </div>
     </div>
 
-    <div class="portfolio-card wip reveal reveal-delay-3">
-      <div class="portfolio-img-placeholder" style="background:linear-gradient(135deg,rgba(100,100,120,0.08),rgba(80,80,100,0.04));">
-        <span style="font-size:2rem;opacity:0.5;">🔧</span>
-        <p>Projeto em andamento</p>
+    <div class="portfolio-card reveal reveal-delay-3">
+      <div class="portfolio-iframe-wrap">
+        <iframe src="demo-pacote-profissional.html" title="Demo Pacote Profissional" loading="lazy" scrolling="no"></iframe>
+        <div class="portfolio-demo-badge">Demo ao vivo</div>
       </div>
       <div class="portfolio-info">
-        <span class="portfolio-tag-wip">Em construção</span>
-        <h3>Projeto Serviços</h3>
-        <p>Site para prestador de serviços. Projeto em andamento — em breve no portfólio.</p>
+        <span class="portfolio-tag">Pacote Profissional</span>
+        <h3>Site Profissional Completo</h3>
+        <p>Site com múltiplas seções, portfólio de trabalhos, formulário de contato e identidade visual forte.</p>
+        <a href="demo-pacote-profissional.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
       </div>
     </div>
 
-    <div class="portfolio-card wip reveal reveal-delay-4">
-      <div class="portfolio-img-placeholder" style="background:linear-gradient(135deg,rgba(100,100,120,0.08),rgba(80,80,100,0.04));">
-        <span style="font-size:2rem;opacity:0.5;">🧶</span>
-        <p>Projeto em andamento</p>
+    <div class="portfolio-card reveal reveal-delay-4">
+      <div class="portfolio-iframe-wrap">
+        <iframe src="demo-pacote-completo.html" title="Demo Pacote Completo" loading="lazy" scrolling="no"></iframe>
+        <div class="portfolio-demo-badge">Demo ao vivo</div>
       </div>
       <div class="portfolio-info">
-        <span class="portfolio-tag-wip">Em construção</span>
-        <h3>Projeto Artesanato</h3>
-        <p>Site para loja de artesanato. Projeto em andamento — em breve no portfólio.</p>
+        <span class="portfolio-tag">Pacote Completo</span>
+        <h3>Site Completo com Blog</h3>
+        <p>Site robusto com blog multi-página, sistema de conteúdo, SEO avançado e área de recursos.</p>
+        <a href="demo-pacote-completo.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
       </div>
     </div>
 
   </div>
+  </div>
+</section>
+
+<!-- APPS -->
+<section id="apps" style="padding: 96px 6%; background: var(--bg);">
+  <div style="max-width: 1100px; margin: 0 auto; text-align:center;">
+    <p class="section-label">Aplicativos</p>
+    <h2 style="font-size:clamp(1.8rem,4vw,2.8rem); font-weight:800; margin:0 auto 16px; text-align:center;">
+      Apps para o seu negócio
+    </h2>
+    <p style="color:var(--muted); max-width:580px; margin:0 auto 56px; line-height:1.7;">
+      Criamos <strong style="color:var(--accent2);">aplicativos que funcionam direto no celular</strong> — sem precisar instalar pela loja. O cliente acessa pelo navegador, salva na tela inicial e pronto. Rápido, leve e funciona até offline.
+    </p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; margin-bottom:48px;">
+
+      <!-- Card 1: Cardápio Digital -->
+      <div style="background:var(--bg3); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; transition:border-color .3s, transform .3s;" onmouseover="this.style.borderColor='rgba(124,92,252,0.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='none'">
+        <div style="height:160px; background:linear-gradient(135deg,#1A1A2E,#0F3460); display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
+          <span style="font-size:3rem;">🍔</span>
+          <span style="font-size:0.75rem;color:#FF6B35;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">Cardápio Digital</span>
+        </div>
+        <div style="padding:24px;">
+          <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
+            <span style="background:rgba(124,92,252,0.12);color:var(--accent2);font-size:0.72rem;font-weight:700;padding:4px 10px;border-radius:99px;letter-spacing:0.05em;">App Web</span>
+            <span style="background:rgba(34,197,94,0.1);color:#22c55e;font-size:0.72rem;font-weight:700;padding:4px 10px;border-radius:99px;">Instala no celular</span>
+          </div>
+          <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;">Cardápio Digital Interativo</h3>
+          <p style="font-size:0.87rem;color:var(--muted);line-height:1.6;margin-bottom:20px;">Menu digital com categorias, fotos e preços. O cliente acessa pelo celular e pode salvar como app. Ideal para restaurantes, lanchonetes e bares.</p>
+          <span style="display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;font-weight:600;color:var(--muted);font-style:italic;">Em breve →</span>
+        </div>
+      </div>
+
+      <!-- Card 2: Agendamento Online -->
+      <div style="background:var(--bg3); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; transition:border-color .3s, transform .3s;" onmouseover="this.style.borderColor='rgba(124,92,252,0.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='none'">
+        <div style="height:160px; background:linear-gradient(135deg,#1a1a2e,#16213e); display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
+          <span style="font-size:3rem;">📅</span>
+          <span style="font-size:0.75rem;color:#a78bfa;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">Agendamento Online</span>
+        </div>
+        <div style="padding:24px;">
+          <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
+            <span style="background:rgba(124,92,252,0.12);color:var(--accent2);font-size:0.72rem;font-weight:700;padding:4px 10px;border-radius:99px;letter-spacing:0.05em;">App Web</span>
+            <span style="background:rgba(34,197,94,0.1);color:#22c55e;font-size:0.72rem;font-weight:700;padding:4px 10px;border-radius:99px;">Funciona offline</span>
+          </div>
+          <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;">Sistema de Agendamento Online</h3>
+          <p style="font-size:0.87rem;color:var(--muted);line-height:1.6;margin-bottom:12px;">Clientes agendam horários pelo celular, sem precisar ligar. Painel para o negócio gerenciar tudo. Ideal para salões, clínicas e consultórios.</p>
+          <p style="font-size:1rem;font-weight:700;color:var(--text);margin-bottom:16px;">A partir de <span style="color:var(--accent2);">R$ 39,90<span style="font-size:0.8rem;font-weight:500;color:var(--muted);">/mês</span></span></p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;text-align:left;">
+            <a href="agendamento-online.html" style="display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;font-weight:600;color:var(--accent2);text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">Saiba mais →</a>
+            <a href="https://demo-agendamento.helphstudio.com.br/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:500;color:var(--muted);text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">Ver demo →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;">
+      <p style="color:var(--muted);font-size:0.92rem;margin-bottom:20px;">Tem uma ideia de app? Chama no WhatsApp — a gente avalia e monta uma proposta sem compromisso.</p>
+      <a href="https://wa.me/5521971349275?text=Olá!%20Vi%20os%20apps%20da%20Helph%20Studio%20e%20gostaria%20de%20saber%20mais." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 32px;border-radius:99px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Quero um app assim
+      </a>
+    </div>
   </div>
 </section>
 
@@ -867,6 +953,7 @@
   <p class="pricing-disclaimer" style="margin-top:32px;text-align:center;">
     Não sabe qual escolher? <a href="https://wa.me/5521971349275" target="_blank" rel="noopener" style="color:var(--accent2);font-weight:600;">Fala com a gente sem compromisso.</a>
   </p>
+
 </section>
 
 <!-- FAQ -->
@@ -926,6 +1013,20 @@
           <span class="icon">+</span>
         </button>
         <p class="faq-a">Depende do tipo de atualização. Pequenas mudanças de texto ou imagem podem ser feitas via nosso plano de manutenção mensal, sem precisar entender nada técnico. Para quem prefere autonomia total, desenvolvemos com sistemas de fácil edição — a gente define isso junto.</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          O que é um "App Web"? Preciso instalar pela loja?
+          <span class="icon">+</span>
+        </button>
+        <p class="faq-a">Não precisa instalar pela App Store ou Google Play. O cliente acessa o app pelo navegador do celular e, se quiser, salva na tela inicial como se fosse um app normal — com ícone e tudo. Funciona em iPhone e Android, sem depender de aprovação de loja.</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Como funciona a assinatura do app? Posso cancelar?
+          <span class="icon">+</span>
+        </button>
+        <p class="faq-a">A assinatura é mensal, sem fidelidade mínima. Você paga enquanto usar — e pode cancelar a qualquer momento, sem multa. O app fica no ar enquanto a assinatura estiver ativa. Em caso de cancelamento, entregamos todo o código do projeto para você.</p>
       </div>
     </div>
   </div>
