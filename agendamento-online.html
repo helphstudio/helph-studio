@@ -388,7 +388,7 @@
     <a href="#preco" class="btn-ghost">Ver planos e preços</a>
   </div>
   <div class="hero-stats">
-    <div class="hero-stat"><strong>5 etapas</strong><span>para o cliente agendar</span></div>
+    <div class="hero-stat"><strong>4 etapas</strong><span>para o cliente agendar</span></div>
     <div class="hero-stat"><strong>100%</strong><span>funciona offline</span></div>
     <div class="hero-stat"><strong>Zero</strong><span>instalação pela loja</span></div>
     <div class="hero-stat"><strong>R$ 39,90</strong><span>por mês, sem fidelidade</span></div>
@@ -520,9 +520,9 @@
     <!-- STEP 5 -->
     <div class="step-showcase-row">
       <div class="step-showcase-text">
-        <div class="step-badge">05</div>
-        <h3>Recebe confirmação</h3>
-        <p>Resumo completo do agendamento com opção de salvar no Google Agenda ou baixar o lembrete .ics.</p>
+        <div class="step-badge" style="background:linear-gradient(135deg,var(--green),#16a34a);">✓</div>
+        <h3>Confirmação na hora</h3>
+        <p>Resumo completo do agendamento na tela com opção de salvar no Google Agenda ou baixar o lembrete .ics.</p>
       </div>
       <div class="phone-frame">
         <div class="phone-notch"></div>
@@ -557,7 +557,7 @@
       <div class="painel-card">
         <div class="painel-icon">📋</div>
         <h3>Agenda completa</h3>
-        <p>Veja todos os agendamentos do dia, da semana ou do histórico completo. Confirme ou cancele com um clique — com opção de notificar o cliente pelo WhatsApp.</p>
+        <p>Veja todos os agendamentos do dia, da semana ou do histórico completo. Confirme ou cancele com um clique — receba notificação automática no Telegram a cada novo agendamento.</p>
       </div>
       <div class="painel-card">
         <div class="painel-icon">👥</div>
@@ -572,7 +572,12 @@
       <div class="painel-card">
         <div class="painel-icon">⚙️</div>
         <h3>Configurações completas</h3>
-        <p>Personalize nome, endereço, WhatsApp, horário de funcionamento, intervalo entre atendimentos, antecedência mínima e muito mais.</p>
+        <p>Nome, endereço, WhatsApp, horário de funcionamento, intervalo entre slots, buffer entre atendimentos, antecedência mínima, limite de dias futuros e confirmação automática.</p>
+      </div>
+      <div class="painel-card">
+        <div class="painel-icon">✈️</div>
+        <h3>Notificações Telegram</h3>
+        <p>Receba uma mensagem no Telegram a cada novo agendamento — gratuito, sem servidor externo. Configura em minutos com o token do BotFather.</p>
       </div>
       <div class="painel-card">
         <div class="painel-icon">📊</div>
@@ -603,8 +608,8 @@
         <div><h4>Funciona offline</h4><p>Mesmo sem internet, o app carrega. Os dados ficam salvos no dispositivo.</p></div>
       </div>
       <div class="feature-item">
-        <div class="feature-icon">💬</div>
-        <div><h4>Integração WhatsApp</h4><p>Confirme ou cancele agendamentos com mensagem automática via WhatsApp.</p></div>
+        <div class="feature-icon">✈️</div>
+        <div><h4>Notificações Telegram</h4><p>Receba alerta no Telegram a cada novo agendamento — gratuito e sem servidor externo.</p></div>
       </div>
       <div class="feature-item">
         <div class="feature-icon">📆</div>
@@ -625,6 +630,18 @@
       <div class="feature-item">
         <div class="feature-icon">📤</div>
         <div><h4>Exportação CSV</h4><p>Todos os agendamentos em planilha, prontos para análise no Excel ou Google Sheets.</p></div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">⏱️</div>
+        <div><h4>Buffer entre atendimentos</h4><p>Configure um intervalo de descanso entre um cliente e outro — evita sobrecarga na agenda.</p></div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">✅</div>
+        <div><h4>Confirmação automática</h4><p>Ative para confirmar novos agendamentos automaticamente, sem precisar aprovar um a um.</p></div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🔐</div>
+        <div><h4>Sessão com timeout</h4><p>O painel encerra automaticamente após inatividade — configurável a partir de 5 minutos.</p></div>
       </div>
     </div>
   </div>
@@ -667,7 +684,7 @@
         <li>Agendamento self-service pelo cliente</li>
         <li>Painel admin completo (agenda, equipe, ausências, config.)</li>
         <li>Painel individual para cada profissional</li>
-        <li>Integração com WhatsApp e Google Agenda</li>
+        <li>Notificações Telegram + integração Google Agenda</li>
         <li>Funciona offline e em iPhone e Android</li>
         <li>Relatório exportável em planilha CSV</li>
         <li>Personalizado com o nome e cores do seu negócio</li>
