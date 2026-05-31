@@ -473,6 +473,15 @@
     }
     .plan-btn.outline:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.2); }
 
+    /* ── PORTFOLIO DEMOS SUB-SECTION ── */
+    .portfolio-demos-section {
+      max-width: 1100px; margin: 80px auto 0; padding-top: 56px;
+      border-top: 1px solid var(--border);
+    }
+    .portfolio-demos-header { margin-bottom: 40px; }
+    .portfolio-demos-header h2 { font-size: clamp(1.4rem, 2.5vw, 1.9rem); margin-bottom: 10px; }
+    .portfolio-demos-header .section-sub { margin-bottom: 0; }
+
     /* ── PORTFOLIO IFRAME PREVIEW ── */
     .portfolio-iframe-wrap {
       width: 100%; height: 200px; overflow: hidden;
@@ -750,67 +759,80 @@
 
 <!-- PORTFOLIO -->
 <section class="portfolio" id="portfolio">
+
+  <!-- CLIENTES REAIS -->
   <div class="portfolio-layout">
-  <div class="portfolio-left">
-    <p class="section-label">Portfólio</p>
-    <h2>Trabalhos recentes</h2>
-    <p class="section-sub">Cada site é construído do zero, personalizado para o negócio e o público do cliente.</p>
+    <div class="portfolio-left">
+      <p class="section-label">Portfólio</p>
+      <h2>Clientes</h2>
+      <p class="section-sub">Projetos reais entregues — cada site criado do zero, personalizado para o negócio e o público do cliente.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-card reveal reveal-delay-1">
+        <div class="portfolio-preview">
+          <img src="assets/img/site/parperfeito-preview.jpg" alt="Par Perfeito Assessoria de Casamento — prévia do site" />
+        </div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Site Completo</span><span class="portfolio-tag-pacote">Pacote Completo</span>
+          <h3>Par Perfeito — Assessoria de Casamento</h3>
+          <p>Site para assessoria de casamento no RJ com galeria, depoimentos, serviços e CTAs para WhatsApp.</p>
+          <a href="https://helphstudio.github.io/parperfeito_assessoria/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver site ao vivo →</a>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="portfolio-grid">
 
-    <div class="portfolio-card reveal reveal-delay-1">
-      <div class="portfolio-preview">
-        <img src="assets/img/site/parperfeito-preview.jpg" alt="Par Perfeito Assessoria de Casamento — prévia do site" />
-      </div>
-      <div class="portfolio-info">
-        <span class="portfolio-tag">Site Completo</span><span class="portfolio-tag-pacote">Pacote Completo</span>
-        <h3>Par Perfeito — Assessoria de Casamento</h3>
-        <p>Site para assessoria de casamento no RJ com galeria, depoimentos, serviços e CTAs para WhatsApp.</p>
-        <a href="https://helphstudio.github.io/parperfeito_assessoria/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver site ao vivo →</a>
-      </div>
+  <!-- DEMONSTRAÇÕES -->
+  <div class="portfolio-demos-section">
+    <div class="portfolio-demos-header">
+      <p class="section-label">Exemplos</p>
+      <h2>Demonstrações</h2>
+      <p class="section-sub">Explore sites de exemplo para cada pacote — veja o resultado antes de contratar.</p>
     </div>
+    <div class="portfolio-grid">
 
-    <div class="portfolio-card reveal reveal-delay-2">
-      <div class="portfolio-iframe-wrap">
-        <iframe src="demo-pacote-presenca.html" title="Demo Pacote Presença — Studio Bella" loading="lazy" scrolling="no"></iframe>
-        <div class="portfolio-demo-badge">Demo ao vivo</div>
+      <div class="portfolio-card reveal reveal-delay-1">
+        <div class="portfolio-iframe-wrap">
+          <iframe src="demo-pacote-presenca.html" title="Demo Pacote Presença — Studio Bella" loading="lazy" scrolling="no"></iframe>
+          <div class="portfolio-demo-badge">Demo ao vivo</div>
+        </div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Pacote Presença</span>
+          <h3>Studio Bella — Salão de Beleza</h3>
+          <p>Site elegante para salão de beleza com portfólio de serviços, depoimentos e botão de agendamento.</p>
+          <a href="demo-pacote-presenca.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
+        </div>
       </div>
-      <div class="portfolio-info">
-        <span class="portfolio-tag">Pacote Presença</span>
-        <h3>Studio Bella — Salão de Beleza</h3>
-        <p>Site elegante para salão de beleza com portfólio de serviços, depoimentos e botão de agendamento.</p>
-        <a href="demo-pacote-presenca.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
+
+      <div class="portfolio-card reveal reveal-delay-2">
+        <div class="portfolio-iframe-wrap">
+          <iframe src="demo-pacote-profissional.html" title="Demo Pacote Profissional" loading="lazy" scrolling="no"></iframe>
+          <div class="portfolio-demo-badge">Demo ao vivo</div>
+        </div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Pacote Profissional</span>
+          <h3>Site Profissional Completo</h3>
+          <p>Site com múltiplas seções, portfólio de trabalhos, formulário de contato e identidade visual forte.</p>
+          <a href="demo-pacote-profissional.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
+        </div>
       </div>
+
+      <div class="portfolio-card reveal reveal-delay-3">
+        <div class="portfolio-iframe-wrap">
+          <iframe src="demo-pacote-completo.html" title="Demo Pacote Completo" loading="lazy" scrolling="no"></iframe>
+          <div class="portfolio-demo-badge">Demo ao vivo</div>
+        </div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Pacote Completo</span>
+          <h3>Site Completo com Blog</h3>
+          <p>Site robusto com blog multi-página, sistema de conteúdo, SEO avançado e área de recursos.</p>
+          <a href="demo-pacote-completo.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
+        </div>
+      </div>
+
     </div>
-
-    <div class="portfolio-card reveal reveal-delay-3">
-      <div class="portfolio-iframe-wrap">
-        <iframe src="demo-pacote-profissional.html" title="Demo Pacote Profissional" loading="lazy" scrolling="no"></iframe>
-        <div class="portfolio-demo-badge">Demo ao vivo</div>
-      </div>
-      <div class="portfolio-info">
-        <span class="portfolio-tag">Pacote Profissional</span>
-        <h3>Site Profissional Completo</h3>
-        <p>Site com múltiplas seções, portfólio de trabalhos, formulário de contato e identidade visual forte.</p>
-        <a href="demo-pacote-profissional.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
-      </div>
-    </div>
-
-    <div class="portfolio-card reveal reveal-delay-4">
-      <div class="portfolio-iframe-wrap">
-        <iframe src="demo-pacote-completo.html" title="Demo Pacote Completo" loading="lazy" scrolling="no"></iframe>
-        <div class="portfolio-demo-badge">Demo ao vivo</div>
-      </div>
-      <div class="portfolio-info">
-        <span class="portfolio-tag">Pacote Completo</span>
-        <h3>Site Completo com Blog</h3>
-        <p>Site robusto com blog multi-página, sistema de conteúdo, SEO avançado e área de recursos.</p>
-        <a href="demo-pacote-completo.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
-      </div>
-    </div>
-
   </div>
-  </div>
+
 </section>
 
 <!-- APPS -->
