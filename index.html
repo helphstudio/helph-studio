@@ -417,6 +417,78 @@
     .stat-num { font-size: 2rem; font-weight: 800; color: var(--text); letter-spacing: -1px; transition: color .3s, transform .3s; display: inline-block; }
     .stat:hover .stat-num { color: var(--accent2); transform: scale(1.12); }
 
+    /* ── URGENCY BANNER ── */
+    .urgency-banner {
+      background: linear-gradient(135deg, rgba(124,92,252,0.12), rgba(167,139,250,0.08));
+      border: 1px solid rgba(124,92,252,0.5);
+      border-radius: 12px;
+      padding: 14px 24px;
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent2);
+      margin-bottom: 40px;
+      letter-spacing: 0.2px;
+    }
+
+    /* ── PLANS GRID (3 cards) ── */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .plan-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 36px 28px;
+      position: relative; transition: transform .3s, box-shadow .3s;
+      display: flex; flex-direction: column;
+    }
+    .plan-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(124,92,252,0.15); }
+    .plan-card.featured { border-color: var(--accent); box-shadow: 0 0 60px rgba(124,92,252,0.2); }
+    .plan-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: #fff;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      padding: 5px 16px; border-radius: 99px; white-space: nowrap;
+    }
+    .plan-name { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+    .plan-price-old { font-size: 0.85rem; color: var(--muted); text-decoration: line-through; margin-bottom: 4px; }
+    .plan-price-from { font-size: 0.78rem; color: var(--muted); margin-bottom: 2px; }
+    .plan-price-value { font-size: 2.4rem; font-weight: 900; letter-spacing: -1.5px; color: var(--text); margin-bottom: 24px; }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; flex: 1; }
+    .plan-features li { display: flex; align-items: flex-start; gap: 9px; font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+    .plan-features li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .plan-btn {
+      display: block; text-align: center; width: 100%;
+      padding: 13px; border-radius: 99px; font-size: 0.9rem; font-weight: 700;
+      text-decoration: none; background: var(--accent); color: #fff;
+      transition: opacity .2s; margin-top: auto;
+    }
+    .plan-btn:hover { opacity: 0.85; }
+    .plan-btn.outline {
+      background: transparent; border: 1px solid var(--border); color: var(--text);
+    }
+    .plan-btn.outline:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.2); }
+
+    /* ── PORTFOLIO EM CONSTRUÇÃO ── */
+    .portfolio-card.wip { opacity: 0.72; }
+    .portfolio-card.wip:hover { opacity: 1; }
+    .portfolio-tag-wip {
+      display: inline-block; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      background: rgba(136,136,160,0.15); color: var(--muted);
+      padding: 4px 10px; border-radius: 99px; margin-bottom: 10px;
+    }
+    .portfolio-tag-pacote {
+      display: inline-block; font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      background: rgba(124,92,252,0.12); color: var(--accent2);
+      padding: 3px 9px; border-radius: 99px; margin-left: 6px; vertical-align: middle;
+    }
+
     /* ── PRICING 2-COL LAYOUT ── */
     .pricing-layout {
       display: grid;
@@ -512,6 +584,7 @@
       footer { flex-direction: column; text-align: center; }
       .why-grid { grid-template-columns: 1fr 1fr; }
       .pricing-layout { grid-template-columns: 1fr; gap: 40px; }
+      .plans-grid { grid-template-columns: 1fr; }
       .pricing-left { align-items: center; text-align: center; }
       .pricing-disclaimer { text-align: center !important; }
       .faq-layout { grid-template-columns: 1fr; gap: 32px; }
@@ -543,7 +616,7 @@
     <li><a href="#portfolio">Portfólio</a></li>
     <li><a href="#precos">Orçamento</a></li>
     <li><a href="musicas.html" style="color:#f472a8;font-size:0.85rem;border:1px solid rgba(244,114,168,0.25);padding:7px 16px;border-radius:99px;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;">🎵 Músicas</a></li>
-    <li><a href="#contato" class="nav-cta" style="white-space:nowrap;">Falar agora</a></li>
+    <li><a href="#precos" class="nav-cta" style="white-space:nowrap;">Falar agora</a></li>
   </ul>
   <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
 </nav>
@@ -670,22 +743,46 @@
         <img src="assets/img/site/parperfeito-preview.jpg" alt="Par Perfeito Assessoria de Casamento — prévia do site" />
       </div>
       <div class="portfolio-info">
-        <span class="portfolio-tag">Site Completo</span>
+        <span class="portfolio-tag">Site Completo</span><span class="portfolio-tag-pacote">Pacote Completo</span>
         <h3>Par Perfeito — Assessoria de Casamento</h3>
         <p>Site para assessoria de casamento no RJ com galeria, depoimentos, serviços e CTAs para WhatsApp.</p>
         <a href="https://helphstudio.github.io/parperfeito_assessoria/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver site ao vivo →</a>
       </div>
     </div>
 
-    <div class="portfolio-card reveal reveal-delay-2">
-      <div class="portfolio-img-placeholder">
-        <span>💼</span>
-        <p>Seu negócio pode ser o próximo</p>
+    <div class="portfolio-card wip reveal reveal-delay-2">
+      <div class="portfolio-img-placeholder" style="background:linear-gradient(135deg,rgba(100,100,120,0.08),rgba(80,80,100,0.04));">
+        <span style="font-size:2rem;opacity:0.5;">🎓</span>
+        <p>Projeto em andamento</p>
       </div>
       <div class="portfolio-info">
-        <span class="portfolio-tag">Em breve</span>
-        <h3>Quer ser nosso próximo case?</h3>
-        <p>Condições especiais de lançamento para os primeiros clientes. Chama no WhatsApp e bora conversar.</p>
+        <span class="portfolio-tag-wip">Em construção</span>
+        <h3>Projeto Educação</h3>
+        <p>Site para professora particular. Projeto em andamento — em breve no portfólio.</p>
+      </div>
+    </div>
+
+    <div class="portfolio-card wip reveal reveal-delay-3">
+      <div class="portfolio-img-placeholder" style="background:linear-gradient(135deg,rgba(100,100,120,0.08),rgba(80,80,100,0.04));">
+        <span style="font-size:2rem;opacity:0.5;">🔧</span>
+        <p>Projeto em andamento</p>
+      </div>
+      <div class="portfolio-info">
+        <span class="portfolio-tag-wip">Em construção</span>
+        <h3>Projeto Serviços</h3>
+        <p>Site para prestador de serviços. Projeto em andamento — em breve no portfólio.</p>
+      </div>
+    </div>
+
+    <div class="portfolio-card wip reveal reveal-delay-4">
+      <div class="portfolio-img-placeholder" style="background:linear-gradient(135deg,rgba(100,100,120,0.08),rgba(80,80,100,0.04));">
+        <span style="font-size:2rem;opacity:0.5;">🧶</span>
+        <p>Projeto em andamento</p>
+      </div>
+      <div class="portfolio-info">
+        <span class="portfolio-tag-wip">Em construção</span>
+        <h3>Projeto Artesanato</h3>
+        <p>Site para loja de artesanato. Projeto em andamento — em breve no portfólio.</p>
       </div>
     </div>
 
@@ -695,38 +792,79 @@
 
 <!-- PRECOS -->
 <section id="precos">
-  <div class="pricing-layout">
+  <span id="contato"></span>
+  <p class="section-label" style="text-align:center;">Investimento</p>
+  <h2 style="text-align:center;margin:0 auto 16px;">Escolha o plano ideal para você</h2>
+  <p class="section-sub" style="text-align:center;margin:0 auto 40px;">Todos os sites são feitos do zero, sem templates. Design exclusivo, entrega rápida e suporte incluso.</p>
 
-    <div class="pricing-left">
-      <p class="section-label">Investimento</p>
-      <h2>Orçamento sob medida</h2>
-      <p class="section-sub">Cada projeto é único. A gente entende o que você precisa e monta uma proposta personalizada — sem tabela fixa, sem surpresa.</p>
-      <div class="promo-badge">🎉 Promoção de lançamento — condições especiais para os primeiros 10 projetos</div>
-      <p class="pricing-disclaimer" style="margin-top:24px;text-align:left;">
-        A consulta inicial é gratuita.<br/>
-        Tem dúvidas? <a href="#contato" style="color:var(--accent2)">Fala com a gente</a>.
-      </p>
+  <div class="urgency-banner" style="max-width:700px;margin:0 auto 40px;">
+    ⏳ Oferta de lançamento — condições especiais para os 10 primeiros projetos. Vagas restantes: 10
+  </div>
+
+  <div class="plans-grid">
+
+    <!-- Card 1 -->
+    <div class="plan-card">
+      <p class="plan-name">Pacote Presença</p>
+      <p class="plan-price-old">R$ 1.200,00</p>
+      <p class="plan-price-from">a partir de</p>
+      <p class="plan-price-value">R$ 599,90</p>
+      <ul class="plan-features">
+        <li>Landing page de uma página</li>
+        <li>Design personalizado (não é template)</li>
+        <li>Adaptado para celular</li>
+        <li>Botão de WhatsApp integrado</li>
+        <li>SEO básico configurado</li>
+        <li>Entrega em até 7 dias</li>
+        <li>3 meses de suporte grátis</li>
+      </ul>
+      <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Helph%20Studio%20e%20tenho%20interesse%20no%20Pacote%20Pres%C3%A9n%C3%A7a%20promocional." class="plan-btn outline" target="_blank" rel="noopener">Quero esse pacote →</a>
+      <a href="demo-pacote-presenca.html" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:12px;font-size:0.8rem;color:var(--muted);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--accent2)'" onmouseout="this.style.color='var(--muted)'">Ver página de exemplo →</a>
     </div>
 
-    <div>
-      <div class="pricing-card featured" style="text-align:center;">
-        <p class="pricing-name">O que todo projeto inclui</p>
-        <hr class="pricing-divider" style="margin-top:16px;" />
-        <ul class="pricing-features" style="text-align:left;">
-          <li>Design exclusivo e personalizado para o seu projeto</li>
-          <li>Adaptado para celular (mobile-first)</li>
-          <li>Otimizado para Google (SEO básico)</li>
-          <li>Botão do WhatsApp integrado</li>
-          <li>Formulário de contato</li>
-          <li>Entrega rápida — em média 7 dias</li>
-          <li>Suporte pós-entrega via WhatsApp</li>
-          <li>Hospedagem inclusa no primeiro ano</li>
-        </ul>
-        <a href="#contato" class="btn-filled" style="margin-top:28px;">Solicitar orçamento grátis</a>
-      </div>
+    <!-- Card 2 — Destaque -->
+    <div class="plan-card featured">
+      <div class="plan-badge">⭐ Mais pedido</div>
+      <p class="plan-name">Pacote Profissional</p>
+      <p class="plan-price-old">R$ 2.000,00</p>
+      <p class="plan-price-from">a partir de</p>
+      <p class="plan-price-value">R$ 999,90</p>
+      <ul class="plan-features">
+        <li>Site completo com 4 a 5 seções</li>
+        <li>Design personalizado (não é template)</li>
+        <li>Adaptado para celular</li>
+        <li>Botão de WhatsApp + formulário de contato</li>
+        <li>Seção de depoimentos</li>
+        <li>SEO básico configurado</li>
+        <li>Entrega em até 7 dias</li>
+        <li>3 meses de suporte grátis</li>
+      </ul>
+      <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Pacote%20Profissional%20promocional%20da%20Helph%20Studio." class="plan-btn" target="_blank" rel="noopener">Quero esse pacote →</a>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="plan-card">
+      <p class="plan-name">Pacote Completo</p>
+      <p class="plan-price-old">R$ 3.000,00</p>
+      <p class="plan-price-from">a partir de</p>
+      <p class="plan-price-value">R$ 1.499,90</p>
+      <ul class="plan-features">
+        <li>Site multi-página</li>
+        <li>Tudo do Pacote Profissional</li>
+        <li>Galeria de fotos ou portfólio</li>
+        <li>Blog ou seção de novidades</li>
+        <li>1 mês de manutenção incluído</li>
+        <li>3 meses de suporte grátis</li>
+        <li>Prazo combinado conforme escopo</li>
+      </ul>
+      <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Pacote%20Completo%20promocional%20da%20Helph%20Studio." class="plan-btn outline" target="_blank" rel="noopener">Quero esse pacote →</a>
     </div>
 
   </div>
+
+  <p class="pricing-disclaimer" style="margin-top:32px;text-align:center;">
+    Não sabe qual escolher? <a href="https://wa.me/5521971349275" target="_blank" rel="noopener" style="color:var(--accent2);font-weight:600;">Fala com a gente sem compromisso.</a>
+  </p>
 </section>
 
 <!-- FAQ -->
@@ -743,7 +881,7 @@
           Quanto custa fazer um site?
           <span class="icon">+</span>
         </button>
-        <p class="faq-a">Cada projeto é único, então o valor é definido após entender o que você precisa. Trabalhamos com orçamento personalizado — sem tabela fixa. A consulta inicial é gratuita e sem compromisso. Você recebe uma proposta detalhada antes de decidir qualquer coisa.</p>
+        <p class="faq-a">Temos 3 pacotes promocionais: Pacote Presença a partir de R$&nbsp;599,90, Pacote Profissional a partir de R$&nbsp;999,90 e Pacote Completo a partir de R$&nbsp;1.499,90. São condições especiais de lançamento para os primeiros 10 projetos. Não sabe qual escolher? Chama no WhatsApp — a gente indica o melhor para o seu caso, sem compromisso.</p>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
@@ -791,9 +929,9 @@
   </div>
 </section>
 
-<!-- FORMULÁRIO ORÇAMENTO -->
-<section id="contato" style="background:var(--bg);">
-  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;" class="form-section-grid">
+<!-- FORMULÁRIO ORÇAMENTO (removido — CTAs estão nos cards de planos) -->
+<section style="display:none;">
+  <div>
     <div>
       <p class="section-label">Pronto para começar?</p>
       <h2>Solicite seu orçamento grátis</h2>
