@@ -45,18 +45,34 @@
         fill="#f0f0f5">Studio</text>
 
   <!-- Tagline -->
-  <text x="120" y="660"
+  <text x="120" y="648"
         font-family="Arial, sans-serif"
         font-weight="400"
         font-size="32"
         fill="#8888a0"
-        letter-spacing="2">Sites profissionais para negócios, autônomos e freelancers.</text>
+        letter-spacing="2">Sites e aplicativos para negócios, autônomos e freelancers.</text>
 
   <!-- Divider -->
-  <rect x="120" y="690" width="80" height="3" rx="2" fill="#7c5cfc" opacity="0.8"/>
+  <rect x="120" y="676" width="80" height="3" rx="2" fill="#7c5cfc" opacity="0.8"/>
+
+  <!-- Serviços pills -->
+  <!-- Pill 1: Sites -->
+  <rect x="120" y="696" width="220" height="38" rx="19" fill="#7c5cfc" opacity="0.15"/>
+  <rect x="120" y="696" width="220" height="38" rx="19" fill="none" stroke="#7c5cfc" stroke-width="1" opacity="0.4"/>
+  <text x="230" y="721" font-family="Arial, sans-serif" font-weight="600" font-size="22" fill="#a78bfa" text-anchor="middle" letter-spacing="0.3">🌐 Sites</text>
+
+  <!-- Pill 2: Agendamento -->
+  <rect x="356" y="696" width="340" height="38" rx="19" fill="#7c5cfc" opacity="0.15"/>
+  <rect x="356" y="696" width="340" height="38" rx="19" fill="none" stroke="#7c5cfc" stroke-width="1" opacity="0.4"/>
+  <text x="526" y="721" font-family="Arial, sans-serif" font-weight="600" font-size="22" fill="#a78bfa" text-anchor="middle" letter-spacing="0.3">📅 Agendamento Online</text>
+
+  <!-- Pill 3: Cardápio -->
+  <rect x="712" y="696" width="310" height="38" rx="19" fill="#7c5cfc" opacity="0.15"/>
+  <rect x="712" y="696" width="310" height="38" rx="19" fill="none" stroke="#7c5cfc" stroke-width="1" opacity="0.4"/>
+  <text x="867" y="721" font-family="Arial, sans-serif" font-weight="600" font-size="22" fill="#a78bfa" text-anchor="middle" letter-spacing="0.3">🍔 Cardápio Digital</text>
 
   <!-- Contact info -->
-  <text x="120" y="750"
+  <text x="120" y="790"
         font-family="Arial, sans-serif"
         font-weight="600"
         font-size="28"
