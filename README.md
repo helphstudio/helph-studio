@@ -19,11 +19,16 @@ Landing page estática (HTML + CSS + JS puro) focada em conversão. O visitante 
 ```
 /
 ├── index.html                      # Página principal
-├── agendamento-online.html         # Página de nicho: agendamento online
+├── agendamento-online.html         # Landing page: App de Agendamento Online
+├── cardapio-digital.html           # Landing page: Cardápio Digital
 ├── musicas.html                    # Página de curadoria musical
 ├── demo-pacote-presenca.html       # Demo: Pacote Presença (ex: Studio Bella)
 ├── demo-pacote-profissional.html   # Demo: Pacote Profissional
 ├── demo-pacote-completo.html       # Demo: Pacote Completo (com blog multi-página)
+├── blog/                           # Posts de blog (demo Pacote Completo)
+│   ├── peeling-quimico.html
+│   ├── radiofrequencia.html
+│   └── skincare-verao.html
 ├── assets/
 │   └── img/
 │       ├── site/
@@ -41,7 +46,7 @@ Landing page estática (HTML + CSS + JS puro) focada em conversão. O visitante 
 │               ├── catalogo-portfolio.svg/.jpg
 │               ├── catalogo-profissional.svg/.jpg
 │               └── catalogo-site-completo.svg/.jpg
-└── CNAME                           # Domínio customizado (GitHub Pages)
+└── CNAME                           # Domínio customizado (Netlify)
 ```
 
 ---
@@ -51,7 +56,8 @@ Landing page estática (HTML + CSS + JS puro) focada em conversão. O visitante 
 | Arquivo | Descrição |
 |---|---|
 | `index.html` | Landing page principal com hero, planos, portfólio, FAQ e formulário |
-| `agendamento-online.html` | Página de nicho focada em negócios com agendamento |
+| `agendamento-online.html` | Landing page do App de Agendamento Online |
+| `cardapio-digital.html` | Landing page do Cardápio Digital |
 | `musicas.html` | Curadoria musical (página auxiliar) |
 | `demo-pacote-presenca.html` | Demo do Pacote Presença — estilo salão de beleza (Studio Bella) |
 | `demo-pacote-profissional.html` | Demo do Pacote Profissional |
@@ -98,9 +104,9 @@ Acesse em `http://localhost:3000`
 
 ## Deploy
 
-O site é hospedado via **GitHub Pages** com domínio customizado configurado no arquivo `CNAME`.
+O site é hospedado via **Netlify** com domínio customizado configurado no arquivo `CNAME` e DNS apontado no registro.br.
 
-Para publicar: abrir PR de `dev` → `main` e fazer merge.
+Para publicar: fazer merge de `dev` → `main`. O Netlify detecta automaticamente e publica.
 
 ---
 
