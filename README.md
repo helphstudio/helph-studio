@@ -97,16 +97,43 @@ Acesse em `http://localhost:3000`
 
 | Branch | Descrição |
 |---|---|
-| `main` | Produção (GitHub Pages) |
-| `dev` | Desenvolvimento — alterações entram aqui antes de ir para main |
+| `main` | Produção — base para deploy manual no Cloudflare |
+| `dev` | Desenvolvimento — todas as alterações entram aqui primeiro |
+| `production` | ⚠️ Não usar — reservada para não disparar auto-deploy |
 
 ---
 
 ## Deploy
 
-O site é hospedado via **Netlify** com domínio customizado configurado no arquivo `CNAME` e DNS apontado no registro.br.
+O site é hospedado no **Cloudflare Workers** (static assets) com domínio `helphstudio.com.br`.
 
-Para publicar: fazer merge de `dev` → `main`. O Netlify detecta automaticamente e publica.
+### Fluxo de trabalho
+
+```
+dev  →  (revisar)  →  main  →  (deploy manual)  →  Cloudflare
+```
+
+### Como subir uma nova versão
+
+1. Faça as alterações na branch `dev`
+2. Merge `dev` → `main`:
+   ```bash
+   git checkout main
+   git merge dev
+   git push origin main
+   git checkout dev
+   ```
+3. **No painel do Cloudflare**, acesse:
+   `Workers & Pages → helph-studio → New deployment`
+4. Confirme o deploy da branch `main`
+
+> ⚠️ O auto-deploy está **desativado** por design. A branch `production` foi configurada como branch de produção no Cloudflare — como ela nunca recebe push, nenhum deploy acontece automaticamente. O deploy só ocorre via botão "New deployment" no painel.
+
+### Acesso ao painel
+
+- **Cloudflare Workers:** https://dash.cloudflare.com → Workers & Pages → helph-studio
+- **URL de produção:** https://helphstudio.com.br
+- **URL interna Cloudflare:** https://helph-studio.helphstudio.workers.dev
 
 ---
 
