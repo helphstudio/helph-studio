@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "helph-studio",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "3001", "--directory", "D:/Helph Studio/Sites/Helph Studio"],
+      "port": 3001
+    }
+  ]
+}

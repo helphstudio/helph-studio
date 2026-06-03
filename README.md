@@ -19,7 +19,7 @@ Landing page estática (HTML + CSS + JS puro) focada em conversão. O visitante 
 ```
 /
 ├── index.html                      # Página principal
-├── agendamento-online.html         # Landing page: App de Agendamento Online
+├── helph-booking.html         # Landing page: App de Agendamento Online
 ├── cardapio-digital.html           # Landing page: Cardápio Digital
 ├── musicas.html                    # Página de curadoria musical
 ├── demo-pacote-presenca.html       # Demo: Pacote Presença (ex: Studio Bella)
@@ -56,7 +56,7 @@ Landing page estática (HTML + CSS + JS puro) focada em conversão. O visitante 
 | Arquivo | Descrição |
 |---|---|
 | `index.html` | Landing page principal com hero, planos, portfólio, FAQ e formulário |
-| `agendamento-online.html` | Landing page do App de Agendamento Online |
+| `helph-booking.html` | Landing page do Helph Booking (sistema de agendamento online) |
 | `cardapio-digital.html` | Landing page do Cardápio Digital |
 | `musicas.html` | Curadoria musical (página auxiliar) |
 | `demo-pacote-presenca.html` | Demo do Pacote Presença — estilo salão de beleza (Studio Bella) |
