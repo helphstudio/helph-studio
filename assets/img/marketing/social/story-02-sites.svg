@@ -68,17 +68,16 @@
   <text x="180" y="1244" font-family="Arial Black, sans-serif" font-weight="900" font-size="36" fill="#f0f0f5">Pacote Completo</text>
   <text x="180" y="1284" font-family="Arial, sans-serif" font-size="24" fill="#8888a0">Multi-página · Blog · Galeria · Manutenção</text>
   <text x="180" y="1324" font-family="Arial, sans-serif" font-size="20" fill="#8888a0" text-decoration="line-through">R$ 3.000,00</text>
-  <text x="830" y="1288" font-family="Arial Black, sans-serif" font-weight="900" font-size="44" fill="#22c55e" text-anchor="middle">R$1.499</text>
-  <text x="910" y="1324" font-family="Arial, sans-serif" font-size="20" fill="#8888a0">,90</text>
+  <text x="820" y="1300" font-family="Arial Black, sans-serif" font-weight="900" font-size="44" fill="#22c55e" text-anchor="middle">R$ 1.499,90</text>
 
   <!-- Common features -->
   <text x="540" y="1420" font-family="Arial, sans-serif" font-size="26" fill="#8888a0" text-anchor="middle">Todos os pacotes incluem:</text>
   <text x="540" y="1462" font-family="Arial, sans-serif" font-size="28" fill="#f0f0f5" text-anchor="middle">✓ Mobile · ✓ SEO · ✓ 3 meses suporte</text>
 
   <!-- CTA -->
-  <rect x="100" y="1530" width="880" height="100" rx="50" fill="url(#cta-btn)"/>
-  <text x="540" y="1590" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="38" fill="#ffffff" text-anchor="middle">Pedir orçamento grátis →</text>
-  <text x="540" y="1628" font-family="Arial, sans-serif" font-size="26" fill="rgba(255,255,255,0.7)" text-anchor="middle">(21) 97134-9275</text>
+  <rect x="100" y="1530" width="880" height="120" rx="60" fill="url(#cta-btn)"/>
+  <text x="540" y="1598" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="38" fill="#ffffff" text-anchor="middle">Pedir orçamento grátis →</text>
+  <text x="540" y="1638" font-family="Arial, sans-serif" font-size="26" fill="rgba(255,255,255,0.8)" text-anchor="middle">(21) 97134-9275</text>
 
   <text x="540" y="1740" font-family="Arial, sans-serif" font-weight="700" font-size="30" fill="#a78bfa" text-anchor="middle">helphstudio.com.br</text>
   <text x="540" y="1860" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="32" fill="#f0f0f5" text-anchor="middle" opacity="0.4">Hel<tspan fill="#a78bfa">ph</tspan> Studio</text>

@@ -20,67 +20,74 @@
   <circle cx="980" cy="80" r="200" fill="none" stroke="#a78bfa" stroke-width="1" opacity="0.1"/>
   <rect x="0" y="0" width="1080" height="5" fill="url(#top-bar)"/>
 
-  <!-- Header -->
-  <text x="540" y="90" font-family="Arial, sans-serif" font-weight="700" font-size="22" fill="#a78bfa" letter-spacing="4" text-anchor="middle">PACOTES DE SITES</text>
-  <text x="540" y="148" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="68" fill="#f0f0f5" text-anchor="middle">Escolha o seu plano</text>
-  <text x="540" y="188" font-family="Arial, sans-serif" font-size="24" fill="#8888a0" text-anchor="middle">Design exclusivo · Entrega em 7 dias · Sem template</text>
-  <rect x="440" y="202" width="200" height="3" rx="1.5" fill="#7c5cfc" opacity="0.6"/>
+  <!-- Header — espaço suficiente antes dos cards -->
+  <text x="540" y="72" font-family="Arial, sans-serif" font-weight="700" font-size="22" fill="#a78bfa" letter-spacing="4" text-anchor="middle">PACOTES DE SITES</text>
+  <text x="540" y="138" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="68" fill="#f0f0f5" text-anchor="middle">Escolha o seu plano</text>
+  <text x="540" y="176" font-family="Arial, sans-serif" font-size="23" fill="#8888a0" text-anchor="middle">Design exclusivo · Entrega em 7 dias · Sem template</text>
+  <rect x="440" y="190" width="200" height="3" rx="1.5" fill="#7c5cfc" opacity="0.6"/>
 
-  <!-- Urgency badge -->
-  <rect x="340" y="218" width="400" height="40" rx="20" fill="rgba(124,92,252,0.12)"/>
-  <rect x="340" y="218" width="400" height="40" rx="20" fill="none" stroke="#7c5cfc" stroke-width="1" opacity="0.4"/>
-  <text x="540" y="244" font-family="Arial, sans-serif" font-weight="700" font-size="20" fill="#a78bfa" text-anchor="middle">⏳ Oferta de lançamento — vagas limitadas</text>
-
+  <!-- Cards — começam mais cedo e com mais espaço -->
   <!-- Card 1: Presença -->
-  <rect x="40" y="278" width="310" height="680" rx="20" fill="rgba(255,255,255,0.03)"/>
-  <rect x="40" y="278" width="310" height="680" rx="20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
-  <text x="195" y="330" font-family="Arial Black, sans-serif" font-weight="900" font-size="28" fill="#f0f0f5" text-anchor="middle">Pacote Presença</text>
-  <text x="195" y="368" font-family="Arial, sans-serif" font-size="20" fill="#8888a0" text-decoration="line-through" text-anchor="middle">R$ 1.200,00</text>
-  <text x="195" y="396" font-family="Arial, sans-serif" font-size="18" fill="#8888a0" text-anchor="middle">a partir de</text>
-  <text x="195" y="450" font-family="Arial Black, sans-serif" font-weight="900" font-size="52" fill="#22c55e" text-anchor="middle">R$599,90</text>
-  <rect x="75" y="468" width="240" height="2" rx="1" fill="rgba(255,255,255,0.08)"/>
-  <text x="90" y="502" font-family="Arial, sans-serif" font-size="20" fill="#8888a0">✓ Landing page</text>
-  <text x="90" y="534" font-family="Arial, sans-serif" font-size="20" fill="#8888a0">✓ Design exclusivo</text>
-  <text x="90" y="566" font-family="Arial, sans-serif" font-size="20" fill="#8888a0">✓ Mobile-first</text>
-  <text x="90" y="598" font-family="Arial, sans-serif" font-size="20" fill="#8888a0">✓ WhatsApp integrado</text>
-  <text x="90" y="630" font-family="Arial, sans-serif" font-size="20" fill="#8888a0">✓ SEO básico</text>
-  <text x="90" y="662" font-family="Arial, sans-serif" font-size="20" fill="#8888a0">✓ Entrega em 7 dias</text>
-  <text x="90" y="694" font-family="Arial, sans-serif" font-size="20" fill="#8888a0">✓ 3 meses de suporte</text>
+  <rect x="36" y="210" width="316" height="756" rx="20" fill="rgba(255,255,255,0.03)"/>
+  <rect x="36" y="210" width="316" height="756" rx="20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+  <text x="194" y="268" font-family="Arial Black, sans-serif" font-weight="900" font-size="28" fill="#f0f0f5" text-anchor="middle">Pacote Presença</text>
+  <text x="194" y="308" font-family="Arial, sans-serif" font-size="19" fill="#8888a0" text-decoration="line-through" text-anchor="middle">R$ 1.200,00</text>
+  <text x="194" y="334" font-family="Arial, sans-serif" font-size="17" fill="#8888a0" text-anchor="middle">a partir de</text>
+  <text x="194" y="392" font-family="Arial Black, sans-serif" font-weight="900" font-size="50" fill="#22c55e" text-anchor="middle">R$ 599,90</text>
+  <rect x="72" y="410" width="244" height="2" rx="1" fill="rgba(255,255,255,0.07)"/>
+  <text x="86" y="448" font-family="Arial, sans-serif" font-size="21" fill="#8888a0">✓ Landing page</text>
+  <text x="86" y="484" font-family="Arial, sans-serif" font-size="21" fill="#8888a0">✓ Design exclusivo</text>
+  <text x="86" y="520" font-family="Arial, sans-serif" font-size="21" fill="#8888a0">✓ Mobile-first</text>
+  <text x="86" y="556" font-family="Arial, sans-serif" font-size="21" fill="#8888a0">✓ Botão WhatsApp</text>
+  <text x="86" y="592" font-family="Arial, sans-serif" font-size="21" fill="#8888a0">✓ SEO básico</text>
+  <text x="86" y="628" font-family="Arial, sans-serif" font-size="21" fill="#8888a0">✓ Entrega em 7 dias</text>
+  <text x="86" y="664" font-family="Arial, sans-serif" font-size="21" fill="#8888a0">✓ 3 meses suporte</text>
+  <rect x="72" y="688" width="244" height="2" rx="1" fill="rgba(255,255,255,0.05)"/>
+  <rect x="72" y="706" width="244" height="48" rx="24" fill="rgba(34,197,94,0.1)"/>
+  <rect x="72" y="706" width="244" height="48" rx="24" fill="none" stroke="rgba(34,197,94,0.35)" stroke-width="1.5"/>
+  <text x="194" y="736" font-family="Arial Black, sans-serif" font-size="19" fill="#22c55e" text-anchor="middle">Quero esse pacote</text>
 
-  <!-- Card 2: Profissional (featured) -->
-  <rect x="382" y="258" width="316" height="720" rx="20" fill="url(#featured-card)"/>
-  <rect x="382" y="258" width="316" height="720" rx="20" fill="none" stroke="#7c5cfc" stroke-width="2"/>
-  <!-- Badge -->
-  <rect x="452" y="244" width="176" height="36" rx="18" fill="#7c5cfc"/>
-  <text x="540" y="268" font-family="Arial Black, sans-serif" font-weight="900" font-size="18" fill="#ffffff" text-anchor="middle">⭐ MAIS PEDIDO</text>
-  <text x="540" y="318" font-family="Arial Black, sans-serif" font-weight="900" font-size="28" fill="#f0f0f5" text-anchor="middle">Pacote Profissional</text>
-  <text x="540" y="356" font-family="Arial, sans-serif" font-size="20" fill="#8888a0" text-decoration="line-through" text-anchor="middle">R$ 2.000,00</text>
-  <text x="540" y="384" font-family="Arial, sans-serif" font-size="18" fill="#8888a0" text-anchor="middle">a partir de</text>
-  <text x="540" y="440" font-family="Arial Black, sans-serif" font-weight="900" font-size="52" fill="#a78bfa" text-anchor="middle">R$999,90</text>
-  <rect x="410" y="458" width="260" height="2" rx="1" fill="rgba(167,139,250,0.3)"/>
-  <text x="402" y="492" font-family="Arial, sans-serif" font-size="20" fill="#c4b5fd">✓ Site completo (4-5 seções)</text>
-  <text x="402" y="524" font-family="Arial, sans-serif" font-size="20" fill="#c4b5fd">✓ Design exclusivo</text>
-  <text x="402" y="556" font-family="Arial, sans-serif" font-size="20" fill="#c4b5fd">✓ Mobile-first</text>
-  <text x="402" y="588" font-family="Arial, sans-serif" font-size="20" fill="#c4b5fd">✓ WhatsApp + formulário</text>
-  <text x="402" y="620" font-family="Arial, sans-serif" font-size="20" fill="#c4b5fd">✓ Seção de depoimentos</text>
-  <text x="402" y="652" font-family="Arial, sans-serif" font-size="20" fill="#c4b5fd">✓ SEO básico</text>
-  <text x="402" y="684" font-family="Arial, sans-serif" font-size="20" fill="#c4b5fd">✓ Entrega em 7 dias</text>
-  <text x="402" y="716" font-family="Arial, sans-serif" font-size="20" fill="#c4b5fd">✓ 3 meses de suporte</text>
+  <!-- Card 2: Profissional (featured) — badge separado do header -->
+  <!-- Badge MAIS PEDIDO acima do card, sem sobrepor o header -->
+  <rect x="382" y="210" width="316" height="756" rx="20" fill="url(#featured-card)"/>
+  <rect x="382" y="210" width="316" height="756" rx="20" fill="none" stroke="#7c5cfc" stroke-width="2.5"/>
+  <!-- Badge posicionado DENTRO do card no topo -->
+  <rect x="430" y="224" width="220" height="38" rx="19" fill="#7c5cfc"/>
+  <text x="540" y="249" font-family="Arial Black, sans-serif" font-weight="900" font-size="18" fill="#ffffff" text-anchor="middle">⭐ MAIS PEDIDO</text>
+  <text x="540" y="306" font-family="Arial Black, sans-serif" font-weight="900" font-size="28" fill="#f0f0f5" text-anchor="middle">Pacote Profissional</text>
+  <text x="540" y="346" font-family="Arial, sans-serif" font-size="19" fill="#8888a0" text-decoration="line-through" text-anchor="middle">R$ 2.000,00</text>
+  <text x="540" y="372" font-family="Arial, sans-serif" font-size="17" fill="#8888a0" text-anchor="middle">a partir de</text>
+  <text x="540" y="430" font-family="Arial Black, sans-serif" font-weight="900" font-size="50" fill="#a78bfa" text-anchor="middle">R$ 999,90</text>
+  <rect x="410" y="448" width="264" height="2" rx="1" fill="rgba(167,139,250,0.25)"/>
+  <text x="400" y="486" font-family="Arial, sans-serif" font-size="21" fill="#c4b5fd">✓ Site completo (4–5 seções)</text>
+  <text x="400" y="522" font-family="Arial, sans-serif" font-size="21" fill="#c4b5fd">✓ Design exclusivo</text>
+  <text x="400" y="558" font-family="Arial, sans-serif" font-size="21" fill="#c4b5fd">✓ Mobile-first</text>
+  <text x="400" y="594" font-family="Arial, sans-serif" font-size="21" fill="#c4b5fd">✓ WhatsApp + formulário</text>
+  <text x="400" y="630" font-family="Arial, sans-serif" font-size="21" fill="#c4b5fd">✓ Seção depoimentos</text>
+  <text x="400" y="666" font-family="Arial, sans-serif" font-size="21" fill="#c4b5fd">✓ Entrega em 7 dias</text>
+  <text x="400" y="702" font-family="Arial, sans-serif" font-size="21" fill="#c4b5fd">✓ 3 meses suporte</text>
+  <rect x="410" y="726" width="264" height="2" rx="1" fill="rgba(167,139,250,0.15)"/>
+  <rect x="410" y="744" width="264" height="48" rx="24" fill="#7c5cfc"/>
+  <text x="542" y="773" font-family="Arial Black, sans-serif" font-size="19" fill="#fff" text-anchor="middle">Quero esse pacote</text>
 
   <!-- Card 3: Completo -->
-  <rect x="730" y="278" width="310" height="680" rx="20" fill="rgba(255,255,255,0.03)"/>
-  <rect x="730" y="278" width="310" height="680" rx="20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
-  <text x="885" y="330" font-family="Arial Black, sans-serif" font-weight="900" font-size="28" fill="#f0f0f5" text-anchor="middle">Pacote Completo</text>
-  <text x="885" y="368" font-family="Arial, sans-serif" font-size="20" fill="#8888a0" text-decoration="line-through" text-anchor="middle">R$ 3.000,00</text>
-  <text x="885" y="396" font-family="Arial, sans-serif" font-size="18" fill="#8888a0" text-anchor="middle">a partir de</text>
-  <text x="885" y="450" font-family="Arial Black, sans-serif" font-weight="900" font-size="52" fill="#22c55e" text-anchor="middle">R$1.499</text>
-  <rect x="765" y="468" width="240" height="2" rx="1" fill="rgba(255,255,255,0.08)"/>
-  <text x="780" y="502" font-family="Arial, sans-serif" font-size="20" fill="#8888a0">✓ Site multi-página</text>
-  <text x="780" y="534" font-family="Arial, sans-serif" font-size="20" fill="#8888a0">✓ Tudo do Profissional</text>
-  <text x="780" y="566" font-family="Arial, sans-serif" font-size="20" fill="#8888a0">✓ Galeria / portfólio</text>
-  <text x="780" y="598" font-family="Arial, sans-serif" font-size="20" fill="#8888a0">✓ Blog / novidades</text>
-  <text x="780" y="630" font-family="Arial, sans-serif" font-size="20" fill="#8888a0">✓ 1 mês manutenção</text>
-  <text x="780" y="662" font-family="Arial, sans-serif" font-size="20" fill="#8888a0">✓ 3 meses de suporte</text>
+  <rect x="728" y="210" width="316" height="756" rx="20" fill="rgba(255,255,255,0.03)"/>
+  <rect x="728" y="210" width="316" height="756" rx="20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+  <text x="886" y="268" font-family="Arial Black, sans-serif" font-weight="900" font-size="28" fill="#f0f0f5" text-anchor="middle">Pacote Completo</text>
+  <text x="886" y="308" font-family="Arial, sans-serif" font-size="19" fill="#8888a0" text-decoration="line-through" text-anchor="middle">R$ 3.000,00</text>
+  <text x="886" y="334" font-family="Arial, sans-serif" font-size="17" fill="#8888a0" text-anchor="middle">a partir de</text>
+  <text x="886" y="392" font-family="Arial Black, sans-serif" font-weight="900" font-size="50" fill="#22c55e" text-anchor="middle">R$ 1.499,90</text>
+  <rect x="764" y="410" width="244" height="2" rx="1" fill="rgba(255,255,255,0.07)"/>
+  <text x="778" y="448" font-family="Arial, sans-serif" font-size="21" fill="#8888a0">✓ Site multi-página</text>
+  <text x="778" y="484" font-family="Arial, sans-serif" font-size="21" fill="#8888a0">✓ Tudo do Profissional</text>
+  <text x="778" y="520" font-family="Arial, sans-serif" font-size="21" fill="#8888a0">✓ Galeria / portfólio</text>
+  <text x="778" y="556" font-family="Arial, sans-serif" font-size="21" fill="#8888a0">✓ Blog / novidades</text>
+  <text x="778" y="592" font-family="Arial, sans-serif" font-size="21" fill="#8888a0">✓ 1 mês manutenção</text>
+  <text x="778" y="628" font-family="Arial, sans-serif" font-size="21" fill="#8888a0">✓ 3 meses suporte</text>
+  <rect x="764" y="688" width="244" height="2" rx="1" fill="rgba(255,255,255,0.05)"/>
+  <rect x="764" y="706" width="244" height="48" rx="24" fill="rgba(34,197,94,0.1)"/>
+  <rect x="764" y="706" width="244" height="48" rx="24" fill="none" stroke="rgba(34,197,94,0.35)" stroke-width="1.5"/>
+  <text x="886" y="736" font-family="Arial Black, sans-serif" font-size="19" fill="#22c55e" text-anchor="middle">Quero esse pacote</text>
 
   <!-- Bottom bar -->
   <rect x="0" y="980" width="1080" height="100" fill="#111118"/>
