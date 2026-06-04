@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <radialGradient id="bg-glow" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" style="stop-color:#7c5cfc;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#0a0a0f;stop-opacity:0"/>
+    </radialGradient>
+    <linearGradient id="top-bar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c5cfc"/>
+      <stop offset="60%" style="stop-color:#a78bfa"/>
+      <stop offset="100%" style="stop-color:#0a0a0f;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="btn-green" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#16a34a"/>
+      <stop offset="100%" style="stop-color:#22c55e"/>
+    </linearGradient>
+    <linearGradient id="btn-purple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c5cfc"/>
+      <stop offset="100%" style="stop-color:#a78bfa"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="#0a0a0f"/>
+  <rect width="1080" height="1080" fill="url(#bg-glow)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="920" cy="160" r="300" fill="none" stroke="#a78bfa" stroke-width="1" opacity="0.1"/>
+  <circle cx="160" cy="920" r="260" fill="none" stroke="#7c5cfc" stroke-width="1" opacity="0.08"/>
+
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="1080" height="5" fill="url(#top-bar)"/>
+
+  <!-- Label -->
+  <text x="540" y="130" font-family="Arial, sans-serif" font-weight="700" font-size="22" fill="#a78bfa" letter-spacing="4" text-anchor="middle">VAMOS CONVERSAR?</text>
+
+  <!-- Main headline -->
+  <text x="540" y="280" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="84" fill="#f0f0f5" text-anchor="middle">Pronto para ter</text>
+  <text x="540" y="375" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="84" fill="#a78bfa" text-anchor="middle">presença digital</text>
+  <text x="540" y="470" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="84" fill="#f0f0f5" text-anchor="middle">profissional?</text>
+
+  <!-- Divider -->
+  <rect x="440" y="500" width="200" height="4" rx="2" fill="#7c5cfc"/>
+
+  <!-- Sub text -->
+  <text x="540" y="560" font-family="Arial, sans-serif" font-size="30" fill="#8888a0" text-anchor="middle">Orçamento sem compromisso.</text>
+  <text x="540" y="598" font-family="Arial, sans-serif" font-size="30" fill="#8888a0" text-anchor="middle">Entrega em até 7 dias. Suporte incluso.</text>
+
+  <!-- WhatsApp button -->
+  <rect x="140" y="650" width="800" height="88" rx="44" fill="url(#btn-green)"/>
+  <text x="540" y="705" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="36" fill="#ffffff" text-anchor="middle">💬 Chamar no WhatsApp</text>
+  <text x="540" y="742" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.8)" text-anchor="middle">(21) 97134-9275</text>
+
+  <!-- Features row -->
+  <text x="540" y="800" font-family="Arial, sans-serif" font-size="24" fill="#8888a0" text-anchor="middle">✓ Sites  ·  ✓ Helph Booking  ·  ✓ Apps sob medida</text>
+
+  <!-- URL highlight -->
+  <rect x="290" y="840" width="500" height="56" rx="28" fill="rgba(124,92,252,0.1)"/>
+  <rect x="290" y="840" width="500" height="56" rx="28" fill="none" stroke="#7c5cfc" stroke-width="1.5" opacity="0.4"/>
+  <text x="540" y="876" font-family="Arial Black, sans-serif" font-weight="700" font-size="26" fill="#a78bfa" text-anchor="middle">helphstudio.com.br</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="980" width="1080" height="100" fill="#111118"/>
+  <rect x="0" y="978" width="1080" height="2" fill="#7c5cfc" opacity="0.3"/>
+  <text x="72" y="1040" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="32" fill="#f0f0f5" opacity="0.9">Hel<tspan fill="#a78bfa">ph</tspan> Studio</text>
+  <text x="1008" y="1040" font-family="Arial, sans-serif" font-size="22" fill="#8888a0" text-anchor="end">@helphstudio</text>
+</svg>

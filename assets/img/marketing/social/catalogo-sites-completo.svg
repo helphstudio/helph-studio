@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 628" width="1200" height="628">
+  <defs>
+    <radialGradient id="bg-glow" cx="30%" cy="50%" r="65%">
+      <stop offset="0%" style="stop-color:#7c5cfc;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#0a0a0f;stop-opacity:0"/>
+    </radialGradient>
+    <linearGradient id="top-bar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c5cfc"/>
+      <stop offset="50%" style="stop-color:#a78bfa"/>
+      <stop offset="100%" style="stop-color:#0a0a0f;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="right-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c5cfc;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:0.04"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="628" fill="#0a0a0f"/>
+  <rect width="1200" height="628" fill="url(#bg-glow)"/>
+  <circle cx="1100" cy="80" r="220" fill="none" stroke="#a78bfa" stroke-width="1" opacity="0.1"/>
+  <rect x="0" y="0" width="1200" height="5" fill="url(#top-bar)"/>
+
+  <text x="60" y="68" font-family="Arial, sans-serif" font-weight="700" font-size="20" fill="#a78bfa" letter-spacing="3">PACOTE DE SITE</text>
+  <text x="60" y="180" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="88" fill="#f0f0f5" letter-spacing="-2">Pacote</text>
+  <text x="60" y="268" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="88" fill="#a78bfa" letter-spacing="-2">Completo</text>
+  <rect x="60" y="286" width="80" height="4" rx="2" fill="#7c5cfc"/>
+  <text x="60" y="332" font-family="Arial, sans-serif" font-size="24" fill="#8888a0">Site multi-página com blog, galeria</text>
+  <text x="60" y="366" font-family="Arial, sans-serif" font-size="24" fill="#8888a0">e tudo que o seu negócio precisa.</text>
+  <text x="60" y="436" font-family="Arial, sans-serif" font-size="20" fill="#8888a0" text-decoration="line-through">De R$ 3.000,00</text>
+  <text x="60" y="526" font-family="Arial Black, sans-serif" font-weight="900" font-size="64" fill="#22c55e">R$ 1.499,90</text>
+  <text x="60" y="568" font-family="Arial, sans-serif" font-size="18" fill="#8888a0">⏳ Oferta de lançamento</text>
+
+  <rect x="700" y="30" width="470" height="570" rx="24" fill="url(#right-bg)"/>
+  <rect x="700" y="30" width="470" height="570" rx="24" fill="none" stroke="rgba(124,92,252,0.25)" stroke-width="1.5"/>
+  <text x="935" y="95" font-family="Arial, sans-serif" font-weight="700" font-size="20" fill="#a78bfa" letter-spacing="3" text-anchor="middle">INCLUI</text>
+  <text x="740" y="140" font-family="Arial, sans-serif" font-size="22" fill="#c4b5fd">✓  Site multi-página</text>
+  <text x="740" y="180" font-family="Arial, sans-serif" font-size="22" fill="#c4b5fd">✓  Tudo do Pacote Profissional</text>
+  <text x="740" y="220" font-family="Arial, sans-serif" font-size="22" fill="#c4b5fd">✓  Galeria de fotos ou portfólio</text>
+  <text x="740" y="260" font-family="Arial, sans-serif" font-size="22" fill="#c4b5fd">✓  Blog ou seção de novidades</text>
+  <text x="740" y="300" font-family="Arial, sans-serif" font-size="22" fill="#c4b5fd">✓  1 mês de manutenção incluído</text>
+  <text x="740" y="340" font-family="Arial, sans-serif" font-size="22" fill="#c4b5fd">✓  3 meses de suporte grátis</text>
+  <text x="740" y="380" font-family="Arial, sans-serif" font-size="22" fill="#c4b5fd">✓  Prazo combinado conforme escopo</text>
+  <rect x="740" y="414" width="390" height="2" rx="1" fill="rgba(124,92,252,0.2)"/>
+  <rect x="740" y="436" width="390" height="72" rx="36" fill="#7c5cfc"/>
+  <text x="935" y="480" font-family="Arial Black, sans-serif" font-weight="900" font-size="22" fill="#fff" text-anchor="middle">💬 Quero esse pacote</text>
+  <text x="935" y="502" font-family="Arial, sans-serif" font-size="16" fill="rgba(255,255,255,0.75)" text-anchor="middle">helphstudio.com.br</text>
+  <rect x="740" y="530" width="390" height="50" rx="25" fill="rgba(124,92,252,0.1)"/>
+  <rect x="740" y="530" width="390" height="50" rx="25" fill="none" stroke="rgba(124,92,252,0.3)" stroke-width="1"/>
+  <text x="935" y="562" font-family="Arial, sans-serif" font-size="16" fill="#a78bfa" text-anchor="middle">👁 Ver exemplo: demo-pacote-completo</text>
+  <text x="60" y="620" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="26" fill="#f0f0f5" opacity="0.6">Hel<tspan fill="#a78bfa">ph</tspan> Studio</text>
+</svg>

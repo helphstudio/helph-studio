@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 628" width="1200" height="628">
+  <defs>
+    <radialGradient id="bg-glow" cx="30%" cy="50%" r="65%">
+      <stop offset="0%" style="stop-color:#7c5cfc;stop-opacity:0.22"/>
+      <stop offset="100%" style="stop-color:#0a0a0f;stop-opacity:0"/>
+    </radialGradient>
+    <linearGradient id="top-bar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c5cfc"/>
+      <stop offset="50%" style="stop-color:#7dd3fc"/>
+      <stop offset="100%" style="stop-color:#0a0a0f;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="right-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c5cfc;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#7dd3fc;stop-opacity:0.05"/>
+    </linearGradient>
+    <linearGradient id="stat-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c5cfc;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:0.05"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="628" fill="#0a0a0f"/>
+  <rect width="1200" height="628" fill="url(#bg-glow)"/>
+  <circle cx="1100" cy="80" r="220" fill="none" stroke="#7dd3fc" stroke-width="1" opacity="0.1"/>
+  <rect x="0" y="0" width="1200" height="5" fill="url(#top-bar)"/>
+
+  <!-- Left content -->
+  <text x="60" y="72" font-family="Arial, sans-serif" font-weight="700" font-size="20" fill="#8888a0" letter-spacing="3">SISTEMA DE AGENDAMENTO</text>
+  <text x="60" y="160" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="90" fill="#f0f0f5" letter-spacing="-2">Hel<tspan fill="#a78bfa">ph</tspan></text>
+  <text x="60" y="252" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="90" fill="#7dd3fc" letter-spacing="-2">Booking</text>
+
+  <rect x="60" y="272" width="80" height="4" rx="2" fill="#7dd3fc" opacity="0.8"/>
+
+  <text x="60" y="320" font-family="Arial Black, sans-serif" font-weight="900" font-size="34" fill="#f0f0f5">Seu cliente agenda.</text>
+  <text x="60" y="362" font-family="Arial Black, sans-serif" font-weight="900" font-size="34" fill="#a78bfa">Você só atende.</text>
+
+  <text x="60" y="414" font-family="Arial, sans-serif" font-size="22" fill="#8888a0">Sem App Store · Funciona offline</text>
+  <text x="60" y="448" font-family="Arial, sans-serif" font-size="22" fill="#8888a0">Com a identidade visual do seu negócio</text>
+
+  <!-- Price -->
+  <text x="60" y="514" font-family="Arial, sans-serif" font-size="20" fill="#8888a0" text-decoration="line-through">De R$ 79,90/mês</text>
+  <text x="60" y="570" font-family="Arial Black, sans-serif" font-weight="900" font-size="64" fill="#22c55e">R$ 39,90<tspan font-size="28" fill="#8888a0">/mês</tspan></text>
+  <text x="60" y="608" font-family="Arial, sans-serif" font-size="18" fill="#8888a0">Sem fidelidade · Cancele quando quiser</text>
+
+  <!-- Right panel: stats + features -->
+  <rect x="680" y="30" width="490" height="568" rx="24" fill="url(#right-bg)"/>
+  <rect x="680" y="30" width="490" height="568" rx="24" fill="none" stroke="rgba(125,211,252,0.3)" stroke-width="1.5"/>
+
+  <text x="925" y="90" font-family="Arial, sans-serif" font-weight="700" font-size="20" fill="#7dd3fc" letter-spacing="3" text-anchor="middle">INCLUI</text>
+
+  <text x="710" y="135" font-family="Arial, sans-serif" font-size="21" fill="#c4b5fd">✓  App instalável no celular (PWA)</text>
+  <text x="710" y="172" font-family="Arial, sans-serif" font-size="21" fill="#c4b5fd">✓  Funciona offline</text>
+  <text x="710" y="209" font-family="Arial, sans-serif" font-size="21" fill="#c4b5fd">✓  Painel admin completo</text>
+  <text x="710" y="246" font-family="Arial, sans-serif" font-size="21" fill="#c4b5fd">✓  Modo solo ou equipe</text>
+  <text x="710" y="283" font-family="Arial, sans-serif" font-size="21" fill="#c4b5fd">✓  Notificações no Telegram</text>
+  <text x="710" y="320" font-family="Arial, sans-serif" font-size="21" fill="#c4b5fd">✓  Banner de promoção automático</text>
+  <text x="710" y="357" font-family="Arial, sans-serif" font-size="21" fill="#c4b5fd">✓  Redes sociais do negócio</text>
+  <text x="710" y="394" font-family="Arial, sans-serif" font-size="21" fill="#c4b5fd">✓  Exportação CSV</text>
+  <text x="710" y="431" font-family="Arial, sans-serif" font-size="21" fill="#c4b5fd">✓  Suporte via WhatsApp</text>
+
+  <rect x="710" y="458" width="430" height="2" rx="1" fill="rgba(125,211,252,0.15)"/>
+
+  <rect x="710" y="476" width="430" height="80" rx="20" fill="#7c5cfc"/>
+  <text x="925" y="520" font-family="Arial Black, sans-serif" font-weight="900" font-size="24" fill="#fff" text-anchor="middle">👉 Ver demonstração ao vivo</text>
+  <text x="925" y="546" font-family="Arial, sans-serif" font-size="16" fill="rgba(255,255,255,0.75)" text-anchor="middle">booking.helphstudio.com.br</text>
+
+  <!-- Bottom watermark -->
+  <text x="60" y="620" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="26" fill="#f0f0f5" opacity="0.6">Hel<tspan fill="#a78bfa">ph</tspan> Studio</text>
+</svg>

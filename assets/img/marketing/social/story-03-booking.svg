@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <radialGradient id="bg-glow" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" style="stop-color:#7c5cfc;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#0a0a0f;stop-opacity:0"/>
+    </radialGradient>
+    <linearGradient id="top-bar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c5cfc"/>
+      <stop offset="60%" style="stop-color:#7dd3fc"/>
+      <stop offset="100%" style="stop-color:#0a0a0f;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="stat-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c5cfc;stop-opacity:0.18"/>
+      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:0.05"/>
+    </linearGradient>
+    <linearGradient id="cta-btn" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c5cfc"/>
+      <stop offset="100%" style="stop-color:#7dd3fc"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1080" height="1920" fill="#0a0a0f"/>
+  <rect width="1080" height="1920" fill="url(#bg-glow)"/>
+  <circle cx="950" cy="280" r="320" fill="none" stroke="#7dd3fc" stroke-width="1" opacity="0.1"/>
+  <circle cx="130" cy="1650" r="280" fill="none" stroke="#7c5cfc" stroke-width="1" opacity="0.08"/>
+  <rect x="0" y="0" width="1080" height="6" fill="url(#top-bar)"/>
+
+  <!-- Top logo -->
+  <text x="540" y="180" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="48" fill="#f0f0f5" text-anchor="middle">Hel<tspan fill="#a78bfa">ph</tspan> Studio</text>
+
+  <!-- Product logo -->
+  <text x="540" y="380" font-family="Arial, sans-serif" font-weight="700" font-size="28" fill="#8888a0" letter-spacing="4" text-anchor="middle">APRESENTANDO</text>
+  <text x="540" y="510" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="104" fill="#f0f0f5" text-anchor="middle" letter-spacing="-3">Hel<tspan fill="#a78bfa">ph</tspan></text>
+  <text x="540" y="622" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="104" fill="#7dd3fc" text-anchor="middle" letter-spacing="-3">Booking</text>
+
+  <!-- Headline -->
+  <text x="540" y="730" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="70" fill="#f0f0f5" text-anchor="middle">Seu cliente</text>
+  <text x="540" y="808" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="70" fill="#f0f0f5" text-anchor="middle">agenda.</text>
+  <text x="540" y="886" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="70" fill="#a78bfa" text-anchor="middle">Você só atende.</text>
+
+  <rect x="340" y="910" width="400" height="5" rx="2.5" fill="#7dd3fc" opacity="0.6"/>
+
+  <text x="540" y="970" font-family="Arial, sans-serif" font-size="30" fill="#8888a0" text-anchor="middle">Sem App Store · Funciona offline</text>
+  <text x="540" y="1010" font-family="Arial, sans-serif" font-size="30" fill="#8888a0" text-anchor="middle">Com a cara do seu negócio</text>
+
+  <!-- Stats 2x2 -->
+  <rect x="80" y="1060" width="440" height="160" rx="16" fill="url(#stat-bg)"/>
+  <rect x="80" y="1060" width="440" height="160" rx="16" fill="none" stroke="rgba(124,92,252,0.3)" stroke-width="1.5"/>
+  <text x="300" y="1138" font-family="Arial Black, sans-serif" font-weight="900" font-size="60" fill="#a78bfa" text-anchor="middle">4 passos</text>
+  <text x="300" y="1194" font-family="Arial, sans-serif" font-size="24" fill="#8888a0" text-anchor="middle">para o cliente agendar</text>
+
+  <rect x="560" y="1060" width="440" height="160" rx="16" fill="url(#stat-bg)"/>
+  <rect x="560" y="1060" width="440" height="160" rx="16" fill="none" stroke="rgba(124,92,252,0.3)" stroke-width="1.5"/>
+  <text x="780" y="1138" font-family="Arial Black, sans-serif" font-weight="900" font-size="60" fill="#22c55e" text-anchor="middle">100%</text>
+  <text x="780" y="1194" font-family="Arial, sans-serif" font-size="24" fill="#8888a0" text-anchor="middle">funciona offline</text>
+
+  <rect x="80" y="1240" width="440" height="160" rx="16" fill="url(#stat-bg)"/>
+  <rect x="80" y="1240" width="440" height="160" rx="16" fill="none" stroke="rgba(124,92,252,0.3)" stroke-width="1.5"/>
+  <text x="300" y="1318" font-family="Arial Black, sans-serif" font-weight="900" font-size="60" fill="#7dd3fc" text-anchor="middle">Zero</text>
+  <text x="300" y="1374" font-family="Arial, sans-serif" font-size="24" fill="#8888a0" text-anchor="middle">instalação na loja</text>
+
+  <rect x="560" y="1240" width="440" height="160" rx="16" fill="url(#stat-bg)"/>
+  <rect x="560" y="1240" width="440" height="160" rx="16" fill="none" stroke="rgba(124,92,252,0.3)" stroke-width="1.5"/>
+  <text x="780" y="1308" font-family="Arial Black, sans-serif" font-weight="900" font-size="52" fill="#22c55e" text-anchor="middle">R$39,90</text>
+  <text x="780" y="1374" font-family="Arial, sans-serif" font-size="24" fill="#8888a0" text-anchor="middle">/mês sem fidelidade</text>
+
+  <!-- Segments -->
+  <text x="540" y="1470" font-family="Arial, sans-serif" font-weight="700" font-size="24" fill="#a78bfa" letter-spacing="3" text-anchor="middle">IDEAL PARA</text>
+  <text x="540" y="1518" font-family="Arial, sans-serif" font-size="30" fill="#f0f0f5" text-anchor="middle">✂️ Barbearias · 🏥 Clínicas · 🐾 Pet shops</text>
+  <text x="540" y="1560" font-family="Arial, sans-serif" font-size="30" fill="#f0f0f5" text-anchor="middle">🏋️ Academias · 💆 Spas · e muito mais</text>
+
+  <!-- CTA -->
+  <rect x="100" y="1620" width="880" height="100" rx="50" fill="url(#cta-btn)"/>
+  <text x="540" y="1680" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="36" fill="#ffffff" text-anchor="middle">Ver demonstração →</text>
+  <text x="540" y="1718" font-family="Arial, sans-serif" font-size="26" fill="rgba(255,255,255,0.7)" text-anchor="middle">booking.helphstudio.com.br</text>
+
+  <text x="540" y="1820" font-family="Arial, sans-serif" font-weight="700" font-size="30" fill="#a78bfa" text-anchor="middle">helphstudio.com.br</text>
+  <text x="540" y="1870" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="32" fill="#f0f0f5" text-anchor="middle" opacity="0.4">Hel<tspan fill="#a78bfa">ph</tspan> Studio</text>
+</svg>

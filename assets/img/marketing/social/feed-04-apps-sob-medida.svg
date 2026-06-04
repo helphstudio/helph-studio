@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <radialGradient id="bg-glow" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" style="stop-color:#7c5cfc;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#0a0a0f;stop-opacity:0"/>
+    </radialGradient>
+    <linearGradient id="top-bar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c5cfc"/>
+      <stop offset="60%" style="stop-color:#a78bfa"/>
+      <stop offset="100%" style="stop-color:#0a0a0f;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="step-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c5cfc;stop-opacity:0.18"/>
+      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:0.05"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1080" height="1080" fill="#0a0a0f"/>
+  <rect width="1080" height="1080" fill="url(#bg-glow)"/>
+  <circle cx="900" cy="150" r="280" fill="none" stroke="#a78bfa" stroke-width="1" opacity="0.1"/>
+  <rect x="0" y="0" width="1080" height="5" fill="url(#top-bar)"/>
+
+  <!-- Label -->
+  <text x="72" y="100" font-family="Arial, sans-serif" font-weight="700" font-size="22" fill="#a78bfa" letter-spacing="4">APPS SOB MEDIDA</text>
+
+  <!-- Main headline -->
+  <text x="72" y="200" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="90" fill="#f0f0f5" letter-spacing="-2">Tem uma</text>
+  <text x="72" y="295" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="90" fill="#a78bfa" letter-spacing="-2">ideia de app?</text>
+
+  <!-- Sub -->
+  <text x="72" y="360" font-family="Arial, sans-serif" font-size="28" fill="#8888a0">Desenvolvemos o app do seu negócio</text>
+  <text x="72" y="395" font-family="Arial, sans-serif" font-size="28" fill="#8888a0">do zero — sem template, sem fórmula pronta.</text>
+
+  <!-- Divider -->
+  <rect x="72" y="420" width="80" height="4" rx="2" fill="#7c5cfc"/>
+
+  <!-- Process steps -->
+  <text x="72" y="470" font-family="Arial, sans-serif" font-weight="700" font-size="22" fill="#a78bfa" letter-spacing="3">O PROCESSO</text>
+
+  <!-- Step 1 -->
+  <rect x="72" y="492" width="214" height="200" rx="16" fill="url(#step-bg)"/>
+  <rect x="72" y="492" width="214" height="200" rx="16" fill="none" stroke="rgba(124,92,252,0.3)" stroke-width="1.5"/>
+  <text x="179" y="560" font-family="Arial, sans-serif" font-size="52" text-anchor="middle">💡</text>
+  <text x="179" y="610" font-family="Arial Black, sans-serif" font-weight="900" font-size="26" fill="#f0f0f5" text-anchor="middle">Ideia</text>
+  <text x="179" y="642" font-family="Arial, sans-serif" font-size="20" fill="#8888a0" text-anchor="middle">Você conta,</text>
+  <text x="179" y="666" font-family="Arial, sans-serif" font-size="20" fill="#8888a0" text-anchor="middle">a gente escuta</text>
+
+  <!-- Arrow -->
+  <text x="310" y="600" font-family="Arial, sans-serif" font-size="36" fill="#7c5cfc" text-anchor="middle">→</text>
+
+  <!-- Step 2 -->
+  <rect x="328" y="492" width="214" height="200" rx="16" fill="url(#step-bg)"/>
+  <rect x="328" y="492" width="214" height="200" rx="16" fill="none" stroke="rgba(124,92,252,0.3)" stroke-width="1.5"/>
+  <text x="435" y="560" font-family="Arial, sans-serif" font-size="52" text-anchor="middle">🎨</text>
+  <text x="435" y="610" font-family="Arial Black, sans-serif" font-weight="900" font-size="26" fill="#f0f0f5" text-anchor="middle">Design</text>
+  <text x="435" y="642" font-family="Arial, sans-serif" font-size="20" fill="#8888a0" text-anchor="middle">Interface com</text>
+  <text x="435" y="666" font-family="Arial, sans-serif" font-size="20" fill="#8888a0" text-anchor="middle">sua identidade</text>
+
+  <!-- Arrow -->
+  <text x="566" y="600" font-family="Arial, sans-serif" font-size="36" fill="#7c5cfc" text-anchor="middle">→</text>
+
+  <!-- Step 3 -->
+  <rect x="584" y="492" width="214" height="200" rx="16" fill="url(#step-bg)"/>
+  <rect x="584" y="492" width="214" height="200" rx="16" fill="none" stroke="rgba(124,92,252,0.3)" stroke-width="1.5"/>
+  <text x="691" y="560" font-family="Arial, sans-serif" font-size="52" text-anchor="middle">⚙️</text>
+  <text x="691" y="610" font-family="Arial Black, sans-serif" font-weight="900" font-size="26" fill="#f0f0f5" text-anchor="middle">Desenvolvimento</text>
+  <text x="691" y="642" font-family="Arial, sans-serif" font-size="20" fill="#8888a0" text-anchor="middle">Código limpo</text>
+  <text x="691" y="666" font-family="Arial, sans-serif" font-size="20" fill="#8888a0" text-anchor="middle">e funcional</text>
+
+  <!-- Arrow -->
+  <text x="822" y="600" font-family="Arial, sans-serif" font-size="36" fill="#7c5cfc" text-anchor="middle">→</text>
+
+  <!-- Step 4 -->
+  <rect x="840" y="492" width="198" height="200" rx="16" fill="url(#step-bg)"/>
+  <rect x="840" y="492" width="198" height="200" rx="16" fill="none" stroke="rgba(124,92,252,0.3)" stroke-width="1.5"/>
+  <text x="939" y="560" font-family="Arial, sans-serif" font-size="52" text-anchor="middle">🚀</text>
+  <text x="939" y="610" font-family="Arial Black, sans-serif" font-weight="900" font-size="26" fill="#f0f0f5" text-anchor="middle">Lançamento</text>
+  <text x="939" y="642" font-family="Arial, sans-serif" font-size="20" fill="#8888a0" text-anchor="middle">No ar com</text>
+  <text x="939" y="666" font-family="Arial, sans-serif" font-size="20" fill="#8888a0" text-anchor="middle">seu domínio</text>
+
+  <!-- What we've built -->
+  <text x="72" y="742" font-family="Arial, sans-serif" font-weight="700" font-size="22" fill="#a78bfa" letter-spacing="3">JÁ FIZEMOS</text>
+  <text x="72" y="784" font-family="Arial, sans-serif" font-size="28" fill="#f0f0f5">📅 Helph Booking — sistema de agendamento</text>
+  <text x="72" y="824" font-family="Arial, sans-serif" font-size="28" fill="#8888a0">🍔 Cardápio digital interativo</text>
+  <text x="72" y="864" font-family="Arial, sans-serif" font-size="28" fill="#8888a0">+ muito mais por vir</text>
+
+  <!-- CTA -->
+  <rect x="72" y="898" width="500" height="60" rx="30" fill="rgba(124,92,252,0.15)"/>
+  <rect x="72" y="898" width="500" height="60" rx="30" fill="none" stroke="#7c5cfc" stroke-width="2" opacity="0.5"/>
+  <text x="322" y="936" font-family="Arial Black, sans-serif" font-weight="700" font-size="24" fill="#a78bfa" text-anchor="middle">💬 Vamos conversar sobre sua ideia</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="980" width="1080" height="100" fill="#111118"/>
+  <rect x="0" y="978" width="1080" height="2" fill="#7c5cfc" opacity="0.3"/>
+  <text x="72" y="1040" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="32" fill="#f0f0f5" opacity="0.9">Hel<tspan fill="#a78bfa">ph</tspan> Studio</text>
+  <text x="1008" y="1040" font-family="Arial, sans-serif" font-size="22" fill="#8888a0" text-anchor="end">helphstudio.com.br</text>
+</svg>
