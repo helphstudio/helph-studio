@@ -9,7 +9,7 @@
   <!-- Open Graph (WhatsApp, Instagram, Facebook) -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.helphstudio.com.br/" />
-  <meta property="og:title" content="Helph Studio — Sites Profissionais para Pequenos Negócios" />
+  <meta property="og:title" content="Helph Studio — Sites Profissionais para Negócios e Empresas" />
   <meta property="og:description" content="Sites modernos, rápidos e otimizados para Google. Entrega em até 7 dias. Atendimento via WhatsApp." />
   <meta property="og:image" content="https://www.helphstudio.com.br/assets/img/helph-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -28,7 +28,7 @@
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Helph Studio",
-    "description": "Criação de sites profissionais para pequenos negócios. Entrega em até 7 dias com design moderno e otimização para Google.",
+    "description": "Criação de sites profissionais para empreendedores, autônomos e empresas. Entrega em até 7 dias com design moderno e otimização para Google.",
     "url": "https://www.helphstudio.com.br",
     "email": "helphstudio@gmail.com",
     "telephone": "+55-21-97134-9275",
@@ -457,8 +457,8 @@
       padding: 5px 16px; border-radius: 99px; white-space: nowrap;
     }
     .plan-name { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
-    .plan-price-old { font-size: 0.85rem; color: var(--muted); text-decoration: line-through; margin-bottom: 4px; }
-    .plan-price-from { font-size: 0.78rem; color: var(--muted); margin-bottom: 2px; }
+    .plan-price-old { display: none; }
+    .plan-price-from { font-size: 0.82rem; font-weight: 600; color: var(--accent2); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; }
     .plan-price-value { font-size: 2.4rem; font-weight: 900; letter-spacing: -1.5px; color: var(--text); margin-bottom: 24px; }
     .plan-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; flex: 1; }
     .plan-features li { display: flex; align-items: flex-start; gap: 9px; font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
@@ -483,6 +483,17 @@
     .portfolio-demos-header { margin-bottom: 40px; }
     .portfolio-demos-header h2 { font-size: clamp(1.4rem, 2.5vw, 1.9rem); margin-bottom: 10px; }
     .portfolio-demos-header .section-sub { margin-bottom: 0; }
+    .demos-disclaimer {
+      display: inline-block;
+      margin-top: 16px;
+      background: rgba(124,92,252,0.08);
+      border: 1px solid rgba(124,92,252,0.2);
+      border-radius: 99px;
+      padding: 8px 18px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
 
     /* ── PORTFOLIO IFRAME PREVIEW ── */
     .portfolio-iframe-wrap {
@@ -495,6 +506,21 @@
       transform: scale(0.25); transform-origin: top left;
       border: none; pointer-events: none;
     }
+    /* Filtro de nichos */
+    .nicho-filtros {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin: 0 0 40px; justify-content: center;
+    }
+    .nicho-btn {
+      background: var(--bg3); border: 1px solid var(--border);
+      color: var(--muted); padding: 9px 18px; border-radius: 99px;
+      font-size: 0.82rem; font-weight: 600; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all .2s;
+    }
+    .nicho-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+    .nicho-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
     .portfolio-demo-badge {
       position: absolute; top: 10px; right: 10px;
       background: rgba(124,92,252,0.85); color: #fff;
@@ -633,6 +659,140 @@
       footer { grid-template-columns: 1fr; text-align: center; }
       .footer-links { justify-content: center; }
     }
+
+    /* === COVERFLOW CAROUSEL === */
+    .coverflow-wrap {
+      position: relative;
+      padding: 0 0 56px;
+      user-select: none;
+    }
+    .coverflow-stage {
+      position: relative;
+      height: 520px;
+      perspective: 1200px;
+      overflow: hidden;
+    }
+    .coverflow-item {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 300px;
+      transform-origin: center center;
+      transition: transform 0.65s cubic-bezier(.25,.8,.25,1), opacity 0.65s;
+      will-change: transform, opacity;
+    }
+    .coverflow-item .portfolio-card { width: 100%; }
+    .coverflow-item .portfolio-card:hover { transform: none; box-shadow: none; }
+    .coverflow-item[data-active="true"] .portfolio-card:hover {
+      box-shadow: 0 0 60px rgba(124,92,252,0.25);
+    }
+    .coverflow-item:not([data-active="true"]) { cursor: pointer; }
+    .coverflow-arrow {
+      position: absolute;
+      top: calc(50% - 24px);
+      z-index: 20;
+      background: rgba(10,10,15,0.7);
+      border: 1.5px solid var(--accent);
+      color: var(--text);
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+      display: flex; align-items: center; justify-content: center;
+      backdrop-filter: blur(10px);
+    }
+    .coverflow-arrow:hover { background: var(--accent); transform: scale(1.1); }
+    .coverflow-prev { left: 16px; }
+    .coverflow-next { right: 16px; }
+    .coverflow-dots {
+      display: flex; gap: 8px; justify-content: center; margin-top: 28px;
+    }
+    .coverflow-dot {
+      height: 8px; border-radius: 4px;
+      background: var(--border); border: none; cursor: pointer; padding: 0;
+      transition: background .3s, width .3s;
+      width: 8px;
+    }
+    .coverflow-dot.active { background: var(--accent); width: 24px; }
+    @media (max-width: 768px) {
+      .coverflow-stage { height: 460px; perspective: 800px; }
+      .coverflow-item { width: 240px; }
+      .coverflow-arrow { width: 40px; height: 40px; font-size: 1rem; top: calc(50% - 20px); }
+    }
+
+    /* === SEÇÃO MANUTENÇÃO === */
+    .manutencao-section {
+      padding: 100px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .manutencao-intro {
+      max-width: 700px;
+      margin: 0 auto 56px;
+      text-align: center;
+    }
+    .manutencao-intro p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+    .manutencao-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+    .manutencao-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      font-size: 0.88rem;
+      color: var(--text);
+      font-weight: 600;
+      transition: border-color .25s, transform .25s;
+    }
+    .manutencao-item:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .manutencao-item-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .manutencao-note {
+      border-left: 3px solid var(--accent);
+      background: var(--bg2);
+      border-radius: 0 12px 12px 0;
+      padding: 18px 24px;
+      margin-bottom: 64px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .manutencao-note strong { color: var(--text); }
+    .manutencao-plans-title {
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 32px;
+    }
+    .manutencao-plans {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 56px;
+    }
+    .manutencao-cta {
+      text-align: center;
+    }
+    @media (max-width: 900px) {
+      .manutencao-plans { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+      .manutencao-items { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .manutencao-items { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -718,6 +878,209 @@
   </div>
 </section>
 
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+
+  <!-- CLIENTES REAIS -->
+  <div class="portfolio-layout">
+    <div class="portfolio-left">
+      <p class="section-label">Portfólio</p>
+      <h2>Clientes</h2>
+      <p class="section-sub">Projetos reais entregues — cada site criado do zero, personalizado para o negócio e o público do cliente.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-card reveal reveal-delay-1">
+        <div class="portfolio-preview">
+          <img src="assets/img/site/parperfeito-preview.jpg" alt="Par Perfeito Assessoria de Casamento — prévia do site" />
+        </div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Eventos & Assessoria</span><span class="portfolio-tag-pacote">Pacote Profissional</span>
+          <h3>Par Perfeito — Assessoria de Eventos</h3>
+          <p>Site elegante para assessoria de eventos no RJ com galeria de fotos, depoimentos, serviços e contato pelo WhatsApp.</p>
+          <a href="https://parperfeitoassessoria.com.br" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver site ao vivo →</a>
+        </div>
+      </div>
+
+      <div class="portfolio-card reveal reveal-delay-2">
+        <div class="portfolio-preview" style="background:linear-gradient(135deg,#0D1B2A 0%,#00607a 60%,#00BCD4 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
+          <span style="font-size:2.4rem;">❄️</span>
+          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);">fcservicos.helphstudio.com.br</span>
+          <span style="position:absolute;top:12px;right:12px;background:rgba(255,180,0,0.15);border:1px solid rgba(255,180,0,0.4);color:#fbbf24;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:4px 10px;border-radius:99px;">Em desenvolvimento</span>
+        </div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Ar Condicionado & Refrigeração</span><span class="portfolio-tag-pacote">Pacote Profissional</span>
+          <h3>FC Serviços — Ar Condicionado</h3>
+          <p>Site profissional para empresa de instalação, manutenção e higienização de ar-condicionado na Região dos Lagos, RJ, com serviços, depoimentos e WhatsApp.</p>
+          <span style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;color:var(--muted);font-style:italic;">Site em construção — disponível em breve</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card reveal reveal-delay-3" style="border-style:dashed;border-color:rgba(255,255,255,0.12);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:320px;gap:12px;text-align:center;padding:40px 24px;">
+        <span style="font-size:2rem;opacity:0.35;">✦</span>
+        <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);opacity:0.6;">Em desenvolvimento</p>
+        <p style="font-size:0.88rem;color:var(--muted);opacity:0.5;line-height:1.6;max-width:200px;">Novo projeto chegando em breve.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEMONSTRAÇÕES -->
+  <div class="portfolio-demos-section">
+    <div class="portfolio-demos-header">
+      <p class="section-label">Exemplos ao vivo</p>
+      <h2>Veja como ficaria o seu site</h2>
+      <p class="section-sub">Escolha um segmento parecido com o seu negócio e explore o resultado antes de contratar.</p>
+      <p class="demos-disclaimer">🎨 Estes são exemplos de referência — cores, fontes, fotos, textos e identidade visual são totalmente personalizados para o seu negócio.</p>
+    </div>
+
+    <!-- FILTRO DE NICHOS -->
+    <div class="nicho-filtros" id="nichoFiltros">
+      <button class="nicho-btn active" data-nicho="salao" onclick="filtrarNicho('salao')">💇 Salão de Beleza</button>
+      <button class="nicho-btn" data-nicho="barbearia" onclick="filtrarNicho('barbearia')">💈 Barbearia</button>
+      <button class="nicho-btn" data-nicho="padaria" onclick="filtrarNicho('padaria')">🥖 Padaria</button>
+      <button class="nicho-btn" data-nicho="petshop" onclick="filtrarNicho('petshop')">🐾 Pet Shop</button>
+      <button class="nicho-btn" data-nicho="veterinaria" onclick="filtrarNicho('veterinaria')">🐶 Veterinária</button>
+      <button class="nicho-btn" data-nicho="advogado" onclick="filtrarNicho('advogado')">⚖️ Advocacia</button>
+      <button class="nicho-btn" data-nicho="restaurante" onclick="filtrarNicho('restaurante')">🍽️ Restaurante</button>
+      <button class="nicho-btn" data-nicho="estetica" onclick="filtrarNicho('estetica')">✨ Estética</button>
+    </div>
+
+    <!-- CARROSSEL 3D -->
+    <div class="coverflow-wrap" id="coverflow">
+      <button class="coverflow-arrow coverflow-prev" id="cfPrev" aria-label="Anterior">&#8592;</button>
+
+      <div class="coverflow-stage" id="cfStage">
+
+        <div class="coverflow-item" data-nicho="salao">
+          <div class="portfolio-card">
+            <div class="portfolio-iframe-wrap">
+              <iframe src="demo-pacote-presenca.html" title="Demo Salão de Beleza" loading="lazy" scrolling="no"></iframe>
+            </div>
+            <div class="portfolio-info">
+              <span class="portfolio-tag">Pacote Presença</span>
+              <h3>Studio Bella — Salão de Beleza</h3>
+              <p>Landing page elegante com serviços, depoimentos e agendamento pelo WhatsApp.</p>
+              <a href="demo-pacote-presenca.html" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="coverflow-item" data-nicho="barbearia">
+          <div class="portfolio-card">
+            <div class="portfolio-iframe-wrap">
+              <iframe src="demo-barbearia.html" title="Demo Barbearia" loading="lazy" scrolling="no"></iframe>
+            </div>
+            <div class="portfolio-info">
+              <span class="portfolio-tag">Pacote Presença</span>
+              <h3>Kings Barber — Barbearia</h3>
+              <p>Landing page dark e masculina com serviços, preços e agendamento pelo WhatsApp.</p>
+              <a href="demo-barbearia.html" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="coverflow-item" data-nicho="padaria">
+          <div class="portfolio-card">
+            <div class="portfolio-iframe-wrap">
+              <iframe src="demo-padaria.html" title="Demo Padaria" loading="lazy" scrolling="no"></iframe>
+            </div>
+            <div class="portfolio-info">
+              <span class="portfolio-tag">Pacote Presença</span>
+              <h3>Padaria Grão — Artesanal</h3>
+              <p>Landing page aconchegante com especialidades, depoimentos e pedido pelo WhatsApp.</p>
+              <a href="demo-padaria.html" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="coverflow-item" data-nicho="petshop">
+          <div class="portfolio-card">
+            <div class="portfolio-iframe-wrap">
+              <iframe src="demo-petshop.html" title="Demo Pet Shop" loading="lazy" scrolling="no"></iframe>
+            </div>
+            <div class="portfolio-info">
+              <span class="portfolio-tag">Pacote Profissional</span>
+              <h3>PetAmor — Pet Shop & Banho e Tosa</h3>
+              <p>Site completo com serviços, sobre a empresa, depoimentos e agendamento pelo WhatsApp.</p>
+              <a href="demo-petshop.html" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="coverflow-item" data-nicho="veterinaria">
+          <div class="portfolio-card">
+            <div class="portfolio-iframe-wrap">
+              <iframe src="demo-veterinaria.html" title="Demo Veterinária" loading="lazy" scrolling="no"></iframe>
+            </div>
+            <div class="portfolio-info">
+              <span class="portfolio-tag">Pacote Profissional</span>
+              <h3>Vet Vida — Clínica Veterinária</h3>
+              <p>Site com serviços, equipe médica, depoimentos, emergência 24h e agendamento.</p>
+              <a href="demo-veterinaria.html" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="coverflow-item" data-nicho="advogado">
+          <div class="portfolio-card">
+            <div class="portfolio-iframe-wrap">
+              <iframe src="demo-advogado.html" title="Demo Advogado" loading="lazy" scrolling="no"></iframe>
+            </div>
+            <div class="portfolio-info">
+              <span class="portfolio-tag">Pacote Profissional</span>
+              <h3>Dr. Rodrigo Mendes — Advocacia</h3>
+              <p>Site formal e elegante com áreas de atuação, perfil, depoimentos e formulário de contato.</p>
+              <a href="demo-advogado.html" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="coverflow-item" data-nicho="restaurante">
+          <div class="portfolio-card">
+            <div class="portfolio-iframe-wrap">
+              <iframe src="demo-pacote-profissional.html" title="Demo Restaurante" loading="lazy" scrolling="no"></iframe>
+            </div>
+            <div class="portfolio-info">
+              <span class="portfolio-tag">Pacote Profissional</span>
+              <h3>Cantina Bella Vista — Restaurante</h3>
+              <p>Site com cardápio, galeria, depoimentos, reservas e localização.</p>
+              <a href="demo-pacote-profissional.html" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="coverflow-item" data-nicho="estetica">
+          <div class="portfolio-card">
+            <div class="portfolio-iframe-wrap">
+              <iframe src="demo-pacote-completo.html" title="Demo Clínica Estética" loading="lazy" scrolling="no"></iframe>
+            </div>
+            <div class="portfolio-info">
+              <span class="portfolio-tag">Pacote Completo</span>
+              <h3>Espaço Serenità — Clínica Estética</h3>
+              <p>Site completo com tratamentos, equipe, galeria, blog e agendamento.</p>
+              <a href="demo-pacote-completo.html" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="coverflow-arrow coverflow-next" id="cfNext" aria-label="Próximo">&#8594;</button>
+
+      <div class="coverflow-dots" id="cfDots">
+        <button class="coverflow-dot active" onclick="cfGoTo(0)" aria-label="Slide 1"></button>
+        <button class="coverflow-dot" onclick="cfGoTo(1)" aria-label="Slide 2"></button>
+        <button class="coverflow-dot" onclick="cfGoTo(2)" aria-label="Slide 3"></button>
+        <button class="coverflow-dot" onclick="cfGoTo(3)" aria-label="Slide 4"></button>
+        <button class="coverflow-dot" onclick="cfGoTo(4)" aria-label="Slide 5"></button>
+        <button class="coverflow-dot" onclick="cfGoTo(5)" aria-label="Slide 6"></button>
+        <button class="coverflow-dot" onclick="cfGoTo(6)" aria-label="Slide 7"></button>
+        <button class="coverflow-dot" onclick="cfGoTo(7)" aria-label="Slide 8"></button>
+      </div>
+    </div>
+  </div>
+
+</section>
+
 <!-- COMO FUNCIONA -->
 <section id="como-funciona">
   <p class="section-label">Processo</p>
@@ -759,80 +1122,82 @@
   </div>
 </section>
 
-<!-- PORTFOLIO -->
-<section class="portfolio" id="portfolio">
+<section id="precos">
+  <span id="contato"></span>
+  <p class="section-label" style="text-align:center;">Investimento</p>
+  <h2 style="text-align:center;margin:0 auto 16px;">Escolha o plano ideal para você</h2>
+  <p class="section-sub" style="text-align:center;margin:0 auto 40px;">Todos os sites são feitos do zero, sem templates. Design exclusivo, entrega rápida e suporte incluso.</p>
 
-  <!-- CLIENTES REAIS -->
-  <div class="portfolio-layout">
-    <div class="portfolio-left">
-      <p class="section-label">Portfólio</p>
-      <h2>Clientes</h2>
-      <p class="section-sub">Projetos reais entregues — cada site criado do zero, personalizado para o negócio e o público do cliente.</p>
+  <div class="plans-grid">
+
+    <!-- Card 1 -->
+    <div class="plan-card">
+      <p class="plan-name">Pacote Presença</p>
+      <p class="plan-price-old">R$ 1.200,00</p>
+      <p class="plan-price-from">a partir de</p>
+      <p class="plan-price-value">R$ 599,90</p>
+      <ul class="plan-features">
+        <li>Landing page de uma página</li>
+        <li>Design personalizado (não é template)</li>
+        <li>Adaptado para celular</li>
+        <li>Botão de WhatsApp integrado</li>
+        <li>SEO básico configurado</li>
+        <li>Entrega em até 7 dias</li>
+        <li>3 meses de suporte grátis</li>
+      </ul>
+      <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Helph%20Studio%20e%20tenho%20interesse%20no%20Pacote%20Pres%C3%A9n%C3%A7a." class="plan-btn outline" target="_blank" rel="noopener">Quero esse pacote →</a>
+      <a href="demo-pacote-presenca.html" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:12px;font-size:0.8rem;color:var(--muted);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--accent2)'" onmouseout="this.style.color='var(--muted)'">Ver página de exemplo →</a>
     </div>
-    <div class="portfolio-grid">
-      <div class="portfolio-card reveal reveal-delay-1">
-        <div class="portfolio-preview">
-          <img src="assets/img/site/parperfeito-preview.jpg" alt="Par Perfeito Assessoria de Casamento — prévia do site" />
-        </div>
-        <div class="portfolio-info">
-          <span class="portfolio-tag">Site Completo</span><span class="portfolio-tag-pacote">Pacote Completo</span>
-          <h3>Par Perfeito — Assessoria de Casamento</h3>
-          <p>Site para assessoria de casamento no RJ com galeria, depoimentos, serviços e CTAs para WhatsApp.</p>
-          <a href="https://parperfeito.helphstudio.com.br/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver site ao vivo →</a>
-        </div>
-      </div>
+
+    <!-- Card 2 — Destaque -->
+    <div class="plan-card featured">
+      <div class="plan-badge">⭐ Mais pedido</div>
+      <p class="plan-name">Pacote Profissional</p>
+      <p class="plan-price-old">R$ 2.000,00</p>
+      <p class="plan-price-from">a partir de</p>
+      <p class="plan-price-value">R$ 999,90</p>
+      <ul class="plan-features">
+        <li>Site completo com 4 a 5 seções</li>
+        <li>Design personalizado (não é template)</li>
+        <li>Adaptado para celular</li>
+        <li>Botão de WhatsApp + formulário de contato</li>
+        <li>Seção de depoimentos</li>
+        <li>SEO básico configurado</li>
+        <li>Entrega em até 7 dias</li>
+        <li>3 meses de suporte grátis</li>
+      </ul>
+      <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Pacote%20Profissional%20da%20Helph%20Studio." class="plan-btn" target="_blank" rel="noopener">Quero esse pacote →</a>
+      <a href="demo-pacote-profissional.html" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:12px;font-size:0.8rem;color:var(--muted);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--accent2)'" onmouseout="this.style.color='var(--muted)'">Ver página de exemplo →</a>
     </div>
+
+    <!-- Card 3 -->
+    <div class="plan-card">
+      <p class="plan-name">Pacote Completo</p>
+      <p class="plan-price-old">R$ 3.000,00</p>
+      <p class="plan-price-from">a partir de</p>
+      <p class="plan-price-value">R$ 1.499,90</p>
+      <ul class="plan-features">
+        <li>Site multi-página</li>
+        <li>Tudo do Pacote Profissional</li>
+        <li>Galeria de fotos ou portfólio</li>
+        <li>Blog ou seção de novidades</li>
+        <li>1 mês de manutenção incluído <a href="#manutencao" style="color:var(--accent2);font-size:0.8em;">(ver planos ↓)</a></li>
+        <li>3 meses de suporte grátis</li>
+        <li>Prazo combinado conforme escopo</li>
+      </ul>
+      <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Pacote%20Completo%20da%20Helph%20Studio." class="plan-btn outline" target="_blank" rel="noopener">Quero esse pacote →</a>
+      <a href="demo-pacote-completo.html" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:12px;font-size:0.8rem;color:var(--muted);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--accent2)'" onmouseout="this.style.color='var(--muted)'">Ver página de exemplo →</a>
+    </div>
+
   </div>
 
-  <!-- DEMONSTRAÇÕES -->
-  <div class="portfolio-demos-section">
-    <div class="portfolio-demos-header">
-      <p class="section-label">Exemplos</p>
-      <h2>Demonstrações</h2>
-      <p class="section-sub">Explore sites de exemplo para cada pacote — veja o resultado antes de contratar.</p>
-    </div>
-    <div class="portfolio-grid">
-
-      <div class="portfolio-card reveal reveal-delay-1">
-        <div class="portfolio-iframe-wrap">
-          <iframe src="demo-pacote-presenca.html" title="Demo Pacote Presença — Studio Bella" loading="lazy" scrolling="no"></iframe>
-          <div class="portfolio-demo-badge">Demo ao vivo</div>
-        </div>
-        <div class="portfolio-info">
-          <span class="portfolio-tag">Pacote Presença</span>
-          <h3>Studio Bella — Salão de Beleza</h3>
-          <p>Site elegante para salão de beleza com portfólio de serviços, depoimentos e botão de agendamento.</p>
-          <a href="demo-pacote-presenca.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
-        </div>
-      </div>
-
-      <div class="portfolio-card reveal reveal-delay-2">
-        <div class="portfolio-iframe-wrap">
-          <iframe src="demo-pacote-profissional.html" title="Demo Pacote Profissional" loading="lazy" scrolling="no"></iframe>
-          <div class="portfolio-demo-badge">Demo ao vivo</div>
-        </div>
-        <div class="portfolio-info">
-          <span class="portfolio-tag">Pacote Profissional</span>
-          <h3>Site Profissional Completo</h3>
-          <p>Site com múltiplas seções, portfólio de trabalhos, formulário de contato e identidade visual forte.</p>
-          <a href="demo-pacote-profissional.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
-        </div>
-      </div>
-
-      <div class="portfolio-card reveal reveal-delay-3">
-        <div class="portfolio-iframe-wrap">
-          <iframe src="demo-pacote-completo.html" title="Demo Pacote Completo" loading="lazy" scrolling="no"></iframe>
-          <div class="portfolio-demo-badge">Demo ao vivo</div>
-        </div>
-        <div class="portfolio-info">
-          <span class="portfolio-tag">Pacote Completo</span>
-          <h3>Site Completo com Blog</h3>
-          <p>Site robusto com blog multi-página, sistema de conteúdo, SEO avançado e área de recursos.</p>
-          <a href="demo-pacote-completo.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
-        </div>
-      </div>
-
-    </div>
+  <div style="max-width:680px;margin:48px auto 0;background:rgba(124,92,252,0.07);border:1px solid rgba(124,92,252,0.25);border-radius:var(--radius);padding:32px;text-align:center;">
+    <p style="font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px;">Não encontrou o que precisa?</p>
+    <p style="font-size:0.9rem;color:var(--muted);line-height:1.7;margin-bottom:24px;">Me conta o que você tem em mente — projeto diferente, escopo menor, funcionalidade específica. Faço um <strong style="color:var(--accent2);">orçamento personalizado sem compromisso</strong>, de acordo com a sua realidade.</p>
+    <a href="https://wa.me/5521971349275?text=Olá!%20Vi%20o%20site%20da%20Helph%20Studio%20e%20gostaria%20de%20um%20orçamento%20personalizado." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:13px 28px;border-radius:99px;font-weight:700;font-size:0.9rem;text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Pedir orçamento personalizado
+    </a>
   </div>
 
 </section>
@@ -911,88 +1276,86 @@
 </section>
 
 <!-- PRECOS -->
-<section id="precos">
-  <span id="contato"></span>
-  <p class="section-label" style="text-align:center;">Investimento</p>
-  <h2 style="text-align:center;margin:0 auto 16px;">Escolha o plano ideal para você</h2>
-  <p class="section-sub" style="text-align:center;margin:0 auto 40px;">Todos os sites são feitos do zero, sem templates. Design exclusivo, entrega rápida e suporte incluso.</p>
-
-  <div class="urgency-banner" style="max-width:700px;margin:0 auto 40px;">
-    ⏳ Oferta de lançamento — condições especiais para os 10 primeiros projetos. Vagas restantes: 10
+<!-- MANUTENÇÃO -->
+<section class="manutencao-section" id="manutencao">
+  <div class="manutencao-intro reveal">
+    <p class="section-label">Infraestrutura & Suporte</p>
+    <h2>Cuidamos da parte técnica para você</h2>
+    <p>Criamos o site e também cuidamos de tudo que é necessário para que ele funcione corretamente. A Helph Studio pode gerenciar a publicação, a configuração de domínio, a hospedagem, o certificado de segurança e a manutenção mensal do seu projeto. Assim, o seu negócio não precisa se preocupar com termos técnicos ou configurações complicadas — nós cuidamos da estrutura para que o site continue online, seguro e funcionando bem.</p>
   </div>
 
-  <div class="plans-grid">
-
-    <!-- Card 1 -->
-    <div class="plan-card">
-      <p class="plan-name">Pacote Presença</p>
-      <p class="plan-price-old">R$ 1.200,00</p>
-      <p class="plan-price-from">a partir de</p>
-      <p class="plan-price-value">R$ 599,90</p>
-      <ul class="plan-features">
-        <li>Landing page de uma página</li>
-        <li>Design personalizado (não é template)</li>
-        <li>Adaptado para celular</li>
-        <li>Botão de WhatsApp integrado</li>
-        <li>SEO básico configurado</li>
-        <li>Entrega em até 7 dias</li>
-        <li>3 meses de suporte grátis</li>
-      </ul>
-      <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Helph%20Studio%20e%20tenho%20interesse%20no%20Pacote%20Pres%C3%A9n%C3%A7a%20promocional." class="plan-btn outline" target="_blank" rel="noopener">Quero esse pacote →</a>
-      <a href="demo-pacote-presenca.html" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:12px;font-size:0.8rem;color:var(--muted);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--accent2)'" onmouseout="this.style.color='var(--muted)'">Ver página de exemplo →</a>
-    </div>
-
-    <!-- Card 2 — Destaque -->
-    <div class="plan-card featured">
-      <div class="plan-badge">⭐ Mais pedido</div>
-      <p class="plan-name">Pacote Profissional</p>
-      <p class="plan-price-old">R$ 2.000,00</p>
-      <p class="plan-price-from">a partir de</p>
-      <p class="plan-price-value">R$ 999,90</p>
-      <ul class="plan-features">
-        <li>Site completo com 4 a 5 seções</li>
-        <li>Design personalizado (não é template)</li>
-        <li>Adaptado para celular</li>
-        <li>Botão de WhatsApp + formulário de contato</li>
-        <li>Seção de depoimentos</li>
-        <li>SEO básico configurado</li>
-        <li>Entrega em até 7 dias</li>
-        <li>3 meses de suporte grátis</li>
-      </ul>
-      <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Pacote%20Profissional%20promocional%20da%20Helph%20Studio." class="plan-btn" target="_blank" rel="noopener">Quero esse pacote →</a>
-      <a href="demo-pacote-profissional.html" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:12px;font-size:0.8rem;color:var(--muted);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--accent2)'" onmouseout="this.style.color='var(--muted)'">Ver página de exemplo →</a>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="plan-card">
-      <p class="plan-name">Pacote Completo</p>
-      <p class="plan-price-old">R$ 3.000,00</p>
-      <p class="plan-price-from">a partir de</p>
-      <p class="plan-price-value">R$ 1.499,90</p>
-      <ul class="plan-features">
-        <li>Site multi-página</li>
-        <li>Tudo do Pacote Profissional</li>
-        <li>Galeria de fotos ou portfólio</li>
-        <li>Blog ou seção de novidades</li>
-        <li>1 mês de manutenção incluído</li>
-        <li>3 meses de suporte grátis</li>
-        <li>Prazo combinado conforme escopo</li>
-      </ul>
-      <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Pacote%20Completo%20promocional%20da%20Helph%20Studio." class="plan-btn outline" target="_blank" rel="noopener">Quero esse pacote →</a>
-      <a href="demo-pacote-completo.html" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:12px;font-size:0.8rem;color:var(--muted);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--accent2)'" onmouseout="this.style.color='var(--muted)'">Ver página de exemplo →</a>
-    </div>
-
+  <div class="manutencao-items">
+    <div class="manutencao-item reveal reveal-delay-1"><span class="manutencao-item-icon">🚀</span> Publicação do site</div>
+    <div class="manutencao-item reveal reveal-delay-1"><span class="manutencao-item-icon">🌐</span> Configuração de domínio</div>
+    <div class="manutencao-item reveal reveal-delay-2"><span class="manutencao-item-icon">🖥️</span> Hospedagem</div>
+    <div class="manutencao-item reveal reveal-delay-2"><span class="manutencao-item-icon">🔒</span> Certificado SSL</div>
+    <div class="manutencao-item reveal reveal-delay-3"><span class="manutencao-item-icon">🔧</span> Ajustes técnicos</div>
+    <div class="manutencao-item reveal reveal-delay-3"><span class="manutencao-item-icon">✏️</span> Correções pontuais</div>
+    <div class="manutencao-item reveal reveal-delay-4"><span class="manutencao-item-icon">📝</span> Atualização de textos, fotos e links</div>
+    <div class="manutencao-item reveal reveal-delay-4"><span class="manutencao-item-icon">💬</span> Suporte mensal pelo WhatsApp</div>
   </div>
 
-  <div style="max-width:680px;margin:48px auto 0;background:rgba(124,92,252,0.07);border:1px solid rgba(124,92,252,0.25);border-radius:var(--radius);padding:32px;text-align:center;">
-    <p style="font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px;">Não encontrou o que precisa?</p>
-    <p style="font-size:0.9rem;color:var(--muted);line-height:1.7;margin-bottom:24px;">Me conta o que você tem em mente — projeto diferente, escopo menor, funcionalidade específica. Faço um <strong style="color:var(--accent2);">orçamento personalizado sem compromisso</strong>, de acordo com a sua realidade.</p>
-    <a href="https://wa.me/5521971349275?text=Olá!%20Vi%20o%20site%20da%20Helph%20Studio%20e%20gostaria%20de%20um%20orçamento%20personalizado." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:13px 28px;border-radius:99px;font-weight:700;font-size:0.9rem;text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Pedir orçamento personalizado
+  <div class="manutencao-note reveal">
+    <strong>Sobre registro de domínio:</strong> o domínio pode ser registrado pelo próprio cliente ou com orientação da Helph Studio. Custos de registro e renovação de domínio podem ser cobrados à parte, quando houver.
+  </div>
+
+  <p class="manutencao-plans-title reveal">Planos de manutenção mensal</p>
+
+  <div class="manutencao-plans">
+    <!-- Essencial -->
+    <div class="plan-card reveal reveal-delay-1">
+      <p class="plan-name">Plano Essencial</p>
+      <p class="plan-price-from">ideal para começar</p>
+      <p class="plan-price-value" style="font-size:1.5rem;margin-bottom:20px;">Consulte valores</p>
+      <ul class="plan-features">
+        <li>Hospedagem do site</li>
+        <li>Certificado SSL</li>
+        <li>Monitoramento básico</li>
+        <li>Suporte pelo WhatsApp</li>
+        <li>1 ajuste por mês</li>
+        <li>Backup do projeto</li>
+      </ul>
+      <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Helph%20Studio%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20Plano%20de%20Manuten%C3%A7%C3%A3o%20Essencial." class="plan-btn outline" target="_blank" rel="noopener">Peça uma proposta →</a>
+    </div>
+
+    <!-- Profissional (featured) -->
+    <div class="plan-card featured reveal reveal-delay-2">
+      <div class="plan-badge">⭐ Mais completo</div>
+      <p class="plan-name">Plano Profissional</p>
+      <p class="plan-price-from">para quem precisa de mais</p>
+      <p class="plan-price-value" style="font-size:1.5rem;margin-bottom:20px;">Consulte valores</p>
+      <ul class="plan-features">
+        <li>Tudo do Plano Essencial</li>
+        <li>Até 3 ajustes por mês</li>
+        <li>Atualização de textos, fotos ou links</li>
+        <li>Pequenas melhorias visuais</li>
+      </ul>
+      <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Helph%20Studio%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20Plano%20de%20Manuten%C3%A7%C3%A3o%20Profissional." class="plan-btn" target="_blank" rel="noopener">Peça uma proposta →</a>
+    </div>
+
+    <!-- Premium -->
+    <div class="plan-card reveal reveal-delay-3">
+      <p class="plan-name">Plano Premium</p>
+      <p class="plan-price-from">para projetos em crescimento</p>
+      <p class="plan-price-value" style="font-size:1.5rem;margin-bottom:20px;">Consulte valores</p>
+      <ul class="plan-features">
+        <li>Tudo do Plano Profissional</li>
+        <li>Até 6 ajustes por mês</li>
+        <li>Criação de novas seções</li>
+        <li>Revisão mensal do site</li>
+        <li>Otimizações de desempenho</li>
+        <li>Suporte prioritário</li>
+      </ul>
+      <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Helph%20Studio%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20Plano%20de%20Manuten%C3%A7%C3%A3o%20Premium." class="plan-btn outline" target="_blank" rel="noopener">Peça uma proposta →</a>
+    </div>
+  </div>
+
+  <div class="manutencao-cta reveal">
+    <a href="https://wa.me/5521971349275?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Helph%20Studio%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20planos%20de%20manuten%C3%A7%C3%A3o." class="whatsapp-btn" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Peça uma proposta pelo WhatsApp
     </a>
   </div>
-
 </section>
 
 <!-- FAQ -->
@@ -1009,7 +1372,7 @@
           Quanto custa fazer um site?
           <span class="icon">+</span>
         </button>
-        <p class="faq-a">Temos 3 pacotes promocionais: Pacote Presença a partir de R$&nbsp;599,90, Pacote Profissional a partir de R$&nbsp;999,90 e Pacote Completo a partir de R$&nbsp;1.499,90. São condições especiais de lançamento para os primeiros 10 projetos. Não sabe qual escolher? Chama no WhatsApp — a gente indica o melhor para o seu caso, sem compromisso.</p>
+        <p class="faq-a">Temos 3 pacotes: Pacote Presença a partir de R$&nbsp;597, Pacote Profissional a partir de R$&nbsp;997 e Pacote Completo a partir de R$&nbsp;1.497. Não sabe qual escolher? Chama no WhatsApp — a gente indica o melhor para o seu caso, sem compromisso.</p>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
@@ -1051,7 +1414,7 @@
           Vou conseguir atualizar o site sozinho depois?
           <span class="icon">+</span>
         </button>
-        <p class="faq-a">Depende do tipo de atualização. Pequenas mudanças de texto ou imagem podem ser feitas via nosso plano de manutenção mensal, sem precisar entender nada técnico. Para quem prefere autonomia total, desenvolvemos com sistemas de fácil edição — a gente define isso junto.</p>
+        <p class="faq-a">Depende do tipo de atualização. Pequenas mudanças de texto, foto ou link podem ser feitas via nossos <a href="#manutencao" style="color:var(--accent2);">planos de manutenção mensal</a>, sem precisar entender nada técnico — é só chamar no WhatsApp. Para quem prefere autonomia total, desenvolvemos com sistemas de fácil edição — a gente define isso junto.</p>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
@@ -1143,7 +1506,7 @@
     <img src="assets/img/site/pedro.png" alt="Pedro Henrique — Fundador da Helph Studio" style="flex-shrink:0;width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid rgba(124,92,252,0.3);" />
     <div style="flex:1;min-width:260px;">
       <h2 style="max-width:none;margin-bottom:12px;">Pedro Henrique</h2>
-      <p style="color:var(--muted);font-size:0.95rem;line-height:1.75;margin-bottom:20px;">Desenvolvedor com experiência em criação de sites e aplicativos web para negócios locais, profissionais liberais, freelancers e empreendedores individuais. Fundei a Helph Studio para tornar a presença digital acessível para quem realmente precisa — com entrega rápida, orçamento justo e resultado profissional.</p>
+      <p style="color:var(--muted);font-size:0.95rem;line-height:1.75;margin-bottom:20px;">Desenvolvedor com experiência em criação de sites e aplicativos web para profissionais liberais, autônomos, empreendedores e empresas de todos os portes. Fundei a Helph Studio para oferecer presença digital com qualidade de agência — entrega rápida, orçamento justo e resultado que impressiona.</p>
       <div style="display:flex;flex-wrap:wrap;gap:10px;">
         <a href="https://www.instagram.com/helphstudio/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:rgba(225,48,108,0.12);border:1px solid rgba(225,48,108,0.3);color:#f9a8d4;padding:9px 20px;border-radius:99px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
@@ -1256,6 +1619,99 @@
     }
   }
 </script>
+
+<!-- Carrossel 3D coverflow -->
+<script>
+(function () {
+  const items = Array.from(document.querySelectorAll('.coverflow-item'));
+  const dots  = Array.from(document.querySelectorAll('.coverflow-dot'));
+  const nichoBtns = Array.from(document.querySelectorAll('.nicho-btn'));
+  let current = 0;
+  let autoTimer = null;
+
+  // [tx-px, rotateY-deg, scale, opacity, z-index] para slots -3 a +3
+  const SLOTS = [
+    [-700, 55, 0.52, 0,    1],
+    [-390, 42, 0.68, 0.38, 2],
+    [-215, 24, 0.84, 0.72, 3],
+    [   0,  0, 1.00, 1.00, 5],
+    [ 215,-24, 0.84, 0.72, 3],
+    [ 390,-42, 0.68, 0.38, 2],
+    [ 700,-55, 0.52, 0,    1],
+  ];
+
+  function getOffsets() {
+    const w = window.innerWidth;
+    if (w < 480)  return [-300, -175, -95, 0,  95, 175, 300];
+    if (w < 768)  return [-480, -270,-150, 0, 150, 270, 480];
+    return SLOTS.map(s => s[0]);
+  }
+
+  function applyPositions() {
+    const n = items.length;
+    const offsets = getOffsets();
+    items.forEach((item, i) => {
+      let rel = ((i - current) % n + n) % n;
+      if (rel > n / 2) rel -= n;              // shortest path: -(n/2)..+(n/2)
+      const si = Math.max(0, Math.min(6, rel + 3));
+      const [, rotY, sc, op, zi] = SLOTS[si];
+      item.style.transform = `translateX(calc(-50% + ${offsets[si]}px)) translateY(-50%) rotateY(${rotY}deg) scale(${sc})`;
+      item.style.opacity   = op;
+      item.style.zIndex    = zi;
+      item.style.pointerEvents = Math.abs(rel) > 2 ? 'none' : '';
+      item.dataset.active  = i === current ? 'true' : 'false';
+    });
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    const nicho = items[current].dataset.nicho;
+    nichoBtns.forEach(b => b.classList.toggle('active', b.dataset.nicho === nicho));
+  }
+
+  function goTo(index) {
+    current = ((index % items.length) + items.length) % items.length;
+    applyPositions();
+  }
+
+  // Expostos globalmente
+  window.cfGoTo     = goTo;
+  window.filtrarNicho = function (nicho) {
+    const idx = items.findIndex(item => item.dataset.nicho === nicho);
+    if (idx >= 0) goTo(idx);
+  };
+
+  document.getElementById('cfPrev').addEventListener('click', () => goTo(current - 1));
+  document.getElementById('cfNext').addEventListener('click', () => goTo(current + 1));
+
+  items.forEach((item, i) => {
+    item.addEventListener('click', () => { if (i !== current) goTo(i); });
+  });
+
+  function startAuto() { autoTimer = setInterval(() => goTo(current + 1), 4000); }
+  function stopAuto()  { clearInterval(autoTimer); }
+
+  const wrap = document.getElementById('coverflow');
+  wrap.addEventListener('mouseenter', stopAuto);
+  wrap.addEventListener('mouseleave', startAuto);
+
+  // Touch swipe
+  let tx0 = null;
+  const stage = document.getElementById('cfStage');
+  stage.addEventListener('touchstart', e => { tx0 = e.touches[0].clientX; }, { passive: true });
+  stage.addEventListener('touchend',   e => {
+    if (tx0 === null) return;
+    const diff = tx0 - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+    tx0 = null;
+  });
+
+  window.addEventListener('resize', applyPositions);
+
+  applyPositions();
+  startAuto();
+})();
+</script>
+
+<!-- Banner de consentimento LGPD -->
+<script src="cookie-consent.js" defer></script>
 
 </body>
 </html>

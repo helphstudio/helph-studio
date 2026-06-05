@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Rodrigo Mendes — Advogado em Rio de Janeiro</title>
+  <meta name="description" content="Advogado especialista em Direito Civil, Trabalhista e Empresarial no Rio de Janeiro. Agende sua consulta." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --navy: #0d1b2a;
+      --navy2: #162032;
+      --gold: #b8973d;
+      --gold-light: #d4b05a;
+      --light: #f4f1eb;
+      --gray: #8a8070;
+      --border: rgba(184,151,61,0.2);
+    }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: var(--navy); line-height: 1.6; overflow-x: hidden; }
+
+    .demo-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      background: var(--navy); color: var(--gold-light);
+      text-align: center; padding: 9px 16px;
+      font-size: 0.8rem; font-weight: 600;
+      display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
+    }
+    .demo-banner a { color: var(--gold-light); text-decoration: none; border-bottom: 1px solid var(--gold-light); }
+
+    nav {
+      position: fixed; top: 37px; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 6%;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; color: var(--navy); text-decoration: none; letter-spacing: 0.5px; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--gray); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta { background: var(--navy); color: #fff; padding: 10px 22px; font-size: 0.82rem; font-weight: 600; text-decoration: none; letter-spacing: 0.3px; transition: background .2s; white-space: nowrap; }
+    .nav-cta:hover { background: var(--navy2); }
+    .nav-mobile { display: none; }
+
+    .hero {
+      min-height: 100vh; padding-top: 76px;
+      background: var(--navy);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=80');
+      background-size: cover; background-position: center;
+      opacity: 0.08;
+    }
+    .hero::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 45%; background: linear-gradient(to left, rgba(13,27,42,0) 0%, var(--navy) 100%); }
+    .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; padding: 80px 8%; max-width: 1200px; width: 100%; }
+    .hero-text { }
+    .hero-label { display: flex; align-items: center; gap: 10px; font-size: 0.72rem; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+    .hero-label::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 4vw, 3.8rem); font-weight: 700; line-height: 1.15; color: #fff; margin-bottom: 20px; }
+    .hero h1 em { color: var(--gold-light); font-style: italic; }
+    .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 36px; max-width: 440px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-gold { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: #fff; padding: 14px 28px; font-size: 0.88rem; font-weight: 600; text-decoration: none; letter-spacing: 0.3px; transition: background .2s; }
+    .btn-gold:hover { background: var(--gold-light); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.25); padding: 14px 28px; font-size: 0.88rem; font-weight: 600; text-decoration: none; transition: border-color .2s, color .2s; }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.6); color: #fff; }
+    .hero-photo { position: relative; }
+    .hero-photo img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top; }
+    .oab-badge { position: absolute; bottom: -16px; left: -16px; background: var(--gold); color: var(--navy); padding: 16px 22px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.5px; }
+    .oab-badge strong { display: block; font-size: 1.2rem; font-family: 'Cormorant Garamond', serif; }
+
+    section { padding: 88px 6%; }
+    .s-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .s-label::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+    h2 em { color: var(--gold); font-style: italic; }
+    .s-sub { color: var(--gray); font-size: 0.95rem; line-height: 1.8; max-width: 520px; margin-bottom: 48px; }
+
+    /* ÁREAS */
+    .areas { background: var(--light); }
+    .areas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); max-width: 1000px; }
+    .area-card { background: #fff; padding: 36px 28px; transition: background .2s; }
+    .area-card:hover { background: var(--navy); }
+    .area-card:hover h3, .area-card:hover p { color: rgba(255,255,255,0.9); }
+    .area-card:hover .area-icon { color: var(--gold-light); }
+    .area-icon { font-size: 1.8rem; margin-bottom: 16px; display: block; transition: color .2s; }
+    .area-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; transition: color .2s; }
+    .area-card p { font-size: 0.83rem; color: var(--gray); line-height: 1.7; transition: color .2s; }
+
+    /* SOBRE */
+    .sobre { background: #fff; }
+    .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .sobre-img { position: relative; }
+    .sobre-img img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: top; }
+    .sobre-numeros { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+    .num-item { border-left: 3px solid var(--gold); padding-left: 16px; }
+    .num-item strong { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--navy); display: block; line-height: 1; }
+    .num-item span { font-size: 0.8rem; color: var(--gray); }
+
+    /* DEPOIMENTOS */
+    .depoimentos { background: var(--navy); }
+    .depoimentos .s-label { color: var(--gold-light); }
+    .depoimentos .s-label::before { background: var(--gold-light); }
+    .depoimentos h2 { color: #fff; }
+    .depoimentos .s-sub { color: rgba(255,255,255,0.55); }
+    .depo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; }
+    .depo-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); padding: 28px 24px; }
+    .depo-stars { color: var(--gold); font-size: 0.88rem; margin-bottom: 14px; letter-spacing: 2px; }
+    .depo-card p { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.75; font-style: italic; margin-bottom: 20px; }
+    .depo-author { display: flex; align-items: center; gap: 10px; }
+    .depo-avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+    .depo-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .depo-name { font-weight: 700; font-size: 0.85rem; color: #fff; }
+    .depo-since { font-size: 0.72rem; color: rgba(255,255,255,0.45); display: block; }
+
+    /* CONTATO */
+    .contato { background: var(--light); }
+    .contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; max-width: 1000px; margin: 0 auto; align-items: start; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; letter-spacing: 0.3px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 14px; border: 1px solid rgba(13,27,42,0.15); font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--navy); background: #fff; outline: none; transition: border-color .2s; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .btn-submit { width: 100%; padding: 14px; background: var(--navy); color: #fff; border: none; font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; cursor: pointer; letter-spacing: 0.5px; transition: background .2s; }
+    .btn-submit:hover { background: var(--navy2); }
+    .info-contato { }
+    .info-item-v { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 24px; }
+    .info-item-v .icon { width: 40px; height: 40px; background: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .info-item-v p { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
+    .info-item-v strong { display: block; font-size: 0.82rem; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.35); padding: 28px 6%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 0.78rem; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; color: #fff; text-decoration: none; }
+    .footer-logo span { color: var(--gold-light); }
+    footer a { color: var(--gold-light); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo { display: none; }
+      .sobre-grid { grid-template-columns: 1fr; }
+      .areas-grid { grid-template-columns: 1fr 1fr; }
+      .depo-grid { grid-template-columns: 1fr; }
+      .contato-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .areas-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="demo-banner" style="justify-content:space-between;">
+  <a href="https://helphstudio.com.br/#portfolio" style="color:rgba(184,151,61,0.7);text-decoration:none;font-size:0.76rem;white-space:nowrap;flex-shrink:0;font-weight:600;" onmouseover="this.style.color='#b8973d'" onmouseout="this.style.color='rgba(184,151,61,0.7)'">← Ver outras demos</a>
+  <span style="flex:1;text-align:center;color:rgba(184,151,61,0.85);font-size:0.76rem;">⚠️ Demonstração — Advocacia · Pacote Profissional</span>
+  <a href="https://helphstudio.com.br/#precos" target="_blank" style="color:#d4b05a;text-decoration:none;font-weight:700;border-bottom:1px solid #d4b05a;white-space:nowrap;flex-shrink:0;">Quero um site assim →</a>
+</div>
+
+<nav>
+  <a href="#" class="nav-logo">Dr. Rodrigo <span>Mendes</span></a>
+  <div class="nav-links">
+    <a href="#areas">Áreas de Atuação</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#depoimentos">Clientes</a>
+    <a href="#contato">Contato</a>
+  </div>
+  <a href="#contato" class="nav-cta">Agendar Consulta</a>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-label">Advogado — Rio de Janeiro</div>
+      <h1>Defendo os seus<br/>direitos com <em>dedicação</em></h1>
+      <p class="hero-sub">Especialista em Direito Civil, Trabalhista e Empresarial. Atendimento humanizado, soluções eficazes e transparência em cada etapa do processo.</p>
+      <div class="hero-actions">
+        <a href="#contato" class="btn-gold">Agendar consulta</a>
+        <a href="#areas" class="btn-outline">Áreas de atuação</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=600&q=80" alt="Dr. Rodrigo Mendes" />
+      <div class="oab-badge"><strong>OAB/RJ</strong> 123.456</div>
+    </div>
+  </div>
+</section>
+
+<section class="areas" id="areas">
+  <div class="s-label">Especialidades</div>
+  <h2>Áreas de <em>atuação</em></h2>
+  <p class="s-sub">Atuação focada nas áreas onde posso oferecer o melhor resultado para você.</p>
+  <div class="areas-grid">
+    <div class="area-card">
+      <span class="area-icon">⚖️</span>
+      <h3>Direito Civil</h3>
+      <p>Contratos, responsabilidade civil, direito de família, inventários e sucessões. Proteção completa nas relações civis.</p>
+    </div>
+    <div class="area-card">
+      <span class="area-icon">👷</span>
+      <h3>Direito Trabalhista</h3>
+      <p>Defesa de trabalhadores e empresas. Rescisões, horas extras, assédio, negociações e acordos extrajudiciais.</p>
+    </div>
+    <div class="area-card">
+      <span class="area-icon">🏢</span>
+      <h3>Direito Empresarial</h3>
+      <p>Constituição e contratos de empresas, compliance, proteção de sócios e resolução de conflitos empresariais.</p>
+    </div>
+    <div class="area-card">
+      <span class="area-icon">🏠</span>
+      <h3>Direito Imobiliário</h3>
+      <p>Compra, venda, locação, usucapião e regularização de imóveis. Segurança em cada etapa do negócio.</p>
+    </div>
+    <div class="area-card">
+      <span class="area-icon">🛒</span>
+      <h3>Direito do Consumidor</h3>
+      <p>Defesa contra práticas abusivas, cobranças indevidas e problemas com produtos e serviços.</p>
+    </div>
+    <div class="area-card">
+      <span class="area-icon">📋</span>
+      <h3>Consulta Jurídica</h3>
+      <p>Análise de documentos, parecer jurídico e orientação preventiva para evitar problemas futuros.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sobre" id="sobre">
+  <div class="sobre-grid">
+    <div class="sobre-img">
+      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80" alt="Escritório Dr. Rodrigo Mendes" />
+    </div>
+    <div>
+      <div class="s-label">Sobre o advogado</div>
+      <h2>15 anos defendendo quem precisa</h2>
+      <p class="s-sub">Graduado pela UERJ, pós-graduado em Direito Empresarial pela FGV e com vasta experiência em tribunais do Rio de Janeiro. Meu compromisso é com resultado — e com a tranquilidade do meu cliente.</p>
+      <p style="color: var(--gray); font-size: 0.92rem; line-height: 1.8; margin-bottom: 32px;">Cada caso recebe atenção personalizada. Acredito que informação clara e comunicação constante são tão importantes quanto a qualidade técnica do trabalho jurídico.</p>
+      <div class="sobre-numeros">
+        <div class="num-item"><strong>500+</strong><span>Casos concluídos</span></div>
+        <div class="num-item"><strong>15+</strong><span>Anos de atuação</span></div>
+        <div class="num-item"><strong>98%</strong><span>Clientes satisfeitos</span></div>
+        <div class="num-item"><strong>3</strong><span>Especializações</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="depoimentos" id="depoimentos">
+  <div class="s-label">Depoimentos</div>
+  <h2>O que dizem meus <em>clientes</em></h2>
+  <p class="s-sub" style="margin-bottom:40px;">Confiança construída caso a caso.</p>
+  <div class="depo-grid">
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <p>"O Dr. Rodrigo resolveu minha causa trabalhista em tempo recorde. Me manteve informado em cada etapa. Profissional impecável e pessoa ainda melhor."</p>
+      <div class="depo-author">
+        <div class="depo-avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="André P." /></div>
+        <div><span class="depo-name">André P.</span><span class="depo-since">Cliente — Direito Trabalhista</span></div>
+      </div>
+    </div>
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <p>"Precisava de ajuda urgente com um contrato imobiliário. Ele me atendeu no mesmo dia, identificou problemas que eu nunca perceberia sozinha. Me salvou de um grande prejuízo."</p>
+      <div class="depo-author">
+        <div class="depo-avatar"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Fernanda C." /></div>
+        <div><span class="depo-name">Fernanda C.</span><span class="depo-since">Cliente — Direito Imobiliário</span></div>
+      </div>
+    </div>
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <p>"Contratamos para estruturar juridicamente nossa empresa. O trabalho foi completo, os contratos são sólidos e até hoje recorremos ao escritório para qualquer questão."</p>
+      <div class="depo-author">
+        <div class="depo-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Ricardo S." /></div>
+        <div><span class="depo-name">Ricardo S.</span><span class="depo-since">Cliente — Direito Empresarial</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contato" id="contato">
+  <div class="contato-grid">
+    <div>
+      <div class="s-label">Fale conosco</div>
+      <h2>Agende sua <em>consulta</em></h2>
+      <p class="s-sub" style="margin-bottom:28px;">Primeira consulta com análise do seu caso. Preencha o formulário e entro em contato em até 24h.</p>
+      <form onsubmit="enviar(event)">
+        <div class="form-group"><label>Nome completo</label><input type="text" placeholder="João da Silva" required /></div>
+        <div class="form-group"><label>WhatsApp</label><input type="tel" placeholder="(21) 99999-9999" required /></div>
+        <div class="form-group"><label>Área de interesse</label>
+          <select>
+            <option value="">Selecione a área</option>
+            <option>Direito Civil</option>
+            <option>Direito Trabalhista</option>
+            <option>Direito Empresarial</option>
+            <option>Direito Imobiliário</option>
+            <option>Direito do Consumidor</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Descreva brevemente seu caso</label><textarea placeholder="Conte um pouco sobre a situação..."></textarea></div>
+        <button type="submit" class="btn-submit">Enviar e aguardar contato</button>
+      </form>
+    </div>
+    <div class="info-contato">
+      <div class="s-label" style="margin-bottom:28px;">Informações</div>
+      <div class="info-item-v">
+        <div class="icon">📍</div>
+        <div><strong>Endereço</strong><p>Av. Rio Branco, 156 — 12º andar<br/>Centro, Rio de Janeiro — RJ</p></div>
+      </div>
+      <div class="info-item-v">
+        <div class="icon">📱</div>
+        <div><strong>WhatsApp</strong><p>(21) 99999-0000</p></div>
+      </div>
+      <div class="info-item-v">
+        <div class="icon">✉️</div>
+        <div><strong>E-mail</strong><p>contato@drrodrigomendes.com.br</p></div>
+      </div>
+      <div class="info-item-v">
+        <div class="icon">🕐</div>
+        <div><strong>Atendimento</strong><p>Segunda a Sexta: 9h às 18h<br/>Sábados: com agendamento prévio</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="footer-logo">Dr. Rodrigo <span>Mendes</span></a>
+  <p>© 2025 Dr. Rodrigo Mendes — OAB/RJ 123.456 · <em>Página fictícia para demonstração.</em></p>
+  <p>Site criado por <a href="https://helphstudio.com.br" target="_blank">Helph Studio</a></p>
+</footer>
+
+<script>
+  function enviar(e) {
+    e.preventDefault();
+    window.open('https://wa.me/5521999990000?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20o%20Dr.%20Rodrigo%20Mendes.', '_blank');
+  }
+</script>
+
+</body>
+</html>
