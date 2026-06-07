@@ -4,7 +4,7 @@
     {
       "name": "helph-studio",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "3001", "--directory", "D:/Helph Studio/Sites/Helph Studio"],
+      "runtimeArgs": ["-m", "http.server", "3001", "--directory", "C:/Users/perei/Claude/Projects/Helph Studio/01-produtos-proprios/helph-studio"],
       "port": 3001
     }
   ]
