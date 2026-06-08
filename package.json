@@ -1,7 +1,7 @@
 {
   "name": "helph-studio",
-  "version": "2.0.0",
-  "description": "Site institucional da Helph Studio — criação de sites profissionais para negócios locais, autônomos e empreendedores.",
+  "version": "2.0.1",
+  "description": "Site institucional da Helph Studio Soluções Digitais — sites e soluções digitais para negócios locais, autônomos e empreendedores.",
   "author": "Pedro Henrique Pereira <helphstudio@gmail.com>",
   "license": "UNLICENSED",
   "private": true,
