@@ -273,6 +273,8 @@
       transition: transform 12s ease;
     }
     .portfolio-card:hover .portfolio-preview img { transform: translateY(-60%); }
+    .portfolio-preview.pan-lower img { transform: translateY(-50%); }
+    .portfolio-card:hover .portfolio-preview.pan-lower img { transform: translateY(-78%); }
     .portfolio-info { padding: 24px; }
     .portfolio-tag {
       display: inline-block; font-size: 0.7rem; font-weight: 700;
@@ -903,7 +905,7 @@
       </div>
 
       <div class="portfolio-card reveal reveal-delay-2">
-        <div class="portfolio-preview">
+        <div class="portfolio-preview pan-lower">
           <img src="assets/img/site/fcservicos-preview.jpg" alt="FC Serviços Ar Condicionado — prévia do site" />
         </div>
         <div class="portfolio-info">
@@ -936,6 +938,8 @@
       <button class="nicho-btn" data-nicho="advogado" onclick="filtrarNicho('advogado')">⚖️ Advocacia</button>
       <button class="nicho-btn" data-nicho="restaurante" onclick="filtrarNicho('restaurante')">🍽️ Restaurante</button>
       <button class="nicho-btn" data-nicho="estetica" onclick="filtrarNicho('estetica')">✨ Estética</button>
+      <button class="nicho-btn" data-nicho="casamento" onclick="filtrarNicho('casamento')">💒 Casamento</button>
+      <button class="nicho-btn" data-nicho="eventos" onclick="filtrarNicho('eventos')">🎉 Eventos</button>
     </div>
 
     <!-- CARROSSEL 3D -->
@@ -1056,6 +1060,34 @@
           </div>
         </div>
 
+        <div class="coverflow-item" data-nicho="casamento">
+          <div class="portfolio-card">
+            <div class="portfolio-iframe-wrap">
+              <iframe src="demo-casamento.html" title="Demo Casamento — Isabela & Rafael" loading="lazy" scrolling="no"></iframe>
+            </div>
+            <div class="portfolio-info">
+              <span class="portfolio-tag">Sites para Casamentos</span>
+              <h3>Isabela & Rafael — Convite Digital</h3>
+              <p>Countdown ao vivo, confirmação de presença, mapa, programação e lista de presentes.</p>
+              <a href="demo-casamento.html" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="coverflow-item" data-nicho="eventos">
+          <div class="portfolio-card">
+            <div class="portfolio-iframe-wrap">
+              <iframe src="demo-eventos.html" title="Demo Espaço de Eventos — Villa Sonho" loading="lazy" scrolling="no"></iframe>
+            </div>
+            <div class="portfolio-info">
+              <span class="portfolio-tag">Espaços & Eventos</span>
+              <h3>Villa Sonho — Espaço de Eventos</h3>
+              <p>Site para casa de festas com galeria, tipos de evento, depoimentos e contato pelo WhatsApp.</p>
+              <a href="demo-eventos.html" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.82rem;font-weight:600;color:var(--accent2);text-decoration:none;">Ver demonstração →</a>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <button class="coverflow-arrow coverflow-next" id="cfNext" aria-label="Próximo">&#8594;</button>
@@ -1069,6 +1101,8 @@
         <button class="coverflow-dot" onclick="cfGoTo(5)" aria-label="Slide 6"></button>
         <button class="coverflow-dot" onclick="cfGoTo(6)" aria-label="Slide 7"></button>
         <button class="coverflow-dot" onclick="cfGoTo(7)" aria-label="Slide 8"></button>
+        <button class="coverflow-dot" onclick="cfGoTo(8)" aria-label="Slide 9"></button>
+        <button class="coverflow-dot" onclick="cfGoTo(9)" aria-label="Slide 10"></button>
       </div>
     </div>
   </div>
