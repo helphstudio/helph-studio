@@ -1,9 +1,9 @@
-# Helph Studio — Site Institucional
+# Helph Studio Soluções Digitais — Site Institucional
 
-Site da **Helph Studio**, agência de criação de sites profissionais para negócios locais, profissionais liberais, freelancers e empreendedores individuais.
+Site da **Helph Studio Soluções Digitais**, empresa de criação de sites e soluções digitais para negócios locais, profissionais liberais, freelancers e empreendedores.
 
-🌐 **URL de produção:** [helphstudio.com.br](https://www.helphstudio.com.br)  
-📦 **Versão atual:** `2.0.0` — ver [CHANGELOG.md](./CHANGELOG.md)
+🌐 **Produção:** [helphstudio.com.br](https://www.helphstudio.com.br)  
+📦 **Versão atual:** `2.0.1` — ver [CHANGELOG.md](./CHANGELOG.md)
 
 ---
 
@@ -11,7 +11,7 @@ Site da **Helph Studio**, agência de criação de sites profissionais para neg�
 
 Landing page estática (HTML + CSS + JS puro) focada em conversão. O visitante conhece o serviço, vê o portfólio, tira dúvidas e solicita orçamento diretamente pelo WhatsApp.
 
-**Stack:** HTML5 · CSS3 · JavaScript vanilla · Cloudflare Workers (deploy)
+**Stack:** HTML5 · CSS3 · JavaScript vanilla · Cloudflare Workers (deploy automático via GitHub)
 
 ---
 
@@ -44,19 +44,13 @@ Landing page estática (HTML + CSS + JS puro) focada em conversão. O visitante 
 │       ├── site/
 │       │   ├── pedro.png                       # Foto do fundador
 │       │   ├── parperfeito-preview.jpg         # Preview: Par Perfeito
-│       │   └── fcservicos-preview.jpg          # Preview: FC Serviços (a adicionar)
+│       │   └── fcservicos-preview.jpg          # Preview: FC Serviços
 │       └── marca/
 │           ├── logos/
 │           │   ├── helph-logo-horizontal.svg/.jpg
 │           │   └── helph-logo-whatsapp.svg/.jpg
-│           ├── whatsapp/
-│           │   └── helph-capa-whatsapp.svg/.jpg
-│           └── catalogo/
-│               ├── catalogo-landing-page.svg/.jpg
-│               ├── catalogo-manutencao.svg/.jpg
-│               ├── catalogo-portfolio.svg/.jpg
-│               ├── catalogo-profissional.svg/.jpg
-│               └── catalogo-site-completo.svg/.jpg
+│           └── whatsapp/
+│               └── helph-capa-whatsapp.svg/.jpg
 │
 ├── scripts/                            # Scripts utilitários (não sobem para produção)
 │   ├── gerar_cartao_visita.py
@@ -79,13 +73,14 @@ Landing page estática (HTML + CSS + JS puro) focada em conversão. O visitante 
 |-------|-------|----|-----------|
 | 1 | Hero | — | Headline, subtítulo, CTAs e stats animados |
 | 2 | Por que investir | `#por-que` | 6 cards com benefícios de ter presença digital |
-| 3 | Portfólio | `#portfolio` | Clientes reais + carrossel 3D de demos por nicho |
-| 4 | Como funciona | `#como-funciona` | Processo em 4 etapas |
-| 5 | Preços | `#precos` | 3 pacotes de criação de sites |
-| 6 | Apps | `#apps` | Helph Booking + App sob medida |
-| 7 | Manutenção | `#manutencao` | Hospedagem, SSL, suporte e planos mensais |
-| 8 | FAQ | `#faq` | Perguntas frequentes |
-| 9 | Quem faz | — | Perfil do fundador |
+| 3 | Portfólio — Clientes | `#portfolio` | Clientes reais com screenshots full-page |
+| 4 | Portfólio — Demos | `#demos` | Carrossel 3D de exemplos por nicho |
+| 5 | Como funciona | `#como-funciona` | Processo em 4 etapas |
+| 6 | Preços | `#precos` | 3 pacotes de criação de sites |
+| 7 | Apps | `#apps` | Helph Booking + App sob medida |
+| 8 | Manutenção | `#manutencao` | Hospedagem, SSL, suporte e planos mensais |
+| 9 | FAQ | `#faq` | Perguntas frequentes |
+| 10 | Quem faz | — | Perfil do fundador |
 
 ---
 
@@ -94,10 +89,9 @@ Landing page estática (HTML + CSS + JS puro) focada em conversão. O visitante 
 | Cliente | Nicho | Status | URL |
 |---------|-------|--------|-----|
 | Par Perfeito | Eventos & Assessoria | ✅ Ao vivo | [parperfeitoassessoria.com.br](https://parperfeitoassessoria.com.br) |
-| FC Serviços | Ar Condicionado | 🔧 Em desenvolvimento | [fcservicos.helphstudio.com.br](https://fcservicos.helphstudio.com.br) |
+| FC Serviços | Ar Condicionado | ✅ Ao vivo | [fcservicos.helphstudio.com.br](https://fcservicos.helphstudio.com.br) |
 
-> Para adicionar um novo cliente: duplicar um `.portfolio-card` existente na seção `.portfolio-layout > .portfolio-grid` do `index.html`.  
-> Para atualizar o card da FC Serviços quando o site estiver pronto: substituir o placeholder pelo `<img src="assets/img/site/fcservicos-preview.jpg" ...>` e restaurar o link "Ver site ao vivo →".
+> Para adicionar um novo cliente: duplicar um `.portfolio-card` existente na seção `#portfolio` do `index.html` e adicionar o screenshot em `assets/img/site/`.
 
 ---
 
@@ -130,6 +124,46 @@ Acesse em `http://localhost:3001`
 
 ---
 
+## Branches e deploy
+
+| Branch | Função |
+|--------|--------|
+| `dev` | Desenvolvimento — todas as alterações entram aqui primeiro |
+| `main` | Produção — push automático dispara deploy no Cloudflare Workers |
+
+### Fluxo de trabalho
+
+```
+dev  →  PR  →  merge em main  →  Cloudflare Workers (auto-deploy ~1 min)
+```
+
+O deploy é automático via integração GitHub do Cloudflare Workers. Não é necessário rodar `wrangler deploy` manualmente.
+
+### Como subir uma nova versão
+
+```bash
+# 1. Trabalhar na dev
+git checkout dev
+git add .
+git commit -m "feat: descrição da mudança"
+git push origin dev
+
+# 2. Abrir PR no GitHub: dev → main
+gh pr create --base main --head dev --title "descrição"
+
+# 3. Após merge, o Cloudflare faz deploy automático
+```
+
+### URLs
+
+| Ambiente | URL |
+|----------|-----|
+| Produção | https://www.helphstudio.com.br |
+| Workers (interno) | https://helph-studio.helphstudio.workers.dev |
+| Cloudflare Dashboard | https://dash.cloudflare.com → Workers & Pages → helph-studio |
+
+---
+
 ## Versionamento
 
 O projeto usa [Semantic Versioning](https://semver.org/):
@@ -142,51 +176,6 @@ Para lançar uma nova versão:
 1. Atualizar `"version"` em `package.json`
 2. Adicionar entrada em `CHANGELOG.md`
 3. Commitar: `git commit -m "chore: bump version to X.Y.Z"`
-
----
-
-## Branches e deploy
-
-| Branch | Função |
-|--------|--------|
-| `dev` | Desenvolvimento — todas as alterações entram aqui primeiro |
-| `main` | Produção — base para deploy no Cloudflare |
-
-### Fluxo de trabalho
-
-```
-dev  →  (revisar)  →  main  →  wrangler deploy  →  Cloudflare
-```
-
-### Como subir uma nova versão
-
-```bash
-# 1. Commitar na dev
-git add .
-git commit -m "feat: descrição da mudança"
-git push origin dev
-
-# 2. Merge para main
-git checkout main
-git merge dev
-git push origin main
-
-# 3. Deploy no Cloudflare
-npm run deploy
-# ou diretamente:
-npx wrangler deploy
-
-# 4. Voltar para dev
-git checkout dev
-```
-
-### URLs
-
-| Ambiente | URL |
-|----------|-----|
-| Produção | https://www.helphstudio.com.br |
-| Workers (interno) | https://helph-studio.helphstudio.workers.dev |
-| Cloudflare Dashboard | https://dash.cloudflare.com → Workers & Pages → helph-studio |
 
 ---
 

@@ -1,8 +1,26 @@
-# Changelog — Helph Studio
+# Changelog — Helph Studio Soluções Digitais
 
 Todas as mudanças relevantes do projeto são documentadas aqui.  
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).  
 Versionamento seguindo [Semantic Versioning](https://semver.org/).
+
+---
+
+## [2.0.1] — 2026-06-07
+
+### Alterado
+- **Identidade:** renomeado para Helph Studio Soluções Digitais (title, meta, og:title, schema.org, footer)
+- **Bio do fundador:** atualizada para refletir formação real — Engenheiro DevOps com experiência em infraestrutura, backend e full stack; aceita desafios variados em tecnologia
+- **Portfólio — FC Serviços:** screenshot full-page do site real substituindo a foto do ar-condicionado
+- **Portfólio — Clientes:** card do Helph Booking removido da seção Clientes (produto próprio pertence à seção Apps)
+
+### Corrigido
+- Link "← Ver outras demos" nos 8 arquivos de demo apontava para `#portfolio` (seção Clientes); corrigido para `#demos` (seção de demonstrações)
+- Seção de demonstrações recebeu `id="demos"` para funcionar como âncora
+
+### Infraestrutura
+- Removido workflow `static.yml` (GitHub Pages) — deploy oficial é exclusivamente via Cloudflare Workers com integração GitHub automática
+- Push em `main` dispara deploy no Cloudflare Workers sem necessidade de `wrangler deploy` manual
 
 ---
 
