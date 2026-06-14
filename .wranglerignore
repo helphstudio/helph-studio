@@ -1,0 +1,14 @@
+.git
+.git/**
+.wrangler
+.wrangler/**
+.claude
+.claude/**
+node_modules
+assets/img/cartao-visita
+*.pdf
+*.md
+wrangler.toml
+.wranglerignore
+.gitignore
+scripts/

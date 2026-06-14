@@ -1,0 +1,6 @@
+name = "helph-studio"
+compatibility_date = "2024-01-01"
+
+[assets]
+directory = "."
+exclude = [".git/**", ".git", ".wrangler/**", ".wrangler", ".claude/**", ".claude", "node_modules", "assets/img/cartao-visita", "wrangler.toml", ".wranglerignore", ".gitignore", "scripts/**", "*.md", "*.py"]

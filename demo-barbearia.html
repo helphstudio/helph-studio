@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barbearia Kings — Cortes e Barbas em Rio de Janeiro</title>
+  <meta name="description" content="Barbearia Kings: cortes masculinos, barba e tratamentos premium no Rio de Janeiro. Agende pelo WhatsApp!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --dark: #0d0d0d;
+      --dark2: #1a1a1a;
+      --dark3: #242424;
+      --gray: #888;
+      --light: #f5f5f0;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--dark); color: var(--light); line-height: 1.6; overflow-x: hidden; }
+
+    /* DEMO BANNER */
+    .demo-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      background: var(--gold); color: var(--dark);
+      text-align: center; padding: 9px 16px;
+      font-size: 0.8rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
+    }
+    .demo-banner a { color: var(--dark); text-decoration: none; border-bottom: 1.5px solid var(--dark); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 38px; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 6%;
+      background: rgba(13,13,13,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+    }
+    .nav-logo { font-family: 'Oswald', sans-serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 2px; color: var(--light); text-decoration: none; text-transform: uppercase; }
+    .nav-logo span { color: var(--gold); }
+    .nav-cta { background: var(--gold); color: var(--dark); padding: 10px 22px; border-radius: 4px; font-size: 0.82rem; font-weight: 700; text-decoration: none; letter-spacing: 0.5px; transition: background .2s; white-space: nowrap; }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; padding-top: 80px;
+      position: relative; display: flex; align-items: center; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=1600&q=80');
+      background-size: cover; background-position: center top;
+      filter: brightness(0.28);
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(13,13,13,0.85) 40%, transparent);
+    }
+    .hero-content { position: relative; z-index: 1; padding: 80px 8%; max-width: 640px; }
+    .hero-tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: block; }
+    .hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 700; line-height: 1.05; color: #fff; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+    .hero h1 span { color: var(--gold); }
+    .hero p { font-size: 1rem; color: rgba(255,255,255,0.7); margin-bottom: 36px; line-height: 1.8; max-width: 420px; }
+    .btn-gold { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: var(--dark); padding: 15px 32px; font-size: 0.9rem; font-weight: 700; text-decoration: none; letter-spacing: 0.5px; transition: background .2s, transform .2s; }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    /* SECTION COMMONS */
+    section { padding: 80px 6%; }
+    .s-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; display: block; }
+    h2 { font-family: 'Oswald', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+    .s-sub { color: var(--gray); font-size: 0.95rem; line-height: 1.8; max-width: 520px; margin-bottom: 48px; }
+
+    /* SERVIÇOS */
+    .servicos { background: var(--dark2); }
+    .servicos h2 { text-align: center; }
+    .servicos .s-label { text-align: center; }
+    .servicos .s-sub { text-align: center; margin-left: auto; margin-right: auto; }
+    .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2px; max-width: 1000px; margin: 0 auto; }
+    .servico-item {
+      background: var(--dark3); padding: 32px 24px; text-align: center;
+      border: 1px solid rgba(201,168,76,0.1);
+      transition: border-color .3s, background .3s;
+    }
+    .servico-item:hover { border-color: var(--gold); background: rgba(201,168,76,0.05); }
+    .servico-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
+    .servico-item h3 { font-family: 'Oswald', sans-serif; font-size: 1.1rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; color: var(--light); }
+    .servico-item p { font-size: 0.82rem; color: var(--gray); line-height: 1.6; margin-bottom: 14px; }
+    .servico-preco { font-size: 1rem; font-weight: 700; color: var(--gold); }
+
+    /* DEPOIMENTOS */
+    .depoimentos { background: var(--dark); }
+    .depoimentos h2 { text-align: center; }
+    .depoimentos .s-label { text-align: center; }
+    .depo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
+    .depo-card { background: var(--dark2); border: 1px solid rgba(201,168,76,0.1); padding: 28px 24px; }
+    .depo-stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 14px; letter-spacing: 2px; }
+    .depo-card p { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.75; font-style: italic; margin-bottom: 18px; }
+    .depo-author { display: flex; align-items: center; gap: 10px; }
+    .depo-avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+    .depo-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .depo-name { font-weight: 700; font-size: 0.85rem; color: var(--light); }
+    .depo-since { font-size: 0.72rem; color: var(--gray); display: block; }
+
+    /* CTA */
+    .cta-final { background: var(--gold); text-align: center; padding: 72px 6%; }
+    .cta-final h2 { color: var(--dark); font-family: 'Oswald', sans-serif; font-size: clamp(2rem, 4vw, 3rem); max-width: 580px; margin: 0 auto 14px; }
+    .cta-final p { color: rgba(13,13,13,0.75); margin-bottom: 36px; font-size: 1rem; }
+    .btn-dark { display: inline-flex; align-items: center; gap: 10px; background: var(--dark); color: #fff; padding: 15px 34px; font-size: 0.9rem; font-weight: 700; text-decoration: none; letter-spacing: 0.5px; transition: background .2s; }
+    .btn-dark:hover { background: var(--dark3); }
+
+    /* INFO BAR */
+    .info-bar { background: var(--dark3); padding: 28px 6%; display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; border-top: 1px solid rgba(201,168,76,0.15); }
+    .info-item { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; color: var(--gray); }
+    .info-item span:first-child { color: var(--gold); font-size: 1rem; }
+
+    /* FOOTER */
+    footer { background: #000; color: rgba(255,255,255,0.35); padding: 24px 6%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 0.78rem; }
+    .footer-logo { font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--light); letter-spacing: 2px; text-decoration: none; text-transform: uppercase; }
+    .footer-logo span { color: var(--gold); }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      nav { padding: 13px 5%; }
+      .servicos-grid { grid-template-columns: 1fr 1fr; }
+      .depo-grid { grid-template-columns: 1fr; }
+      .info-bar { gap: 20px; }
+      footer { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 440px) { .servicos-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="demo-banner" style="justify-content:space-between;">
+  <a href="https://helphstudio.com.br/#demos" style="color:rgba(13,13,13,0.6);text-decoration:none;font-size:0.76rem;white-space:nowrap;flex-shrink:0;font-weight:600;" onmouseover="this.style.color='#0d0d0d'" onmouseout="this.style.color='rgba(13,13,13,0.6)'">← Ver outras demos</a>
+  <span style="flex:1;text-align:center;font-size:0.76rem;">⚠️ Demonstração — Barbearia · Pacote Presença</span>
+  <a href="https://helphstudio.com.br/#precos" target="_blank" style="text-decoration:none;font-weight:700;border-bottom:1px solid #0d0d0d;white-space:nowrap;flex-shrink:0;">Quero um site assim →</a>
+</div>
+
+<nav>
+  <a href="#" class="nav-logo">Kings <span>Barber</span></a>
+  <a href="#contato" class="nav-cta">📱 Agendar pelo WhatsApp</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-tag">✦ Barbearia Premium — Rio de Janeiro</span>
+    <h1>O corte certo<br/>muda <span>tudo</span></h1>
+    <p>Cortes masculinos, barbas e tratamentos feitos por profissionais apaixonados pelo que fazem. Ambiente exclusivo, resultado impecável.</p>
+    <a href="#contato" class="btn-gold">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Agendar agora
+    </a>
+  </div>
+</section>
+
+<section class="servicos" id="servicos">
+  <span class="s-label">O que fazemos</span>
+  <h2>Nossos serviços</h2>
+  <p class="s-sub">Cada detalhe pensado para você sair daqui do jeito que merece.</p>
+  <div class="servicos-grid">
+    <div class="servico-item">
+      <span class="servico-icon">✂️</span>
+      <h3>Corte Masculino</h3>
+      <p>Degradê, navalhado, clássico ou moderno. Do jeito que você quer.</p>
+      <span class="servico-preco">A partir de R$ 45</span>
+    </div>
+    <div class="servico-item">
+      <span class="servico-icon">🪒</span>
+      <h3>Barba</h3>
+      <p>Aparada, desenhada ou feita na navalha com toalha quente.</p>
+      <span class="servico-preco">A partir de R$ 35</span>
+    </div>
+    <div class="servico-item">
+      <span class="servico-icon">💈</span>
+      <h3>Corte + Barba</h3>
+      <p>O combo completo para sair renovado do jeito certo.</p>
+      <span class="servico-preco">A partir de R$ 70</span>
+    </div>
+    <div class="servico-item">
+      <span class="servico-icon">🧴</span>
+      <h3>Hidratação Capilar</h3>
+      <p>Tratamento profissional para cabelos ressecados ou danificados.</p>
+      <span class="servico-preco">A partir de R$ 50</span>
+    </div>
+  </div>
+</section>
+
+<section class="depoimentos" id="depoimentos">
+  <span class="s-label">O que dizem</span>
+  <h2>Quem já veio, volta sempre</h2>
+  <p class="s-sub" style="text-align:center;margin:0 auto 40px;">Mais de 500 clientes atendidos. Satisfação garantida.</p>
+  <div class="depo-grid">
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <p>"Melhor barbearia que já fui no Rio. O pessoal entende do serviço, o ambiente é top e o resultado ficou perfeito. Virei cliente fixo."</p>
+      <div class="depo-author">
+        <div class="depo-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Rafael M." /></div>
+        <div><span class="depo-name">Rafael M.</span><span class="depo-since">Cliente há 2 anos</span></div>
+      </div>
+    </div>
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <p>"Agendei pelo WhatsApp em 2 minutos. Fui atendido no horário, serviço impecável e saí com um corte que recebi elogio o dia todo."</p>
+      <div class="depo-author">
+        <div class="depo-avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Lucas S." /></div>
+        <div><span class="depo-name">Lucas S.</span><span class="depo-since">Cliente há 1 ano</span></div>
+      </div>
+    </div>
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <p>"A barba na navalha com toalha quente é uma experiência diferente. Ambiente exclusivo, profissionais ótimos. Recomendo demais."</p>
+      <div class="depo-author">
+        <div class="depo-avatar"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Carlos A." /></div>
+        <div><span class="depo-name">Carlos A.</span><span class="depo-since">Cliente há 6 meses</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final" id="contato">
+  <h2>Pronto para o próximo nível?</h2>
+  <p>Agende agora pelo WhatsApp. Rápido, sem complicação.</p>
+  <a href="https://wa.me/5521999990000?text=Olá!%20Gostaria%20de%20agendar%20na%20Kings%20Barber." class="btn-dark" target="_blank" rel="noopener">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Agendar pelo WhatsApp
+  </a>
+</section>
+
+<div class="info-bar">
+  <div class="info-item"><span>📍</span><span>Tijuca, Rio de Janeiro</span></div>
+  <div class="info-item"><span>🕐</span><span>Seg–Sáb · 9h às 20h</span></div>
+  <div class="info-item"><span>📱</span><span>(21) 99999-0000</span></div>
+</div>
+
+<footer>
+  <a href="#" class="footer-logo">Kings <span>Barber</span></a>
+  <p>© 2025 Kings Barber — <em>Página fictícia para fins de demonstração.</em></p>
+  <p>Site criado por <a href="https://helphstudio.com.br" target="_blank">Helph Studio</a></p>
+</footer>
+
+</body>
+</html>

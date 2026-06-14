@@ -1,8 +1,9 @@
-# Helph Studio — Site Institucional
+# Helph Studio Soluções Digitais — Site Institucional
 
-Site da **Helph Studio**, agência de criação de sites profissionais para negócios locais, profissionais liberais, freelancers e empreendedores individuais.
+Site da **Helph Studio Soluções Digitais**, empresa de criação de sites e soluções digitais para negócios locais, profissionais liberais, freelancers e empreendedores.
 
-🌐 **URL de produção:** [helphstudio.com.br](https://www.helphstudio.com.br)
+🌐 **Produção:** [helphstudio.com.br](https://www.helphstudio.com.br)  
+📦 **Versão atual:** `2.0.1` — ver [CHANGELOG.md](./CHANGELOG.md)
 
 ---
 
@@ -10,7 +11,7 @@ Site da **Helph Studio**, agência de criação de sites profissionais para neg�
 
 Landing page estática (HTML + CSS + JS puro) focada em conversão. O visitante conhece o serviço, vê o portfólio, tira dúvidas e solicita orçamento diretamente pelo WhatsApp.
 
-**Stack:** HTML5 · CSS3 · JavaScript vanilla · Python HTTP server (dev)
+**Stack:** HTML5 · CSS3 · JavaScript vanilla · Cloudflare Workers (deploy automático via GitHub)
 
 ---
 
@@ -18,125 +19,166 @@ Landing page estática (HTML + CSS + JS puro) focada em conversão. O visitante 
 
 ```
 /
-├── index.html                      # Página principal
-├── helph-booking.html         # Landing page: App de Agendamento Online
-├── cardapio-digital.html           # Landing page: Cardápio Digital
-├── musicas.html                    # Página de curadoria musical
-├── demo-pacote-presenca.html       # Demo: Pacote Presença (ex: Studio Bella)
-├── demo-pacote-profissional.html   # Demo: Pacote Profissional
-├── demo-pacote-completo.html       # Demo: Pacote Completo (com blog multi-página)
-├── blog/                           # Posts de blog (demo Pacote Completo)
+├── index.html                          # Página principal
+├── helph-booking.html                  # Landing page: Helph Booking (agendamento)
+├── cardapio-digital.html               # Landing page: Cardápio Digital
+├── privacidade.html                    # Política de privacidade (LGPD)
+├── cookie-consent.js                   # Banner de consentimento LGPD
+│
+├── demo-pacote-presenca.html           # Demo: Salão de Beleza (Studio Bella)
+├── demo-pacote-profissional.html       # Demo: Restaurante (Cantina Bella Vista)
+├── demo-pacote-completo.html           # Demo: Clínica Estética (Espaço Serenità) + blog
+├── demo-barbearia.html                 # Demo: Barbearia (Kings Barber)
+├── demo-padaria.html                   # Demo: Padaria (Padaria Grão)
+├── demo-petshop.html                   # Demo: Pet Shop (PetAmor)
+├── demo-veterinaria.html               # Demo: Veterinária (Vet Vida)
+├── demo-advogado.html                  # Demo: Advocacia (Dr. Rodrigo Mendes)
+│
+├── blog/                               # Posts de blog (demo Pacote Completo)
 │   ├── peeling-quimico.html
 │   ├── radiofrequencia.html
 │   └── skincare-verao.html
+│
 ├── assets/
 │   └── img/
 │       ├── site/
-│       │   ├── pedro.png                   # Foto do fundador
-│       │   └── parperfeito-preview.jpg     # Screenshot do portfólio
+│       │   ├── pedro.png                       # Foto do fundador
+│       │   ├── parperfeito-preview.jpg         # Preview: Par Perfeito
+│       │   └── fcservicos-preview.jpg          # Preview: FC Serviços
 │       └── marca/
 │           ├── logos/
 │           │   ├── helph-logo-horizontal.svg/.jpg
 │           │   └── helph-logo-whatsapp.svg/.jpg
-│           ├── whatsapp/
-│           │   └── helph-capa-whatsapp.svg/.jpg
-│           └── catalogo/
-│               ├── catalogo-landing-page.svg/.jpg
-│               ├── catalogo-manutencao.svg/.jpg
-│               ├── catalogo-portfolio.svg/.jpg
-│               ├── catalogo-profissional.svg/.jpg
-│               └── catalogo-site-completo.svg/.jpg
-└── CNAME                           # Domínio customizado (Netlify)
+│           └── whatsapp/
+│               └── helph-capa-whatsapp.svg/.jpg
+│
+├── scripts/                            # Scripts utilitários (não sobem para produção)
+│   ├── gerar_cartao_visita.py
+│   ├── gerar_cartao_visita_claro.py
+│   └── gerar_pecas_publicitarias.py
+│
+├── package.json                        # Versão semântica + scripts de dev/deploy
+├── wrangler.toml                       # Configuração Cloudflare Workers
+├── .wranglerignore                     # Exclusões do deploy
+├── .gitignore
+├── CHANGELOG.md                        # Histórico de versões
+└── README.md                           # Este arquivo
 ```
 
 ---
 
-## Páginas
+## Seções da página principal (`index.html`)
 
-| Arquivo | Descrição |
-|---|---|
-| `index.html` | Landing page principal com hero, planos, portfólio, FAQ e formulário |
-| `helph-booking.html` | Landing page do Helph Booking (sistema de agendamento online) |
-| `cardapio-digital.html` | Landing page do Cardápio Digital |
-| `musicas.html` | Curadoria musical (página auxiliar) |
-| `demo-pacote-presenca.html` | Demo do Pacote Presença — estilo salão de beleza (Studio Bella) |
-| `demo-pacote-profissional.html` | Demo do Pacote Profissional |
-| `demo-pacote-completo.html` | Demo do Pacote Completo com blog multi-página |
+| Ordem | Seção | ID | Descrição |
+|-------|-------|----|-----------|
+| 1 | Hero | — | Headline, subtítulo, CTAs e stats animados |
+| 2 | Por que investir | `#por-que` | 6 cards com benefícios de ter presença digital |
+| 3 | Portfólio — Clientes | `#portfolio` | Clientes reais com screenshots full-page |
+| 4 | Portfólio — Demos | `#demos` | Carrossel 3D de exemplos por nicho |
+| 5 | Como funciona | `#como-funciona` | Processo em 4 etapas |
+| 6 | Preços | `#precos` | 3 pacotes de criação de sites |
+| 7 | Apps | `#apps` | Helph Booking + App sob medida |
+| 8 | Manutenção | `#manutencao` | Hospedagem, SSL, suporte e planos mensais |
+| 9 | FAQ | `#faq` | Perguntas frequentes |
+| 10 | Quem faz | — | Perfil do fundador |
 
 ---
 
-## Seções da página principal
+## Portfólio de clientes reais
 
-| Seção | Descrição |
-|---|---|
-| Hero | Headline, subtítulo, CTAs e stats animados |
-| Por que investir | 6 cards com benefícios de ter um site |
-| Como funciona | Processo em 4 etapas |
-| Planos | 3 cards de planos com preços |
-| Portfólio | Cases com preview real + hover scroll |
-| Orçamento | Proposta personalizada + promoção de lançamento |
-| FAQ | Perguntas frequentes |
-| Formulário | Orçamento via WhatsApp com campos pré-preenchidos |
-| Quem está por trás | Fundador Pedro Henrique |
+| Cliente | Nicho | Status | URL |
+|---------|-------|--------|-----|
+| Par Perfeito | Eventos & Assessoria | ✅ Ao vivo | [parperfeitoassessoria.com.br](https://parperfeitoassessoria.com.br) |
+| FC Serviços | Ar Condicionado | ✅ Ao vivo | [fcservicos.helphstudio.com.br](https://fcservicos.helphstudio.com.br) |
+
+> Para adicionar um novo cliente: duplicar um `.portfolio-card` existente na seção `#portfolio` do `index.html` e adicionar o screenshot em `assets/img/site/`.
+
+---
+
+## Demos por nicho (carrossel)
+
+| Nicho | Arquivo | Estilo |
+|-------|---------|--------|
+| Salão de Beleza | `demo-pacote-presenca.html` | Rosa/elegante |
+| Barbearia | `demo-barbearia.html` | Dark/masculino |
+| Padaria | `demo-padaria.html` | Aconchegante/terra |
+| Pet Shop | `demo-petshop.html` | Colorido/amigável |
+| Veterinária | `demo-veterinaria.html` | Azul/confiança |
+| Advocacia | `demo-advogado.html` | Formal/sóbrio |
+| Restaurante | `demo-pacote-profissional.html` | Quente/gourmet |
+| Estética | `demo-pacote-completo.html` | Premium/spa |
 
 ---
 
 ## Desenvolvimento local
 
-Requer Python 3.x instalado.
-
 ```bash
-python -m http.server 3000 --directory .
+# Python (sem dependências)
+python -m http.server 3001 --directory .
+
+# Ou via npm script (requer Node.js)
+npm run dev
 ```
 
-Acesse em `http://localhost:3000`
+Acesse em `http://localhost:3001`
 
 ---
 
-## Branches
+## Branches e deploy
 
-| Branch | Descrição |
-|---|---|
-| `main` | Produção — base para deploy manual no Cloudflare |
+| Branch | Função |
+|--------|--------|
 | `dev` | Desenvolvimento — todas as alterações entram aqui primeiro |
-| `production` | ⚠️ Não usar — reservada para não disparar auto-deploy |
-
----
-
-## Deploy
-
-O site é hospedado no **Cloudflare Workers** (static assets) com domínio `helphstudio.com.br`.
+| `main` | Produção — push automático dispara deploy no Cloudflare Workers |
 
 ### Fluxo de trabalho
 
 ```
-dev  →  (revisar)  →  main  →  (deploy manual)  →  Cloudflare
+dev  →  PR  →  merge em main  →  Cloudflare Workers (auto-deploy ~1 min)
 ```
+
+O deploy é automático via integração GitHub do Cloudflare Workers. Não é necessário rodar `wrangler deploy` manualmente.
 
 ### Como subir uma nova versão
 
-1. Faça as alterações na branch `dev`
-2. Merge `dev` → `main`:
-   ```bash
-   git checkout main
-   git merge dev
-   git push origin main
-   git checkout dev
-   ```
-3. **No painel do Cloudflare**, acesse:
-   `Workers & Pages → helph-studio → New deployment`
-4. Confirme o deploy da branch `main`
+```bash
+# 1. Trabalhar na dev
+git checkout dev
+git add .
+git commit -m "feat: descrição da mudança"
+git push origin dev
 
-> ⚠️ O auto-deploy está **desativado** por design. A branch `production` foi configurada como branch de produção no Cloudflare — como ela nunca recebe push, nenhum deploy acontece automaticamente. O deploy só ocorre via botão "New deployment" no painel.
+# 2. Abrir PR no GitHub: dev → main
+gh pr create --base main --head dev --title "descrição"
 
-### Acesso ao painel
+# 3. Após merge, o Cloudflare faz deploy automático
+```
 
-- **Cloudflare Workers:** https://dash.cloudflare.com → Workers & Pages → helph-studio
-- **URL de produção:** https://helphstudio.com.br
-- **URL interna Cloudflare:** https://helph-studio.helphstudio.workers.dev
+### URLs
+
+| Ambiente | URL |
+|----------|-----|
+| Produção | https://www.helphstudio.com.br |
+| Workers (interno) | https://helph-studio.helphstudio.workers.dev |
+| Cloudflare Dashboard | https://dash.cloudflare.com → Workers & Pages → helph-studio |
+
+---
+
+## Versionamento
+
+O projeto usa [Semantic Versioning](https://semver.org/):
+
+- **MAJOR** — redesign completo ou mudança de produto
+- **MINOR** — nova seção, novo demo, novo cliente, nova feature
+- **PATCH** — correção de texto, ajuste visual, bugfix
+
+Para lançar uma nova versão:
+1. Atualizar `"version"` em `package.json`
+2. Adicionar entrada em `CHANGELOG.md`
+3. Commitar: `git commit -m "chore: bump version to X.Y.Z"`
 
 ---
 
 ## Contato
 
-✉ helphstudio@gmail.com · 📱 (21) 97134-9275 · [LinkedIn](https://www.linkedin.com/in/pereirapedrohs/)
+✉ helphstudio@gmail.com · 📱 (21) 97134-9275 · [LinkedIn](https://www.linkedin.com/in/pereirapedrohs/) · [Instagram](https://www.instagram.com/helphstudio/)

@@ -1,0 +1,20 @@
+{
+  "name": "helph-studio",
+  "version": "2.0.1",
+  "description": "Site institucional da Helph Studio Soluções Digitais — sites e soluções digitais para negócios locais, autônomos e empreendedores.",
+  "author": "Pedro Henrique Pereira <helphstudio@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "homepage": "https://www.helphstudio.com.br",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/helphstudio/helph-studio.git"
+  },
+  "scripts": {
+    "dev": "python -m http.server 3001 --directory .",
+    "deploy": "wrangler deploy"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

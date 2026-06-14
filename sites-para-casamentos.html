@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sites para Casamentos — Helph Studio Soluções Digitais</title>
+  <meta name="description" content="A Helph Studio cria sites personalizados para casamentos. Convite digital, countdown, confirmação de presença, galeria, mapa e lista de presentes. Entrega em até 7 dias." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --bg1: #0a0a0f;
+      --bg2: #111118;
+      --bg3: #16161f;
+      --border: rgba(255,255,255,0.07);
+      --accent: #7c5cfc;
+      --accent2: #a78bfa;
+      --champagne: #c9a46c;
+      --champagne-dim: rgba(201,164,108,0.15);
+      --muted: #888;
+      --text: #e8e8f0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg1);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10,10,15,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-back {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--text); }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 20px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 99px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 20px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 600px;
+      background: radial-gradient(ellipse at center, rgba(124,92,252,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      border: 1px solid rgba(201,164,108,0.3);
+      border-radius: 99px;
+      padding: 6px 18px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      max-width: 780px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      color: var(--champagne);
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin: 0 auto 40px;
+      line-height: 1.85;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: #25d366;
+      color: #fff;
+      border-radius: 99px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      box-shadow: 0 0 32px rgba(37,211,102,0.2);
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      width: 100%;
+      max-width: 560px;
+    }
+    .stat-num {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      display: block;
+    }
+    .stat-label { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── Sections layout ── */
+    section { padding: 88px 20px; }
+    .container { max-width: 960px; margin: 0 auto; }
+    .section-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.85;
+    }
+
+    /* ── O que inclui (features grid) ── */
+    .features { background: var(--bg2); }
+    .features-header { margin-bottom: 52px; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      transition: border-color 0.2s;
+    }
+    .feature-card:hover { border-color: rgba(201,164,108,0.3); }
+    .feature-icon { font-size: 1.8rem; margin-bottom: 14px; }
+    .feature-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .feature-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.75; }
+
+    /* ── Como funciona ── */
+    .como-funciona { background: var(--bg1); }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0;
+      margin-top: 52px;
+    }
+    .step {
+      padding: 32px 28px;
+      position: relative;
+      border-right: 1px solid var(--border);
+    }
+    .step:last-child { border-right: none; }
+    .step-num {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: rgba(124,92,252,0.2);
+      line-height: 1;
+      margin-bottom: 16px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .step-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .step-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.75; }
+
+    /* ── Demo preview ── */
+    .demo-preview { background: var(--bg2); }
+    .demo-preview-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+      align-items: center;
+    }
+    .demo-preview-text {}
+    .demo-preview-text .section-tag { display: block; }
+    .demo-preview-text p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 12px;
+    }
+    .demo-frame-wrap {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      height: 500px;
+    }
+    .demo-frame-wrap iframe {
+      width: 100%; height: 100%;
+      border: none;
+      transform: scale(0.75);
+      transform-origin: top left;
+      width: 133.33%; height: 133.33%;
+      pointer-events: none;
+    }
+    .demo-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 20px 24px;
+      background: linear-gradient(to top, rgba(10,10,15,0.95) 0%, transparent 100%);
+      display: flex;
+      justify-content: flex-end;
+    }
+    .demo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 99px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .demo-link:hover { opacity: 0.85; }
+
+    /* ── Preço ── */
+    .preco { background: var(--bg1); }
+    .preco-card {
+      max-width: 480px;
+      margin: 52px auto 0;
+      background: var(--bg2);
+      border: 1px solid rgba(201,164,108,0.3);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 0 60px rgba(201,164,108,0.06);
+    }
+    .preco-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      border: 1px solid rgba(201,164,108,0.3);
+      border-radius: 99px;
+      padding: 4px 14px;
+      margin-bottom: 20px;
+    }
+    .preco-nome {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .preco-valor {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--champagne);
+      line-height: 1;
+      margin: 16px 0 4px;
+    }
+    .preco-valor small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+    .preco-desc {
+      font-size: 0.84rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .preco-list {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 32px;
+    }
+    .preco-list li {
+      font-size: 0.86rem;
+      color: var(--text);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+    .preco-list li:last-child { border-bottom: none; }
+    .preco-list li::before {
+      content: '✓';
+      color: var(--champagne);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .btn-wpp-full {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px 28px;
+      background: #25d366;
+      color: #fff;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      box-shadow: 0 0 28px rgba(37,211,102,0.18);
+    }
+    .btn-wpp-full:hover { opacity: 0.85; }
+    .preco-nota {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 14px;
+    }
+
+    /* ── FAQ ── */
+    .faq { background: var(--bg2); }
+    .faq-list {
+      max-width: 680px;
+      margin: 52px auto 0;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #fff;
+      padding: 20px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-q .icon {
+      font-size: 1.2rem;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: transform 0.25s;
+    }
+    .faq-item.open .faq-q .icon { transform: rotate(45deg); }
+    .faq-a {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.85;
+      padding-bottom: 20px;
+      display: none;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── CTA final ── */
+    .cta-final {
+      background: var(--bg1);
+      text-align: center;
+      padding: 88px 20px;
+    }
+    .cta-final h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+    .cta-final p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.85;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 32px 20px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    /* ── Responsivo ── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-back span { display: none; }
+      .demo-preview-inner { grid-template-columns: 1fr; }
+      .demo-frame-wrap { height: 380px; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .step { border-right: none; border-bottom: 1px solid var(--border); }
+      .step:last-child { border-bottom: none; }
+    }
+    @media (max-width: 440px) {
+      section { padding: 64px 16px; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a href="/" class="nav-logo">Hel<span>ph</span> Studio</a>
+    <a href="/" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      <span>Voltar ao site</span>
+    </a>
+    <a href="https://wa.me/5521971349275?text=Ol%C3%A1%21+Vi+a+p%C3%A1gina+de+sites+para+casamentos+da+Helph+Studio+e+gostaria+de+um+or%C3%A7amento." target="_blank" rel="noopener" class="nav-cta">
+      Pedir proposta
+    </a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <span class="hero-badge">💒 Novo produto · Helph Studio</span>
+    <h1>Sites exclusivos para <em>casamentos</em> inesquecíveis</h1>
+    <p class="hero-sub">Criamos páginas personalizadas para noivos — com convite digital, countdown, confirmação de presença, mapa, galeria e muito mais. Entregamos em até 7 dias.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5521971349275?text=Ol%C3%A1%21+Vi+a+p%C3%A1gina+de+sites+para+casamentos+da+Helph+Studio+e+gostaria+de+um+or%C3%A7amento." target="_blank" rel="noopener" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.11 1.534 5.836L.073 23.927l6.239-1.635A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.017-1.377l-.36-.214-3.727.977.997-3.645-.235-.374A9.818 9.818 0 1 1 12 21.818z"/></svg>
+        Pedir proposta pelo WhatsApp
+      </a>
+      <a href="demo-casamento.html" target="_blank" rel="noopener" class="btn-secondary">
+        Ver demonstração →
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="stat-num">7 dias</span>
+        <span class="stat-label">Prazo de entrega</span>
+      </div>
+      <div>
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Personalizado</span>
+      </div>
+      <div>
+        <span class="stat-num">Mobile</span>
+        <span class="stat-label">Prioridade</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- O que inclui -->
+  <section class="features" id="recursos">
+    <div class="container">
+      <div class="features-header">
+        <span class="section-tag">Recursos incluídos</span>
+        <h2 class="section-title">Tudo que os noivos precisam<br/>em um só lugar</h2>
+        <p class="section-sub">Cada site é desenvolvido do zero, com as informações e identidade visual do casal. Nada de template genérico.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⏳</div>
+          <h3 class="feature-title">Countdown ao vivo</h3>
+          <p class="feature-desc">Contagem regressiva em tempo real para o grande dia — dias, horas, minutos e segundos. Gera expectativa e engajamento.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✅</div>
+          <h3 class="feature-title">Confirmação de presença (RSVP)</h3>
+          <p class="feature-desc">Formulário com nome, telefone, confirmação, número de acompanhantes e restrições alimentares. Facilita o planejamento.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📍</div>
+          <h3 class="feature-title">Mapa da cerimônia e recepção</h3>
+          <p class="feature-desc">Endereço dos locais com botão de abertura direta no Google Maps. Convidados chegam sem confusão.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🗓️</div>
+          <h3 class="feature-title">Programação do evento</h3>
+          <p class="feature-desc">Timeline completa do dia — da cerimônia ao final da festa — para que todos saibam o que esperar e quando.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🖼️</div>
+          <h3 class="feature-title">Galeria de fotos</h3>
+          <p class="feature-desc">Seção de fotos do casal para apresentar aos convidados — do ensaio ao registro do pedido de casamento.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎁</div>
+          <h3 class="feature-title">Lista de presentes & Pix</h3>
+          <p class="feature-desc">Integração com lista de presentes de loja parceira ou chave Pix dos noivos, com QR Code opcional.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📖</div>
+          <h3 class="feature-title">História do casal</h3>
+          <p class="feature-desc">Seção narrativa contando como o casal se conheceu, o pedido e os momentos marcantes. Emocionante para os convidados.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👗</div>
+          <h3 class="feature-title">Informações para convidados</h3>
+          <p class="feature-desc">Traje sugerido, dicas de hospedagem, transporte e tudo que os convidados precisam saber antes do dia.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3 class="feature-title">100% responsivo (mobile first)</h3>
+          <p class="feature-desc">O site é compartilhado pelo WhatsApp — por isso, a experiência mobile é impecável, com botões fáceis de tocar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Como funciona -->
+  <section class="como-funciona" id="como-funciona">
+    <div class="container">
+      <span class="section-tag">Processo simples</span>
+      <h2 class="section-title">Como criamos o seu site</h2>
+      <p class="section-sub">Do briefing à entrega em até 7 dias úteis, com acompanhamento próximo em cada etapa.</p>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3 class="step-title">Briefing pelo WhatsApp</h3>
+          <p class="step-desc">Conversamos para entender o estilo do casal, a identidade visual desejada, as seções e todas as informações do evento.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3 class="step-title">Design personalizado</h3>
+          <p class="step-desc">Desenvolvemos a página com a paleta de cores, fontes e estilo escolhidos pelo casal. Cada detalhe é pensado.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3 class="step-title">Revisão e aprovação</h3>
+          <p class="step-desc">Apresentamos a versão para aprovação. Incluímos até 2 rodadas de ajustes sem custo adicional.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h3 class="step-title">Publicação e entrega</h3>
+          <p class="step-desc">Publicamos o site no domínio escolhido e entregamos o link para os noivos compartilharem com os convidados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo ao vivo -->
+  <section class="demo-preview" id="demo">
+    <div class="container">
+      <div class="demo-preview-inner">
+        <div class="demo-preview-text">
+          <span class="section-tag">Veja como fica</span>
+          <h2 class="section-title" style="margin-bottom:20px;">Demonstração ao vivo</h2>
+          <p>Criamos um modelo completo para você visualizar exatamente como seria o site do seu casamento.</p>
+          <p>O modelo fictício de Isabela &amp; Rafael mostra todas as seções disponíveis — com countdown real, RSVP funcional, galeria de fotos e muito mais.</p>
+          <p style="margin-bottom:28px;">O seu site terá a identidade visual do casal, com as cores, fontes e fotos escolhidas por vocês.</p>
+          <a href="demo-casamento.html" target="_blank" rel="noopener" class="btn-secondary" style="width:fit-content;">
+            Ver demonstração completa →
+          </a>
+        </div>
+        <div class="demo-frame-wrap">
+          <iframe src="demo-casamento.html" title="Demonstração de site de casamento — Isabela & Rafael" loading="lazy" scrolling="no"></iframe>
+          <div class="demo-overlay">
+            <a href="demo-casamento.html" target="_blank" rel="noopener" class="demo-link">
+              Abrir em tela cheia →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preço -->
+  <section class="preco" id="preco">
+    <div class="container" style="text-align:center;">
+      <span class="section-tag">Investimento</span>
+      <h2 class="section-title">Um preço justo para um dia único</h2>
+      <p class="section-sub" style="margin:0 auto;">Tudo incluído, sem surpresas. Pagamento parcelado disponível.</p>
+      <div class="preco-card">
+        <span class="preco-tag">Pacote Casamento</span>
+        <p class="preco-nome">Site Personalizado para Casamentos</p>
+        <div class="preco-valor"><small>a partir de </small>R$ 499</div>
+        <p class="preco-desc">Pagamento único · Entrega em até 7 dias</p>
+        <ul class="preco-list">
+          <li>Página completa com todas as seções</li>
+          <li>Design exclusivo para o casal</li>
+          <li>Countdown ao vivo até o casamento</li>
+          <li>Formulário de confirmação de presença (RSVP)</li>
+          <li>Mapa da cerimônia e da recepção</li>
+          <li>Galeria de fotos do casal</li>
+          <li>Seção de presentes com Pix ou lista</li>
+          <li>Programação do evento</li>
+          <li>Informações para convidados</li>
+          <li>100% responsivo (mobile first)</li>
+          <li>Hospedagem inclusa por 12 meses</li>
+          <li>Até 2 rodadas de ajustes sem custo</li>
+        </ul>
+        <a href="https://wa.me/5521971349275?text=Ol%C3%A1%21+Vi+a+p%C3%A1gina+de+sites+para+casamentos+da+Helph+Studio+e+gostaria+de+um+or%C3%A7amento+para+o+Pacote+Casamento." target="_blank" rel="noopener" class="btn-wpp-full">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.11 1.534 5.836L.073 23.927l6.239-1.635A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.017-1.377l-.36-.214-3.727.977.997-3.645-.235-.374A9.818 9.818 0 1 1 12 21.818z"/></svg>
+          Pedir proposta sem compromisso
+        </a>
+        <p class="preco-nota">Valores podem variar conforme complexidade e personalizações. Solicite um orçamento.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <span class="section-tag">Dúvidas frequentes</span>
+      <h2 class="section-title">Perguntas sobre o produto</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">
+            O site funciona bem no celular?
+            <span class="icon">+</span>
+          </button>
+          <p class="faq-a">Sim — o design é desenvolvido com prioridade mobile. O site de casamento é compartilhado principalmente pelo WhatsApp, então garantimos que a experiência no celular seja impecável: botões grandes, fontes legíveis e carregamento rápido.</p>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">
+            O formulário de RSVP realmente funciona?
+            <span class="icon">+</span>
+          </button>
+          <p class="faq-a">Sim. Desenvolvemos o formulário para funcionar na prática, com as respostas sendo enviadas por e-mail ou planilha compartilhada com os noivos. A integração é definida durante o briefing.</p>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">
+            Consigo personalizar as cores e o estilo do site?
+            <span class="icon">+</span>
+          </button>
+          <p class="faq-a">Totalmente. O site é criado do zero com a identidade visual do casal — paleta de cores, fontes, fotos e estilo escolhidos por vocês. Não usamos templates prontos.</p>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">
+            O site fica no ar só até o casamento?
+            <span class="icon">+</span>
+          </button>
+          <p class="faq-a">A hospedagem inclusa cobre 12 meses. Após esse período, oferecemos renovação com custo acessível. Muitos casais optam por manter o site no ar como memória afetiva.</p>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">
+            É possível adicionar ou remover seções?
+            <span class="icon">+</span>
+          </button>
+          <p class="faq-a">Sim. O escopo do site é definido no briefing. Se precisar de seções adicionais ou remover alguma que não faz sentido para o seu evento, adaptamos sem problema.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <div class="cta-final">
+    <h2>Pronto para criar o site do seu casamento?</h2>
+    <p>Fale com a nossa equipe pelo WhatsApp. Sem compromisso — apresentamos uma proposta personalizada para vocês.</p>
+    <a href="https://wa.me/5521971349275?text=Ol%C3%A1%21+Vi+a+p%C3%A1gina+de+sites+para+casamentos+da+Helph+Studio+e+gostaria+de+conversar+sobre+um+or%C3%A7amento." target="_blank" rel="noopener" class="btn-primary" style="display:inline-flex;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.11 1.534 5.836L.073 23.927l6.239-1.635A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.017-1.377l-.36-.214-3.727.977.997-3.645-.235-.374A9.818 9.818 0 1 1 12 21.818z"/></svg>
+      Falar pelo WhatsApp agora
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 <a href="/">Helph Studio Soluções Digitais</a> · Sites para casamentos e eventos · <a href="privacidade.html">Privacidade</a></p>
+  </footer>
+
+  <script>
+    function toggleFAQ(btn) {
+      var item = btn.parentElement;
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(el) { el.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+</body>
+</html>

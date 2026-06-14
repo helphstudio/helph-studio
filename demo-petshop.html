@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PetAmor — Pet Shop e Banho & Tosa em Rio de Janeiro</title>
+  <meta name="description" content="PetAmor: banho, tosa, produtos e veterinária para o seu pet no Rio de Janeiro. Agende pelo WhatsApp!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --teal: #2d8a75;
+      --teal-dark: #1f6358;
+      --teal-light: #4db89e;
+      --yellow: #f5c842;
+      --cream: #f8fcfb;
+      --warm: #f0faf7;
+      --dark: #1a2e28;
+      --gray: #6a8079;
+    }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+
+    .demo-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      background: var(--teal); color: #fff;
+      text-align: center; padding: 9px 16px;
+      font-size: 0.8rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
+    }
+    .demo-banner a { color: var(--yellow); text-decoration: none; border-bottom: 1px solid var(--yellow); }
+
+    nav {
+      position: fixed; top: 37px; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 15px 6%;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(45,138,117,0.15);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+    }
+    .nav-logo { font-family: 'Nunito', sans-serif; font-size: 1.4rem; font-weight: 900; color: var(--dark); text-decoration: none; }
+    .nav-logo span { color: var(--teal); }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { font-size: 0.85rem; font-weight: 600; color: var(--gray); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta { background: var(--teal); color: #fff; padding: 10px 22px; border-radius: 99px; font-size: 0.82rem; font-weight: 700; text-decoration: none; transition: background .2s; white-space: nowrap; }
+    .nav-cta:hover { background: var(--teal-dark); }
+
+    .hero {
+      min-height: 100vh; padding-top: 76px;
+      background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 50%, #3aab90 100%);
+      display: flex; align-items: center; position: relative; overflow: hidden;
+    }
+    .hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+    .hero::after { content: ''; position: absolute; bottom: -150px; left: -80px; width: 400px; height: 400px; background: rgba(255,255,255,0.03); border-radius: 50%; }
+    .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 80px 8%; max-width: 1200px; width: 100%; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.15); color: #fff; font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 8px 16px; border-radius: 99px; margin-bottom: 24px; }
+    .hero h1 { font-family: 'Nunito', sans-serif; font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 900; line-height: 1.1; color: #fff; margin-bottom: 18px; }
+    .hero h1 span { color: var(--yellow); }
+    .hero p { font-size: 1.05rem; color: rgba(255,255,255,0.82); margin-bottom: 36px; line-height: 1.75; max-width: 440px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-white { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: var(--teal-dark); padding: 14px 28px; border-radius: 99px; font-size: 0.92rem; font-weight: 700; text-decoration: none; transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.15); }
+    .btn-outline-w { display: inline-flex; align-items: center; background: transparent; border: 2px solid rgba(255,255,255,0.5); color: #fff; padding: 14px 28px; border-radius: 99px; font-size: 0.92rem; font-weight: 700; text-decoration: none; transition: border-color .2s; }
+    .btn-outline-w:hover { border-color: #fff; }
+    .hero-img { position: relative; display: flex; justify-content: center; }
+    .hero-img img { width: 100%; max-width: 420px; border-radius: 24px; object-fit: cover; aspect-ratio: 4/5; box-shadow: 0 32px 80px rgba(0,0,0,0.25); }
+    .hero-badge { position: absolute; top: 24px; left: -20px; background: var(--yellow); color: var(--dark); padding: 12px 18px; border-radius: 12px; font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 0.9rem; box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+    section { padding: 88px 6%; }
+    .s-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; display: block; }
+    h2 { font-family: 'Nunito', sans-serif; font-size: clamp(1.9rem, 3.5vw, 2.6rem); font-weight: 900; margin-bottom: 14px; }
+    .s-sub { color: var(--gray); font-size: 0.95rem; line-height: 1.8; max-width: 520px; margin-bottom: 48px; }
+
+    /* SERVIÇOS */
+    .servicos { background: var(--cream); }
+    .servicos h2, .servicos .s-label, .servicos .s-sub { text-align: center; margin-left: auto; margin-right: auto; }
+    .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+    .servico-card { background: #fff; border-radius: 16px; padding: 32px 22px; text-align: center; border: 2px solid transparent; transition: border-color .25s, transform .25s, box-shadow .25s; }
+    .servico-card:hover { border-color: var(--teal-light); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(45,138,117,0.1); }
+    .servico-icon { font-size: 2.4rem; margin-bottom: 14px; display: block; }
+    .servico-card h3 { font-family: 'Nunito', sans-serif; font-size: 1.05rem; font-weight: 800; margin-bottom: 8px; }
+    .servico-card p { font-size: 0.82rem; color: var(--gray); line-height: 1.6; margin-bottom: 14px; }
+    .servico-preco { font-size: 0.95rem; font-weight: 700; color: var(--teal); }
+
+    /* SOBRE */
+    .sobre { background: var(--warm); }
+    .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .sobre-img img { width: 100%; border-radius: 16px; aspect-ratio: 4/3; object-fit: cover; }
+    .sobre-diferenciais { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
+    .dif-item { display: flex; align-items: flex-start; gap: 12px; }
+    .dif-icon { width: 40px; height: 40px; background: rgba(45,138,117,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .dif-item h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 2px; }
+    .dif-item p { font-size: 0.82rem; color: var(--gray); }
+
+    /* DEPOIMENTOS */
+    .depoimentos { background: #fff; }
+    .depoimentos h2, .depoimentos .s-label { text-align: center; }
+    .depo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 960px; margin: 0 auto; }
+    .depo-card { background: var(--cream); border-radius: 12px; padding: 26px 22px; }
+    .depo-stars { color: #f59e0b; font-size: 0.9rem; margin-bottom: 12px; letter-spacing: 2px; }
+    .depo-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.75; font-style: italic; margin-bottom: 16px; }
+    .depo-author { display: flex; align-items: center; gap: 10px; }
+    .depo-avatar { width: 38px; height: 38px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+    .depo-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .depo-name { font-weight: 700; font-size: 0.83rem; }
+    .depo-since { font-size: 0.72rem; color: var(--gray); display: block; }
+
+    /* CONTATO */
+    .contato { background: var(--teal); text-align: center; padding: 72px 6%; }
+    .contato h2 { font-family: 'Nunito', sans-serif; color: #fff; font-size: clamp(2rem, 4vw, 3rem); max-width: 540px; margin: 0 auto 14px; }
+    .contato p { color: rgba(255,255,255,0.82); margin-bottom: 36px; font-size: 1rem; }
+    .info-bar-pet { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 40px; }
+    .info-item-pet { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: rgba(255,255,255,0.8); }
+
+    footer { background: var(--dark); color: rgba(255,255,255,0.4); padding: 24px 6%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 0.78rem; }
+    .footer-logo { font-family: 'Nunito', sans-serif; font-size: 1.1rem; font-weight: 900; color: #fff; text-decoration: none; }
+    .footer-logo span { color: var(--teal-light); }
+    footer a { color: var(--teal-light); text-decoration: none; }
+
+    @media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; } .hero-img { display: none; } .sobre-grid { grid-template-columns: 1fr; } .depo-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .nav-links { display: none; } .servicos-grid { grid-template-columns: 1fr 1fr; } footer { flex-direction: column; text-align: center; } }
+    @media (max-width: 440px) { .servicos-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="demo-banner" style="justify-content:space-between;">
+  <a href="https://helphstudio.com.br/#demos" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.76rem;white-space:nowrap;flex-shrink:0;font-weight:600;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">← Ver outras demos</a>
+  <span style="flex:1;text-align:center;color:rgba(255,255,255,0.7);font-size:0.76rem;">⚠️ Demonstração — Pet Shop · Pacote Profissional</span>
+  <a href="https://helphstudio.com.br/#precos" target="_blank" style="color:#f5c842;text-decoration:none;font-weight:700;border-bottom:1px solid #f5c842;white-space:nowrap;flex-shrink:0;">Quero um site assim →</a>
+</div>
+
+<nav>
+  <a href="#" class="nav-logo">Pet<span>Amor</span></a>
+  <div class="nav-links">
+    <a href="#servicos">Serviços</a>
+    <a href="#sobre">Sobre nós</a>
+    <a href="#depoimentos">Avaliações</a>
+    <a href="#contato">Contato</a>
+  </div>
+  <a href="#contato" class="nav-cta">🐾 Agendar pelo WhatsApp</a>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">🐾 Pet Shop — Rio de Janeiro</div>
+      <h1>Seu pet merece o <span>melhor</span> cuidado</h1>
+      <p>Banho, tosa, produtos e muito carinho para o seu companheiro. Atendimento profissional e cheio de amor.</p>
+      <div class="hero-actions">
+        <a href="#contato" class="btn-white">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Agendar agora
+        </a>
+        <a href="#servicos" class="btn-outline-w">Ver serviços</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80" alt="Pet feliz" />
+      <div class="hero-badge">🐕 500+ pets atendidos</div>
+    </div>
+  </div>
+</section>
+
+<section class="servicos" id="servicos">
+  <span class="s-label">O que oferecemos</span>
+  <h2>Serviços para o seu pet</h2>
+  <p class="s-sub">Do banho ao acessório, cuidamos de tudo com carinho e profissionalismo.</p>
+  <div class="servicos-grid">
+    <div class="servico-card"><span class="servico-icon">🛁</span><h3>Banho</h3><p>Banho completo com produtos premium e secagem profissional.</p><span class="servico-preco">A partir de R$ 45</span></div>
+    <div class="servico-card"><span class="servico-icon">✂️</span><h3>Tosa</h3><p>Tosa higiênica ou estética conforme a raça e preferência do tutor.</p><span class="servico-preco">A partir de R$ 60</span></div>
+    <div class="servico-card"><span class="servico-icon">💊</span><h3>Produtos & Ração</h3><p>Amplo estoque de rações, medicamentos e acessórios para pets.</p><span class="servico-preco">Consulte preços</span></div>
+    <div class="servico-card"><span class="servico-icon">💅</span><h3>Spa & Acessórios</h3><p>Hidratação de pelagem, corte de unhas e perfumaria especial.</p><span class="servico-preco">A partir de R$ 35</span></div>
+  </div>
+</section>
+
+<section class="sobre" id="sobre">
+  <div class="sobre-grid">
+    <div class="sobre-img">
+      <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=700&q=80" alt="Equipe PetAmor" loading="lazy" />
+    </div>
+    <div>
+      <span class="s-label">Quem somos</span>
+      <h2>Cuidamos como se fosse nosso</h2>
+      <p class="s-sub">Há mais de 8 anos cuidando dos pets da Zona Norte do Rio. Nossa equipe é formada por amantes de animais treinados para oferecer o melhor atendimento.</p>
+      <div class="sobre-diferenciais">
+        <div class="dif-item"><div class="dif-icon">🏆</div><div><h4>Equipe especializada</h4><p>Profissionais treinados e amantes de animais.</p></div></div>
+        <div class="dif-item"><div class="dif-icon">🧴</div><div><h4>Produtos premium</h4><p>Shampoos e condicionadores hipoalergênicos e naturais.</p></div></div>
+        <div class="dif-item"><div class="dif-icon">📱</div><div><h4>Agendamento fácil</h4><p>Agende pelo WhatsApp em menos de 2 minutos.</p></div></div>
+        <div class="dif-item"><div class="dif-icon">📸</div><div><h4>Foto do resultado</h4><p>Mandamos foto do seu pet pronto antes de você buscar.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="depoimentos" id="depoimentos">
+  <span class="s-label">Avaliações</span>
+  <h2>Tutores satisfeitos 🐾</h2>
+  <p class="s-sub" style="text-align:center;margin:0 auto 40px;">Mais de 200 avaliações 5 estrelas no Google.</p>
+  <div class="depo-grid">
+    <div class="depo-card"><div class="depo-stars">★★★★★</div><p>"Minha golden retriever saiu lindíssima! A equipe é super carinhosa e eu recebi foto dela toda pronta antes de ir buscar. Perfeito!"</p><div class="depo-author"><div class="depo-avatar"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&q=80" alt="Juliana M." /></div><div><span class="depo-name">Juliana M.</span><span class="depo-since">Tutora de golden retriever</span></div></div></div>
+    <div class="depo-card"><div class="depo-stars">★★★★★</div><p>"Agendar pelo WhatsApp é super fácil. Sempre tem horário disponível e o meu Frenchie adora ir lá. Melhor pet shop do bairro!"</p><div class="depo-author"><div class="depo-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Carlos P." /></div><div><span class="depo-name">Carlos P.</span><span class="depo-since">Tutor de bulldog francês</span></div></div></div>
+    <div class="depo-card"><div class="depo-stars">★★★★★</div><p>"Minha gata tem pele sensível e aqui usam produtos hipoalergênicos sem eu precisar pedir. Cuidado que vai além do óbvio. Recomendo!"</p><div class="depo-author"><div class="depo-avatar"><img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=100&q=80" alt="Fernanda L." /></div><div><span class="depo-name">Fernanda L.</span><span class="depo-since">Tutora de gato persa</span></div></div></div>
+  </div>
+</section>
+
+<section class="contato" id="contato">
+  <h2>Agende o banho do seu pet agora 🐾</h2>
+  <p>Rápido, fácil e sem complicação. Só mandar mensagem!</p>
+  <a href="https://wa.me/5521999990000?text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20para%20meu%20pet%20no%20PetAmor." class="btn-white" target="_blank" rel="noopener">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Agendar pelo WhatsApp
+  </a>
+  <div class="info-bar-pet">
+    <div class="info-item-pet"><span>📍</span> Méier, Rio de Janeiro</div>
+    <div class="info-item-pet"><span>🕐</span> Seg–Sáb · 8h às 18h</div>
+    <div class="info-item-pet"><span>📱</span> (21) 99999-0000</div>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="footer-logo">Pet<span>Amor</span></a>
+  <p>© 2025 PetAmor — <em>Página fictícia para fins de demonstração.</em></p>
+  <p>Site criado por <a href="https://helphstudio.com.br" target="_blank">Helph Studio</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clínica Vet Vida — Veterinária em Rio de Janeiro</title>
+  <meta name="description" content="Clínica Vet Vida: consultas, vacinas, cirurgias e emergências 24h para o seu pet no Rio de Janeiro." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --blue: #1a6b9a;
+      --blue-dark: #115280;
+      --blue-light: #2d8fc2;
+      --mint: #e8f5f0;
+      --cream: #f7fafb;
+      --dark: #0f2030;
+      --gray: #6080a0;
+      --green: #27ae60;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: #fff; color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+
+    .demo-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      background: var(--blue); color: #fff;
+      text-align: center; padding: 9px 16px;
+      font-size: 0.8rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
+    }
+    .demo-banner a { color: #a8ddf0; text-decoration: none; border-bottom: 1px solid #a8ddf0; }
+
+    nav {
+      position: fixed; top: 37px; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 15px 6%;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(26,107,154,0.12);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+    }
+    .nav-logo { font-family: 'Merriweather', serif; font-size: 1.15rem; font-weight: 700; color: var(--dark); text-decoration: none; }
+    .nav-logo span { color: var(--blue); }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--gray); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-emergency { background: #e74c3c; color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 0.78rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
+    .nav-cta { background: var(--blue); color: #fff; padding: 10px 22px; border-radius: 6px; font-size: 0.82rem; font-weight: 700; text-decoration: none; white-space: nowrap; margin-left: 8px; }
+
+    .hero {
+      min-height: 100vh; padding-top: 76px;
+      position: relative; display: flex; align-items: center; overflow: hidden;
+    }
+    .hero-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1600&q=80'); background-size: cover; background-position: center; filter: brightness(0.25) saturate(0.8); }
+    .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(15,32,48,0.9) 45%, transparent); }
+    .hero-content { position: relative; z-index: 1; padding: 80px 8%; max-width: 640px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: #e74c3c; color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 7px 16px; border-radius: 4px; margin-bottom: 24px; }
+    .hero h1 { font-family: 'Merriweather', serif; font-size: clamp(2.2rem, 4.5vw, 3.6rem); font-weight: 700; line-height: 1.2; color: #fff; margin-bottom: 18px; }
+    .hero h1 em { color: #5bc8f0; font-style: italic; }
+    .hero p { font-size: 1rem; color: rgba(255,255,255,0.75); margin-bottom: 36px; line-height: 1.8; max-width: 460px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--blue); color: #fff; padding: 14px 28px; border-radius: 6px; font-size: 0.92rem; font-weight: 700; text-decoration: none; transition: background .2s, transform .2s; }
+    .btn-primary:hover { background: var(--blue-dark); transform: translateY(-2px); }
+    .btn-red { display: inline-flex; align-items: center; gap: 10px; background: #e74c3c; color: #fff; padding: 14px 28px; border-radius: 6px; font-size: 0.92rem; font-weight: 700; text-decoration: none; transition: background .2s; }
+    .btn-red:hover { background: #c0392b; }
+    .hero-stats { display: flex; gap: 32px; margin-top: 48px; flex-wrap: wrap; }
+    .hero-stat strong { display: block; font-size: 1.6rem; font-weight: 700; color: #fff; }
+    .hero-stat span { font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+
+    section { padding: 88px 6%; }
+    .s-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; display: block; }
+    h2 { font-family: 'Merriweather', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; line-height: 1.25; margin-bottom: 14px; }
+    h2 em { color: var(--blue); font-style: italic; }
+    .s-sub { color: var(--gray); font-size: 0.95rem; line-height: 1.8; max-width: 520px; margin-bottom: 48px; }
+
+    /* SERVIÇOS */
+    .servicos { background: var(--cream); }
+    .servicos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1100px; }
+    .servico-card { background: #fff; border-radius: 8px; padding: 28px 22px; border: 1px solid rgba(26,107,154,0.1); border-top: 3px solid var(--blue); transition: transform .25s, box-shadow .25s; }
+    .servico-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,107,154,0.1); }
+    .servico-icon { font-size: 1.8rem; margin-bottom: 14px; display: block; }
+    .servico-card h3 { font-weight: 700; font-size: 1rem; margin-bottom: 8px; }
+    .servico-card p { font-size: 0.82rem; color: var(--gray); line-height: 1.65; }
+
+    /* EQUIPE */
+    .equipe { background: #fff; }
+    .equipe-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 900px; }
+    .equipe-card { text-align: center; }
+    .equipe-foto { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; object-position: top; margin: 0 auto 16px; border: 3px solid rgba(26,107,154,0.2); }
+    .equipe-card h3 { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+    .equipe-esp { color: var(--blue); font-size: 0.82rem; font-weight: 600; margin-bottom: 4px; }
+    .equipe-crmv { font-size: 0.75rem; color: var(--gray); }
+
+    /* DEPOIMENTOS */
+    .depoimentos { background: var(--mint); }
+    .depoimentos h2 { text-align: center; }
+    .depoimentos .s-label { text-align: center; }
+    .depo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 0 auto; }
+    .depo-card { background: #fff; border-radius: 8px; padding: 26px 22px; }
+    .depo-stars { color: #f59e0b; font-size: 0.9rem; margin-bottom: 12px; letter-spacing: 2px; }
+    .depo-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.75; font-style: italic; margin-bottom: 16px; }
+    .depo-author { display: flex; align-items: center; gap: 10px; }
+    .depo-avatar { width: 38px; height: 38px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+    .depo-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .depo-name { font-weight: 700; font-size: 0.83rem; }
+    .depo-since { font-size: 0.72px; color: var(--gray); display: block; font-size: 0.72rem; }
+
+    /* CONTATO */
+    .contato { background: var(--blue); text-align: center; padding: 72px 6%; }
+    .contato h2 { font-family: 'Merriweather', serif; color: #fff; max-width: 560px; margin: 0 auto 14px; }
+    .contato p { color: rgba(255,255,255,0.8); margin-bottom: 32px; }
+    .contato-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: var(--blue-dark); padding: 14px 28px; border-radius: 6px; font-size: 0.9rem; font-weight: 700; text-decoration: none; transition: transform .2s; }
+    .btn-white:hover { transform: translateY(-2px); }
+    .btn-emergency { display: inline-flex; align-items: center; gap: 10px; background: #e74c3c; color: #fff; padding: 14px 28px; border-radius: 6px; font-size: 0.9rem; font-weight: 700; text-decoration: none; transition: background .2s; }
+    .btn-emergency:hover { background: #c0392b; }
+    .info-bar { background: var(--blue-dark); padding: 24px 6%; display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
+    .info-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+
+    footer { background: var(--dark); color: rgba(255,255,255,0.4); padding: 24px 6%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 0.78rem; }
+    .footer-logo { font-family: 'Merriweather', serif; font-size: 1.05rem; font-weight: 700; color: #fff; text-decoration: none; }
+    .footer-logo span { color: #5bc8f0; }
+    footer a { color: #5bc8f0; text-decoration: none; }
+
+    @media (max-width: 900px) { .servicos-grid, .equipe-grid, .depo-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) { .nav-links, .nav-emergency { display: none; } .servicos-grid { grid-template-columns: 1fr; } .depo-grid { grid-template-columns: 1fr; } footer { flex-direction: column; text-align: center; } }
+    @media (max-width: 600px) { .equipe-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="demo-banner" style="justify-content:space-between;">
+  <a href="https://helphstudio.com.br/#demos" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.76rem;white-space:nowrap;flex-shrink:0;font-weight:600;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">← Ver outras demos</a>
+  <span style="flex:1;text-align:center;color:rgba(255,255,255,0.7);font-size:0.76rem;">⚠️ Demonstração — Veterinária · Pacote Profissional</span>
+  <a href="https://helphstudio.com.br/#precos" target="_blank" style="color:#a8ddf0;text-decoration:none;font-weight:700;border-bottom:1px solid #a8ddf0;white-space:nowrap;flex-shrink:0;">Quero um site assim →</a>
+</div>
+
+<nav>
+  <a href="#" class="nav-logo">Vet <span>Vida</span></a>
+  <div class="nav-links">
+    <a href="#servicos">Serviços</a>
+    <a href="#equipe">Equipe</a>
+    <a href="#depoimentos">Avaliações</a>
+    <a href="#contato">Contato</a>
+  </div>
+  <a href="tel:5521999990000" class="nav-emergency">🚨 Emergência 24h</a>
+  <a href="#contato" class="nav-cta">Agendar consulta</a>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🚨 Emergência 24 horas disponível</div>
+    <h1>Saúde e cuidado para<br/>quem você <em>ama</em></h1>
+    <p>Consultas, vacinas, cirurgias e exames com médicos veterinários especializados. Sua clínica de confiança no Rio de Janeiro.</p>
+    <div class="hero-actions">
+      <a href="#contato" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar consulta
+      </a>
+      <a href="tel:5521999990000" class="btn-red">🚨 Emergência 24h</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>12+</strong><span>Anos de clínica</span></div>
+      <div class="hero-stat"><strong>3.000+</strong><span>Pacientes atendidos</span></div>
+      <div class="hero-stat"><strong>24h</strong><span>Emergência</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="servicos" id="servicos">
+  <span class="s-label">Especialidades</span>
+  <h2>Serviços da <em>clínica</em></h2>
+  <p class="s-sub">Atendimento completo para cães, gatos e animais de pequeno porte.</p>
+  <div class="servicos-grid">
+    <div class="servico-card"><span class="servico-icon">🩺</span><h3>Consulta Clínica</h3><p>Avaliação completa de saúde, diagnóstico e acompanhamento do seu pet.</p></div>
+    <div class="servico-card"><span class="servico-icon">💉</span><h3>Vacinação</h3><p>Calendário completo de vacinas para cães e gatos, com carteira de vacinação atualizada.</p></div>
+    <div class="servico-card"><span class="servico-icon">🔬</span><h3>Exames Laboratoriais</h3><p>Hemograma, urinálise, cultura bacteriana e ultrassonografia com resultado rápido.</p></div>
+    <div class="servico-card"><span class="servico-icon">🏥</span><h3>Cirurgias</h3><p>Cirurgias eletivas e de emergência com equipe especializada e UTI veterinária.</p></div>
+    <div class="servico-card"><span class="servico-icon">🦷</span><h3>Odontologia Vet</h3><p>Limpeza dentária, extração e tratamento de doenças periodontais em pets.</p></div>
+    <div class="servico-card"><span class="servico-icon">🌙</span><h3>Internação 24h</h3><p>Internação com monitoramento contínuo e equipe de plantão durante a recuperação.</p></div>
+  </div>
+</section>
+
+<section class="equipe" id="equipe">
+  <span class="s-label">Nossa equipe</span>
+  <h2>Especialistas que <em>amam</em> o que fazem</h2>
+  <p class="s-sub" style="margin-bottom:40px;">Médicos veterinários com registro no CRMV-RJ e especialização comprovada.</p>
+  <div class="equipe-grid">
+    <div class="equipe-card">
+      <img class="equipe-foto" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&q=80" alt="Dra. Beatriz Alves" />
+      <h3>Dra. Beatriz Alves</h3>
+      <p class="equipe-esp">Clínica Geral & Diretora</p>
+      <p class="equipe-crmv">CRMV-RJ 12.345 · Pós em Oncologia Veterinária</p>
+    </div>
+    <div class="equipe-card">
+      <img class="equipe-foto" src="https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?w=300&q=80" alt="Dr. Felipe Santos" />
+      <h3>Dr. Felipe Santos</h3>
+      <p class="equipe-esp">Cirurgião Veterinário</p>
+      <p class="equipe-crmv">CRMV-RJ 23.456 · Especialista em Ortopedia</p>
+    </div>
+    <div class="equipe-card">
+      <img class="equipe-foto" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=300&q=80" alt="Dra. Camila Rocha" />
+      <h3>Dra. Camila Rocha</h3>
+      <p class="equipe-esp">Dermatologia & Odontologia</p>
+      <p class="equipe-crmv">CRMV-RJ 34.567 · Especialista em Dermatologia</p>
+    </div>
+  </div>
+</section>
+
+<section class="depoimentos" id="depoimentos">
+  <span class="s-label">Avaliações</span>
+  <h2>Tutores que confiam na Vet Vida</h2>
+  <p class="s-sub" style="text-align:center;margin:0 auto 40px;">4.9 estrelas · mais de 300 avaliações no Google</p>
+  <div class="depo-grid">
+    <div class="depo-card"><div class="depo-stars">★★★★★</div><p>"Meu cachorro precisou de cirurgia de emergência às 2h da manhã. A equipe estava lá, operou com perfeição e ele se recuperou completamente. Devo tudo a eles."</p><div class="depo-author"><div class="depo-avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Gustavo M." /></div><div><span class="depo-name">Gustavo M.</span><span class="depo-since">Tutor do Thor</span></div></div></div>
+    <div class="depo-card"><div class="depo-stars">★★★★★</div><p>"Levo meus dois gatos aqui há 5 anos. A Dra. Beatriz é apaixonada pelos animais, explica tudo com paciência e os mimos amam ela. Clínica impecável."</p><div class="depo-author"><div class="depo-avatar"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&q=80" alt="Renata P." /></div><div><span class="depo-name">Renata P.</span><span class="depo-since">Tutora dos gatos Mel e Bolo</span></div></div></div>
+    <div class="depo-card"><div class="depo-stars">★★★★★</div><p>"Exames rápidos, resultado no mesmo dia e preços justos. Agendamento pelo WhatsApp em minutos. Vet Vida é referência na Tijuca. Recomendo sem hesitar."</p><div class="depo-author"><div class="depo-avatar"><img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=100&q=80" alt="Daniela S." /></div><div><span class="depo-name">Daniela S.</span><span class="depo-since">Tutora da Luna</span></div></div></div>
+  </div>
+</section>
+
+<section class="contato" id="contato">
+  <h2>Cuide bem do seu melhor amigo</h2>
+  <p>Agende uma consulta ou ligue em caso de emergência. Estamos sempre prontos.</p>
+  <div class="contato-btns">
+    <a href="https://wa.me/5521999990000?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20Vet%20Vida." class="btn-white" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Agendar pelo WhatsApp
+    </a>
+    <a href="tel:5521999990000" class="btn-emergency">🚨 Emergência: (21) 9999-0000</a>
+  </div>
+</section>
+
+<div class="info-bar">
+  <div class="info-item">📍 Tijuca, Rio de Janeiro</div>
+  <div class="info-item">🕐 Consultas: Seg–Sáb 8h–20h</div>
+  <div class="info-item">🚨 Emergência: 24 horas</div>
+  <div class="info-item">📱 (21) 99999-0000</div>
+</div>
+
+<footer>
+  <a href="#" class="footer-logo">Vet <span>Vida</span></a>
+  <p>© 2025 Clínica Vet Vida — CRMV-RJ · <em>Página fictícia para fins de demonstração.</em></p>
+  <p>Site criado por <a href="https://helphstudio.com.br" target="_blank">Helph Studio</a></p>
+</footer>
+
+</body>
+</html>
