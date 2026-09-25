@@ -15,3 +15,10 @@ header.is-scrolled .button{background:var(--ink);color:white}
 @media(max-width:600px){header{height:87px;margin-bottom:-87px;padding:15px 25px}header.is-scrolled{height:68px;margin-bottom:-68px}header.is-scrolled .brand{font-size:21px}header.is-scrolled .symbol{font-size:30px}.hero{min-height:697px}.hero-content{padding-top:135px}.reveal{transform:translateY(18px)}}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}header,header .brand,header .symbol{transition:none}}
 @media(max-width:600px){header .brand{font-size:20px;white-space:nowrap;gap:7px}header .symbol{font-size:30px}header .button{max-width:106px;line-height:1.4;padding:10px}header.is-scrolled .brand{font-size:19px}}
+.whatsapp-float{position:fixed;right:28px;bottom:calc(26px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;align-items:center;gap:12px;animation:whatsapp-enter .6s ease both}
+.whatsapp-icon{display:grid;place-items:center;width:60px;height:60px;border-radius:50%;background:#158943;color:#fff;box-shadow:0 7px 24px #073a2733;transition:transform .2s,background .2s}
+.whatsapp-icon svg{width:32px;height:32px}.whatsapp-label{padding:10px 15px;border-radius:12px;background:var(--cream);color:var(--ink);font-size:12px;box-shadow:0 4px 20px #102d2626;border:1px solid #dfe5dd}
+.whatsapp-float:hover .whatsapp-icon{transform:translateY(-3px);background:#10763a}.disclosure{padding-bottom:105px}
+@keyframes whatsapp-enter{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){.whatsapp-float{right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));gap:8px}.whatsapp-icon{width:54px;height:54px}.whatsapp-label{font-size:11px;padding:8px 11px}}
+@media(prefers-reduced-motion:reduce){.whatsapp-float{animation:none}.whatsapp-icon{transition:none}}
