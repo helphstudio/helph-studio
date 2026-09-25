@@ -45,7 +45,7 @@ document.addEventListener('visibilitychange', scheduleSlideshow);
 motionPreference.addEventListener('change', event => { paused = event.matches; scheduleSlideshow(); });
 scheduleSlideshow();
 if ('IntersectionObserver' in window && !motionPreference.matches) {
-  const targets = document.querySelectorAll('.hero-content > *, .hero-foot, .highlights > *, .intro > div > *, .intro figure, .section-head > div > *, .section-head > p, .cards article, .destination > *, .cta > *, footer > *, .disclosure');
+  const targets = document.querySelectorAll('.hero-content > *, .hero-foot, .highlights > *, .intro > div > *, .intro figure, .section-head > div > *, .section-head > p, .cards article, .photo-grid figure, .destination > *, .cta > *, footer > *, .disclosure');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -67,3 +67,4 @@ if ('IntersectionObserver' in window && !motionPreference.matches) {
     if (target) target.classList.add('is-visible');
   });
 }
+
