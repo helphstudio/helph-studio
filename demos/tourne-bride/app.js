@@ -8,7 +8,9 @@ const hero = document.querySelector('.hero');
 let scrollQueued = false;
 function updateHeader() {
   // Change only once the opening image has fully passed the top of the screen.
-  header.classList.toggle('is-scrolled', hero.getBoundingClientRect().bottom <= 0);
+  const pastHero = hero.getBoundingClientRect().bottom <= 0;
+  header.classList.toggle('is-scrolled', pastHero);
+  header.classList.toggle('over-hero', !pastHero && window.scrollY > 24);
   scrollQueued = false;
 }
 window.addEventListener('scroll', () => {
