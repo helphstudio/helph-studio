@@ -19,12 +19,11 @@ window.addEventListener('scroll', () => {
 window.addEventListener('resize', updateHeader);
 updateHeader();
 
-const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 const slides = [...document.querySelectorAll('.hero-slide')];
 const slideCount = document.querySelector('.slide-count');
 const playButton = document.querySelector('.slide-play');
 let slideIndex = 0;
-let paused = motionPreference.matches;
+let paused = false;
 let slideshowTimer;
 function showSlide(index) {
   slideIndex = (index + slides.length) % slides.length;
@@ -44,9 +43,8 @@ document.querySelector('.slide-prev').addEventListener('click', () => { showSlid
 document.querySelector('.slide-next').addEventListener('click', () => { showSlide(slideIndex + 1); scheduleSlideshow(); });
 playButton.addEventListener('click', () => { paused = !paused; scheduleSlideshow(); });
 document.addEventListener('visibilitychange', scheduleSlideshow);
-motionPreference.addEventListener('change', event => { paused = event.matches; scheduleSlideshow(); });
 scheduleSlideshow();
-if ('IntersectionObserver' in window && !motionPreference.matches) {
+if ('IntersectionObserver' in window) {
   const targets = document.querySelectorAll('.hero-content > *, .hero-foot, .highlights > *, .intro > div > *, .intro figure, .section-head > div > *, .section-head > p, .cards article, .photo-grid figure, .destination > *, .cta > *, footer > *, .disclosure');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -60,9 +58,6 @@ if ('IntersectionObserver' in window && !motionPreference.matches) {
     element.classList.add('reveal');
     element.style.setProperty('--reveal-delay', `${(index % 3) * 75}ms`);
     observer.observe(element);
-  });
-  motionPreference.addEventListener('change', event => {
-    if (event.matches) { observer.disconnect(); targets.forEach(element => element.classList.add('is-visible')); }
   });
   document.addEventListener('focusin', event => {
     const target = event.target.closest('.reveal');
