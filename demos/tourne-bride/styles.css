@@ -22,3 +22,14 @@ header.is-scrolled .button{background:var(--ink);color:white}
 @keyframes whatsapp-enter{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:600px){.whatsapp-float{right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));gap:8px}.whatsapp-icon{width:54px;height:54px}.whatsapp-label{font-size:11px;padding:8px 11px}}
 @media(prefers-reduced-motion:reduce){.whatsapp-float{animation:none}.whatsapp-icon{transition:none}}
+/* Abertura panorâmica, sem margens claras em telas grandes. */
+.hero{width:100%;max-width:none;margin:0;min-height:clamp(680px,calc(100svh - 33px),980px);background:#244b43}
+.hero-content{max-width:960px;padding-left:max(6.5%,calc((100vw - 1400px)/2));padding-right:35px;padding-bottom:140px}
+header{padding-left:max(6.5%,calc((100vw - 1400px)/2));padding-right:max(6.5%,calc((100vw - 1400px)/2))}
+.hero>img.hero-slide{opacity:0;transition:opacity 1.6s ease;object-position:center 62%}
+.hero>img.hero-slide.is-active{opacity:1}
+.hero-shade{background:linear-gradient(90deg,rgba(8,30,27,.64),rgba(8,30,27,.08) 85%),linear-gradient(180deg,rgba(8,30,27,.27),transparent 30%,transparent 65%,rgba(8,30,27,.4))}
+.slideshow-controls{position:absolute;right:6.5%;bottom:84px;display:flex;align-items:center;gap:12px;color:#fff;background:#163a3070;border:1px solid #ffffff55;border-radius:30px;padding:4px 10px;backdrop-filter:blur(8px)}
+.slideshow-controls button{background:none;border:0;color:inherit;min-width:40px;min-height:40px;font-size:18px}.slideshow-controls .slide-play{font-size:11px;border-left:1px solid #ffffff60;padding:0 12px}.slide-count{font-size:11px;font-variant-numeric:tabular-nums}
+@media(max-width:600px){.hero{min-height:740px}.hero-content{padding:135px 25px 190px;max-width:100%}header{padding-left:25px;padding-right:25px}.slideshow-controls{left:25px;right:auto;bottom:90px}.hero>img.hero-slide{object-position:center center}.hero-shade{background:linear-gradient(90deg,#102a27b8,#102a2740)}}
+@media(prefers-reduced-motion:reduce){.hero>img.hero-slide{transition:none}}
